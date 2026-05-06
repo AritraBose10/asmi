@@ -352,63 +352,7 @@ const initLazyImages = () => {
   document.querySelectorAll('img[data-src]').forEach(img => obs.observe(img));
 };
 
-/* ── PROGRAMS CAROUSEL ── */
-const initPrograms = () => {
-  const track   = document.getElementById('programsTrack');
-  const prevBtn = document.getElementById('progPrev');
-  const nextBtn = document.getElementById('progNext');
-  const tabs    = document.querySelectorAll('.prog-tab');
-  if (!track) return;
-
-  let offset = 0;
-  const CARD_W = 360 + 24;
-  const clamp  = (v, mn, mx) => Math.max(mn, Math.min(mx, v));
-
-  const update = () => {
-    const maxOff = -(track.scrollWidth - track.parentElement.offsetWidth);
-    offset = clamp(offset, maxOff, 0);
-    track.style.transform = `translateX(${offset}px)`;
-  };
-
-  nextBtn?.addEventListener('click', () => { offset -= CARD_W; update(); });
-  prevBtn?.addEventListener('click', () => { offset += CARD_W; update(); });
-
-  // Mouse drag
-  let startX = 0, isDragging = false, startOff = 0;
-  track.addEventListener('mousedown', e => {
-    isDragging = true; startX = e.clientX; startOff = offset;
-    track.style.cursor = 'grabbing';
-  });
-  document.addEventListener('mousemove', e => {
-    if (!isDragging) return;
-    offset = startOff + (e.clientX - startX);
-    update();
-  });
-  document.addEventListener('mouseup', () => { isDragging = false; track.style.cursor = ''; });
-
-  // Touch
-  let tStartX = 0, tStartOff = 0;
-  track.addEventListener('touchstart', e => { tStartX = e.touches[0].clientX; tStartOff = offset; }, { passive: true });
-  track.addEventListener('touchmove',  e => {
-    offset = tStartOff + (e.touches[0].clientX - tStartX);
-    update();
-  }, { passive: true });
-
-  // Tab filter
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      offset = 0;
-      const cat = tab.dataset.tab;
-      track.querySelectorAll('.prog-card').forEach(card => {
-        card.style.display = (cat === 'all' || card.dataset.category === cat) ? '' : 'none';
-      });
-      update();
-    });
-  });
-};
-
+/* ── PROGRAMS (Replaced with pure CSS expanding accordion) ── */
 /* ── FACULTY CAROUSEL ── */
 const initFaculty = () => {
   const scroll  = document.getElementById('facultyScroll');
@@ -573,7 +517,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initTextReveal();
   initLazyImages();
   initCounters();
-  initPrograms();
   initFaculty();
   initFAQ();
   initSmoothScroll();
