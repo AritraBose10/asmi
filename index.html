@@ -10,7 +10,37 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400;1,9..40,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="is-loading">
+
+<!-- ═══ LOADING SCREEN ═══ -->
+<div class="loader-screen" id="loaderScreen">
+  <div class="loader-bg-grid"></div>
+  <div class="loader-orb loader-orb-1"></div>
+  <div class="loader-orb loader-orb-2"></div>
+  <div class="loader-orb loader-orb-3"></div>
+  <div class="loader-morph"></div>
+  <div class="loader-content">
+    <div class="loader-logo-wrap">
+      <span class="loader-logo-text">ASM</span><span class="loader-logo-accent">i</span>
+    </div>
+    <div class="loader-tagline">Where Leaders Are Made</div>
+    <div class="loader-progress-wrap">
+      <div class="loader-progress-track">
+        <div class="loader-progress-bar" id="loaderBar"></div>
+      </div>
+      <span class="loader-percent" id="loaderPercent">0%</span>
+    </div>
+    <div class="loader-particles" id="loaderParticles"></div>
+  </div>
+  <div class="loader-line loader-line-h"></div>
+  <div class="loader-line loader-line-v"></div>
+  <div class="loader-corners">
+    <span class="lc lc-tl"></span>
+    <span class="lc lc-tr"></span>
+    <span class="lc lc-bl"></span>
+    <span class="lc lc-br"></span>
+  </div>
+</div>
 
 <!-- SCROLL PROGRESS -->
 <div class="scroll-progress" id="scrollProgress"></div>
@@ -60,6 +90,12 @@
 
 <!-- HERO -->
 <section class="hero" id="home">
+  <div class="hero-floating-shapes">
+    <div class="hf-shape hf-shape-1" data-parallax-speed="0.03"></div>
+    <div class="hf-shape hf-shape-2" data-parallax-speed="0.05"></div>
+    <div class="hf-shape hf-shape-3" data-parallax-speed="0.02"></div>
+    <div class="hf-shape hf-shape-4" data-parallax-speed="0.04"></div>
+  </div>
   <div class="hero-media">
     <img src="assets/hero-bg.png" alt="ASMi Business School Campus" class="hero-img" id="heroImg">
     <div class="hero-overlay"></div>
@@ -69,7 +105,7 @@
       <span class="eyebrow-dot"></span>
       Admissions Open — Batch 2026
     </p>
-    <h1 class="hero-heading">
+    <h1 class="hero-heading" data-split-text>
       <span class="line" data-text="Where">Where</span>
       <span class="line accent-italic" data-text="Leaders">Leaders</span>
       <span class="line" data-text="Are Made.">Are Made.</span>
@@ -145,10 +181,15 @@
 
 <!-- WHY ASMI — STATS -->
 <section class="why-section" id="about">
+  <div class="section-divider-animated">
+    <div class="divider-line"></div>
+    <div class="divider-dot"></div>
+    <div class="divider-line"></div>
+  </div>
   <div class="container">
     <div class="why-header reveal-up">
-      <p class="section-eyebrow">Why ASMi Business School</p>
-      <h2 class="section-heading">Numbers that<br><em>define excellence</em></h2>
+      <p class="section-eyebrow" data-text-reveal>Why ASMi Business School</p>
+      <h2 class="section-heading" data-text-reveal>Numbers that<br><em>define excellence</em></h2>
     </div>
     <div class="why-grid" data-stagger="80">
       <div class="why-stat reveal-up" data-delay="0">
@@ -198,103 +239,143 @@
 
 <!-- ADVANTAGE — 10 REASONS -->
 <section class="advantage-section" id="advantage">
+  <div class="floating-accent fa-1" data-parallax-speed="0.02"></div>
+  <div class="floating-accent fa-2" data-parallax-speed="0.04"></div>
   <div class="container">
-    <div class="section-header reveal-up">
-      <p class="section-eyebrow">The ASMi Advantage</p>
-      <h2 class="section-heading">10 reasons to choose<br><em>ASMi Business School</em></h2>
-      <p class="section-desc">AICTE-approved programs designed for tomorrow's leaders, with real-world industry integration.</p>
+    <div class="adv-header reveal-up">
+      <div class="adv-header-left">
+        <p class="section-eyebrow" data-text-reveal>The ASMi Advantage</p>
+        <h2 class="section-heading" data-text-reveal>10 reasons to choose<br><em>ASMi Business School</em></h2>
+      </div>
+      <p class="section-desc adv-header-desc">AICTE-approved programs designed for tomorrow's leaders, with real-world industry integration.</p>
     </div>
-    <div class="advantage-grid" data-stagger="70">
+    <div class="advantage-grid">
+
       <div class="adv-card reveal-up" data-delay="0">
-        <div class="adv-num">01</div>
-        <div class="adv-body">
-          <h3>AICTE Approved</h3>
-          <p>Nationally recognized programs meeting the highest quality benchmarks set by AICTE.</p>
+        <span class="adv-bg-num" aria-hidden="true">01</span>
+        <div class="adv-top">
+          <span class="adv-num">01</span>
+          <span class="adv-icon-btn"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 1H11M11 1V11M1 11L10.5 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
-        <div class="adv-arrow"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10H16M10 4L16 10L10 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3 class="adv-title">AICTE Approved</h3>
+        <p class="adv-desc">Nationally recognized programs meeting the highest quality benchmarks set by AICTE.</p>
+        <div class="adv-bar"></div>
       </div>
-      <div class="adv-card reveal-up" data-delay="60">
-        <div class="adv-num">02</div>
-        <div class="adv-body">
-          <h3>IBM-Powered Learning</h3>
-          <p>Curriculum co-developed with IBM, integrating AI, data analytics, and cutting-edge technology.</p>
+
+      <div class="adv-card reveal-up" data-delay="55">
+        <span class="adv-bg-num" aria-hidden="true">02</span>
+        <div class="adv-top">
+          <span class="adv-num">02</span>
+          <span class="adv-icon-btn"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 1H11M11 1V11M1 11L10.5 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
-        <div class="adv-arrow"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10H16M10 4L16 10L10 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3 class="adv-title">IBM-Powered Learning</h3>
+        <p class="adv-desc">Curriculum co-developed with IBM, integrating AI, data analytics, and cutting-edge technology.</p>
+        <div class="adv-bar"></div>
       </div>
-      <div class="adv-card reveal-up" data-delay="120">
-        <div class="adv-num">03</div>
-        <div class="adv-body">
-          <h3>Diverse Specializations</h3>
-          <p>Marketing, Finance, HR, Technology, Entrepreneurship, and Sustainability tracks.</p>
+
+      <div class="adv-card reveal-up" data-delay="110">
+        <span class="adv-bg-num" aria-hidden="true">03</span>
+        <div class="adv-top">
+          <span class="adv-num">03</span>
+          <span class="adv-icon-btn"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 1H11M11 1V11M1 11L10.5 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
-        <div class="adv-arrow"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10H16M10 4L16 10L10 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3 class="adv-title">Diverse Specializations</h3>
+        <p class="adv-desc">Marketing, Finance, HR, Technology, Entrepreneurship, and Sustainability tracks.</p>
+        <div class="adv-bar"></div>
       </div>
-      <div class="adv-card reveal-up" data-delay="180">
-        <div class="adv-num">04</div>
-        <div class="adv-body">
-          <h3>Real-World Projects</h3>
-          <p>Hands-on case studies, live internships, and industry challenges from day one.</p>
+
+      <div class="adv-card reveal-up" data-delay="165">
+        <span class="adv-bg-num" aria-hidden="true">04</span>
+        <div class="adv-top">
+          <span class="adv-num">04</span>
+          <span class="adv-icon-btn"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 1H11M11 1V11M1 11L10.5 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
-        <div class="adv-arrow"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10H16M10 4L16 10L10 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3 class="adv-title">Real-World Projects</h3>
+        <p class="adv-desc">Hands-on case studies, live internships, and industry challenges from day one.</p>
+        <div class="adv-bar"></div>
       </div>
+
+      <div class="adv-card reveal-up" data-delay="220">
+        <span class="adv-bg-num" aria-hidden="true">05</span>
+        <div class="adv-top">
+          <span class="adv-num">05</span>
+          <span class="adv-icon-btn"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 1H11M11 1V11M1 11L10.5 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+        <h3 class="adv-title">Strong Placement Network</h3>
+        <p class="adv-desc">Dedicated placement cell with direct access to top recruiters across India.</p>
+        <div class="adv-bar"></div>
+      </div>
+
       <div class="adv-card reveal-up" data-delay="0">
-        <div class="adv-num">05</div>
-        <div class="adv-body">
-          <h3>Strong Placement Network</h3>
-          <p>Dedicated placement cell with direct access to top recruiters across India.</p>
+        <span class="adv-bg-num" aria-hidden="true">06</span>
+        <div class="adv-top">
+          <span class="adv-num">06</span>
+          <span class="adv-icon-btn"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 1H11M11 1V11M1 11L10.5 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
-        <div class="adv-arrow"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10H16M10 4L16 10L10 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3 class="adv-title">Global Alumni Network</h3>
+        <p class="adv-desc">Lifelong connections with alumni across industries and geographies worldwide.</p>
+        <div class="adv-bar"></div>
       </div>
-      <div class="adv-card reveal-up" data-delay="60">
-        <div class="adv-num">06</div>
-        <div class="adv-body">
-          <h3>Global Alumni Network</h3>
-          <p>Lifelong connections with alumni across industries and geographies worldwide.</p>
+
+      <div class="adv-card reveal-up" data-delay="55">
+        <span class="adv-bg-num" aria-hidden="true">07</span>
+        <div class="adv-top">
+          <span class="adv-num">07</span>
+          <span class="adv-icon-btn"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 1H11M11 1V11M1 11L10.5 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
-        <div class="adv-arrow"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10H16M10 4L16 10L10 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3 class="adv-title">Experienced Faculty</h3>
+        <p class="adv-desc">Industry veterans and IIT/IIM alumni bringing decades of real-world expertise.</p>
+        <div class="adv-bar"></div>
       </div>
-      <div class="adv-card reveal-up" data-delay="120">
-        <div class="adv-num">07</div>
-        <div class="adv-body">
-          <h3>Experienced Faculty</h3>
-          <p>Industry veterans and IIT/IIM alumni bringing decades of real-world expertise.</p>
+
+      <div class="adv-card reveal-up" data-delay="110">
+        <span class="adv-bg-num" aria-hidden="true">08</span>
+        <div class="adv-top">
+          <span class="adv-num">08</span>
+          <span class="adv-icon-btn"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 1H11M11 1V11M1 11L10.5 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
-        <div class="adv-arrow"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10H16M10 4L16 10L10 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3 class="adv-title">International Study Tours</h3>
+        <p class="adv-desc">Global exposure through immersive study tours to Malaysia, INTI University &amp; beyond.</p>
+        <div class="adv-bar"></div>
       </div>
-      <div class="adv-card reveal-up" data-delay="180">
-        <div class="adv-num">08</div>
-        <div class="adv-body">
-          <h3>International Study Tours</h3>
-          <p>Global exposure through immersive study tours to Malaysia, INTI University &amp; beyond.</p>
+
+      <div class="adv-card reveal-up" data-delay="165">
+        <span class="adv-bg-num" aria-hidden="true">09</span>
+        <div class="adv-top">
+          <span class="adv-num">09</span>
+          <span class="adv-icon-btn"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 1H11M11 1V11M1 11L10.5 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
-        <div class="adv-arrow"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10H16M10 4L16 10L10 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3 class="adv-title">Vibrant Campus Life</h3>
+        <p class="adv-desc">Events, clubs, boot camps, and a thriving student community at Godrej Genesis.</p>
+        <div class="adv-bar"></div>
       </div>
-      <div class="adv-card reveal-up" data-delay="0">
-        <div class="adv-num">09</div>
-        <div class="adv-body">
-          <h3>Vibrant Campus Life</h3>
-          <p>Events, clubs, boot camps, and a thriving student community at Godrej Genesis.</p>
+
+      <div class="adv-card reveal-up" data-delay="220">
+        <span class="adv-bg-num" aria-hidden="true">10</span>
+        <div class="adv-top">
+          <span class="adv-num">10</span>
+          <span class="adv-icon-btn"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 1H11M11 1V11M1 11L10.5 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
-        <div class="adv-arrow"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10H16M10 4L16 10L10 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3 class="adv-title">Executive MBA Programs</h3>
+        <p class="adv-desc">Flexible EMBA designed for CXOs, senior managers, and growth-minded professionals.</p>
+        <div class="adv-bar"></div>
       </div>
-      <div class="adv-card reveal-up" data-delay="60">
-        <div class="adv-num">10</div>
-        <div class="adv-body">
-          <h3>Executive MBA Programs</h3>
-          <p>Flexible EMBA designed for CXOs, senior managers, and growth-minded professionals.</p>
-        </div>
-        <div class="adv-arrow"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10H16M10 4L16 10L10 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      </div>
+
     </div>
   </div>
 </section>
 
 <!-- PROGRAMS -->
 <section class="programs-section" id="programs">
+  <div class="section-divider-animated">
+    <div class="divider-line"></div>
+    <div class="divider-dot"></div>
+    <div class="divider-line"></div>
+  </div>
   <div class="container">
     <div class="section-header reveal-up">
-      <p class="section-eyebrow">Our Programmes</p>
-      <h2 class="section-heading">Future-focused programs<br><em>for tomorrow's leaders</em></h2>
+      <p class="section-eyebrow" data-text-reveal>Our Programmes</p>
+      <h2 class="section-heading" data-text-reveal>Future-focused programs<br><em>for tomorrow's leaders</em></h2>
     </div>
     <div class="programs-tabs reveal-up">
       <button class="prog-tab active" data-tab="all">All Programs</button>
@@ -508,49 +589,64 @@
 
 <!-- PLACEMENTS -->
 <section class="placements-section" id="placements">
+  <div class="section-divider-animated">
+    <div class="divider-line"></div>
+    <div class="divider-dot"></div>
+    <div class="divider-line"></div>
+  </div>
   <div class="container">
     <div class="section-header reveal-up">
-      <p class="section-eyebrow">Placement Report 2025</p>
-      <h2 class="section-heading">Our students join<br><em>India's top companies</em></h2>
+      <p class="section-eyebrow" data-text-reveal>Placement Report 2025</p>
+      <h2 class="section-heading" data-text-reveal>Our students join<br><em>India's top companies</em></h2>
     </div>
     <div class="placement-cards" data-stagger="80">
       <div class="pl-card">
-        <div class="pl-avatar">AD</div>
-        <div class="pl-info">
-          <strong>Arindam Dhali</strong>
-          <span class="pl-batch">MBA 2023–25</span>
+        <div class="pl-top">
+          <div class="pl-avatar">AD</div>
+          <div class="pl-info">
+            <strong>Arindam Dhali</strong>
+            <span class="pl-batch">MBA 2023–25</span>
+          </div>
         </div>
         <div class="pl-company">EY</div>
       </div>
       <div class="pl-card">
-        <div class="pl-avatar">OC</div>
-        <div class="pl-info">
-          <strong>Oindrila Chakraborty</strong>
-          <span class="pl-batch">MBA 2023–25</span>
+        <div class="pl-top">
+          <div class="pl-avatar">OC</div>
+          <div class="pl-info">
+            <strong>Oindrila Chakraborty</strong>
+            <span class="pl-batch">MBA 2023–25</span>
+          </div>
         </div>
         <div class="pl-company">E-Intellisense</div>
       </div>
       <div class="pl-card">
-        <div class="pl-avatar">NR</div>
-        <div class="pl-info">
-          <strong>Nilargaha Roy</strong>
-          <span class="pl-batch">MBA 2023–25</span>
+        <div class="pl-top">
+          <div class="pl-avatar">NR</div>
+          <div class="pl-info">
+            <strong>Nilargaha Roy</strong>
+            <span class="pl-batch">MBA 2023–25</span>
+          </div>
         </div>
         <div class="pl-company">RAM HR Consultancy</div>
       </div>
       <div class="pl-card">
-        <div class="pl-avatar">IN</div>
-        <div class="pl-info">
-          <strong>Ishika Nath</strong>
-          <span class="pl-batch">MBA 2023–25</span>
+        <div class="pl-top">
+          <div class="pl-avatar">IN</div>
+          <div class="pl-info">
+            <strong>Ishika Nath</strong>
+            <span class="pl-batch">MBA 2023–25</span>
+          </div>
         </div>
         <div class="pl-company">E-Intellisense</div>
       </div>
       <div class="pl-card">
-        <div class="pl-avatar">RR</div>
-        <div class="pl-info">
-          <strong>Rika Roy</strong>
-          <span class="pl-batch">MBA 2023–25</span>
+        <div class="pl-top">
+          <div class="pl-avatar">RR</div>
+          <div class="pl-info">
+            <strong>Rika Roy</strong>
+            <span class="pl-batch">MBA 2023–25</span>
+          </div>
         </div>
         <div class="pl-company">Lifestyle International</div>
       </div>
@@ -565,11 +661,16 @@
 
 <!-- FACULTY -->
 <section class="faculty-section" id="faculty">
+  <div class="section-divider-animated">
+    <div class="divider-line"></div>
+    <div class="divider-dot"></div>
+    <div class="divider-line"></div>
+  </div>
   <div class="container">
     <div class="section-header-row reveal-up">
       <div>
-        <p class="section-eyebrow">Meet Our Faculty</p>
-        <h2 class="section-heading">Learn from<br><em>industry leaders</em></h2>
+        <p class="section-eyebrow" data-text-reveal>Meet Our Faculty</p>
+        <h2 class="section-heading" data-text-reveal>Learn from<br><em>industry leaders</em></h2>
       </div>
       <div class="faculty-nav-btns">
         <button class="fac-prev" id="facPrev" aria-label="Previous faculty">
@@ -922,10 +1023,11 @@
 
 <!-- CTA DARK BANNER -->
 <section class="cta-section">
+  <div class="cta-bg-particles" id="ctaParticles"></div>
   <div class="container">
     <div class="cta-inner reveal-scale">
       <p class="cta-eyebrow">Applications Open — Batch 2026</p>
-      <h2 class="cta-heading">Ready to shape<br>your future?</h2>
+      <h2 class="cta-heading" data-text-reveal>Ready to shape<br>your future?</h2>
       <p class="cta-sub">Join Kolkata's premier business school. Limited seats. Apply before applications close.</p>
       <div class="cta-actions">
         <a href="https://asmibschool.com/apply.html" target="_blank" class="btn-cta-primary">
