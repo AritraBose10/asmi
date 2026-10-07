@@ -7,8 +7,12 @@
   <meta name="description" content="ASMi Business School — Best Business School in Kolkata, Eastern India. AICTE-approved MBA, BBA & Executive MBA programs powered by IBM.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400;1,9..40,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400;1,9..40,700&family=Fraunces:ital,opsz,wght@1,9..144,300;1,9..144,400;1,9..144,500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <!-- Hero display face -->
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="pages.css">
 </head>
 <body class="is-loading">
 
@@ -21,7 +25,7 @@
   <div class="loader-morph"></div>
   <div class="loader-content">
     <div class="loader-logo-wrap">
-      <span class="loader-logo-text">ASM</span><span class="loader-logo-accent">i</span>
+      <img src="assets/logo-white.png" alt="ASMi Business School · Techno India University" class="loader-logo-img" width="1014" height="170">
     </div>
     <div class="loader-tagline">Where Leaders Are Made</div>
     <div class="loader-progress-wrap">
@@ -52,13 +56,35 @@
 <!-- HEADER -->
 <header class="header" id="header">
   <div class="header-inner">
-    <a href="#home" class="logo">ASM<em>i</em></a>
+    <a href="index.html" class="logo" aria-label="ASMi Business School — Techno India University, home">
+      <img src="assets/logo-white.png" alt="ASMi Business School · Techno India University" class="logo-img logo-img-light" width="1014" height="170">
+      <img src="assets/logo-black.png" alt="" aria-hidden="true" class="logo-img logo-img-dark" width="1014" height="170">
+    </a>
     <nav class="nav-links" id="navLinks">
-      <a href="#about" class="nav-link">About Us</a>
-      <a href="#programs" class="nav-link">Programs</a>
-      <a href="#placements" class="nav-link">Placements</a>
-      <a href="#faculty" class="nav-link">Faculty</a>
-      <a href="#faq" class="nav-link">FAQ</a>
+      <a href="index.html#about" class="nav-link">About</a>
+      <div class="nav-dd">
+        <button class="nav-link nav-dd-btn" aria-expanded="false">Programs <svg class="nav-caret" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 4L5 7L8 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-dd-menu">
+        <a href="programs/mba.html" class="nav-dd-link"><strong>MBA</strong><span>2 Years · Full Time</span></a>
+        <a href="programs/bba.html" class="nav-dd-link"><strong>BBA in Business Analytics</strong><span>4 Years · Full Time</span></a>
+        <a href="programs/executive-mba.html" class="nav-dd-link"><strong>Executive MBA</strong><span>Flexible · Professionals</span></a>
+        </div>
+      </div>
+      <a href="placements.html" class="nav-link">Placements</a>
+      <a href="faculty.html" class="nav-link">Faculty</a>
+      <div class="nav-dd">
+        <button class="nav-link nav-dd-btn" aria-expanded="false">Campus <svg class="nav-caret" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 4L5 7L8 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-dd-menu">
+        <a href="campus-life.html" class="nav-dd-link"><strong>Campus Life</strong><span>Facilities & student life</span></a>
+        <a href="student-clubs.html" class="nav-dd-link"><strong>Student Clubs</strong><span>8 student-led communities</span></a>
+        <a href="events.html" class="nav-dd-link"><strong>Events</strong><span>Bootcamps, guest lectures</span></a>
+        <a href="study-tour.html" class="nav-dd-link"><strong>International Study Tour</strong><span>Malaysia · INTI University</span></a>
+        <a href="forum.html" class="nav-dd-link"><strong>Discussion Forum</strong><span>Ask students & alumni</span></a>
+        <a href="citations.html" class="nav-dd-link"><strong>Citations & Recognition</strong><span>Press, awards, sources</span></a>
+        </div>
+      </div>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="faq.html" class="nav-link">FAQ</a>
     </nav>
     <div class="nav-actions">
       <a href="https://asmibschool.com/apply.html" target="_blank" class="btn-nav-apply">Apply Now <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7H13M7 1L13 7L7 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -75,11 +101,23 @@
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 2L18 18M18 2L2 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
   </button>
   <div class="mobile-nav-links">
-    <a href="#about" class="mobile-link">About Us</a>
-    <a href="#programs" class="mobile-link">Programs</a>
-    <a href="#placements" class="mobile-link">Placements</a>
-    <a href="#faculty" class="mobile-link">Faculty</a>
-    <a href="#faq" class="mobile-link">FAQ</a>
+    <span class="mobile-group">Programmes</span>
+    <a href="programs/mba.html" class="mobile-link">MBA</a>
+    <a href="programs/bba.html" class="mobile-link">BBA in Business Analytics</a>
+    <a href="programs/executive-mba.html" class="mobile-link">Executive MBA</a>
+    <span class="mobile-group">The School</span>
+    <a href="index.html#about" class="mobile-link">About ASMi</a>
+    <a href="faculty.html" class="mobile-link">Faculty &amp; Mentors</a>
+    <a href="placements.html" class="mobile-link">Placements</a>
+    <a href="campus-life.html" class="mobile-link">Campus Life</a>
+    <a href="student-clubs.html" class="mobile-link">Student Clubs</a>
+    <a href="events.html" class="mobile-link">Events</a>
+    <a href="study-tour.html" class="mobile-link">International Study Tour</a>
+    <span class="mobile-group">Community</span>
+    <a href="blog.html" class="mobile-link">Blog</a>
+    <a href="forum.html" class="mobile-link">Discussion Forum</a>
+    <a href="citations.html" class="mobile-link">Citations &amp; Recognition</a>
+    <a href="faq.html" class="mobile-link">FAQ</a>
     <a href="https://asmibschool.com/apply.html" target="_blank" class="mobile-link mobile-apply">Apply Now →</a>
   </div>
   <div class="mobile-nav-contact">
@@ -114,27 +152,6 @@
     <div class="hero-actions">
       <a href="#programs" class="btn-hero-primary">Explore Programs <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1 8H15M8 1L15 8L8 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <a href="https://asmibschool.com/apply.html" target="_blank" class="btn-hero-secondary">Apply Now</a>
-    </div>
-  </div>
-  <div class="hero-stats-bar">
-    <div class="hstat-item">
-      <span class="hstat-num" data-counter data-target="20.38" data-prefix="₹" data-suffix="L" data-decimals="2">₹0L</span>
-      <span class="hstat-label">Highest Package</span>
-    </div>
-    <div class="hstat-divider"></div>
-    <div class="hstat-item">
-      <span class="hstat-num" data-counter data-target="14.20" data-prefix="₹" data-suffix="L" data-decimals="2">₹0L</span>
-      <span class="hstat-label">Average Package</span>
-    </div>
-    <div class="hstat-divider"></div>
-    <div class="hstat-item">
-      <span class="hstat-num" data-counter data-target="13" data-suffix="+" data-decimals="0">0+</span>
-      <span class="hstat-label">Expert Faculty</span>
-    </div>
-    <div class="hstat-divider"></div>
-    <div class="hstat-item">
-      <span class="hstat-num" data-counter data-target="12" data-suffix="+" data-decimals="0">0+</span>
-      <span class="hstat-label">Industry Mentors</span>
     </div>
   </div>
   <a href="#about" class="hero-scroll-indicator" aria-label="Scroll down">
@@ -374,87 +391,90 @@
       <h2 class="section-heading" data-text-reveal>Future-focused programs<br><em>for tomorrow's leaders</em></h2>
     </div>
     
-    <div class="pg-accordion">
+    <div class="pg-grid">
       <!-- MBA -->
-      <div class="pg-panel reveal-up" data-delay="0">
-        <img src="assets/campus-life.png" alt="MBA Program" class="pg-panel-bg">
-        <div class="pg-panel-overlay"></div>
-        <div class="pg-panel-content">
-          <div class="pg-meta">
-            <span class="pg-type">MBA</span>
-            <span class="pg-duration">2 Years · Full Time</span>
-          </div>
-          <div class="pg-main-info">
-            <div class="pg-title-wrap">
-              <h3>Master of Business Administration</h3>
-              <span class="pg-badge flagship">Flagship</span>
-            </div>
-            <div class="pg-details">
-              <p>Future-focused curriculum with 6 specializations: Marketing, Finance, HR, Technology, Entrepreneurship & Sustainability. Powered by IBM.</p>
-              <div class="pg-tags">
-                <span>Marketing</span><span>Finance</span><span>HR</span><span>Technology</span>
-              </div>
-              <a href="https://asmibschool.com/apply.html" target="_blank" class="pg-cta">
-                Apply Now <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M12 4L18 10L12 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-            </div>
-          </div>
+      <a href="programs/mba.html" class="pg-card reveal-up" data-delay="0">
+        <div class="pg-card-media">
+          <img src="assets/campus-life.png" alt="MBA Program" class="pg-card-img">
+          <div class="pg-card-shade"></div>
+          <span class="pg-type">MBA</span>
+          <span class="pg-badge flagship">Flagship</span>
         </div>
-      </div>
+        <div class="pg-card-body">
+          <span class="pg-duration">2 Years · Full Time</span>
+          <h3 class="pg-card-title">Master of Business Administration</h3>
+          <p class="pg-card-desc">Future-focused curriculum with 6 specializations — Marketing, Finance, HR, Technology, Entrepreneurship &amp; Sustainability. Powered by IBM.</p>
+          <div class="pg-tags">
+            <span>Marketing</span><span>Finance</span><span>HR</span><span>Technology</span>
+          </div>
+          <div class="pg-reveal">
+            <ul class="pg-points">
+              <li>6 industry-aligned specializations</li>
+              <li>IBM &amp; Google Cloud powered curriculum</li>
+              <li>₹20.38 LPA highest package (2023–25)</li>
+            </ul>
+          </div>
+          <span class="pg-cta">
+            Explore Programme <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M12 4L18 10L12 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 10H2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </span>
+        </div>
+      </a>
 
       <!-- BBA -->
-      <div class="pg-panel reveal-up" data-delay="100">
-        <img src="assets/hero-bg.png" alt="BBA Program" class="pg-panel-bg">
-        <div class="pg-panel-overlay"></div>
-        <div class="pg-panel-content">
-          <div class="pg-meta">
-            <span class="pg-type">BBA</span>
-            <span class="pg-duration">4 Years</span>
-          </div>
-          <div class="pg-main-info">
-            <div class="pg-title-wrap">
-              <h3>Bachelor of Business Administration</h3>
-              <span class="pg-badge">Undergraduate</span>
-            </div>
-            <div class="pg-details">
-              <p>Specialization in Business Analytics with industry-integrated learning powered by IBM. Build your analytical edge from year one.</p>
-              <div class="pg-tags">
-                <span>Business Analytics</span><span>IBM Powered</span>
-              </div>
-              <a href="https://asmibschool.com/apply.html" target="_blank" class="pg-cta">
-                Apply Now <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M12 4L18 10L12 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-            </div>
-          </div>
+      <a href="programs/bba.html" class="pg-card reveal-up" data-delay="100">
+        <div class="pg-card-media">
+          <img src="assets/hero-bg.png" alt="BBA Program" class="pg-card-img">
+          <div class="pg-card-shade"></div>
+          <span class="pg-type">BBA</span>
+          <span class="pg-badge">Undergraduate</span>
         </div>
-      </div>
+        <div class="pg-card-body">
+          <span class="pg-duration">4 Years · Full Time</span>
+          <h3 class="pg-card-title">Bachelor of Business Administration</h3>
+          <p class="pg-card-desc">Specialization in Business Analytics with industry-integrated learning powered by IBM. Build your analytical edge from year one.</p>
+          <div class="pg-tags">
+            <span>Business Analytics</span><span>IBM Powered</span>
+          </div>
+          <div class="pg-reveal">
+            <ul class="pg-points">
+              <li>Analytics-first undergraduate track</li>
+              <li>Live projects from the first year</li>
+              <li>Direct pathway into the ASMI MBA</li>
+            </ul>
+          </div>
+          <span class="pg-cta">
+            Explore Programme <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M12 4L18 10L12 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 10H2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </span>
+        </div>
+      </a>
 
       <!-- EMBA -->
-      <div class="pg-panel reveal-up" data-delay="200">
-        <img src="assets/malaysia-tour.png" alt="Executive MBA" class="pg-panel-bg">
-        <div class="pg-panel-overlay"></div>
-        <div class="pg-panel-content">
-          <div class="pg-meta">
-            <span class="pg-type">EMBA</span>
-            <span class="pg-duration">Flexible</span>
-          </div>
-          <div class="pg-main-info">
-            <div class="pg-title-wrap">
-              <h3>Executive MBA</h3>
-              <span class="pg-badge">Executive</span>
-            </div>
-            <div class="pg-details">
-              <p>Designed for CXOs, senior managers, entrepreneurs, and growth-minded professionals. Immersive case-based, flexible modules.</p>
-              <div class="pg-tags">
-                <span>Leadership</span><span>Strategy</span><span>Flexible</span>
-              </div>
-              <a href="https://asmibschool.com/apply.html" target="_blank" class="pg-cta">
-                Apply Now <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M12 4L18 10L12 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-            </div>
-          </div>
+      <a href="programs/executive-mba.html" class="pg-card reveal-up" data-delay="200">
+        <div class="pg-card-media">
+          <img src="assets/malaysia-tour.png" alt="Executive MBA" class="pg-card-img">
+          <div class="pg-card-shade"></div>
+          <span class="pg-type">EMBA</span>
+          <span class="pg-badge">Executive</span>
         </div>
-      </div>
+        <div class="pg-card-body">
+          <span class="pg-duration">Flexible · Working Professionals</span>
+          <h3 class="pg-card-title">Executive MBA</h3>
+          <p class="pg-card-desc">Designed for CXOs, senior managers, entrepreneurs, and growth-minded professionals. Immersive case-based, flexible modules.</p>
+          <div class="pg-tags">
+            <span>Leadership</span><span>Strategy</span><span>Flexible</span>
+          </div>
+          <div class="pg-reveal">
+            <ul class="pg-points">
+              <li>Weekend &amp; modular scheduling</li>
+              <li>Case-based, peer-led classrooms</li>
+              <li>Built for CXOs and founders</li>
+            </ul>
+          </div>
+          <span class="pg-cta">
+            Explore Programme <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M12 4L18 10L12 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 10H2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </span>
+        </div>
+      </a>
     </div>
   </div>
 </section>
@@ -936,28 +956,22 @@
       </div>
 
     </div><!-- /.fac-flip-grid -->
-  </div>
-</section>
 
-
-<!-- INDUSTRY MENTORS — DUAL-ROW SCROLL -->
-<section class="mentors-section">
-  <div class="mt-mesh-bg"></div>
-  <div class="container">
-    <div class="mt-split-header reveal-up">
-      <div class="mt-split-left">
-        <p class="section-eyebrow" data-text-reveal>Industry Connect</p>
-        <h2 class="section-heading" data-text-reveal>Mentors from<br><em>the field</em></h2>
+    <!-- Industry mentors -->
+    <div class="fac-mt-header reveal-up">
+      <div class="fac-mt-header-left">
+        <p class="section-eyebrow fac-stage-eyebrow" data-text-reveal>Industry Connect</p>
+        <h3 class="fac-mt-heading">Mentors from <em>the field</em></h3>
       </div>
-      <div class="mt-split-right">
-        <div class="mt-big-number">12<span>+</span></div>
-        <p class="mt-split-desc">CXOs, founders, and industry leaders guide the next generation of business professionals.</p>
+      <div class="fac-mt-header-right">
+        <span class="fac-mt-count">12<span>+</span></span>
+        <p class="fac-mt-desc">CXOs, founders, and industry leaders guide the next generation of business professionals.</p>
       </div>
     </div>
   </div>
 
   <!-- Row 1 — scrolls left -->
-  <div class="mt-scroll-row mt-row-1">
+  <div class="fac-mt-row mt-scroll-row mt-row-1">
     <div class="mt-scroll-track" id="mtTrack1">
       <div class="mt-h-card"><div class="mt-h-avatar">DM</div><div class="mt-h-info"><h4>Debjani Mookjherjee</h4><span class="mt-h-role">Founder, Nanigarh</span><p>Shark Tank India S4 · Brandigence</p></div></div>
       <div class="mt-h-card"><div class="mt-h-avatar">HL</div><div class="mt-h-info"><h4>Hemant Lodhia</h4><span class="mt-h-role">Founder</span><p>Windamere Projects</p></div></div>
@@ -976,7 +990,7 @@
   </div>
 
   <!-- Row 2 — scrolls right (reverse) -->
-  <div class="mt-scroll-row mt-row-2">
+  <div class="fac-mt-row mt-scroll-row mt-row-2">
     <div class="mt-scroll-track mt-track-reverse" id="mtTrack2">
       <div class="mt-h-card"><div class="mt-h-avatar">KP</div><div class="mt-h-info"><h4>Kamalini Paul</h4><span class="mt-h-role">Managing Director</span><p>De Sovrani · Poz Hotel · D C Paul Group</p></div></div>
       <div class="mt-h-card"><div class="mt-h-avatar">MF</div><div class="mt-h-info"><h4>Mohammad Faisal</h4><span class="mt-h-role">National Head Operations</span><p>Aptech Limited</p></div></div>
@@ -994,6 +1008,7 @@
     </div>
   </div>
 </section>
+
 
 <!-- TESTIMONIALS — EDITORIAL STACKED -->
 <section class="testimonials-section" id="testimonials">
@@ -1242,7 +1257,9 @@
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <div class="footer-logo">ASM<em>i</em></div>
+        <div class="footer-logo">
+          <img src="assets/logo-white.png" alt="ASMi Business School · Techno India University" width="1014" height="170">
+        </div>
         <p>"ASMI" — Sanskrit for "I am." Symbolizing self-belief, identity, and individual potential. Part of Techno India University, West Bengal.</p>
         <div class="footer-social">
           <a href="https://facebook.com/asmibschool" target="_blank" aria-label="Facebook" class="soc-btn">
@@ -1260,30 +1277,32 @@
         </div>
       </div>
       <div class="footer-col">
-        <h5>Programs</h5>
-        <a href="#programs">MBA</a>
-        <a href="#programs">BBA in Business Analytics</a>
-        <a href="#programs">Executive MBA</a>
-        <a href="#programs">Marketing 4.0</a>
-        <a href="#programs">HR Excellence</a>
-        <a href="#programs">Entrepreneurship 4.0</a>
+        <h5>Programmes</h5>
+        <a href="programs/mba.html">MBA</a>
+        <a href="programs/bba.html">BBA in Business Analytics</a>
+        <a href="programs/executive-mba.html">Executive MBA</a>
+        <a href="index.html#programs">Marketing 4.0</a>
+        <a href="index.html#programs">HR Excellence</a>
+        <a href="index.html#programs">Entrepreneurship 4.0</a>
       </div>
       <div class="footer-col">
         <h5>Navigate</h5>
-        <a href="#about">About ASMi</a>
-        <a href="#advantage">The ASMi Advantage</a>
-        <a href="#placements">Placement Report</a>
-        <a href="#faculty">Faculty &amp; Mentors</a>
-        <a href="#faq">FAQ</a>
-        <a href="https://asmibschool.com/apply.html" target="_blank">Apply Now</a>
+        <a href="index.html#about">About ASMi</a>
+        <a href="faculty.html">Faculty &amp; Mentors</a>
+        <a href="placements.html">Placement Report</a>
+        <a href="events.html">Events</a>
+        <a href="study-tour.html">International Study Tour</a>
+        <a href="campus-life.html">Campus Life</a>
+        <a href="student-clubs.html">Student Clubs</a>
       </div>
       <div class="footer-col">
-        <h5>Contact</h5>
+        <h5>Community</h5>
+        <a href="blog.html">Blog</a>
+        <a href="forum.html">Discussion Forum</a>
+        <a href="citations.html">Citations &amp; Recognition</a>
+        <a href="faq.html">FAQ</a>
         <a href="tel:08062642222">08062642222</a>
-        <a href="tel:+918100203639">+91 8100203639</a>
         <a href="mailto:info@asmibschool.com">info@asmibschool.com</a>
-        <a href="#">Godrej Genesis, 15th Floor<br>Sector V, Kolkata 700091</a>
-        <a href="#">Techno India University Campus<br>EM-4, EM Block, Sector V</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -1298,5 +1317,6 @@
 </footer>
 
 <script src="script.js"></script>
+<script src="pages.js"></script>
 </body>
 </html>

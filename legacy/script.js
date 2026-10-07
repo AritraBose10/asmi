@@ -165,18 +165,6 @@ const initHeroText = () => {
       el.style.transform  = 'translateY(0)';
     }, 700 + i * 150);
   });
-
-  // Animate hero stats bar
-  const statsBar = document.querySelector('.hero-stats-bar');
-  if (statsBar) {
-    statsBar.style.opacity = '0';
-    statsBar.style.transform = 'translateY(20px)';
-    setTimeout(() => {
-      statsBar.style.transition = 'opacity 0.8s ease, transform 0.8s cubic-bezier(0.16,1,0.3,1)';
-      statsBar.style.opacity = '1';
-      statsBar.style.transform = 'translateY(0)';
-    }, 1200);
-  }
 };
 
 /* ── PARALLAX HERO ── */

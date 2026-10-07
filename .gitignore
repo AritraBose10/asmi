@@ -1,0 +1,9 @@
+node_modules/
+.next/
+out/
+next-env.d.ts
+.DS_Store
+*.tsbuildinfo
+
+# Contains student names and email addresses — never commit to a public repo
+certificate_recipients_deduped.csv
