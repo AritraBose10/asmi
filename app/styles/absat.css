@@ -310,14 +310,18 @@
 
 /* ── §2.6 About ── */
 .absat-about-grid {
+  --prog-card-pad: 32px;
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   gap: clamp(32px, 4vw, 64px);
   align-items: start;
 }
+/* The card's padding and border push its first line below the left column's.
+   Offset the copy by the same amount so both columns start on one line. */
+.absat-about-copy { padding-top: calc(var(--prog-card-pad) + 1px); }
 .absat-about-copy .sec-lead:first-child { margin-top: 0; }
 .absat-prog-card {
-  padding: 32px 30px;
+  padding: var(--prog-card-pad, 32px) 30px;
   border: 1px solid var(--gray-200);
   border-radius: var(--r-xl);
   background: var(--white);
@@ -641,6 +645,7 @@
 }
 @media (max-width: 992px) {
   .absat-about-grid, .absat-fees-grid, .absat-dl-grid, .absat-contact { grid-template-columns: 1fr; }
+  .absat-about-copy { padding-top: 0; }
   .absat-subnav { top: 64px; }
   .absat-latest { padding-top: 84px; }
 }
