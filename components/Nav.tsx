@@ -102,7 +102,7 @@ export default function Nav() {
         id="site-menu"
         className={`menu-overlay${open ? ' is-open' : ''}`}
         aria-hidden={!open}
-        {...(!open ? { inert: '' as unknown as boolean } : {})}
+        inert={!open}
       >
         <div className="menu-grain" aria-hidden="true" />
         <div className="menu-glow menu-glow-1" aria-hidden="true" />
