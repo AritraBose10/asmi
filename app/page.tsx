@@ -713,21 +713,21 @@ export default function Home() {
               <div className="fac-flip-inner">
                 <div className="fac-flip-front">
                   <span className="fac-flip-num">03</span>
-                  <div className="fac-flip-monogram">SS</div>
+                  <div className="fac-flip-monogram">BB</div>
                   <div className="fac-flip-front-info">
-                    <h4>Dr. Sanjay Saha</h4>
-                    <span>Professor, Academic Affairs</span>
+                    <h4>Bhumita Bhattacharyya</h4>
+                    <span>Asst. Professor &amp; Academic Coordinator</span>
                   </div>
                   <div className="fac-flip-hint">Hover to reveal ↗</div>
                 </div>
                 <div className="fac-flip-back">
                   <span className="fac-flip-back-num">03</span>
                   <div className="fac-flip-back-content">
-                    <div className="fac-flip-back-monogram">SS</div>
-                    <h4>Dr. Sanjay Saha</h4>
-                    <span className="fac-flip-back-role">Professor, Academic Affairs</span>
-                    <p>Ph.D., IIT Kanpur · Business Policy. Merging analytical rigor with profound business policy knowledge.</p>
-                    <div className="fac-flip-tags"><span>Policy</span><span>IIT</span></div>
+                    <div className="fac-flip-back-monogram">BB</div>
+                    <h4>Bhumita Bhattacharyya</h4>
+                    <span className="fac-flip-back-role">Asst. Professor &amp; Academic Coordinator</span>
+                    <p>Soft skills, campus experience and student well-being. Shaping confident communicators and resilient leaders.</p>
+                    <div className="fac-flip-tags"><span>Soft Skills</span><span>Well-being</span></div>
                   </div>
                 </div>
               </div>

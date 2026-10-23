@@ -19,6 +19,7 @@ export interface Person {
   expertise: string[];
   focus: string[];
   teaches?: string[];
+  linkedin?: string;
 }
 
 export const PEOPLE: Person[] = [
@@ -142,23 +143,47 @@ export const PEOPLE: Person[] = [
     teaches: ['Academic Affairs'],
   },
   {
-    slug: 'sanjay-saha',
-    name: 'Dr. Sanjay Saha',
-    mono: 'SS',
-    role: 'Professor, In-charge Academic Affairs',
+    slug: 'bhumita-bhattacharyya',
+    name: 'Bhumita Bhattacharyya',
+    mono: 'BB',
+    role: 'Assistant Professor & Academic Coordinator',
     kind: 'faculty',
-    short: 'Ph.D., IIT Kanpur. Industrial organization and business policy.',
+    short: 'Soft skills, campus experience and student well-being.',
     bio: [
-      'Professor and In-charge of Academic Affairs, with a Ph.D. from IIT Kanpur. His expertise spans industrial organization and business policy — how firms actually behave inside the structures they operate in.',
-      'He teaches policy as something testable: a position is only as good as the market structure it assumes, and students are expected to name that assumption out loud.',
+      'Assistant Professor and Academic Coordinator at ASMi Business School, shaping confident communicators and resilient leaders by building soft skills, creating powerful campus experiences and putting student well-being first.',
+      'As Academic Coordinator she sits between the timetable and the student — which means she is usually the first to know when a cohort is struggling, and the reason something gets done about it.',
     ],
-    expertise: ['Policy', 'IIT', 'Industrial Organization'],
+    expertise: ['Soft Skills', 'Communication', 'Student Well-being'],
     focus: [
-      'Business policy and industrial organization',
-      'Academic affairs and programme quality',
-      'Research supervision for capstone projects',
+      'Soft-skills and communication training across the cohort',
+      'Campus experience and student engagement',
+      'Student well-being and pastoral support',
+      'Academic coordination across the programme',
     ],
-    teaches: ['Business Policy', 'Managerial Economics'],
+    teaches: ['Soft Skills & Communication'],
+    linkedin: 'https://www.linkedin.com/in/bhumita-bhattacharyya-08792823b',
+  },
+  {
+    slug: 'debayan-chakraborty',
+    name: 'Debayan Chakraborty',
+    // TODO: confirm designation. LinkedIn blocks automated reads (HTTP 999),
+    // so this is a neutral placeholder, not his stated title.
+    mono: 'DC',
+    role: 'Faculty, Marketing',
+    kind: 'faculty',
+    short: 'Turns marketing concepts into real-world strategy.',
+    bio: [
+      'Teaches marketing at ASMi Business School, transforming marketing concepts into real-world strategy by equipping students with industry-relevant tools, practical applications and sharp analytical thinking.',
+      'The emphasis is on application: frameworks are introduced only alongside the decision they are meant to support, and students are expected to produce the number as readily as the idea.',
+    ],
+    expertise: ['Marketing', 'Strategy', 'Analytics'],
+    focus: [
+      'Marketing strategy grounded in real-world application',
+      'Industry-relevant tools and platforms',
+      'Analytical thinking for marketing decisions',
+    ],
+    teaches: ['Marketing Management'],
+    linkedin: 'https://www.linkedin.com/in/debayan-chakraborty-educator',
   },
   {
     slug: 'rituraj-brahmachari',

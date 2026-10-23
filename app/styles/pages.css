@@ -1441,3 +1441,115 @@ a.pill-link:hover { border-color: var(--gold); color: var(--black); background: 
 /* Thread titles are plain headings until per-thread pages exist */
 .thread h3 { color: var(--black); }
 .thread:hover h3 { color: var(--gold-dark); transition: color var(--t-fast); }
+
+/* ── Cards that link to a profile and also carry a LinkedIn link ──
+   The card is a <article> with a stretched link covering it, so the
+   LinkedIn anchor can sit above without nesting one anchor in another. */
+.lead-card, .fac-full, .mentor-card { position: relative; }
+.card-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+}
+.card-link:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.card-li {
+  position: absolute;
+  z-index: 2;
+  bottom: 22px; right: 22px;
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--gray-200);
+  background: var(--white);
+  color: var(--gray-500);
+  transition: all var(--t-fast);
+}
+.card-li:hover { border-color: var(--gold); color: var(--gold-dark); transform: translateY(-2px); }
+.card-li:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.fac-full .card-li {
+  position: static;
+  border-color: rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.65);
+  flex-shrink: 0;
+}
+.fac-full .card-li:hover { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,0.14); }
+.card-foot {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+}
+.card-foot .pill-row { flex: 1; }
+.lead-card .card-li, .mentor-card .card-li { bottom: 18px; right: 18px; }
+.lead-card, .mentor-card { padding-bottom: 28px; }
+
+/* LinkedIn link in the profile sidebar */
+.rail-linkedin {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--gold-dark);
+  transition: gap var(--t-fast), color var(--t-fast);
+}
+.rail-linkedin:hover { gap: 13px; color: var(--gold); }
+
+/* ── Speaker directory (events page) ── */
+.speaker-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px 32px; }
+.speaker-row {
+  display: flex;
+  gap: 18px;
+  padding: 22px 0;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.speaker-row:nth-last-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,0.1); }
+.speaker-row-body { min-width: 0; }
+.speaker-when {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 7px;
+}
+.speaker-row h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  margin: 0 0 4px;
+}
+.speaker-row h3 a { color: var(--white); border-bottom: 1px solid rgba(201,168,76,0.5); transition: color var(--t-fast); }
+.speaker-row h3 a:hover { color: var(--gold); }
+.speaker-role {
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.62);
+  margin: 0 0 8px;
+}
+.speaker-role span { color: rgba(255,255,255,0.8); }
+.speaker-event {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--gold);
+  margin: 0;
+}
+.speaker-sub {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin: 52px 0 16px;
+}
+@media (max-width: 992px) {
+  .speaker-list { grid-template-columns: 1fr; }
+  .speaker-row:nth-last-child(-n+2) { border-bottom: none; }
+  .speaker-row:last-child { border-bottom: 1px solid rgba(255,255,255,0.1); }
+}

@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { PEOPLE, getPerson } from '@/data/people';
 import { SPECIALIZATIONS } from '@/data/programs';
 import { PageHero, SecHead, CtaBand, Arrow, Pills, TickList } from '@/components/Chrome';
+import LinkedInLink from '@/components/LinkedInLink';
 
 export function generateStaticParams() {
   return PEOPLE.map((p) => ({ slug: p.slug }));
@@ -57,6 +58,9 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
                 <span className="rail-label">Expertise</span>
                 <span className="rail-role">{person.expertise.join(' · ')}</span>
               </div>
+              {person.linkedin && (
+                <LinkedInLink url={person.linkedin} name={person.name} variant="rail" />
+              )}
             </aside>
 
             <div className="prose">

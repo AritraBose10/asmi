@@ -78,7 +78,7 @@ export const PROGRAMS: Program[] = [
       { term: '03', title: 'Specialization & internship', desc: 'Your chosen track goes deep, alongside a summer internship and the international study tour.', bullets: ['Specialization electives', 'Summer internship', 'International Study Tour — Malaysia', 'Live industry project'] },
       { term: '04', title: 'Strategy and the capstone', desc: 'Everything converges: strategy, sustainability, and a capstone project defended before industry practitioners.', bullets: ['Strategic Management', 'Sustainability & ESG', 'Capstone project', 'Placement preparation'] },
     ],
-    facultyPicks: ['kaustav-majumdar', 'sanjay-saha', 'soumyadeep-chakraborty', 'manta-dey'],
+    facultyPicks: ['kaustav-majumdar', 'bhumita-bhattacharyya', 'soumyadeep-chakraborty', 'manta-dey'],
     faq: [
       { q: 'Who is eligible for the ASMi MBA?', a: 'A bachelor’s degree in any discipline from a recognised university. Final-year students may apply and submit results before enrolment. Work experience is welcome but not required.' },
       { q: 'When do I choose my specialization?', a: 'At the end of the first year. The first two semesters are a common core, so you specialise once you have actually worked across marketing, finance, operations and people.' },
@@ -240,7 +240,7 @@ export const SPECIALIZATIONS: Specialization[] = [
       { title: 'Sales & Channel Management', desc: 'Distribution, pricing through the channel, and managing a field force.' },
     ],
     careers: ['Brand Manager', 'Marketing Analyst', 'Digital Marketing Lead', 'Category Manager', 'Account Planner'],
-    faculty: ['rituraj-brahmachari', 'soumyadeep-chakraborty'],
+    faculty: ['rituraj-brahmachari', 'debayan-chakraborty', 'soumyadeep-chakraborty'],
     skills: ['Positioning', 'Campaign measurement', 'Consumer research', 'Pricing', 'Channel economics'],
   },
   {

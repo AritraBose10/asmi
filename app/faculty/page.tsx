@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { LEADERSHIP, FACULTY, MENTORS } from '@/data/people';
 import { PageHero, SecHead, CtaBand, Arrow, Pills } from '@/components/Chrome';
+import LinkedInLink from '@/components/LinkedInLink';
 import { FeatureGrid } from '@/components/Icon';
 
 export const metadata: Metadata = {
@@ -32,14 +33,16 @@ export default function FacultyIndex() {
           <SecHead eyebrow="Leadership" heading="The chief mentors" lead="The people who set the direction of ASMi Business School and the wider Techno India Group." />
           <div className="lead-grid">
             {LEADERSHIP.map((p, i) => (
-              <Link key={p.slug} href={`/faculty/${p.slug}`} className="lead-card reveal-up" data-delay={i * 70}>
+              <article key={p.slug} className="lead-card reveal-up" data-delay={i * 70}>
+                <Link href={`/faculty/${p.slug}`} className="card-link" aria-label={`${p.name} — ${p.role}`} />
                 <div className="lead-mono">{p.mono}</div>
                 <div>
                   <h3>{p.name}</h3>
                   <span className="lead-role">{p.role}</span>
                   <p>{p.short}</p>
                 </div>
-              </Link>
+                {p.linkedin && <LinkedInLink url={p.linkedin} name={p.name} />}
+              </article>
             ))}
           </div>
         </div>
@@ -54,7 +57,8 @@ export default function FacultyIndex() {
           />
           <div className="fac-full-grid">
             {FACULTY.map((p, i) => (
-              <Link key={p.slug} href={`/faculty/${p.slug}`} className="fac-full reveal-up" data-delay={(i % 4) * 70}>
+              <article key={p.slug} className="fac-full reveal-up" data-delay={(i % 4) * 70}>
+                <Link href={`/faculty/${p.slug}`} className="card-link" aria-label={`${p.name} — ${p.role}`} />
                 <div className="fac-full-top">
                   <div className="fac-full-mono">{p.mono}</div>
                   <span className="fac-full-num">{String(i + 1).padStart(2, '0')}</span>
@@ -62,8 +66,11 @@ export default function FacultyIndex() {
                 <h3>{p.name}</h3>
                 <span className="fac-full-role">{p.role}</span>
                 <p>{p.short}</p>
-                <Pills items={p.expertise.slice(0, 2)} tight />
-              </Link>
+                <div className="card-foot">
+                  <Pills items={p.expertise.slice(0, 2)} tight />
+                  {p.linkedin && <LinkedInLink url={p.linkedin} name={p.name} />}
+                </div>
+              </article>
             ))}
           </div>
         </div>
@@ -78,14 +85,16 @@ export default function FacultyIndex() {
           />
           <div className="mentor-grid">
             {MENTORS.map((p, i) => (
-              <Link key={p.slug} href={`/faculty/${p.slug}`} className="mentor-card reveal-up" data-delay={(i % 4) * 60}>
+              <article key={p.slug} className="mentor-card reveal-up" data-delay={(i % 4) * 60}>
+                <Link href={`/faculty/${p.slug}`} className="card-link" aria-label={`${p.name} — ${p.role}`} />
                 <div className="mentor-mono">{p.mono}</div>
                 <div>
                   <h3>{p.name}</h3>
                   <span className="mentor-role">{p.role}</span>
                   <p>{p.org}</p>
                 </div>
-              </Link>
+                {p.linkedin && <LinkedInLink url={p.linkedin} name={p.name} />}
+              </article>
             ))}
           </div>
         </div>

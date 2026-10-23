@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { EVENTS } from '@/data/campus';
-import { PageHero, SecHead, CtaBand, Arrow, TickList } from '@/components/Chrome';
+import { SESSIONS, SCHEDULED, DIRECTORY_PERIOD, SPEAKER_ORGS, monogram, speakerDate } from '@/data/speakers';
+import { PageHero, SecHead, CtaBand, Arrow, TickList, Pills } from '@/components/Chrome';
 
 export const metadata: Metadata = {
   title: 'Events, Bootcamps & Guest Lectures',
@@ -19,7 +20,7 @@ export default function EventsIndex() {
         crumbs={[{ href: '/', label: 'Home' }, { label: 'Events' }]}
         meta={[
           { value: '10+', label: 'Event Formats' },
-          { value: 'Fortnightly', label: 'Guest Lectures' },
+          { value: '14', label: 'Speakers, Apr–Sep 2026' },
           { value: 'Monthly', label: 'Corporate Connect' },
           { value: 'Annual', label: 'Study Tour' },
         ]}
@@ -50,23 +51,60 @@ export default function EventsIndex() {
         </div>
       </section>
 
-      <section className="sec sec-dark">
+      {/* Speaker directory — real sessions, from data/speakers.ts */}
+      <section className="sec sec-dark" id="speakers">
         <div className="container">
-          <SecHead eyebrow="Speakers" heading="Who has stood at the front" lead="Leadership sessions run through the year, opened to the whole school." />
-          <div className="speaker-grid">
-            {[
-              { mono: 'MR', slug: 'meghdut-roychowdhury', name: 'Meghdut Roychowdhury', role: 'Chief Innovation Officer & Executive Director, Techno India Group', note: 'Innovation, entrepreneurship and building technology ventures from Eastern India.' },
-              { mono: 'KM', slug: 'kaustav-majumdar', name: 'Kaustav Majumdar', role: 'Chief Mentor, ASMi Business School', note: 'Strategy and leadership, drawn from decades of senior management practice.' },
-              { mono: 'PL', slug: 'pauline-laravoire', name: 'Pauline Laravoire', role: 'Sustainability Director, Techno India Group', note: 'ESG, responsible business, and how sustainability rewrites the manager’s job.' },
-            ].map((s, i) => (
-              <Link key={s.slug} href={`/faculty/${s.slug}`} className="speaker-card reveal-up" data-delay={i * 80}>
-                <div className="speaker-mono">{s.mono}</div>
-                <h3>{s.name}</h3>
-                <span>{s.role}</span>
-                <p>{s.note}</p>
-              </Link>
+          <SecHead
+            eyebrow="Speaker Directory"
+            heading="Who has stood at<br /><em>the front</em>"
+            lead={`Practitioners who addressed the school between ${DIRECTORY_PERIOD} — from IBM and AWS to Durham University Business School and the London Borough of Brent.`}
+          />
+
+          <div className="speaker-list">
+            {SESSIONS.map((s, i) => (
+              <article className="speaker-row reveal-up" data-delay={(i % 4) * 50} key={`${s.name}-${s.date}`}>
+                <div className="speaker-mono">{monogram(s.name)}</div>
+                <div className="speaker-row-body">
+                  <time className="speaker-when" dateTime={s.date}>{speakerDate(s.date)}</time>
+                  <h3>
+                    {s.facultySlug
+                      ? <Link href={`/faculty/${s.facultySlug}`}>{s.name}</Link>
+                      : s.name}
+                  </h3>
+                  <p className="speaker-role">
+                    {s.designation}{s.org ? <>, <span>{s.org}</span></> : null}
+                  </p>
+                  <p className="speaker-event">{s.event}</p>
+                </div>
+              </article>
             ))}
           </div>
+
+          <h3 className="speaker-sub reveal-up">Scheduled — report on file pending</h3>
+          <div className="table-wrap reveal-up" tabIndex={0} role="region" aria-label="Scheduled speaker sessions">
+            <table className="data-table">
+              <caption>Speakers in the schedule whose session report was not on file at compilation</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Date</th>
+                  <th scope="col">Speaker</th>
+                  <th scope="col">Designation</th>
+                </tr>
+              </thead>
+              <tbody>
+                {SCHEDULED.map((s) => (
+                  <tr key={`${s.name}-${s.date}`}>
+                    <td><time dateTime={s.date}>{speakerDate(s.date)}</time></td>
+                    <td><strong>{s.name}</strong></td>
+                    <td>{s.designation}{s.org ? `, ${s.org}` : ''}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <h3 className="speaker-sub reveal-up">Organisations represented</h3>
+          <Pills items={SPEAKER_ORGS} />
         </div>
       </section>
 
