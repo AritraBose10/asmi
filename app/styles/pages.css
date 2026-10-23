@@ -1314,7 +1314,7 @@
   display: grid;
   gap: 14px;
 }
-.num-list li {
+.num-list > li {
   position: relative;
   counter-increment: num;
   padding-left: 40px;
@@ -1322,7 +1322,7 @@
   line-height: 1.75;
   color: var(--gray-600);
 }
-.num-list li::before {
+.num-list > li::before {
   content: counter(num, decimal-leading-zero);
   position: absolute;
   left: 0; top: 0.1em;

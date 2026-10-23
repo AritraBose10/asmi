@@ -370,10 +370,7 @@
   color: var(--gray-500);
 }
 .absat-merit { margin-top: 12px; }
-/* The merit pills sit inside .num-list, so they picked up its counters.
-   Reset both the counter and the indent meant for numbered items. */
-.num-list .absat-merit li { padding-left: 0; counter-increment: none; }
-.num-list .absat-merit li::before { content: none; }
+/* Nested pills are left alone: .num-list styles only its direct children. */
 
 /* ── §2.9 Pattern ── */
 .absat-duration {
