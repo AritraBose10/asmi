@@ -280,15 +280,19 @@ export default function SiteMotion() {
         let ry = my;
         let raf = 0;
 
+        // The trailing translate(-50%,-50%) re-applies the centring the CSS
+        // declares; setting transform here would otherwise replace it and
+        // position both elements by their top-left corner, which offsets the
+        // dot from the ring by half the difference in their sizes.
         const onMove = (e: MouseEvent) => {
           mx = e.clientX;
           my = e.clientY;
-          dot.style.transform = `translate(${mx}px, ${my}px)`;
+          dot.style.transform = `translate(${mx}px, ${my}px) translate(-50%, -50%)`;
         };
         const tick = () => {
           rx += (mx - rx) * 0.16;
           ry += (my - ry) * 0.16;
-          ring.style.transform = `translate(${rx}px, ${ry}px)`;
+          ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%, -50%)`;
           raf = requestAnimationFrame(tick);
         };
         const over = (e: MouseEvent) => {
