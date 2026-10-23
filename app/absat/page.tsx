@@ -142,6 +142,8 @@ export default function AbsatPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd()) }}
       />
 
+      {/* Notice strip + hero together fill the first viewport */}
+      <div className="absat-top">
       {/* ── §2.3 Notice strip ── */}
       <aside className="absat-latest" id="latest" aria-label="Latest ABSAT notice">
         <div className="container absat-latest-inner">
@@ -219,6 +221,7 @@ export default function AbsatPage() {
           </div>
         </div>
       </section>
+      </div>
 
       <AbsatSectionNav />
 

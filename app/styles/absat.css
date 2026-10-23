@@ -12,6 +12,22 @@
 }
 .sec-dark .tba { color: rgba(255,255,255,0.45); }
 
+/* ── First screen: notice strip + hero fill the viewport, so the white
+   section nav starts below the fold rather than leaving a pale band ── */
+.absat-top {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100svh;
+  background: var(--black);
+}
+.absat-top .absat-hero {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+}
+.absat-top .ph-container { width: 100%; }
+
 /* ── §2.3 Notice strip ── */
 .absat-latest {
   position: relative;
