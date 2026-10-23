@@ -50,6 +50,21 @@ export default function Home() {
         </a>
       </section>
 
+      {/* ABSAT 2027 entry point */}
+      <aside className="absat-banner" aria-label="ABSAT 2027 entrance test">
+        <div className="container absat-banner-inner">
+          <span className="absat-banner-tag">Admissions</span>
+          <p>
+            <strong>ABSAT 2027</strong> is the entrance test for the full-time MBA, 2027–29 batch.
+            One test, two attempts, the better score counts.
+          </p>
+          <a href="/absat" className="absat-latest-link" data-cta="home_to_absat">
+            About ABSAT 2027
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1 8H15M8 1L15 8L8 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+          </a>
+        </div>
+      </aside>
+
       {/* TICKER */}
       <div className="ticker-wrap">
         <div className="ticker-label">Partners &amp; Accreditations</div>

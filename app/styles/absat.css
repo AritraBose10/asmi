@@ -1,0 +1,616 @@
+/* ═══════════════════════════════════════
+   ABSAT 2027 landing page
+   Uses the site's existing tokens only —
+   no new colours are introduced here.
+   ═══════════════════════════════════════ */
+
+/* Unconfirmed values ("To be announced") */
+.tba {
+  font-style: italic;
+  color: var(--gray-400);
+  font-weight: 500;
+}
+.sec-dark .tba { color: rgba(255,255,255,0.45); }
+
+/* ── §2.3 Notice strip ── */
+.absat-latest {
+  position: relative;
+  z-index: 2;
+  background: var(--black);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding: 92px 0 14px;
+}
+.absat-latest-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 18px;
+}
+.absat-latest-tag {
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--gold);
+  padding: 5px 11px;
+  border-radius: var(--r-full);
+  flex-shrink: 0;
+}
+.absat-latest-inner p {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.68);
+  flex: 1;
+  min-width: 220px;
+}
+.absat-latest-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  transition: gap var(--t-fast);
+}
+.absat-latest-link:hover { gap: 13px; }
+
+/* ── §2.4 Hero ── */
+.absat-hero { padding-top: 56px; }
+.absat-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 420px;
+  gap: clamp(32px, 4vw, 64px);
+  align-items: start;
+}
+.absat-hero .ph-inner { max-width: none; }
+.absat-h1-mark {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: clamp(0.78rem, 1.1vw, 0.92rem);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 18px;
+}
+
+.absat-stats {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  justify-content: start;
+  gap: 18px 44px;
+  margin: 44px 0 0;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+.absat-stat { display: flex; flex-direction: column-reverse; gap: 4px; }
+.absat-stat-value {
+  margin: 0;
+  font-size: clamp(1.4rem, 2vw, 1.9rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  line-height: 1;
+}
+.absat-stat-label {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  max-width: 130px;
+}
+
+/* ── §2.5 Registration card ── */
+.absat-reg-card {
+  padding: 32px 30px;
+  border-radius: var(--r-xl);
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.45);
+}
+.absat-reg-card h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+}
+.absat-reg-help {
+  font-size: 0.86rem;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.6);
+  margin: 0 0 22px;
+}
+.absat-reg-login {
+  margin: 18px 0 0;
+  font-size: 0.84rem;
+  color: rgba(255,255,255,0.55);
+}
+.absat-reg-login a { color: var(--gold); font-weight: 600; }
+
+/* ── §4 Form ── */
+.absat-form { display: flex; flex-direction: column; gap: 16px; }
+.absat-form .field { display: flex; flex-direction: column; gap: 7px; }
+.absat-form label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.78);
+}
+.absat-form input[type='text'],
+.absat-form input[type='email'],
+.absat-form input[type='tel'],
+.absat-form select {
+  font: inherit;
+  font-size: 0.9rem;
+  width: 100%;
+  min-height: 46px;
+  padding: 12px 15px;
+  border-radius: var(--r-sm);
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.07);
+  color: var(--white);
+  transition: border-color var(--t-fast), background var(--t-fast);
+}
+.absat-form select option { color: var(--black); }
+.absat-form input::placeholder { color: rgba(255,255,255,0.4); }
+.absat-form input:hover,
+.absat-form select:hover { border-color: rgba(255,255,255,0.32); }
+.absat-form input:focus-visible,
+.absat-form select:focus-visible,
+.absat-form button:focus-visible,
+.absat-form input[type='checkbox']:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+.absat-form input:user-invalid { border-color: #e06666; }
+
+.field-prefixed { display: flex; align-items: stretch; }
+.field-prefix {
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-right: none;
+  border-radius: var(--r-sm) 0 0 var(--r-sm);
+}
+.field-prefixed input { border-radius: 0 var(--r-sm) var(--r-sm) 0; }
+.field-hint {
+  margin: 0;
+  font-size: 0.74rem;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.45);
+}
+
+.consent-notice {
+  margin: 6px 0 0;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.55);
+}
+.consent-notice a { color: var(--gold); text-decoration: underline; text-underline-offset: 2px; }
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  font-weight: 400;
+  color: rgba(255,255,255,0.72);
+  cursor: pointer;
+}
+.consent input[type='checkbox'] {
+  width: 18px; height: 18px;
+  margin: 1px 0 0;
+  flex-shrink: 0;
+  accent-color: var(--gold);
+  cursor: pointer;
+}
+.absat-form .btn-cta-primary { justify-content: center; margin-top: 6px; min-height: 48px; }
+.absat-form .form-note {
+  margin: 4px 0 0;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--gold);
+}
+.absat-form .form-note a { color: var(--gold); text-decoration: underline; text-underline-offset: 2px; }
+
+/* ── §2.2 Sticky section nav ── */
+.absat-subnav {
+  position: sticky;
+  top: 72px;
+  z-index: 60;
+  background: rgba(255,255,255,0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--gray-200);
+}
+.absat-subnav-inner { overflow-x: auto; scrollbar-width: none; }
+.absat-subnav-inner::-webkit-scrollbar { display: none; }
+.absat-subnav ul {
+  display: flex;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+.absat-subnav a {
+  display: inline-block;
+  padding: 15px 14px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--gray-500);
+  border-bottom: 2px solid transparent;
+  transition: color var(--t-fast), border-color var(--t-fast);
+}
+.absat-subnav a:hover { color: var(--black); }
+.absat-subnav a.is-current { color: var(--black); border-bottom-color: var(--gold); }
+
+/* Anchored sections clear the two sticky bars */
+#about, #dates, #eligibility, #pattern, #syllabus,
+#fees, #centres, #downloads, #notices, #faq, #contact, #register {
+  scroll-margin-top: 130px;
+}
+
+/* ── §2.6 About ── */
+.absat-about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: clamp(32px, 4vw, 64px);
+  align-items: start;
+}
+.absat-about-copy .sec-lead:first-child { margin-top: 0; }
+.absat-prog-card {
+  padding: 32px 30px;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--r-xl);
+  background: var(--white);
+  box-shadow: 0 18px 50px rgba(0,0,0,0.05);
+}
+.absat-prog-card h3 {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  margin: 0 0 16px;
+}
+.absat-prog-link {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 4px 14px;
+  padding: 18px 20px;
+  border-radius: var(--r-lg);
+  background: var(--gold-bg);
+  border: 1px solid rgba(201,168,76,0.3);
+  color: var(--black);
+  transition: border-color var(--t-fast), transform var(--t-fast);
+}
+.absat-prog-link:hover { border-color: var(--gold); transform: translateY(-2px); }
+.absat-prog-link strong { font-size: 1.02rem; font-weight: 700; letter-spacing: -0.015em; }
+.absat-prog-link span { grid-column: 1; font-size: 0.8rem; color: var(--gray-500); }
+.absat-prog-link svg { grid-row: 1 / span 2; color: var(--gold-dark); }
+.absat-prog-meta {
+  font-size: 0.84rem;
+  line-height: 1.65;
+  color: var(--gray-500);
+  margin: 18px 0 16px;
+}
+.absat-spec-list, .absat-cities, .absat-merit { list-style: none; margin: 0; padding: 0; }
+.absat-prog-foot {
+  margin: 18px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--gray-200);
+  font-size: 0.82rem;
+  color: var(--gray-500);
+}
+
+/* ── §2.8 Eligibility ── */
+.absat-note {
+  margin: 18px 0 0;
+  font-size: 0.86rem;
+  line-height: 1.65;
+  color: var(--gray-500);
+}
+.absat-merit { margin-top: 12px; }
+.num-list .absat-merit li { padding-left: 0; }
+
+/* ── §2.9 Pattern ── */
+.absat-duration {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 12px 20px;
+  border-radius: var(--r-full);
+  background: var(--gold-bg);
+  border: 1px solid rgba(201,168,76,0.3);
+  margin-bottom: 24px;
+}
+.absat-duration-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+}
+.absat-duration-value { font-size: 1rem; font-weight: 700; color: var(--black); }
+.absat-notes { margin-top: 40px; }
+.data-table tfoot th,
+.data-table tfoot td {
+  padding: 18px 16px;
+  font-size: 0.9rem;
+  color: var(--black);
+  border-top: 2px solid var(--gray-300);
+  text-align: left;
+}
+.sec-dark .data-table tfoot th,
+.sec-dark .data-table tfoot td { color: var(--white); border-top-color: rgba(255,255,255,0.2); }
+.sec-dark .data-table th { color: rgba(255,255,255,0.5); border-bottom-color: rgba(255,255,255,0.14); }
+.sec-dark .data-table td { color: rgba(255,255,255,0.72); border-bottom-color: rgba(255,255,255,0.1); }
+.sec-dark .data-table td strong { color: var(--white); }
+.sec-dark .data-table caption { color: rgba(255,255,255,0.45); }
+.sec-dark .data-table tbody tr:hover { background: rgba(255,255,255,0.04); }
+.sec-dark .sb-note a { color: var(--gold); }
+
+/* ── §2.11 Fees + apply ── */
+.absat-fees-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 4vw, 64px);
+  align-items: start;
+}
+.absat-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.absat-step {
+  display: flex;
+  gap: 18px;
+  padding: 18px 0;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.absat-step:last-child { border-bottom: 1px solid rgba(255,255,255,0.1); }
+.absat-step-num {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+.absat-step div { display: flex; flex-direction: column; gap: 4px; }
+.absat-step strong { font-size: 1rem; font-weight: 700; color: var(--white); }
+.absat-step span { font-size: 0.88rem; line-height: 1.65; color: rgba(255,255,255,0.6); }
+
+/* ── §2.12 Centres ── */
+.absat-city-head {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  margin: 40px 0 14px;
+}
+
+/* ── §2.13 Downloads + notices ── */
+.absat-dl-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: clamp(32px, 4vw, 64px);
+  align-items: start;
+}
+.absat-downloads { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.absat-download a,
+.absat-dl-pending {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 20px;
+  padding: 20px 0;
+  border-top: 1px solid var(--gray-200);
+}
+.absat-downloads li:last-child a,
+.absat-downloads li:last-child .absat-dl-pending { border-bottom: 1px solid var(--gray-200); }
+.absat-dl-title { font-size: 0.98rem; font-weight: 600; color: var(--black); }
+.absat-dl-pending .absat-dl-title { color: var(--gray-500); }
+.absat-dl-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+}
+.absat-download a:hover .absat-dl-title { color: var(--gold-dark); }
+
+.absat-notices { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.absat-notice {
+  padding: 18px 0;
+  border-top: 1px solid var(--gray-200);
+}
+.absat-notice:last-child { border-bottom: 1px solid var(--gray-200); }
+.absat-notice time,
+.absat-notice > .tba {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 6px;
+}
+.absat-notice p { margin: 0; font-size: 0.92rem; line-height: 1.65; color: var(--gray-600); }
+
+/* ── §2.14 FAQ (native details/summary) ── */
+.absat-faq { display: flex; flex-direction: column; gap: 12px; }
+.absat-faq-item {
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--r-md);
+  background: rgba(255,255,255,0.04);
+  overflow: hidden;
+  transition: border-color var(--t-fast), background var(--t-fast);
+}
+.absat-faq-item:hover, .absat-faq-item[open] { border-color: rgba(201,168,76,0.4); }
+.absat-faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 19px 24px;
+  min-height: 44px;
+  font-size: 0.96rem;
+  font-weight: 600;
+  color: var(--white);
+  cursor: pointer;
+  list-style: none;
+}
+.absat-faq-item summary::-webkit-details-marker { display: none; }
+.absat-faq-item summary:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
+.absat-faq-item summary .faq-icon {
+  flex-shrink: 0;
+  color: var(--gold);
+  transition: transform var(--t-fast);
+}
+.absat-faq-item[open] summary .faq-icon { transform: rotate(45deg); }
+.absat-faq-a { padding: 0 24px 22px; }
+.absat-faq-a p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.65);
+  max-width: 68ch;
+}
+
+/* ── §2.15 Contact ── */
+.absat-contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 4vw, 64px);
+  align-items: start;
+}
+.absat-contact h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 12px;
+}
+.absat-contact-list { list-style: none; margin: 22px 0 0; padding: 0; display: grid; gap: 2px; }
+.absat-contact-list li {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 16px;
+  padding: 14px 0;
+  border-top: 1px solid var(--gray-200);
+  font-size: 0.95rem;
+}
+.absat-contact-list li:last-child { border-bottom: 1px solid var(--gray-200); }
+.absat-contact-list li > span:first-child {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  padding-top: 3px;
+}
+.absat-contact-list a { color: var(--gold-dark); font-weight: 600; }
+.absat-contact-list a:hover { color: var(--gold); }
+.absat-contact-list p { margin: 0; color: var(--gray-600); }
+.absat-address {
+  font-style: normal;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--gray-500);
+  margin-bottom: 20px;
+}
+.absat-quick { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-bottom: 22px; }
+.absat-quick a {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--gold-dark);
+  transition: color var(--t-fast);
+}
+.absat-quick a:hover { color: var(--gold); }
+.absat-legal {
+  margin: 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--gray-200);
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: var(--gray-400);
+}
+
+/* ── Homepage + MBA page entry points ── */
+.absat-banner {
+  background: var(--black);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding: 22px 0;
+}
+.absat-banner-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+}
+.absat-banner-tag {
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--gold);
+  padding: 5px 11px;
+  border-radius: var(--r-full);
+}
+.absat-banner-inner p {
+  margin: 0;
+  flex: 1;
+  min-width: 240px;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.72);
+}
+.absat-banner-inner strong { color: var(--white); font-weight: 700; }
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+  .absat-hero-grid { grid-template-columns: 1fr; }
+  .absat-reg-card { max-width: 520px; }
+  .absat-stats { grid-template-columns: repeat(2, auto); gap: 18px 40px; }
+}
+@media (max-width: 992px) {
+  .absat-about-grid, .absat-fees-grid, .absat-dl-grid, .absat-contact { grid-template-columns: 1fr; }
+  .absat-subnav { top: 64px; }
+  .absat-latest { padding-top: 84px; }
+}
+@media (max-width: 768px) {
+  .absat-stats { grid-template-columns: 1fr 1fr; gap: 16px 24px; }
+  .absat-stat-label { max-width: none; }
+  .absat-reg-card { padding: 26px 22px; }
+  .absat-contact-list li { grid-template-columns: 1fr; gap: 4px; }
+  .absat-faq-item summary { padding: 17px 18px; font-size: 0.92rem; }
+  .absat-faq-a { padding: 0 18px 20px; }
+}
+
+/* Grid children default to min-width:auto, so a wide scrollable table expands
+   its track instead of scrolling inside it. Let the tracks shrink. */
+.absat-about-grid > *,
+.absat-fees-grid > *,
+.absat-dl-grid > *,
+.absat-contact > *,
+.absat-hero-grid > * { min-width: 0; }
+.absat-fees-grid .table-wrap,
+.absat-dl-grid .table-wrap { max-width: 100%; }

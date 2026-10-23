@@ -220,7 +220,8 @@ a.menu-card:hover { border-color: rgba(201,168,76,0.45); background: rgba(255,25
   display: block;
   margin-bottom: 10px;
 }
-.menu-card h3 {
+.menu-card h3,
+.menu-card-title {
   font-size: 1.1rem;
   font-weight: 700;
   color: var(--white);

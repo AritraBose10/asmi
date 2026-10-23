@@ -199,6 +199,7 @@ export function Footer() {
               <Link key={p.slug} href={`/programs/${p.slug}`}>{p.name}</Link>
             ))}
             <Link href="/specializations">MBA Specializations</Link>
+            <Link href="/absat">ABSAT 2027 Entrance Test</Link>
           </div>
 
           <div className="footer-col">

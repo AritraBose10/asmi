@@ -100,6 +100,21 @@ export default async function ProgramPage({ params }: { params: Promise<{ slug: 
         </section>
       )}
 
+      {program.slug === 'mba' && (
+        <section className="sec sec-muted">
+          <div className="container">
+            <div className="callout reveal-up">
+              <strong>How to get in.</strong> ABSAT 2027 is the entrance test for this programme —
+              one test, two attempts, the better score counts. Candidates with valid CAT, XAT, MAT,
+              CMAT, ATMA or GMAT scores may also apply directly.
+              <Link href="/absat" className="link-cta" data-cta="mba_to_absat">
+                ABSAT 2027: dates, pattern and registration <Arrow />
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
       <section className="sec sec-dark" id="curriculum">
         <div className="container">
           <SecHead

@@ -18,6 +18,7 @@ const PRIMARY = [
 ];
 
 const SECONDARY = [
+  { href: '/absat', label: 'ABSAT 2027' },
   { href: '/blog', label: 'Blog' },
   { href: '/forum', label: 'Discussion Forum' },
   { href: '/citations', label: 'Citations' },
@@ -139,7 +140,7 @@ export default function Nav() {
           <div className="menu-secondary">
             <div className="menu-card" style={step()}>
               <span className="menu-card-label">Programmes</span>
-              <h3>Three ways in</h3>
+              <p className="menu-card-title">Three ways in</p>
               <p>Full-time MBA with six specializations, a four-year BBA in Business Analytics, and a modular Executive MBA.</p>
               <div className="menu-sublinks">
                 {PROGRAMS.map((p) => (
@@ -150,15 +151,21 @@ export default function Nav() {
               </div>
             </div>
 
+            <Link href="/absat" className="menu-card" style={step()}>
+              <span className="menu-card-label">Entrance Test</span>
+              <p className="menu-card-title">ABSAT 2027</p>
+              <p>One test, two attempts, best score counts — the route into the full-time MBA for the 2027–29 batch.</p>
+            </Link>
+
             <Link href="/specializations" className="menu-card" style={step()}>
               <span className="menu-card-label">MBA Tracks</span>
-              <h3>Six specializations</h3>
+              <p className="menu-card-title">Six specializations</p>
               <p>Marketing, Finance, HR, Technology, Entrepreneurship and Sustainability — each with its own electives and outcomes.</p>
             </Link>
 
             <a href={SITE.applyUrl} target="_blank" rel="noopener" className="menu-card" style={step()}>
               <span className="menu-card-label">Admissions Open</span>
-              <h3>Apply for Batch 2026</h3>
+              <p className="menu-card-title">Apply for Batch 2026</p>
               <p>Six steps from application to your first day of class.</p>
             </a>
           </div>
