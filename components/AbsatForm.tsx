@@ -69,7 +69,7 @@ export default function AbsatForm() {
           />
         </div>
         <p className="field-hint" id="absat-mobile-hint">
-          10-digit Indian mobile number. Candidates outside India can give an alternate number to the helpdesk.
+          10-digit number. Outside India? Contact the helpdesk.
         </p>
       </div>
 
