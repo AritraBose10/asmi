@@ -254,8 +254,10 @@ export default function AbsatPage() {
             <div className="absat-prog-card reveal-up" data-delay={100}>
               <h3>ABSAT 2027 is the admission test for</h3>
               <Link href="/programs/mba" className="absat-prog-link" data-cta="absat_to_mba">
-                <strong>Master of Business Administration (MBA)</strong>
-                <span>2 years, full-time</span>
+                <span className="absat-prog-text">
+                  <strong>Master of Business Administration (MBA)</strong>
+                  <span>2 years, full-time</span>
+                </span>
                 <Arrow size={18} />
               </Link>
               <p className="absat-prog-meta">
