@@ -2253,3 +2253,37 @@ a.pill-link:hover { border-color: var(--gold); color: var(--black); background: 
   .photo-band { min-height: 240px; }
   .spec-photo, .facility-photo { margin: -26px -24px 16px; }
 }
+
+/* An empty image area should read as a reserved frame, not a blank panel.
+   A hairline diagonal and a small corner marker do that quietly, without the
+   word "placeholder" repeating down a grid of cards. */
+.photo-empty {
+  background-image:
+    linear-gradient(140deg, rgba(201,168,76,0.10), rgba(0,0,0,0.03)),
+    repeating-linear-gradient(135deg, rgba(0,0,0,0.035) 0 1px, transparent 1px 10px);
+}
+.sec-dark .photo-empty {
+  background-image:
+    linear-gradient(140deg, rgba(201,168,76,0.14), rgba(255,255,255,0.02)),
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 10px);
+}
+.facility-photo.photo-empty::after,
+.club-photo.photo-empty::after,
+.event-photo.photo-empty::after,
+.spec-photo.photo-empty::after,
+.prose-photo.photo-empty::after {
+  content: '';
+  position: absolute;
+  right: 14px;
+  bottom: 12px;
+  width: 16px;
+  height: 13px;
+  border: 1.5px solid rgba(201,168,76,0.5);
+  border-radius: 3px;
+  box-shadow: 0 -4px 0 -2.5px rgba(201,168,76,0.5);
+}
+/* Round portraits keep a clean wash — no marker */
+.card-portrait.photo-empty, .profile-photo.photo-empty { background-image: none; }
+.card-portrait.photo-empty {
+  background: linear-gradient(145deg, rgba(201,168,76,0.2), rgba(0,0,0,0.06));
+}

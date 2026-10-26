@@ -122,3 +122,92 @@ Add the path to the matching entry, e.g. in `data/people.ts`:
 
 Galleries take `src` on the slot in `data/site.ts`. Alt text is generated from
 the person's name and role, or the caption, so it never needs writing twice.
+
+---
+
+# Backgrounds, sections and campus
+
+Every slot below already carries its alt text in `data/photos.ts`. Setting
+`src` is the only step — the description, caption and crop guidance are done.
+
+## Page hero backgrounds (15)
+
+Registry: `HERO` in `data/photos.ts`
+
+| Set `src` to | Alt text | Brief |
+|---|---|---|
+| `/photos/heroes/home.jpg` | ASMi Business School campus at Godrej Genesis, Sector V, Kolkata, at dusk | Wide establishing shot of the building or Sector V skyline, shot dark or dimmable. |
+| `/photos/heroes/programs.jpg` | ASMi students in a case discussion | A full classroom mid-discussion, wide. |
+| `/photos/heroes/mba.jpg` | An MBA class in session at ASMi Business School | — |
+| `/photos/heroes/bba.jpg` | BBA students working in the analytics lab | — |
+| `/photos/heroes/specializations.jpg` | Students working across the specialisation tracks at ASMi | Small-group work, several tables visible. |
+| `/photos/heroes/faculty.jpg` | An ASMi faculty member teaching a seminar | Faculty member at the front of a room, students in frame. |
+| `/photos/heroes/clubs.jpg` | ASMi students running a club session | Club activity — a committee meeting or competition in progress. |
+| `/photos/heroes/events.jpg` | A full auditorium during an ASMi event | Wide shot of a packed hall, stage visible. |
+| `/photos/heroes/placements.jpg` | An ASMi student in a placement interview | Interview or offer-day moment; faces of students who have consented. |
+| `/photos/heroes/gallery.jpg` | Photographs from across the ASMi year | — |
+| `/photos/heroes/blog.jpg` | Students reading in the ASMi business library | — |
+| `/photos/heroes/absat.jpg` | Candidates taking a computer-based test | — |
+| `/photos/heroes/faq.jpg` | The ASMi admissions desk | — |
+| `/photos/heroes/forum.jpg` | ASMi students talking between sessions | — |
+| `/photos/heroes/citations.jpg` | The ASMi Business School entrance signage | — |
+
+## Section images (14)
+
+Registry: `SECTION` in `data/photos.ts`
+
+| Set `src` to | Alt text | Brief |
+|---|---|---|
+| `/photos/sections/homeAbout.jpg` | ASMi students and faculty in conversation on campus | Candid, warm, people-first. Lands beside the About ASMi copy. |
+| `/photos/sections/homeStudyTour.jpg` | The ASMi cohort during the Malaysia study tour | — |
+| `/photos/sections/homePlacements.jpg` | ASMi graduates on offer day | Celebratory but not staged. Wide strip, 16:6. |
+| `/photos/sections/homeFaculty.jpg` | An ASMi faculty member mid-session | Faculty at a whiteboard or lectern. Wide strip, 16:6. |
+| `/photos/sections/programsCampus.jpg` | Students between classes at Godrej Genesis | Corridor or lounge, natural movement. |
+| `/photos/sections/mbaClassroom.jpg` | An MBA case discussion at ASMi Business School | — |
+| `/photos/sections/bbaLab.jpg` | BBA students working in the analytics lab | — |
+| `/photos/sections/embaWeekend.jpg` | Executive MBA participants in a weekend module | — |
+| `/photos/sections/facultyTeaching.jpg` | An ASMi faculty member teaching | — |
+| `/photos/sections/placementsRecruiters.jpg` | A recruiter session on the ASMi campus | — |
+| `/photos/sections/tourPartner.jpg` | INTI International University campus, Malaysia | — |
+| `/photos/sections/absatTestCentre.jpg` | A candidate at a computer-based test station | — |
+| `/photos/sections/campusNeighbourhood.jpg` | Sector V, Kolkata, seen from the ASMi campus | — |
+| `/photos/sections/blogFeature.jpg` | Featured article illustration | — |
+
+## Campus facilities (6)
+
+Registry: `FACILITIES` in `data/photos.ts`
+
+| Set `src` to | Alt text | Brief |
+|---|---|---|
+| `/photos/campus/library.jpg` | The business library at ASMi Business School | Shelves and study seating. |
+| `/photos/campus/caseRooms.jpg` | A tiered case room at ASMi | Empty, lit, showing the tiering. |
+| `/photos/campus/analyticsLab.jpg` | The analytics lab at ASMi | Workstations with screens on. |
+| `/photos/campus/smartClassrooms.jpg` | A connected classroom at ASMi | Display in use, seats visible. |
+| `/photos/campus/lounge.jpg` | The student lounge at ASMi | Students using the space. |
+| `/photos/campus/sectorV.jpg` | Sector V technology district, Kolkata | From the windows, daylight. |
+
+## Campus gallery (9)
+
+Registry: `CAMPUS_PHOTOS` in `data/photos.ts`
+
+| Set `src` to | Alt text | Brief |
+|---|---|---|
+| `/photos/campus/gallery-1.jpg` | The 15th-floor reception at Godrej Genesis | — |
+| `/photos/campus/gallery-2.jpg` | A case room mid-discussion | — |
+| `/photos/campus/gallery-3.jpg` | The business library | — |
+| `/photos/campus/gallery-4.jpg` | The analytics lab during a Decode club clinic | — |
+| `/photos/campus/gallery-5.jpg` | The student lounge between sessions | — |
+| `/photos/campus/gallery-6.jpg` | Sector V seen from the campus windows | — |
+| `/photos/campus/gallery-7.jpg` | A guest lecture in progress | — |
+| `/photos/campus/gallery-8.jpg` | Convocation day at ASMi Business School | — |
+| `/photos/campus/gallery-9.jpg` | The club fair during orientation week | — |
+
+## The building (3)
+
+Registry: `BUILDING_PHOTOS` in `data/photos.ts`
+
+| Set `src` to | Alt text | Brief |
+|---|---|---|
+| `/photos/campus/building-1.jpg` | Godrej Genesis, home of ASMi Business School | — |
+| `/photos/campus/building-2.jpg` | The Techno India University campus | — |
+| `/photos/campus/building-3.jpg` | The ASMi entrance and signage | — |
