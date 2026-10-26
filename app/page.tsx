@@ -99,8 +99,68 @@ export default function Home() {
         </div>
       </div>
 
+      {/* ABOUT ASMi */}
+      <section className="sec about-asmi" id="about" aria-labelledby="about-asmi-h">
+        <div className="container">
+          <div className="split-feature">
+            <div className="split-media reveal-up">
+              <img src="/assets/campus-life.png" alt="ASMi Business School, Godrej Genesis, Sector V, Kolkata" loading="lazy" />
+            </div>
+            <div className="split-body reveal-up" data-delay={100}>
+              <p className="section-eyebrow" data-text-reveal>About ASMi</p>
+              <h2 className="sec-heading" id="about-asmi-h" data-text-reveal>
+                &ldquo;ASMI&rdquo; is Sanskrit<br />for <em>&ldquo;I am.&rdquo;</em>
+              </h2>
+              <p className="sec-lead">
+                The name stands for self-belief, identity and individual potential — which is the
+                whole argument for the school. ASMi Business School is part of Techno India
+                University, West Bengal, and its AICTE-approved programmes are taught from a
+                vertical campus on the 15th floor of Godrej Genesis, in the middle of Kolkata&rsquo;s
+                Sector V technology district.
+              </p>
+              <p className="sec-lead">
+                The teaching model is deliberately practical: live projects, case discussion and
+                direct industry interaction, with analytics content co-designed with IBM and a
+                faculty bench of practitioners as well as academics. You study surrounded by the
+                companies you are preparing to join.
+              </p>
+
+              <dl className="about-facts">
+                <div className="about-fact">
+                  <dt>Part of</dt>
+                  <dd>Techno India University, West Bengal</dd>
+                </div>
+                <div className="about-fact">
+                  <dt>Approval</dt>
+                  <dd>AICTE-approved programmes</dd>
+                </div>
+                <div className="about-fact">
+                  <dt>Curriculum partners</dt>
+                  <dd>IBM &amp; Google Cloud</dd>
+                </div>
+                <div className="about-fact">
+                  <dt>Campus</dt>
+                  <dd>Godrej Genesis, Sector V, Kolkata</dd>
+                </div>
+              </dl>
+
+              <div className="about-links">
+                <a href="/programs" className="link-cta">
+                  Explore our programmes
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1 8H15M8 1L15 8L8 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                </a>
+                <a href="/faculty" className="link-cta">
+                  Meet the faculty
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1 8H15M8 1L15 8L8 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* WHY ASMI — STATS */}
-      <section className="why-section" id="about">
+      <section className="why-section" id="why">
         <div className="section-divider-animated">
           <div className="divider-line"></div>
           <div className="divider-dot"></div>

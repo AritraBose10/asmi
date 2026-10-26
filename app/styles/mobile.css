@@ -2,7 +2,9 @@
    ASMi — phone refinements
    Imported last so it wins over the section stylesheets.
 
-   Three jobs, all scoped to phones:
+   Scoped to phones and tablets — both are touch devices.
+
+   Three jobs:
    1. Raise the floor on micro-type. Tracked uppercase labels sit at
       10.6–11.8px on desktop, which is uncomfortable on a handset.
    2. Give every control a 44px touch target (WCAG 2.5.5 / Apple HIG).
@@ -10,7 +12,7 @@
       happens whenever the field's font-size is under 16px.
    ═══════════════════════════════════════ */
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
 
   /* ── 1. Micro-type floor ─────────────────────────────────────────── */
   .section-eyebrow,
@@ -140,6 +142,7 @@
   .card-li { bottom: 16px; right: 16px; }
 
   .filter-chip,
+  .btn-nav-apply,
   .btn-hero-primary,
   .btn-hero-secondary,
   .btn-cta-primary,
@@ -181,7 +184,9 @@
 }
 
 /* Two rules the section stylesheets win on specificity, restated here. */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .menu-link .menu-index { font-size: 12px; }
   .tv-author div span { font-size: 12px; }
+  .about-fact dt { font-size: 12px; }
+  .ticker-label { font-size: 12px; }
 }
