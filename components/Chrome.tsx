@@ -207,6 +207,7 @@ export function Footer() {
             <Link href="/faculty">Faculty &amp; Mentors</Link>
             <Link href="/placements">Placement Report</Link>
             <Link href="/events">Events</Link>
+            <Link href="/gallery">Gallery</Link>
             <Link href="/study-tour">International Study Tour</Link>
             <Link href="/campus-life">Campus Life</Link>
             <Link href="/clubs">Student Clubs</Link>

@@ -25,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry('/campus-life', 0.6, 'monthly'),
     entry('/clubs', 0.6, 'monthly'),
     entry('/events', 0.6, 'monthly'),
+    entry('/gallery', 0.7, 'weekly'),
     entry('/study-tour', 0.6, 'monthly'),
     entry('/blog', 0.7, 'weekly'),
     entry('/forum', 0.5, 'weekly'),

@@ -18,6 +18,7 @@ const PRIMARY = [
 ];
 
 const SECONDARY = [
+  { href: '/gallery', label: 'Gallery' },
   { href: '/absat', label: 'ABSAT 2027' },
   { href: '/blog', label: 'Blog' },
   { href: '/forum', label: 'Discussion Forum' },

@@ -107,6 +107,12 @@ export default function EventsIndex() {
 
           <h3 className="speaker-sub reveal-up">Organisations represented</h3>
           <Pills items={SPEAKER_ORGS} />
+
+          <div className="sec-foot reveal-up" style={{ marginTop: 32 }}>
+            <Link href="/gallery" className="link-cta">
+              Explore the Photo Gallery &amp; Speaker Sessions <Arrow />
+            </Link>
+          </div>
         </div>
       </section>
 
