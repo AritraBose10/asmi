@@ -63,6 +63,16 @@ export default function Placements() {
               </tbody>
             </table>
           </div>
+          <div className="duo-grid" style={{ marginTop: '2.5rem' }}>
+            <div className="callout reveal-up">
+              <strong>MBA 2nd Year SIP Status: 2026.</strong> Track the live Summer Internship Programme status sheet for the current batch.
+              <a href="https://docs.google.com/spreadsheets/d/1gPW4sThzORRhakp1IecLDjHzT0p_zwXsW6shHrIkM8o/edit?usp=sharing" className="link-cta" target="_blank" rel="noopener noreferrer">View SIP Status Sheet →</a>
+            </div>
+            <div className="callout reveal-up" data-delay={100}>
+              <strong>Internship & Placement Photos.</strong> Browse student internship experiences and placement milestones from recent batches.
+              <a href="https://drive.google.com/drive/folders/1oCX8AWO1JEGd7Clee0gMBjMdzXkCwjv6" className="link-cta" target="_blank" rel="noopener noreferrer">View Internship Photo Drive →</a>
+            </div>
+          </div>
         </div>
       </section>
 

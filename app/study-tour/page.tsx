@@ -6,8 +6,8 @@ import { TOUR_GALLERY } from '@/data/site';
 import { FeatureGrid } from '@/components/Icon';
 
 export const metadata: Metadata = {
-  title: 'International Study Tour — Malaysia',
-  description: 'The ASMi Business School study tour to Malaysia with INTI International University: industry immersion, factory visits and cultural fieldwork.',
+  title: 'International Study Tours: Where Classrooms Go Global',
+  description: 'At ASMi Business School, every cohort travels abroad. From INTI International University in 2024 to Universiti Malaya and APU in 2025 — industry immersion, factory visits and cultural fieldwork in Malaysia.',
 };
 
 export default function StudyTour() {
@@ -16,14 +16,14 @@ export default function StudyTour() {
       <PageHero
         theme="ph-gold"
         eyebrow="Global Exposure"
-        title="International <em>Study Tour</em>"
-        sub="Every cohort travels abroad for an immersion built around how business is actually done in another market. The part of the programme students talk about years later."
+        title="International Study Tours: <em>Where Classrooms Go Global</em>"
+        sub="At ASMi Business School, learning goes beyond campus. Every cohort travels abroad for an immersion built around how business is actually done in another market — the part of the programme students talk about years later."
         crumbs={[{ href: '/', label: 'Home' }, { label: 'International Study Tour' }]}
         meta={[
           { value: 'Malaysia', label: 'Destination' },
-          { value: 'INTI', label: 'University Partner' },
+          { value: '2024 & 2025', label: 'Cohorts' },
           { value: 'Annual', label: 'Frequency' },
-          { value: 'MBA · EMBA', label: 'Cohorts' },
+          { value: 'MBA · EMBA', label: 'Programmes' },
         ]}
         image="malaysia-tour.png"
       />
@@ -31,20 +31,42 @@ export default function StudyTour() {
       <section className="sec">
         <div className="container">
           <SecHead
-            eyebrow="This Year's Destination"
-            heading="Malaysia"
-            lead="Ten days with INTI International University — industry sessions, factory floors and cultural fieldwork. Not a sightseeing trip with a lecture attached: the itinerary is built around how businesses in another market actually operate."
+            eyebrow="2024 Cohort"
+            heading="Malaysia — INTI International University"
+            lead="In 2024, MBA students explored Malaysia, engaging with experts at INTI International University and touring Royal Selangor Pewter and Barleys Chocolate — insightful, inspiring and fun."
           />
-          <h3 className="absat-city-head reveal-up" style={{ marginTop: 0 }}>What the ten days contain</h3>
           <FeatureGrid
             cols={4}
             items={[
-              { icon: 'book', title: 'Sessions at INTI International University', desc: 'Engagement with industry experts and global academics on the INTI campus — the academic spine of the tour.' },
-              { icon: 'brief', title: 'Royal Selangor pewter factory', desc: 'A working manufacturing floor: craft production, quality systems and how a heritage brand scales.' },
-              { icon: 'spark', title: 'Barleys Chocolate factory', desc: 'Food manufacturing end to end — supply chain, process control and brand storytelling in one visit.' },
-              { icon: 'globe', title: 'Cultural heritage fieldwork', desc: 'Structured visits to heritage sites, reading a market through its culture rather than its spreadsheets.' },
+              { icon: 'book', title: 'Sessions at INTI International University', desc: 'Engagement with industry experts and global academics on the INTI campus — the academic spine of the 2024 tour.' },
+              { icon: 'brief', title: 'Royal Selangor Pewter Factory', desc: 'A working manufacturing floor: craft production, quality systems and how a heritage brand scales globally.' },
+              { icon: 'spark', title: 'Barleys Chocolate Factory', desc: 'Food manufacturing end to end — supply chain, process control and brand storytelling in one visit.' },
+              { icon: 'globe', title: 'Cultural Heritage Fieldwork', desc: 'Structured visits to heritage sites, reading a market through its culture rather than its spreadsheets.' },
             ]}
           />
+        </div>
+      </section>
+
+      <section className="sec sec-muted">
+        <div className="container">
+          <SecHead
+            eyebrow="2025 Cohort"
+            heading="Malaysia — Universiti Malaya & APU"
+            lead="In 2025, the MBA 2nd-year cohort experienced Malaysia through global sessions at Universiti Malaya and APU, luxury insights at Bufori Motor Car Company, biotech innovation at LiGNO Biotech, and landmark visits to the Petronas Twin Towers and Putrajaya."
+          />
+          <FeatureGrid
+            cols={4}
+            items={[
+              { icon: 'book', title: 'Universiti Malaya & APU', desc: 'Global academic sessions at two of Malaysia\'s leading institutions — Universiti Malaya and Asia Pacific University.' },
+              { icon: 'brief', title: 'Bufori Motor Car Company', desc: 'Luxury automotive manufacturing: bespoke engineering, brand exclusivity strategy, and artisan production models.' },
+              { icon: 'spark', title: 'LiGNO Biotech', desc: 'Biotech innovation on the ground — sustainable materials science, green chemistry, and startup-scale manufacturing.' },
+              { icon: 'globe', title: 'Petronas Twin Towers & Putrajaya', desc: 'Landmark visits connecting business education to Malaysia\'s iconic economic and government infrastructure.' },
+            ]}
+          />
+          <div className="callout reveal-up" style={{ marginTop: '2rem' }}>
+            <strong>See the 2025 tour in photos.</strong> Browse the full Malaysia 2025 photo collection from the trip.
+            <Link href="https://drive.google.com/drive/folders/1viqZO84_ZE8AfDaauj3h9ezgtQEMVwls?usp=sharing" className="link-cta" target="_blank" rel="noopener noreferrer">Asmi Malaysia 2025 Photo Drive <Arrow /></Link>
+          </div>
         </div>
       </section>
 
@@ -75,7 +97,7 @@ export default function StudyTour() {
 
       <section className="sec sec-muted">
         <div className="container">
-          <SecHead eyebrow="Partner" heading="INTI International University" lead="A long-standing academic partner hosting ASMi cohorts for industry engagement and campus sessions in Malaysia." />
+          <SecHead eyebrow="Partners" heading="Our University Partners" lead="ASMi has partnered with leading Malaysian institutions — INTI International University (2024) and Universiti Malaya & APU (2025) — hosting cohorts for global industry engagement and campus sessions." />
           <div className="callout reveal-up">
             <strong>Who travels.</strong> The study tour runs for the full-time MBA cohort, with a compact format for Executive MBA participants who cannot take an extended break from work.
             <Link href="/programs/mba" className="link-cta">See the MBA <Arrow /></Link>
