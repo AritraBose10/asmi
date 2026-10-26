@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { PLACEMENT_STATS, PLACED, RECRUITERS, TESTIMONIALS } from '@/data/site';
 import { PageHero, SecHead, CtaBand, Pills, StatBand, Ladder } from '@/components/Chrome';
+import Photo from '@/components/Photo';
 
 export const metadata: Metadata = {
   title: 'Placements & Recruiters',
@@ -48,7 +49,13 @@ export default function Placements() {
               <tbody>
                 {PLACED.map((p) => (
                   <tr key={p.name}>
-                    <td><strong>{p.name}</strong></td>
+                    <td>
+                      <div className="placed-cell">
+                        <Photo src={p.photo} alt={`${p.name}, placed at ${p.company}`} ratio="square"
+                               mono={p.name.split(' ').map((w) => w[0]).slice(0, 2).join('')} className="placed-photo" />
+                        <strong>{p.name}</strong>
+                      </div>
+                    </td>
                     <td>{p.batch}</td>
                     <td>{p.company}</td>
                   </tr>
@@ -83,7 +90,7 @@ export default function Placements() {
                 <div className="quote-mark" aria-hidden="true">&ldquo;</div>
                 <blockquote>{t.quote}</blockquote>
                 <div className="quote-author">
-                  <div className="quote-mono">{t.mono}</div>
+                  <Photo src={t.photo} alt={`${t.name}, ${t.batch}`} ratio="square" mono={t.mono} className="quote-photo" />
                   <div><strong>{t.name}</strong><span>{t.batch}</span></div>
                 </div>
               </article>

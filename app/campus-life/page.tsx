@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { CLUBS } from '@/data/campus';
-import { SITE } from '@/data/site';
+import { SITE, CAMPUS_GALLERY } from '@/data/site';
 import { PageHero, SecHead, CtaBand, Arrow, Pills, Ladder } from '@/components/Chrome';
 import { FeatureGrid } from '@/components/Icon';
+import { PhotoGrid } from '@/components/Photo';
 
 export const metadata: Metadata = {
   title: 'Campus Life at Sector V, Kolkata',
@@ -47,6 +48,19 @@ export default function CampusLife() {
           />
         </div>
       </section>
+
+      {CAMPUS_GALLERY.some((g) => g.src) && (
+      <section className="sec sec-muted" id="gallery">
+        <div className="container">
+          <SecHead
+            eyebrow="The Campus"
+            heading="In photographs"
+            lead="The 15th floor at Godrej Genesis, and the Sector V district it sits in."
+          />
+          <PhotoGrid items={CAMPUS_GALLERY} />
+        </div>
+      </section>
+      )}
 
       <section className="sec sec-dark">
         <div className="container">

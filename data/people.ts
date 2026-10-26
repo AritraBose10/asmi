@@ -20,6 +20,8 @@ export interface Person {
   focus: string[];
   teaches?: string[];
   linkedin?: string;
+  /** /photos/people/<slug>.jpg — falls back to the monogram while absent. */
+  photo?: string;
 }
 
 export const PEOPLE: Person[] = [

@@ -32,7 +32,8 @@ export const RECRUITERS = [
   'RAM HR Consultancy', 'Brandigence',
 ];
 
-export const PLACED = [
+/** Each may carry `photo: '/photos/students/<slug>.jpg'`. */
+export const PLACED: { name: string; batch: string; company: string; photo?: string }[] = [
   { name: 'Arindam Dhali', batch: '2023–2025', company: 'EY' },
   { name: 'Oindrila Chakraborty', batch: '2023–2025', company: 'E-Intellisense' },
   { name: 'Nilargaha Roy', batch: '2023–2025', company: 'RAM — Resource & Manpower HR Consultancy' },
@@ -40,7 +41,8 @@ export const PLACED = [
   { name: 'Rika Roy', batch: '2023–2025', company: 'Lifestyle International Pvt. Ltd' },
 ];
 
-export const TESTIMONIALS = [
+/** Each may carry `photo: '/photos/students/<slug>.jpg'`. */
+export const TESTIMONIALS: { mono: string; name: string; batch: string; quote: string; photo?: string }[] = [
   {
     mono: 'FK', name: 'Farhin Khan', batch: 'MBA · 2023–25',
     quote: 'ASMi has been truly transformative. The management learning, networking opportunities, and friendships have shaped my professional journey in ways I never expected.',
@@ -150,3 +152,30 @@ export const THREADS = [
 ];
 
 export const FORUM_CATEGORIES = ['All', 'Admissions', 'Placements', 'Study Tour', 'Analytics', 'Executive MBA', 'Campus Life', 'Clubs', 'Alumni'];
+
+/**
+ * Campus photo gallery (/campus-life). Add `src` as each photograph lands;
+ * a slot with no src renders as a labelled placeholder so the grid holds
+ * its shape while the set is being filled.
+ */
+export const CAMPUS_GALLERY: { src?: string; alt?: string; caption: string }[] = [
+  { caption: 'The 15th-floor reception, Godrej Genesis' },
+  { caption: 'Case room mid-discussion' },
+  { caption: 'The business library' },
+  { caption: 'Analytics lab during a Decode clinic' },
+  { caption: 'Student lounge between sessions' },
+  { caption: 'Sector V from the studio windows' },
+  { caption: 'A guest lecture in progress' },
+  { caption: 'Convocation day' },
+  { caption: 'Club fair, orientation week' },
+];
+
+/** Study tour gallery (/study-tour). */
+export const TOUR_GALLERY: { src?: string; alt?: string; caption: string }[] = [
+  { caption: 'Campus session at INTI International University' },
+  { caption: 'Royal Selangor pewter factory floor' },
+  { caption: 'Barleys Chocolate production line' },
+  { caption: 'Cultural heritage fieldwork' },
+  { caption: 'The cohort in Kuala Lumpur' },
+  { caption: 'Industry panel, INTI' },
+];

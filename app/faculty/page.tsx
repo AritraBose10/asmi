@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { LEADERSHIP, FACULTY, MENTORS } from '@/data/people';
 import { PageHero, SecHead, CtaBand, Arrow, Pills } from '@/components/Chrome';
 import LinkedInLink from '@/components/LinkedInLink';
+import Photo from '@/components/Photo';
 import { FeatureGrid } from '@/components/Icon';
 
 export const metadata: Metadata = {
@@ -35,7 +36,7 @@ export default function FacultyIndex() {
             {LEADERSHIP.map((p, i) => (
               <article key={p.slug} className="lead-card reveal-up" data-delay={i * 70}>
                 <Link href={`/faculty/${p.slug}`} className="card-link" aria-label={`${p.name} — ${p.role}`} />
-                <div className="lead-mono">{p.mono}</div>
+                <Photo src={p.photo} alt={`${p.name}, ${p.role}`} ratio="square" mono={p.mono} className="card-portrait" />
                 <div>
                   <h3>{p.name}</h3>
                   <span className="lead-role">{p.role}</span>
@@ -60,7 +61,7 @@ export default function FacultyIndex() {
               <article key={p.slug} className="fac-full reveal-up" data-delay={(i % 4) * 70}>
                 <Link href={`/faculty/${p.slug}`} className="card-link" aria-label={`${p.name} — ${p.role}`} />
                 <div className="fac-full-top">
-                  <div className="fac-full-mono">{p.mono}</div>
+                  <Photo src={p.photo} alt={`${p.name}, ${p.role}`} ratio="square" mono={p.mono} className="card-portrait" />
                   <span className="fac-full-num">{String(i + 1).padStart(2, '0')}</span>
                 </div>
                 <h3>{p.name}</h3>
@@ -87,7 +88,7 @@ export default function FacultyIndex() {
             {MENTORS.map((p, i) => (
               <article key={p.slug} className="mentor-card reveal-up" data-delay={(i % 4) * 60}>
                 <Link href={`/faculty/${p.slug}`} className="card-link" aria-label={`${p.name} — ${p.role}`} />
-                <div className="mentor-mono">{p.mono}</div>
+                <Photo src={p.photo} alt={`${p.name}, ${p.role}`} ratio="square" mono={p.mono} className="card-portrait" />
                 <div>
                   <h3>{p.name}</h3>
                   <span className="mentor-role">{p.role}</span>

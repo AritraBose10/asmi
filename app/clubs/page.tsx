@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { CLUBS } from '@/data/campus';
 import { PageHero, SecHead, CtaBand, Arrow, Pills, TickList } from '@/components/Chrome';
+import Photo from '@/components/Photo';
 
 export const metadata: Metadata = {
   title: 'Student Clubs & Societies',
@@ -32,7 +33,7 @@ export default function ClubsIndex() {
           <div className="club-grid">
             {CLUBS.map((c, i) => (
               <Link key={c.slug} href={`/clubs/${c.slug}`} className="club-card reveal-up" data-delay={(i % 4) * 60}>
-                <div className="club-mono">{c.mono}</div>
+                <Photo src={c.photo} alt={`${c.shortName} at ASMi Business School`} ratio="card" mono={c.mono} className="club-photo" />
                 <h3>{c.shortName}</h3>
                 <span className="club-kicker">{c.kicker}</span>
                 <p>{c.summary}</p>

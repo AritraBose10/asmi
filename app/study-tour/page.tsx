@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { PageHero, SecHead, CtaBand, FaqBlock, Arrow } from '@/components/Chrome';
+import { PhotoGrid } from '@/components/Photo';
+import { TOUR_GALLERY } from '@/data/site';
 import { FeatureGrid } from '@/components/Icon';
 
 export const metadata: Metadata = {
@@ -45,6 +47,15 @@ export default function StudyTour() {
           />
         </div>
       </section>
+
+      {TOUR_GALLERY.some((g) => g.src) && (
+      <section className="sec sec-muted" id="gallery">
+        <div className="container">
+          <SecHead eyebrow="From The Tour" heading="On the ground" />
+          <PhotoGrid items={TOUR_GALLERY} />
+        </div>
+      </section>
+      )}
 
       <section className="sec sec-dark">
         <div className="container">

@@ -5,6 +5,7 @@ import { PEOPLE, getPerson } from '@/data/people';
 import { SPECIALIZATIONS } from '@/data/programs';
 import { PageHero, SecHead, CtaBand, Arrow, Pills, TickList } from '@/components/Chrome';
 import LinkedInLink from '@/components/LinkedInLink';
+import Photo from '@/components/Photo';
 
 export function generateStaticParams() {
   return PEOPLE.map((p) => ({ slug: p.slug }));
@@ -42,7 +43,14 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
           <div className="article-layout">
             <aside className="article-rail">
               <Link href="/faculty" className="rail-back"><Arrow size={14} /> <span>All people</span></Link>
-              <div className="profile-mono">{person.mono}</div>
+              <Photo
+                src={person.photo}
+                alt={`${person.name}, ${person.role}`}
+                ratio="portrait"
+                mono={person.mono}
+                className="profile-photo"
+                priority
+              />
               <div className="rail-block">
                 <span className="rail-label">Role</span>
                 <strong>{person.role}</strong>

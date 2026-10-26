@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { EVENTS } from '@/data/campus';
 import { SESSIONS, SCHEDULED, DIRECTORY_PERIOD, SPEAKER_ORGS, monogram, speakerDate } from '@/data/speakers';
 import { PageHero, SecHead, CtaBand, Arrow, TickList, Pills } from '@/components/Chrome';
+import Photo from '@/components/Photo';
 
 export const metadata: Metadata = {
   title: 'Events, Bootcamps & Guest Lectures',
@@ -37,6 +38,7 @@ export default function EventsIndex() {
           <div className="event-grid">
             {EVENTS.map((e, i) => (
               <Link key={e.slug} href={`/events/${e.slug}`} className="event-card reveal-up" data-delay={(i % 3) * 70}>
+                <Photo src={e.photo} alt={e.title} ratio="card" className="event-photo" />
                 <div className="event-top">
                   <span className="event-tag">{e.tag}</span>
                   <span className="event-when">{e.when}</span>

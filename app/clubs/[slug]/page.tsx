@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { CLUBS, getClub } from '@/data/campus';
 import { PageHero, SecHead, CtaBand, Arrow, Pills } from '@/components/Chrome';
+import Photo from '@/components/Photo';
 
 export function generateStaticParams() {
   return CLUBS.map((c) => ({ slug: c.slug }));
@@ -29,6 +30,7 @@ export default async function ClubPage({ params }: { params: Promise<{ slug: str
         title={club.shortName}
         sub={club.summary}
         crumbs={[{ href: '/', label: 'Home' }, { href: '/clubs', label: 'Student Clubs' }, { label: club.shortName }]}
+        image={club.photo ? undefined : 'campus-life.png'}
         meta={[
           { value: club.openTo.split(',')[0], label: 'Open To' },
           { value: club.activities.length.toString(), label: 'Core Activities' },
@@ -42,7 +44,7 @@ export default async function ClubPage({ params }: { params: Promise<{ slug: str
           <div className="article-layout">
             <aside className="article-rail">
               <Link href="/clubs" className="rail-back"><Arrow size={14} /> <span>All clubs</span></Link>
-              <div className="profile-mono">{club.mono}</div>
+              <Photo src={club.photo} alt={`${club.shortName}, ASMi Business School`} ratio="card" mono={club.mono} className="profile-photo" />
               <div className="rail-block">
                 <span className="rail-label">Focus</span>
                 <strong>{club.kicker}</strong>

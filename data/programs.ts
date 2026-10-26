@@ -207,6 +207,8 @@ export const getProgram = (slug: string) => PROGRAMS.find((p) => p.slug === slug
 
 // ── MBA specializations ────────────────────────────────────────────────────
 export interface Specialization {
+  /** /photos/specializations/<slug>.jpg */
+  photo?: string;
   slug: string;
   num: string;
   name: string;

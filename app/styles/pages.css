@@ -1599,3 +1599,96 @@ a.pill-link:hover { border-color: var(--gold); color: var(--black); background: 
   .about-facts { grid-template-columns: 1fr; }
   .about-fact dt { font-size: 12px; }
 }
+
+/* ══════════════════════════════════
+   PHOTOS
+   One component, fixed ratios, graceful gaps.
+══════════════════════════════════ */
+.photo {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background: var(--gray-100);
+}
+.photo-rounded { border-radius: var(--r-lg); }
+.photo-img { object-fit: cover; }
+.photo-portrait { aspect-ratio: 4 / 5; }
+.photo-card { aspect-ratio: 16 / 10; }
+.photo-wide { aspect-ratio: 16 / 7; }
+.photo-square { aspect-ratio: 1 / 1; }
+.photo-tall { aspect-ratio: 3 / 4; }
+
+/* No file yet: keep the shape, show the monogram the site already uses */
+.photo-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(140deg, rgba(201,168,76,0.12), rgba(0,0,0,0.04));
+  border: 1px solid var(--gray-200);
+}
+.sec-dark .photo-empty {
+  background: linear-gradient(140deg, rgba(201,168,76,0.14), rgba(255,255,255,0.03));
+  border-color: rgba(255,255,255,0.1);
+}
+.photo-mono {
+  font-size: clamp(1.1rem, 2.4vw, 1.6rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--gold-dark);
+}
+.sec-dark .photo-mono { color: var(--gold); }
+.photo-pending {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+}
+.sec-dark .photo-pending { color: rgba(255,255,255,0.4); }
+
+/* Gallery */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.photo-figure { margin: 0; }
+.photo-figure figcaption {
+  margin-top: 10px;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--gray-500);
+}
+.sec-dark .photo-figure figcaption { color: rgba(255,255,255,0.55); }
+
+@media (max-width: 992px) { .photo-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) {
+  .photo-grid { grid-template-columns: 1fr; gap: 16px; }
+  .photo-figure figcaption { font-size: 12px; }
+}
+
+/* Portraits in place of the monogram discs */
+.card-portrait {
+  width: 56px;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+.card-portrait.photo-empty { border-radius: 50%; }
+.lead-card .card-portrait, .mentor-card .card-portrait { width: 52px; }
+.fac-full .card-portrait { width: 52px; }
+.profile-photo { max-width: 240px; border-radius: var(--r-lg); }
+.profile-photo.photo-empty { aspect-ratio: 4 / 5; }
+@media (max-width: 992px) { .profile-photo { max-width: 180px; } }
+
+/* Photo slots inside existing components */
+.club-photo, .event-photo { margin-bottom: 16px; }
+.event-card .event-photo { margin: -30px -28px 18px; border-radius: var(--r-lg) var(--r-lg) 0 0; width: auto; }
+.club-card .club-photo { margin: -28px -24px 16px; border-radius: var(--r-lg) var(--r-lg) 0 0; width: auto; }
+.prose-photo { margin-bottom: 28px; }
+.placed-cell { display: flex; align-items: center; gap: 12px; }
+.placed-photo { width: 40px; flex-shrink: 0; border-radius: 50%; }
+.placed-photo.photo-empty { border-radius: 50%; }
+.placed-photo .photo-mono { font-size: 0.72rem; }
+.quote-photo { width: 42px; flex-shrink: 0; border-radius: 50%; }
+.quote-photo.photo-empty { border-radius: 50%; }
+.quote-photo .photo-mono { font-size: 0.72rem; }

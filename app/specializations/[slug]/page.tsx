@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { SPECIALIZATIONS, getSpecialization } from '@/data/programs';
 import { getPerson } from '@/data/people';
 import { PageHero, SecHead, CtaBand, Arrow, Pills } from '@/components/Chrome';
+import Photo from '@/components/Photo';
 
 export function generateStaticParams() {
   return SPECIALIZATIONS.map((s) => ({ slug: s.slug }));
@@ -66,6 +67,9 @@ export default async function SpecializationPage({ params }: { params: Promise<{
             </aside>
 
             <div className="prose">
+              {spec.photo && (
+                <Photo src={spec.photo} alt={`${spec.name} specialization at ASMi`} ratio="wide" className="prose-photo" />
+              )}
               {spec.intro.map((p, i) => (
                 <p key={i} className={i === 0 ? 'lede' : undefined}>{p}</p>
               ))}

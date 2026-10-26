@@ -5,6 +5,8 @@
  */
 
 export interface Club {
+  /** /photos/clubs/<slug>.jpg */
+  photo?: string;
   slug: string;
   mono: string;
   name: string;
@@ -178,6 +180,8 @@ export const getClub = (slug: string) => CLUBS.find((c) => c.slug === slug);
 
 // ── Events ─────────────────────────────────────────────────────────────────
 export interface CampusEvent {
+  /** /photos/events/<slug>.jpg */
+  photo?: string;
   slug: string;
   tag: string;
   title: string;

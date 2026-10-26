@@ -22,6 +22,8 @@ export interface Speaker {
   /** Source report filename, for the records team. Not rendered. */
   reportSource?: string;
   facultySlug?: string;
+  /** /photos/speakers/<slug>.jpg */
+  photo?: string;
 }
 
 export const SESSIONS: Speaker[] = [
