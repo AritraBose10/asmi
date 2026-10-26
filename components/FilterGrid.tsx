@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { Children, isValidElement, useState } from 'react';
 
 /**
  * Category filter shared by the blog listing and the forum thread list.
@@ -13,12 +13,17 @@ export default function FilterGrid({
   emptyNote,
 }: {
   categories: string[];
-  children: React.ReactElement<{ 'data-cat'?: string }>[];
+  children: React.ReactNode;
   listClassName: string;
   emptyNote: string;
 }) {
   const [active, setActive] = useState('All');
-  const shown = children.filter((c) => active === 'All' || c.props['data-cat'] === active);
+  // Children.toArray flattens the nested array JSX hands us and drops any
+  // non-element nodes, so the filter can rely on props existing.
+  const items = Children.toArray(children).filter(isValidElement) as React.ReactElement<{
+    'data-cat'?: string;
+  }>[];
+  const shown = items.filter((c) => active === 'All' || c.props['data-cat'] === active);
 
   return (
     <>
