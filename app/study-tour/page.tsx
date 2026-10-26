@@ -2,8 +2,25 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { PageHero, SecHead, CtaBand, FaqBlock, Arrow } from '@/components/Chrome';
 import { PhotoGrid } from '@/components/Photo';
-import { TOUR_GALLERY } from '@/data/site';
 import { FeatureGrid } from '@/components/Icon';
+
+const TOUR_2024_PHOTOS = [
+  { caption: 'Sessions at INTI International University' },
+  { caption: 'Royal Selangor Pewter Factory visit' },
+  { caption: 'Barleys Chocolate Factory tour' },
+  { caption: 'Cultural heritage fieldwork, Kuala Lumpur' },
+  { caption: '2024 cohort on campus, INTI University' },
+  { caption: 'Group activity, Malaysia 2024' },
+];
+
+const TOUR_2025_PHOTOS = [
+  { caption: 'Global session at Universiti Malaya' },
+  { caption: 'Session at Asia Pacific University (APU)' },
+  { caption: 'Bufori Motor Car Company — manufacturing floor' },
+  { caption: 'LiGNO Biotech — biotech innovation visit' },
+  { caption: 'Petronas Twin Towers, Kuala Lumpur' },
+  { caption: 'Putrajaya — government precinct visit' },
+];
 
 export const metadata: Metadata = {
   title: 'International Study Tours: Where Classrooms Go Global',
@@ -44,6 +61,7 @@ export default function StudyTour() {
               { icon: 'globe', title: 'Cultural Heritage Fieldwork', desc: 'Structured visits to heritage sites, reading a market through its culture rather than its spreadsheets.' },
             ]}
           />
+          <PhotoGrid items={TOUR_2024_PHOTOS} />
         </div>
       </section>
 
@@ -63,21 +81,9 @@ export default function StudyTour() {
               { icon: 'globe', title: 'Petronas Twin Towers & Putrajaya', desc: 'Landmark visits connecting business education to Malaysia\'s iconic economic and government infrastructure.' },
             ]}
           />
-          <div className="callout reveal-up" style={{ marginTop: '2rem' }}>
-            <strong>See the 2025 tour in photos.</strong> Browse the full Malaysia 2025 photo collection from the trip.
-            <Link href="https://drive.google.com/drive/folders/1viqZO84_ZE8AfDaauj3h9ezgtQEMVwls?usp=sharing" className="link-cta" target="_blank" rel="noopener noreferrer">Asmi Malaysia 2025 Photo Drive <Arrow /></Link>
-          </div>
+          <PhotoGrid items={TOUR_2025_PHOTOS} />
         </div>
       </section>
-
-      {TOUR_GALLERY.some((g) => g.src) && (
-      <section className="sec sec-muted" id="gallery">
-        <div className="container">
-          <SecHead eyebrow="From The Tour" heading="On the ground" />
-          <PhotoGrid items={TOUR_GALLERY} />
-        </div>
-      </section>
-      )}
 
       <section className="sec sec-dark">
         <div className="container">
