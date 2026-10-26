@@ -17,11 +17,11 @@ export default function FacultyIndex() {
         theme="ph-dark"
         eyebrow="The People"
         title="Faculty &amp; <em>Mentors</em>"
-        sub="Thirteen faculty, twelve industry mentors, and a leadership bench drawn from one of Eastern India's largest education groups. Most of them still do the work they teach."
+        sub={`${FACULTY.length} faculty, ${MENTORS.length} industry mentors, and a chief-mentor bench drawn from one of Eastern India's largest education groups. Most of them still do the work they teach.`}
         crumbs={[{ href: '/', label: 'Home' }, { label: 'Faculty' }]}
         meta={[
-          { value: '13+', label: 'Faculty' },
-          { value: '12+', label: 'Industry Mentors' },
+          { value: `${FACULTY.length}+`, label: 'Faculty' },
+          { value: `${MENTORS.length}+`, label: 'Industry Mentors' },
           { value: 'IIT · IIM', label: 'Alumni' },
           { value: 'CXO', label: 'Practitioners' },
         ]}

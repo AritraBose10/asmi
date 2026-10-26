@@ -9,7 +9,7 @@ import { PROGRAMS } from '@/data/programs';
 const PRIMARY = [
   { href: '/', label: 'Home' },
   { href: '/programs', label: 'Programmes' },
-  { href: '/placements', label: 'Placements' },
+  { href: '/placements', label: 'Internships & Placements' },
   { href: '/faculty', label: 'Faculty & Mentors' },
   { href: '/campus-life', label: 'Campus Life' },
   { href: '/clubs', label: 'Student Clubs' },

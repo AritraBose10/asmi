@@ -109,7 +109,7 @@ export const PEOPLE: Person[] = [
     name: 'Kaustav Majumdar',
     mono: 'KM',
     role: 'Chief Mentor, ASMi Business School',
-    kind: 'faculty',
+    kind: 'leadership',
     short: 'Leadership, strategy and innovation, from decades of senior management practice.',
     bio: [
       'Chief Mentor at ASMi Business School, with decades of strategic leadership behind him. He sets the tone for how strategy is taught here: as a set of decisions made with incomplete information, not a framework to be recited.',
@@ -128,7 +128,7 @@ export const PEOPLE: Person[] = [
     name: 'Dr. Gautam Majumdar',
     mono: 'GM',
     role: 'Pro Vice-Chancellor (Academics), TIU',
-    kind: 'faculty',
+    kind: 'leadership',
     short: 'Ph.D. (Engg.), Jadavpur University. Former Vice-Chancellor, MAKAUT.',
     bio: [
       'Pro Vice-Chancellor (Academics) at Techno India University. He holds a Ph.D. in Engineering from Jadavpur University, where he was Professor and Head of Mechanical Engineering, and formerly served as Vice-Chancellor of MAKAUT.',
