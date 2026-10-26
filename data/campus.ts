@@ -180,28 +180,84 @@ export const getClub = (slug: string) => CLUBS.find((c) => c.slug === slug);
 
 // ── Events ─────────────────────────────────────────────────────────────────
 export interface CampusEvent {
-  /** /photos/events/<slug>.jpg */
-  photo?: string;
   slug: string;
-  tag: string;
+  tag: EventTag;
   title: string;
-  where: string;
-  when: string;
+  /** One honest line. Anything longer belongs in `intro`, once confirmed. */
   summary: string;
-  intro: string[];
-  details: { label: string; value: string }[];
-  highlights: string[];
-  who: string;
+  where?: string;
+  when?: string;
+  who?: string;
+  /** Optional long copy. Events without it render summary + gallery only. */
+  intro?: string[];
+  details?: { label: string; value: string }[];
+  highlights?: string[];
+  /** Cover image: /photos/events/<slug>.jpg */
+  photo?: string;
+  /** Gallery: /photos/events/<slug>/1.jpg … */
+  gallery?: string[];
+  /** Source folder in the school's Drive, for whoever exports the photos. */
+  driveFolder?: string;
+  /** Slugs from data/people.ts, or names from the speaker directory. */
+  speakers?: string[];
 }
 
+export type EventTag =
+  | 'Flagship' | 'International' | 'Industry' | 'Academic'
+  | 'Competition' | 'Culture' | 'Community' | 'Campus';
+
+export const EVENT_TAGS: EventTag[] = [
+  'Flagship', 'International', 'Industry', 'Academic',
+  'Competition', 'Culture', 'Community', 'Campus',
+];
+
+/**
+ * The ASMi event calendar.
+ *
+ * Titles and groupings mirror the school's own photo folders in Drive, so each
+ * entry has photographs waiting for it; `driveFolder` records where. Entries
+ * carry a short factual summary only — longer copy is added per event once
+ * confirmed, rather than invented here. Several cross-reference the speaker
+ * directory in data/speakers.ts.
+ */
 export const EVENTS: CampusEvent[] = [
+  // ── Flagship ──────────────────────────────────────────────────────────
+  {
+    slug: 'asmi-orientation-2026',
+    tag: 'Flagship',
+    title: 'ASMi Orientation 2026',
+    summary: 'The incoming batch\u2019s first week: introductions to the programme, the faculty and the clubs.',
+    when: 'Start of the academic year',
+    who: 'Incoming MBA and BBA students',
+    driveFolder: 'Asmi Orientation 2026',
+  },
+  {
+    slug: 'asmi-deploy-batch-of-2026',
+    tag: 'Flagship',
+    title: 'ASMi Deploy \u2014 Batch of 2026',
+    summary: 'The placement send-off for the graduating batch.',
+    who: 'Graduating batch',
+    driveFolder: 'Asmi Deploy Batch of 2026',
+  },
+  {
+    slug: 'asmi-farewell-fiesta',
+    tag: 'Flagship',
+    title: 'ASMi Farewell Fiesta',
+    summary: 'The outgoing batch\u2019s farewell, hosted by the juniors.',
+    who: 'Outgoing and continuing students',
+    driveFolder: 'Asmi Farewell Fiesta',
+  },
   {
     slug: 'mba-boot-camp-sundarban',
-    tag: 'Flagship', title: 'MBA Boot Camp — Sundarban', where: 'Jharkhali, Sundarban', when: 'Annual · Residential',
-    summary: 'A residential immersion where first-year students run live field assignments with local enterprises, testing strategy frameworks outside the classroom.',
+    tag: 'Flagship',
+    title: 'MBA Boot Camp \u2014 Sundarban',
+    summary: 'A residential field immersion in Jharkhali, running live assignments with local enterprises.',
+    where: 'Jharkhali, Sundarban',
+    when: 'Annual \u00b7 Residential',
+    who: 'First-year MBA students',
     intro: [
       'The boot camp takes the incoming MBA cohort out of Sector V and into Jharkhali for a residential week of field assignments with local enterprises.',
-      'The constraints are real — thin margins, limited capital, seasonal demand — and management frameworks that survive contact with them tend to stay with students for the rest of the programme.',
+      'The constraints are real \u2014 thin margins, limited capital, seasonal demand \u2014 and management frameworks that survive contact with them tend to stay with students for the rest of the programme.',
     ],
     details: [
       { label: 'Format', value: 'Residential, team-based' },
@@ -209,13 +265,19 @@ export const EVENTS: CampusEvent[] = [
       { label: 'Duration', value: 'One week' },
       { label: 'Assessment', value: 'Field presentation' },
     ],
-    highlights: ['Live assignments with local enterprises', 'Team-based and assessed in the field', 'Residential, away from campus', 'Runs annually for the incoming cohort'],
-    who: 'First-year MBA students',
+    highlights: ['Live assignments with local enterprises', 'Team-based and assessed in the field', 'Residential, away from campus'],
   },
+
+  // ── International ─────────────────────────────────────────────────────
   {
-    slug: 'international-study-tour-malaysia',
-    tag: 'International', title: 'International Study Tour — Malaysia', where: 'INTI International University', when: 'Annual · 10 Days',
-    summary: 'Ten days of industry immersion, campus sessions and cultural discovery in partnership with INTI International University.',
+    slug: 'asmi-malaysia-2025',
+    tag: 'International',
+    title: 'International Study Tour \u2014 Malaysia 2025',
+    summary: 'Ten days with INTI International University: campus sessions, factory visits and cultural fieldwork.',
+    where: 'Malaysia \u00b7 INTI International University',
+    when: 'Annual',
+    who: 'MBA cohort; compact format for EMBA',
+    driveFolder: 'Asmi Malaysia 2025',
     intro: [
       'The study tour pairs academic sessions at INTI International University with industrial site visits and structured cultural fieldwork.',
       'It runs in the MBA third semester, with a compact format scheduled for Executive MBA participants who cannot take an extended break from work.',
@@ -224,68 +286,45 @@ export const EVENTS: CampusEvent[] = [
       { label: 'Destination', value: 'Malaysia' },
       { label: 'Partner', value: 'INTI International University' },
       { label: 'Duration', value: '10 days' },
-      { label: 'Cohorts', value: 'MBA · EMBA (compact)' },
+      { label: 'Cohorts', value: 'MBA \u00b7 EMBA (compact)' },
     ],
     highlights: ['Industry sessions at INTI International University', 'Royal Selangor pewter factory tour', 'Barleys Chocolate factory visit', 'Cultural heritage fieldwork'],
-    who: 'MBA cohort; compact format for EMBA',
+  },
+
+  // ── Industry ──────────────────────────────────────────────────────────
+  {
+    slug: 'ibm-day-technovate-2026',
+    tag: 'Industry',
+    title: 'IBM Day: TechnoVate 2026',
+    summary: 'A full day with IBM on campus, led by the company\u2019s AI, data and cloud practitioners.',
+    when: '22 September 2026',
+    driveFolder: 'IBM Day Technovate 2026',
+    speakers: ['Mr. Aman Bakshi', 'Mr. Robin Tyagi'],
   },
   {
-    slug: 'session-meghdut-roychowdhury',
-    tag: 'Leadership', title: 'Session with Meghdut Roychowdhury', where: 'Chief Innovation Officer, Techno India Group', when: 'Guest Session',
-    summary: 'An open session on innovation, entrepreneurship and building technology ventures from Eastern India.',
-    intro: [
-      'The group’s Chief Innovation Officer runs an open session on innovation and venture building, consistently one of the best-attended fixtures in the calendar.',
-      'It is unusually practical for a leadership session: the material is about what it takes to start something here, in this region, with these constraints.',
-    ],
-    details: [
-      { label: 'Speaker', value: 'Meghdut Roychowdhury' },
-      { label: 'Role', value: 'CIO & Executive Director, Techno India Group' },
-      { label: 'Format', value: 'Open session with Q&A' },
-      { label: 'Open to', value: 'All programmes' },
-    ],
-    highlights: ['Innovation and venture building', 'Eastern India’s startup ecosystem', 'Open Q&A with the whole school'],
-    who: 'All students',
+    slug: 'ibm-immersion-programme',
+    tag: 'Industry',
+    title: 'IBM Immersion Programme',
+    summary: 'Hands-on sessions with IBM covering the analytics and cloud content that runs through the curriculum.',
+    driveFolder: 'IBM Immersion Programme',
   },
   {
-    slug: 'session-kaustav-majumdar',
-    tag: 'Leadership', title: 'Session with Kaustav Majumdar', where: 'Chief Mentor, ASMi Business School', when: 'Guest Session',
-    summary: 'Strategy and leadership masterclass drawing on decades of senior management practice.',
-    intro: [
-      'ASMi’s Chief Mentor runs a recurring masterclass on strategy and leadership built from decades of senior management practice.',
-      'The format is deliberately adversarial: students take a position early and defend it as the facts change.',
-    ],
-    details: [
-      { label: 'Speaker', value: 'Kaustav Majumdar' },
-      { label: 'Role', value: 'Chief Mentor, ASMi Business School' },
-      { label: 'Format', value: 'Masterclass' },
-      { label: 'Open to', value: 'All programmes' },
-    ],
-    highlights: ['Strategy under incomplete information', 'Decision-making and defence', 'Leadership from practice'],
-    who: 'All students',
-  },
-  {
-    slug: 'session-pauline-laravoire',
-    tag: 'Sustainability', title: 'Session with Pauline Laravoire', where: 'Sustainability Director, Techno India Group', when: 'Guest Session',
-    summary: 'ESG, responsible business and how sustainability reshapes the manager’s job description.',
-    intro: [
-      'The group’s Sustainability Director runs sessions on ESG as an operating constraint rather than a values statement.',
-      'The session anchors the sustainability thread that now runs through every MBA specialisation.',
-    ],
-    details: [
-      { label: 'Speaker', value: 'Pauline Laravoire' },
-      { label: 'Role', value: 'Sustainability Director, Techno India Group' },
-      { label: 'Format', value: 'Session with case discussion' },
-      { label: 'Open to', value: 'All programmes' },
-    ],
-    highlights: ['ESG as an operating constraint', 'Disclosure and impact measurement', 'Sustainability across functions'],
-    who: 'All students',
+    slug: 'google-gemini-ai-masterclass',
+    tag: 'Industry',
+    title: 'Google Gemini AI Masterclass',
+    summary: 'A masterclass on applied generative AI, run through the group\u2019s Google partnership.',
+    driveFolder: 'Google Gemini AI Masterclass',
   },
   {
     slug: 'corporate-connect-sessions',
-    tag: 'Industry', title: 'Corporate Connect Sessions', where: 'Campus & partner offices', when: 'Monthly',
-    summary: 'Recurring sessions where hiring managers and founders brief students on what industry actually looks for.',
+    tag: 'Industry',
+    title: 'Corporate Connect Sessions',
+    summary: 'A recurring series in which hiring managers and founders brief students on what industry looks for.',
+    when: 'Monthly',
+    who: 'All programmes',
+    driveFolder: 'Asmi Corporate Connect Session',
     intro: [
-      'Once a month, hiring managers and founders come to campus — or host students at their offices — and say plainly what they look for and what disqualifies a candidate.',
+      'Once a month, hiring managers and founders come to campus \u2014 or host students at their offices \u2014 and say plainly what they look for and what disqualifies a candidate.',
       'Many of the managers running these sessions meet the same students again, on the other side of a table, eighteen months later.',
     ],
     details: [
@@ -295,12 +334,39 @@ export const EVENTS: CampusEvent[] = [
       { label: 'Open to', value: 'All programmes' },
     ],
     highlights: ['Direct access to hiring managers', 'What recruiters actually screen for', 'Office visits with partner organisations'],
-    who: 'All students',
+  },
+  {
+    slug: 'corporate-connect-hr-analytics',
+    tag: 'Industry',
+    title: 'Corporate Connect: HR Analytics',
+    summary: 'A corporate connect session on how people functions use data.',
+    driveFolder: 'Asmi Corporate Connect Session on HR Analytics',
+  },
+  {
+    slug: 'asmi-session-11-august-2026',
+    tag: 'Industry',
+    title: 'LinkedIn Branding & Practice Session',
+    summary: 'A double session on personal branding and professional practice.',
+    when: '11 August 2026',
+    driveFolder: '11th August 2026',
+    speakers: ['Neha Mishra', 'CA Nikhil Bajaj'],
+  },
+  {
+    slug: 'asmi-finance-marathon',
+    tag: 'Industry',
+    title: 'The ASMi Finance Marathon',
+    summary: 'A finance-focused day led by a practising financial controller.',
+    when: '19 August 2026',
+    driveFolder: 'The Asmi Finance Marathon',
+    speakers: ['Mainak Roy'],
   },
   {
     slug: 'guest-lecture-series',
-    tag: 'Industry', title: 'Guest Lecture Series', where: 'ASMi Campus, Sector V', when: 'Fortnightly',
-    summary: 'Practitioners from finance, marketing, analytics and operations teach a live problem from their own desk.',
+    tag: 'Industry',
+    title: 'Guest Lecture Series',
+    summary: 'Practitioners bring a live, unresolved problem from their own desk and the room works on it.',
+    when: 'Fortnightly',
+    who: 'All students; selected sessions open to applicants',
     intro: [
       'Every fortnight a practitioner brings a live problem from their own desk and the room works on it together.',
       'The brief to speakers is explicit: bring something unresolved, not a case study with a published answer.',
@@ -312,14 +378,109 @@ export const EVENTS: CampusEvent[] = [
       { label: 'Open to', value: 'All programmes' },
     ],
     highlights: ['Live, unresolved problems', 'Cross-functional speakers', 'Prospective students welcome at selected sessions'],
-    who: 'All students; selected sessions open to applicants',
+  },
+
+  // ── Academic ──────────────────────────────────────────────────────────
+  {
+    slug: 'prof-atanu-chaudhuri-session',
+    tag: 'Academic',
+    title: 'Supply Chain Management Session',
+    summary: 'A session on technology and operations management with Durham University Business School.',
+    when: '1 September 2026',
+    driveFolder: 'Prof. Atanu Chaudhuri Session',
+    speakers: ['Prof. Atanu Chaudhuri'],
+  },
+  {
+    slug: 'ai-business-strategy-at-asmi',
+    tag: 'Academic',
+    title: 'AI & Business Strategy',
+    summary: 'A session on where artificial intelligence actually changes strategic decisions.',
+    driveFolder: 'AI Business Strategy at Asmi',
+  },
+  {
+    slug: 'asmi-general-insurance',
+    tag: 'Academic',
+    title: 'General Insurance and Its Necessity',
+    summary: 'A subject session on general insurance and risk cover.',
+    driveFolder: 'Asmi General Insurance and ITS Necessity',
+  },
+  {
+    slug: 'asmi-penalties-and-enforcement',
+    tag: 'Academic',
+    title: 'Penalties and Enforcement',
+    summary: 'A session on regulatory penalties and enforcement in business practice.',
+    driveFolder: 'Asmi Penalties and Enforcement',
+  },
+  {
+    slug: 'asmi-happiness-by-design',
+    tag: 'Academic',
+    title: 'Happiness by Design',
+    summary: 'A behavioural session on wellbeing and decision-making.',
+    driveFolder: 'Asmi Happiness by Design',
+  },
+  {
+    slug: 'asmi-cma-swagatam',
+    tag: 'Academic',
+    title: 'CMA Swagatam',
+    summary: 'A welcome and orientation session for the CMA cohort.',
+    driveFolder: 'Asmi CMA Swagatam',
+  },
+  {
+    slug: 'asmi-sap-certificate-distribution',
+    tag: 'Academic',
+    title: 'SAP Certificate Distribution',
+    summary: 'Certificates awarded to students completing the SAP module.',
+    driveFolder: 'Asmi SAP Certificate Distribution',
+  },
+
+  // ── Competition ───────────────────────────────────────────────────────
+  {
+    slug: 'asmi-startup-games-2026',
+    tag: 'Competition',
+    title: 'ASMi Startup Games 2026',
+    summary: 'A venture-building competition run across the cohort.',
+    driveFolder: 'Asmi Startup Games 2026',
+  },
+  {
+    slug: 'asmi-empathy-mapping-competition',
+    tag: 'Competition',
+    title: 'Empathy Mapping Competition',
+    summary: 'A design-thinking competition on understanding the customer before the solution.',
+    driveFolder: 'Asmi Empathy Mapping Competition',
+  },
+  {
+    slug: 'asmi-entrepreneurship-day',
+    tag: 'Competition',
+    title: 'ASMi Entrepreneurship Day',
+    summary: 'A day given over to student ventures, pitches and founder conversations.',
+    driveFolder: 'Asmi Entrepreneurship Day',
+  },
+  {
+    slug: 'asmi-premiere-league',
+    tag: 'Competition',
+    title: 'ASMi Premiere League',
+    summary: 'The inter-batch sporting league, run by the sports club.',
+    driveFolder: 'Asmi Premiere League',
+  },
+
+  // ── Culture ───────────────────────────────────────────────────────────
+  {
+    slug: 'asmi-agomoni-2026',
+    tag: 'Culture',
+    title: 'Agomoni 2026',
+    summary: 'The school\u2019s Durga Puja celebration, run by the cultural club.',
+    driveFolder: 'Asmi Agomoni 2026',
   },
   {
     slug: 'teachers-day-celebration',
-    tag: 'Culture', title: 'Teachers Day Celebration', where: 'ASMi Campus', when: 'September',
-    summary: 'Students take over the lecterns for a day — a long-running ASMi tradition of tribute and role reversal.',
+    tag: 'Culture',
+    title: 'Teachers Day Celebration',
+    summary: 'Students take over the lecterns for a day \u2014 a long-running ASMi tradition.',
+    when: 'September',
+    who: 'All students and faculty',
+    driveFolder: 'Asmi Teachers Day Celebration',
     intro: [
-      'On Teachers Day the students teach. Classes are planned, delivered and — to the faculty’s visible discomfort — graded by the cohort.',
+      'On Teachers Day the students teach. Classes are planned, delivered and \u2014 to the faculty\u2019s visible discomfort \u2014 graded by the cohort.',
       'It is a tradition, and it is also the fastest way to discover how much preparation a good session actually takes.',
     ],
     details: [
@@ -328,42 +489,33 @@ export const EVENTS: CampusEvent[] = [
       { label: 'Organised by', value: 'Student council and Rangmanch' },
       { label: 'Open to', value: 'All programmes' },
     ],
-    highlights: ['Students deliver the day’s classes', 'Faculty tribute programme', 'Campus-wide participation'],
-    who: 'All students and faculty',
+    highlights: ['Students deliver the day\u2019s classes', 'Faculty tribute programme', 'Campus-wide participation'],
+  },
+  {
+    slug: 'asmi-movie-screening',
+    tag: 'Culture',
+    title: 'Movie Screening & Creator Fireside Chat',
+    summary: '\u201cI Am The Future\u201d screened on campus, followed by a conversation with the creator.',
+    when: '26 August 2026',
+    driveFolder: 'Asmi Movie Screening',
+    speakers: ['Pilar Parodi Felix'],
   },
   {
     slug: 'christmas-celebration',
-    tag: 'Culture', title: 'Christmas Celebration', where: 'ASMi Campus', when: 'December',
-    summary: 'Kolkata’s Park Street spirit arrives on campus: music, secret santa and the year’s last big gathering.',
-    intro: [
-      'Kolkata takes Christmas seriously, and so does the campus. The December gathering is the last large event before the winter break.',
-      'Rangmanch runs the programme, with music, secret santa and a batch dinner that spills into Park Street.',
-    ],
-    details: [
-      { label: 'When', value: 'December' },
-      { label: 'Format', value: 'Campus celebration' },
-      { label: 'Organised by', value: 'Rangmanch cultural club' },
-      { label: 'Open to', value: 'All programmes' },
-    ],
-    highlights: ['Live music and performances', 'Secret santa across the cohort', 'The year’s last big gathering'],
+    tag: 'Culture',
+    title: 'Christmas Celebration',
+    summary: 'Music, secret santa and the year\u2019s last big gathering before the winter break.',
+    when: 'December',
     who: 'All students, faculty and staff',
   },
+
+  // ── Community ─────────────────────────────────────────────────────────
   {
-    slug: 'asmi-campus-events',
-    tag: 'Campus', title: 'ASMi Campus Events', where: 'Across the academic year', when: 'Year-round',
-    summary: 'Orientation, convocation, cultural evenings and inter-batch competitions that shape the ASMi calendar.',
-    intro: [
-      'Beyond the flagship fixtures, the calendar carries orientation, convocation, club fairs, cultural evenings and inter-batch competitions throughout the year.',
-      'Orientation week in particular matters: the club fair that runs inside it is how most students find the group they spend two years with.',
-    ],
-    details: [
-      { label: 'Frequency', value: 'Year-round' },
-      { label: 'Includes', value: 'Orientation, convocation, club fair' },
-      { label: 'Organised by', value: 'Student council and clubs' },
-      { label: 'Open to', value: 'All programmes' },
-    ],
-    highlights: ['Orientation week and club fair', 'Convocation', 'Inter-batch competitions', 'Cultural evenings'],
-    who: 'All students',
+    slug: 'cleanup-drive-at-tiu',
+    tag: 'Community',
+    title: 'Cleanup Drive at TIU',
+    summary: 'A campus cleanup run with the wider Techno India University community.',
+    driveFolder: 'Cleanup Drive at TIU',
   },
 ];
 

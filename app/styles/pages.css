@@ -2057,3 +2057,14 @@ a.pill-link:hover { border-color: var(--gold); color: var(--black); background: 
   font-weight: 500;
 }
 
+
+/* Event cards became <article> wrappers so the whole card is a stretched
+   link and the speaker line can sit alongside it. */
+.event-card { position: relative; }
+.event-speakers {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--gold-dark);
+}

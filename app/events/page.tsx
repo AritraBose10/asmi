@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { EVENTS } from '@/data/campus';
+import { EVENTS, EVENT_TAGS } from '@/data/campus';
 import { SESSIONS, SCHEDULED, DIRECTORY_PERIOD, SPEAKER_ORGS, monogram, speakerDate } from '@/data/speakers';
 import { PageHero, SecHead, CtaBand, Arrow, TickList, Pills } from '@/components/Chrome';
 import Photo from '@/components/Photo';
+import FilterGrid from '@/components/FilterGrid';
 
 export const metadata: Metadata = {
   title: 'Events, Bootcamps & Guest Lectures',
@@ -20,7 +21,7 @@ export default function EventsIndex() {
         sub="Guest lectures every fortnight, corporate connect sessions every month, a residential bootcamp in the Sundarbans and ten days in Malaysia. The calendar is the curriculum's other half."
         crumbs={[{ href: '/', label: 'Home' }, { label: 'Events' }]}
         meta={[
-          { value: '10+', label: 'Event Formats' },
+          { value: String(EVENTS.length), label: 'Events' },
           { value: '14', label: 'Speakers, Apr–Sep 2026' },
           { value: 'Monthly', label: 'Corporate Connect' },
           { value: 'Annual', label: 'Study Tour' },
@@ -32,24 +33,30 @@ export default function EventsIndex() {
         <div className="container">
           <SecHead
             eyebrow="The Calendar"
-            heading="Ten formats that make up<br />the ASMi year"
-            lead="From a residential field immersion in the Sundarbans to the last gathering before the winter break."
+            heading="The ASMi year,<br />event by event"
+            lead="Twenty-nine fixtures across the calendar — flagship immersions, industry sessions, competitions and the cultural programme."
           />
-          <div className="event-grid">
+          <FilterGrid
+            categories={EVENT_TAGS.filter((t) => EVENTS.some((e) => e.tag === t))}
+            listClassName="event-grid"
+            emptyNote="No events in this category yet."
+          >
             {EVENTS.map((e, i) => (
-              <Link key={e.slug} href={`/events/${e.slug}`} className="event-card reveal-up" data-delay={(i % 3) * 70}>
+              <article className="event-card reveal-up" data-delay={(i % 3) * 70} data-cat={e.tag} key={e.slug}>
+                <Link href={`/events/${e.slug}`} className="card-link" aria-label={e.title} />
                 <Photo src={e.photo} alt={e.title} ratio="card" className="event-photo" />
                 <div className="event-top">
                   <span className="event-tag">{e.tag}</span>
-                  <span className="event-when">{e.when}</span>
+                  {e.when && <span className="event-when">{e.when}</span>}
                 </div>
                 <h3>{e.title}</h3>
-                <span className="event-where">{e.where}</span>
+                {e.where && <span className="event-where">{e.where}</span>}
                 <p>{e.summary}</p>
+                {e.speakers && <span className="event-speakers">{e.speakers.join(' · ')}</span>}
                 <span className="link-cta" style={{ marginTop: 16 }}>Details <Arrow size={14} /></span>
-              </Link>
+              </article>
             ))}
-          </div>
+          </FilterGrid>
         </div>
       </section>
 
