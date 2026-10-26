@@ -104,7 +104,7 @@ export default function Home() {
         <div className="container">
           <div className="split-feature">
             <div className="split-media reveal-up">
-              <img src="/assets/campus-life.png" alt="ASMi Business School, Godrej Genesis, Sector V, Kolkata" loading="lazy" />
+              <img src="/assets/campus-life.png" alt="ASMi students and faculty in conversation on campus" loading="lazy" />
             </div>
             <div className="split-body reveal-up" data-delay={100}>
               <p className="section-eyebrow" data-text-reveal>About ASMi</p>

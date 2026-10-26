@@ -8,6 +8,8 @@ import {
   PageHero, SecHead, CtaBand, FaqBlock, Arrow, Pills, StatBand, Ladder, QuickFacts, TickList,
 } from '@/components/Chrome';
 import { FeatureGrid } from '@/components/Icon';
+import { PhotoBand } from '@/components/Photo';
+import { SECTION, HERO } from '@/data/photos';
 
 export function generateStaticParams() {
   return PROGRAMS.map((p) => ({ slug: p.slug }));
@@ -36,7 +38,7 @@ export default async function ProgramPage({ params }: { params: Promise<{ slug: 
         sub={program.dek}
         crumbs={[{ href: '/', label: 'Home' }, { href: '/programs', label: 'Programmes' }, { label: program.code }]}
         meta={program.meta}
-        image={program.image}
+        photoKey={program.slug as keyof typeof HERO}
         actions={
           <>
             <a href={SITE.applyUrl} target="_blank" rel="noopener" className="btn-cta-primary">
@@ -115,6 +117,12 @@ export default async function ProgramPage({ params }: { params: Promise<{ slug: 
         </section>
       )}
 
+      <PhotoBand
+        slot={program.slug === 'bba' ? SECTION.bbaLab : program.slug === 'executive-mba' ? SECTION.embaWeekend : SECTION.mbaClassroom}
+        eyebrow="In The Room"
+        heading={program.slug === 'bba' ? 'Analytics from semester one' : program.slug === 'executive-mba' ? 'Built around a working week' : 'The case method, every week'}
+      />
+
       <section className="sec sec-dark" id="curriculum">
         <div className="container">
           <SecHead
@@ -181,7 +189,7 @@ export default async function ProgramPage({ params }: { params: Promise<{ slug: 
         <div className="container">
           <div className="split-feature">
             <div className="split-media reveal-up">
-              <img src="/assets/malaysia-tour.png" alt="International study tour, Malaysia" loading="lazy" />
+              <img src="/assets/malaysia-tour.png" alt="The ASMi cohort on the international study tour in Malaysia" loading="lazy" />
             </div>
             <div className="split-body reveal-up" data-delay={100}>
               <p className="section-eyebrow">Global Exposure</p>

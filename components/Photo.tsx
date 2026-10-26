@@ -103,3 +103,38 @@ export function PhotoGrid({
     </div>
   );
 }
+
+/**
+ * A full-width photographic band: image, dark gradient, optional caption.
+ * Used to break long text sections the way the study-tour banner does on the
+ * landing page, so photography reads as part of the layout rather than an
+ * illustration dropped between paragraphs.
+ */
+export function PhotoBand({
+  slot,
+  eyebrow,
+  heading,
+}: {
+  slot: { src?: string; fallback?: string; alt: string; caption?: string };
+  eyebrow?: string;
+  heading?: string;
+}) {
+  const src = slot.src ?? slot.fallback;
+  return (
+    <section className="photo-band reveal-up" aria-label={heading ?? slot.alt}>
+      {src ? (
+        <img src={src} alt={slot.alt} className="photo-band-img" loading="lazy" />
+      ) : (
+        <div className="photo-band-img photo-band-empty" aria-hidden="true" />
+      )}
+      <div className="photo-band-shade" />
+      {(eyebrow || heading || slot.caption) && (
+        <div className="container photo-band-body">
+          {eyebrow && <p className="section-eyebrow">{eyebrow}</p>}
+          {heading && <h2 className="photo-band-heading">{heading}</h2>}
+          {slot.caption && <p className="photo-band-caption">{slot.caption}</p>}
+        </div>
+      )}
+    </section>
+  );
+}

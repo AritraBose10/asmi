@@ -10,6 +10,8 @@ import { Arrow } from '@/components/Chrome';
 import Icon from '@/components/Icon';
 import AbsatForm from '@/components/AbsatForm';
 import AbsatSectionNav from '@/components/AbsatSectionNav';
+import { PhotoBand } from '@/components/Photo';
+import { SECTION, HERO, photoSrc } from '@/data/photos';
 
 const TITLE = 'ABSAT 2027 – ASMi Business School MBA Entrance Test | Dates, Syllabus, Registration';
 const DESC =
@@ -161,7 +163,7 @@ export default function AbsatPage() {
       {/* ── §2.4 Hero ── */}
       <section className="page-hero ph-gold absat-hero" id="hero" aria-labelledby="absat-h1">
         <div className="ph-media">
-          <img src="/assets/campus-life.png" alt="" aria-hidden="true" />
+          <img src={photoSrc(HERO.absat)} alt={HERO.absat.alt} />
           <div className="ph-media-shade" />
         </div>
         <div className="ph-grain" aria-hidden="true" />
@@ -532,6 +534,8 @@ export default function AbsatPage() {
           </p>
         </div>
       </section>
+
+      <PhotoBand slot={SECTION.absatTestCentre} eyebrow="Test Day" heading="Remote-proctored, or at a centre" />
 
       {/* ── §2.13 Downloads + notices ── */}
       <section className="sec sec-muted" id="downloads" aria-labelledby="absat-downloads-h">

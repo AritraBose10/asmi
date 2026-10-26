@@ -2162,3 +2162,94 @@ a.pill-link:hover { border-color: var(--gold); color: var(--black); background: 
   font-weight: 600;
   color: var(--gold-dark);
 }
+
+/* ══════════════════════════════════
+   PHOTO BAND
+   A full-bleed photographic break between sections. Same dark overlay,
+   grain and gold eyebrow as the page heroes, so it reads as part of the
+   same system rather than a stray image.
+══════════════════════════════════ */
+.photo-band {
+  position: relative;
+  min-height: clamp(260px, 38vw, 420px);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--black);
+}
+.photo-band-img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(55%) brightness(0.55);
+  transition: transform 1.2s var(--ease-out), filter 0.8s ease;
+}
+.photo-band:hover .photo-band-img { transform: scale(1.03); filter: grayscale(0%) brightness(0.65); }
+.photo-band-empty {
+  background:
+    linear-gradient(135deg, rgba(201,168,76,0.18), rgba(0,0,0,0.6)),
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.03) 0 2px, transparent 2px 8px);
+}
+.photo-band-shade {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0.25) 100%);
+}
+.photo-band-body { padding: 0 clamp(20px, 4vw, 48px) clamp(28px, 4vw, 46px); }
+.photo-band-heading {
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--white);
+  margin: 0 0 8px;
+  max-width: 18ch;
+}
+.photo-band-caption {
+  margin: 0;
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.6);
+}
+
+/* ── Shared card-image treatment ──
+   Cards carry their photo edge to edge at the top, desaturated at rest and
+   full colour on hover, matching the programme cards on the landing page. */
+.club-photo, .event-photo, .spec-photo, .facility-photo {
+  position: relative;
+}
+.club-photo .photo-img,
+.event-photo .photo-img,
+.spec-photo .photo-img,
+.facility-photo .photo-img {
+  filter: grayscale(45%) brightness(0.95);
+  transition: transform 0.9s var(--ease-out), filter 0.6s ease;
+}
+.club-card:hover .photo-img,
+.event-card:hover .photo-img,
+.spec-card:hover .photo-img,
+.feature-card:hover .photo-img {
+  transform: scale(1.04);
+  filter: grayscale(0%) brightness(1);
+}
+.spec-photo, .facility-photo {
+  margin: -30px -28px 18px;
+  border-radius: var(--r-lg) var(--r-lg) 0 0;
+  width: auto;
+}
+.feature-card .facility-photo { margin: -30px -28px 18px; }
+
+/* Portraits sit on a gold-tinted ground so an empty one still reads as a
+   person rather than a broken image. */
+.card-portrait.photo-empty, .profile-photo.photo-empty {
+  background: linear-gradient(145deg, rgba(201,168,76,0.18), rgba(0,0,0,0.05));
+}
+
+@media (max-width: 600px) {
+  .photo-band { min-height: 240px; }
+  .spec-photo, .facility-photo { margin: -26px -24px 16px; }
+}

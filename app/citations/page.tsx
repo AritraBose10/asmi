@@ -16,6 +16,7 @@ export default function Citations() {
         title="Citations &amp; <em>Recognition</em>"
         sub="Where ASMi and Techno India University have been cited, what we are accredited by, and the source behind every figure published on this site."
         crumbs={[{ href: '/', label: 'Home' }, { label: 'Citations & Recognition' }]}
+        photoKey="citations"
         meta={[
           { value: 'AICTE', label: 'Approved' },
           { value: 'TIU', label: 'Awarding University' },

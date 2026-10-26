@@ -21,6 +21,7 @@ export default function Blog() {
         title="The ASMi <em>Blog</em>"
         sub="Field notes from faculty, the placement cell and students — written for people deciding what to study and people already in the middle of it."
         crumbs={[{ href: '/', label: 'Home' }, { label: 'Blog' }]}
+        photoKey="blog"
       />
 
       <section className="sec">
@@ -38,7 +39,7 @@ export default function Blog() {
             </div>
             <div className="post-feature-media">
               <Link href={`/blog/${feat.slug}`}>
-                <img src={`/assets/${feat.image}`} alt="" loading="lazy" />
+                <img src={`/assets/${feat.image}`} alt={feat.title} loading="lazy" />
               </Link>
             </div>
           </article>

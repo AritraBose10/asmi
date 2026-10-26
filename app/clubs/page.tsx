@@ -24,7 +24,7 @@ export default function ClubsIndex() {
           { value: 'Year-Round', label: 'Calendar' },
           { value: 'All Years', label: 'Open To' },
         ]}
-        image="campus-life.png"
+        photoKey="clubs"
       />
 
       <section className="sec">

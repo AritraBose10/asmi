@@ -26,7 +26,7 @@ export default function EventsIndex() {
           { value: 'Monthly', label: 'Corporate Connect' },
           { value: 'Annual', label: 'Study Tour' },
         ]}
-        image="malaysia-tour.png"
+        photoKey="events"
       />
 
       <section className="sec">

@@ -3,7 +3,8 @@ import Link from 'next/link';
 import { LEADERSHIP, FACULTY, MENTORS } from '@/data/people';
 import { PageHero, SecHead, CtaBand, Arrow, Pills } from '@/components/Chrome';
 import LinkedInLink from '@/components/LinkedInLink';
-import Photo from '@/components/Photo';
+import Photo, { PhotoBand } from '@/components/Photo';
+import { SECTION } from '@/data/photos';
 import { FeatureGrid } from '@/components/Icon';
 
 export const metadata: Metadata = {
@@ -26,7 +27,7 @@ export default function FacultyIndex() {
           { value: 'IIT · IIM', label: 'Alumni' },
           { value: 'CXO', label: 'Practitioners' },
         ]}
-        image="campus-life.png"
+        photoKey="faculty"
       />
 
       <section className="sec">
@@ -76,6 +77,8 @@ export default function FacultyIndex() {
           </div>
         </div>
       </section>
+
+      <PhotoBand slot={SECTION.facultyTeaching} eyebrow="In The Room" heading="Taught by people who still do the work" />
 
       <section className="sec sec-muted" id="mentors">
         <div className="container">

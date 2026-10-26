@@ -4,7 +4,8 @@ import { CLUBS } from '@/data/campus';
 import { SITE, CAMPUS_GALLERY } from '@/data/site';
 import { PageHero, SecHead, CtaBand, Arrow, Pills, Ladder } from '@/components/Chrome';
 import { FeatureGrid } from '@/components/Icon';
-import { PhotoGrid } from '@/components/Photo';
+import { PhotoGrid, PhotoBand } from '@/components/Photo';
+import { SECTION, FACILITIES, CAMPUS_PHOTOS, BUILDING_PHOTOS } from '@/data/photos';
 
 export const metadata: Metadata = {
   title: 'Campus Life at Sector V, Kolkata',
@@ -26,7 +27,7 @@ export default function CampusLife() {
           { value: '8', label: 'Student Clubs' },
           { value: 'Year-Round', label: 'Events' },
         ]}
-        image="campus-life.png"
+        photoKey="campus-life"
       />
 
       <section className="sec">
@@ -38,29 +39,29 @@ export default function CampusLife() {
           />
           <FeatureGrid
             items={[
-              { icon: 'book', title: 'Business library', desc: 'Print and digital business collections, case libraries and quiet study space for exam season.' },
-              { icon: 'users', title: 'Case rooms', desc: 'Tiered discussion rooms built for the case method — every seat faces the argument.' },
-              { icon: 'chart', title: 'Analytics lab', desc: 'Workstations for the IBM-powered analytics modules, open outside class hours for club clinics.' },
-              { icon: 'cloud', title: 'Smart classrooms', desc: 'Connected teaching spaces for hybrid sessions, guest lectures and remote industry panels.' },
-              { icon: 'spark', title: 'Student lounge', desc: 'Where club meetings, case prep and most of the friendships actually happen.' },
-              { icon: 'globe', title: 'Sector V on your doorstep', desc: 'IT parks, corporate offices and the recruiters you will meet — all within walking distance.' },
+              { icon: 'book', title: 'Business library', desc: 'Print and digital business collections, case libraries and quiet study space for exam season.' , photo: FACILITIES.library },
+              { icon: 'users', title: 'Case rooms', desc: 'Tiered discussion rooms built for the case method — every seat faces the argument.' , photo: FACILITIES.caseRooms },
+              { icon: 'chart', title: 'Analytics lab', desc: 'Workstations for the IBM-powered analytics modules, open outside class hours for club clinics.' , photo: FACILITIES.analyticsLab },
+              { icon: 'cloud', title: 'Smart classrooms', desc: 'Connected teaching spaces for hybrid sessions, guest lectures and remote industry panels.' , photo: FACILITIES.smartClassrooms },
+              { icon: 'spark', title: 'Student lounge', desc: 'Where club meetings, case prep and most of the friendships actually happen.' , photo: FACILITIES.lounge },
+              { icon: 'globe', title: 'Sector V on your doorstep', desc: 'IT parks, corporate offices and the recruiters you will meet — all within walking distance.' , photo: FACILITIES.sectorV },
             ]}
           />
         </div>
       </section>
 
-      {CAMPUS_GALLERY.some((g) => g.src) && (
-      <section className="sec sec-muted" id="gallery">
+            <section className="sec sec-muted" id="gallery">
         <div className="container">
           <SecHead
             eyebrow="The Campus"
             heading="In photographs"
             lead="The 15th floor at Godrej Genesis, and the Sector V district it sits in."
           />
-          <PhotoGrid items={CAMPUS_GALLERY} />
+          <PhotoGrid items={CAMPUS_PHOTOS} />
         </div>
       </section>
-      )}
+
+      <PhotoBand slot={SECTION.campusNeighbourhood} eyebrow="The Neighbourhood" heading="Sector V, on the doorstep" />
 
       <section className="sec sec-dark">
         <div className="container">

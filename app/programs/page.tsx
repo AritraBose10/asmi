@@ -23,7 +23,7 @@ export default function ProgramsIndex() {
           { value: 'IBM', label: 'Curriculum Partner' },
           { value: 'AICTE', label: 'Approved' },
         ]}
-        image="campus-life.png"
+        photoKey="programs"
       />
 
       <section className="sec">

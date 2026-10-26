@@ -38,6 +38,7 @@ export default async function SpecializationPage({ params }: { params: Promise<{
           { href: '/specializations', label: 'Specializations' },
           { label: spec.name },
         ]}
+        photoKey="specializations"
         meta={[
           { value: '5', label: 'Electives' },
           { value: 'Year 2', label: 'Specialisation Year' },
@@ -67,9 +68,12 @@ export default async function SpecializationPage({ params }: { params: Promise<{
             </aside>
 
             <div className="prose">
-              {spec.photo && (
-                <Photo src={spec.photo} alt={`${spec.name} specialization at ASMi`} ratio="wide" className="prose-photo" />
-              )}
+              <Photo
+                src={spec.photo}
+                alt={`Students on the ${spec.name} track at ASMi Business School`}
+                ratio="wide"
+                className="prose-photo"
+              />
               {spec.intro.map((p, i) => (
                 <p key={i} className={i === 0 ? 'lede' : undefined}>{p}</p>
               ))}

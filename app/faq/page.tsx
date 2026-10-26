@@ -68,6 +68,7 @@ export default function Faq() {
         title="Frequently asked<br /><em>questions</em>"
         sub="Programmes, eligibility, placements, campus and the application process. If something is still unclear, the admissions office answers email quickly."
         crumbs={[{ href: '/', label: 'Home' }, { label: 'FAQ' }]}
+        photoKey="faq"
         actions={
           <>
             <a href={`mailto:${SITE.email}`} className="btn-ghost-light">Email admissions</a>

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { EVENTS, getEvent } from '@/data/campus';
 import { PageHero, SecHead, CtaBand, Arrow, TickList, QuickFacts } from '@/components/Chrome';
-import { PhotoGrid } from '@/components/Photo';
+import Photo, { PhotoGrid } from '@/components/Photo';
 
 export function generateStaticParams() {
   return EVENTS.map((e) => ({ slug: e.slug }));
@@ -30,7 +30,7 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
         title={event.title}
         sub={event.summary}
         crumbs={[{ href: '/', label: 'Home' }, { href: '/events', label: 'Events' }, { label: event.title }]}
-        image={event.tag === 'International' ? 'malaysia-tour.png' : 'campus-life.png'}
+        photoKey={event.tag === 'International' ? 'study-tour' : 'events'}
       />
 
       {event.details && event.details.length > 0 && (
@@ -73,6 +73,12 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
             </aside>
 
             <div className="prose">
+              <Photo
+                src={event.photo}
+                alt={`${event.title} at ASMi Business School`}
+                ratio="card"
+                className="prose-photo"
+              />
               {event.intro
                 ? event.intro.map((p, i) => <p key={i} className={i === 0 ? 'lede' : undefined}>{p}</p>)
                 : <p className="lede">{event.summary}</p>}

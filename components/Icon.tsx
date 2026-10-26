@@ -1,3 +1,5 @@
+import Photo from '@/components/Photo';
+import type { PhotoSlot } from '@/data/photos';
 const PATHS: Record<string, React.ReactNode> = {
   target: <><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="5" /><circle cx="12" cy="12" r="1.5" /></>,
   chart: <path d="M4 20V10M10 20V4M16 20v-7M22 20H2" />,
@@ -21,11 +23,20 @@ export default function Icon({ name }: { name: string }) {
   );
 }
 
-export function FeatureGrid({ items, cols = 3 }: { items: { icon: string; title: string; desc: string }[]; cols?: 3 | 4 }) {
+export function FeatureGrid({
+  items,
+  cols = 3,
+}: {
+  items: { icon: string; title: string; desc: string; photo?: PhotoSlot }[];
+  cols?: 3 | 4;
+}) {
   return (
     <div className={`feature-grid cols-${cols}`}>
       {items.map((f, i) => (
         <article className="feature-card reveal-up" data-delay={i * 70} key={f.title}>
+          {f.photo && (
+            <Photo src={f.photo.src} alt={f.photo.alt} ratio="card" className="facility-photo" />
+          )}
           <div className="feature-icon"><Icon name={f.icon} /></div>
           <h3>{f.title}</h3>
           <p>{f.desc}</p>

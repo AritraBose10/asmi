@@ -24,7 +24,7 @@ export default function GalleryPage() {
           { value: 'Malaysia', label: 'Global Immersion' },
           { value: '25+', label: 'Visual Archives' },
         ]}
-        image="campus-life.png"
+        photoKey="gallery"
       />
 
       <section className="sec" id="gallery-archive">

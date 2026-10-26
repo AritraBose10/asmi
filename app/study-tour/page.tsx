@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { PageHero, SecHead, CtaBand, FaqBlock, Arrow } from '@/components/Chrome';
 import { FeatureGrid } from '@/components/Icon';
+import { PhotoBand } from '@/components/Photo';
+import { SECTION } from '@/data/photos';
 
 /* ── Editorial photo layout ───────────────────────────────────────────── */
 function TourPhotoBlock({ photos }: { photos: { caption: string; src?: string }[] }) {
@@ -74,7 +76,7 @@ export default function StudyTour() {
           { value: 'Annual', label: 'Frequency' },
           { value: 'MBA · EMBA', label: 'Programmes' },
         ]}
-        image="malaysia-tour.png"
+        photoKey="study-tour"
       />
 
       <section className="sec">
@@ -96,6 +98,8 @@ export default function StudyTour() {
           <TourPhotoBlock photos={TOUR_2024_PHOTOS} />
         </div>
       </section>
+
+      <PhotoBand slot={SECTION.tourPartner} eyebrow="Academic Partner" heading="INTI International University" />
 
       <section className="sec sec-muted">
         <div className="container">

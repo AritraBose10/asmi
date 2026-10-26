@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { PLACEMENT_STATS, PLACED, RECRUITERS, TESTIMONIALS } from '@/data/site';
 import { PageHero, SecHead, CtaBand, Pills, StatBand, Ladder } from '@/components/Chrome';
-import Photo from '@/components/Photo';
+import Photo, { PhotoBand } from '@/components/Photo';
+import { SECTION } from '@/data/photos';
 
 export const metadata: Metadata = {
   title: 'Placements & Recruiters',
@@ -23,7 +24,7 @@ export default function Placements() {
           { value: PLACEMENT_STATS.median, label: 'Median Package' },
           { value: PLACEMENT_STATS.batch, label: 'Batch' },
         ]}
-        image="campus-life.png"
+        photoKey="placements"
       />
 
       <section className="sec">
@@ -75,6 +76,8 @@ export default function Placements() {
           </div>
         </div>
       </section>
+
+      <PhotoBand slot={SECTION.placementsRecruiters} eyebrow="Corporate Connect" heading="Recruiters, on campus" />
 
       <section className="sec sec-dark">
         <div className="container">

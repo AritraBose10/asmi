@@ -19,6 +19,7 @@ export default function Forum() {
         title="Discussion <em>Forum</em>"
         sub="Questions answered by students, alumni and staff — admissions, placements, the study tour, and everything applicants actually want to know before they commit."
         crumbs={[{ href: '/', label: 'Home' }, { label: 'Discussion Forum' }]}
+        photoKey="forum"
         meta={[
           { value: '8', label: 'Open Threads' },
           { value: '148', label: 'Replies' },

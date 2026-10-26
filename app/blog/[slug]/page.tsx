@@ -25,7 +25,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
     <>
       <section className="page-hero ph-dark article-hero">
         <div className="ph-media">
-          <img src={`/assets/${post.image}`} alt="" aria-hidden="true" />
+          <img src={`/assets/${post.image}`} alt={post.title} />
           <div className="ph-media-shade" />
         </div>
         <div className="ph-grain" aria-hidden="true" />

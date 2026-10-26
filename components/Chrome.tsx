@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { SITE } from '@/data/site';
+import { HERO, photoSrc, type PhotoSlot } from '@/data/photos';
 import { PROGRAMS } from '@/data/programs';
 
 export const Arrow = ({ size = 16 }: { size?: number }) => (
@@ -18,6 +19,7 @@ export function PageHero({
   meta,
   actions,
   image,
+  photoKey,
 }: {
   theme?: string;
   eyebrow: string;
@@ -26,13 +28,18 @@ export function PageHero({
   crumbs: { href?: string; label: string }[];
   meta?: { value: string; label: string }[];
   actions?: React.ReactNode;
+  /** Legacy: a filename under /assets. Prefer photoKey. */
   image?: string;
+  /** Key into HERO in data/photos.ts — carries the alt text with it. */
+  photoKey?: keyof typeof HERO;
 }) {
+  const slot: PhotoSlot | undefined = photoKey ? HERO[photoKey] : undefined;
+  const heroSrc = slot ? photoSrc(slot) : image ? `/assets/${image}` : undefined;
   return (
     <section className={`page-hero ${theme}`}>
-      {image && (
+      {heroSrc && (
         <div className="ph-media">
-          <img src={`/assets/${image}`} alt="" aria-hidden="true" />
+          <img src={heroSrc} alt={slot ? slot.alt : ''} aria-hidden={slot ? undefined : true} />
           <div className="ph-media-shade" />
         </div>
       )}
