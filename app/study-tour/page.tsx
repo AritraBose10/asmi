@@ -14,8 +14,8 @@ export default function StudyTour() {
       <PageHero
         theme="ph-gold"
         eyebrow="Global Exposure"
-        title="International Study Tour<br /><em>Malaysia</em>"
-        sub="Ten days with INTI International University — industry sessions, factory floors and cultural fieldwork. The part of the programme students talk about years later."
+        title="International <em>Study Tour</em>"
+        sub="Every cohort travels abroad for an immersion built around how business is actually done in another market. The part of the programme students talk about years later."
         crumbs={[{ href: '/', label: 'Home' }, { label: 'International Study Tour' }]}
         meta={[
           { value: 'Malaysia', label: 'Destination' },
@@ -29,10 +29,11 @@ export default function StudyTour() {
       <section className="sec">
         <div className="container">
           <SecHead
-            eyebrow="The Programme"
-            heading="What the ten days<br />actually contain"
-            lead="Not a sightseeing trip with a lecture attached. The itinerary is built around how businesses in another market actually operate."
+            eyebrow="This Year's Destination"
+            heading="Malaysia"
+            lead="Ten days with INTI International University — industry sessions, factory floors and cultural fieldwork. Not a sightseeing trip with a lecture attached: the itinerary is built around how businesses in another market actually operate."
           />
+          <h3 className="absat-city-head reveal-up" style={{ marginTop: 0 }}>What the ten days contain</h3>
           <FeatureGrid
             cols={4}
             items={[
