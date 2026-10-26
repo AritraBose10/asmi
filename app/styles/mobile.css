@@ -1,0 +1,187 @@
+/* ═══════════════════════════════════════
+   ASMi — phone refinements
+   Imported last so it wins over the section stylesheets.
+
+   Three jobs, all scoped to phones:
+   1. Raise the floor on micro-type. Tracked uppercase labels sit at
+      10.6–11.8px on desktop, which is uncomfortable on a handset.
+   2. Give every control a 44px touch target (WCAG 2.5.5 / Apple HIG).
+   3. Stop iOS zooming the viewport when a form field takes focus, which
+      happens whenever the field's font-size is under 16px.
+   ═══════════════════════════════════════ */
+
+@media (max-width: 600px) {
+
+  /* ── 1. Micro-type floor ─────────────────────────────────────────── */
+  .section-eyebrow,
+  .cta-band-eyebrow,
+  .ph-eyebrow,
+  .ph-meta-lbl,
+  .footer-col h5,
+  .pill,
+  .spec-kicker,
+  .club-kicker,
+  .fac-full-role,
+  .fac-mini-role,
+  .mentor-role,
+  .lead-role,
+  .mt-h-role,
+  .post-tag,
+  .thread-cat,
+  .thread-pin,
+  .event-tag,
+  .event-when,
+  .event-where,
+  .press-date,
+  .press-source,
+  .rail-label,
+  .rail-role,
+  .qf-label,
+  .sb-label,
+  .src-detail,
+  .absat-stat-label,
+  .absat-latest-tag,
+  .absat-banner-tag,
+  .absat-duration-label,
+  .absat-dl-meta,
+  .absat-city-head,
+  .absat-contact-list li > span:first-child,
+  .absat-prog-card h3,
+  .speaker-when,
+  .speaker-sub,
+  .speaker-event,
+  .menu-section-label,
+  .menu-card-label,
+  .menu-index,
+  .ladder-marker em,
+  .data-table th,
+  .data-table caption,
+  .faq-group-title,
+  .post-by span,
+  .quote-author span,
+  .thread-when,
+  .thread-meta,
+  .field-hint,
+  .form-note,
+  .prose-note,
+  .absat-legal,
+  .sb-note,
+  .empty-note,
+  .wstat-sub,
+  .tba,
+  .pg-type,
+  .pg-badge,
+  .pg-duration,
+  .absat-latest-link,
+  .absat-notice time,
+  .absat-prog-foot,
+  .absat-note,
+  .step-label,
+  .hstat-label,
+  .tick-list li,
+  .elective-when,
+  .club-kicker,
+  .speaker-role,
+  /* landing page (ported from the original static markup) */
+  .mt-h-info p,
+  .fac-flip-tags span,
+  .adv-num,
+  .pg-tags span,
+  .step-n,
+  .pl-v2-batch,
+  .pl-v2-placed,
+  .pl-stat-label,
+  .pl-badge-top,
+  .pl-rec-label,
+  .tv-author-avatar,
+  .tv-stars,
+  .scroll-label,
+  .why-logos-label,
+  .st-loc-label,
+  .fac-stage-label,
+  .cta-eyebrow,
+  .absat-notice .tba,
+  .btn-nav-apply {
+    font-size: 12px;
+  }
+  /* Monograms are circular badges, not running text */
+  .post-mono, .quote-mono, .fac-mini-mono, .mentor-mono, .lead-mono,
+  .club-mono, .speaker-mono, .thread-mono, .acc-mono, .fac-full-mono,
+  .mt-h-avatar {
+    font-size: 12px;
+  }
+
+  /* ── 2. Touch targets ────────────────────────────────────────────── */
+  .footer-col a,
+  .footer-bottom-links a,
+  .menu-sublink,
+  .absat-quick a,
+  .menu-contact a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .footer-col a { width: 100%; }
+
+  .link-cta,
+  .rail-back,
+  .absat-latest-link,
+  .absat-contact-list a {
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .soc-btn,
+  .menu-social a,
+  .card-li {
+    width: 44px;
+    height: 44px;
+  }
+  .card-li { bottom: 16px; right: 16px; }
+
+  .filter-chip,
+  .btn-hero-primary,
+  .btn-hero-secondary,
+  .btn-cta-primary,
+  .btn-cta-secondary,
+  .btn-outline-dark,
+  .btn-ghost-light,
+  .pg-cta,
+  .faq-q,
+  .absat-faq-item summary {
+    min-height: 44px;
+  }
+
+  .logo { min-height: 44px; }
+  .rail-linkedin { min-height: 44px; align-items: center; }
+  .speaker-row h3 a { display: inline-flex; min-height: 44px; align-items: center; }
+
+  /* The label is the real target; the box just needs to be easy to hit */
+  .consent input[type='checkbox'] { width: 20px; height: 20px; }
+  .consent { min-height: 44px; align-items: center; }
+
+  /* ── 3. No iOS zoom on focus ─────────────────────────────────────── */
+  input[type='text'],
+  input[type='email'],
+  input[type='tel'],
+  input[type='search'],
+  textarea,
+  select,
+  .absat-form input[type='text'],
+  .absat-form input[type='email'],
+  .absat-form input[type='tel'],
+  .absat-form select,
+  .subscribe-form input,
+  .ask-form input,
+  .ask-form textarea {
+    font-size: 16px;
+    min-height: 44px;
+  }
+  .absat-form .field-prefix { font-size: 16px; }
+}
+
+/* Two rules the section stylesheets win on specificity, restated here. */
+@media (max-width: 600px) {
+  .menu-link .menu-index { font-size: 12px; }
+  .tv-author div span { font-size: 12px; }
+}

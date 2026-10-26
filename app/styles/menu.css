@@ -85,6 +85,8 @@
 
 /* ── Overlay ── */
 .menu-overlay {
+  /* total staggered children, used to reverse the stagger on exit */
+  --n: 20;
   position: fixed;
   inset: 0;
   z-index: 1100;
@@ -93,17 +95,21 @@
   flex-direction: column;
   overflow-y: auto;
   overscroll-behavior: contain;
-  opacity: 0;
   visibility: hidden;
+  pointer-events: none;
   clip-path: circle(0% at calc(100% - 52px) 46px);
-  transition: clip-path 0.75s cubic-bezier(0.76, 0, 0.24, 1),
-              opacity 0.3s ease,
-              visibility 0.75s;
+  /* Closing: the circle wipes back in, then visibility flips at the end.
+     No opacity fade — a 0.3s fade used to finish long before the 0.75s
+     wipe, so the close read as the panel simply vanishing. */
+  transition: clip-path 0.55s cubic-bezier(0.76, 0, 0.24, 1),
+              visibility 0s linear 0.55s;
 }
 .menu-overlay.is-open {
-  opacity: 1;
   visibility: visible;
+  pointer-events: auto;
   clip-path: circle(150% at calc(100% - 52px) 46px);
+  transition: clip-path 0.75s cubic-bezier(0.76, 0, 0.24, 1),
+              visibility 0s linear 0s;
 }
 .menu-grain {
   position: absolute;
@@ -183,13 +189,20 @@
 .menu-link.is-current { color: var(--gold); }
 .menu-link.is-current .menu-index { color: var(--gold); }
 
-/* Entrance animation, staggered by --i */
+/* Entrance staggered by --i; exit is quicker and runs in reverse, so the
+   list clears from the bottom up before the circle closes over it.
+   The transition must live here, not only on .is-open — declaring it only
+   on the open state left the items with no transition on the way out, so
+   they snapped back instantly. */
 .menu-overlay .menu-link,
 .menu-overlay .menu-section-label,
 .menu-overlay .menu-card,
 .menu-overlay .menu-foot > * {
   opacity: 0;
-  transform: translateY(26px);
+  transform: translateY(18px);
+  transition: opacity 0.2s ease calc((var(--n, 12) - var(--i, 0)) * 0.012s),
+              transform 0.28s cubic-bezier(0.4, 0, 1, 1)
+                        calc((var(--n, 12) - var(--i, 0)) * 0.012s);
 }
 .menu-overlay.is-open .menu-link,
 .menu-overlay.is-open .menu-section-label,
@@ -199,6 +212,21 @@
   transform: translateY(0);
   transition: opacity 0.6s ease calc(0.18s + var(--i, 0) * 0.035s),
               transform 0.7s var(--ease-out) calc(0.18s + var(--i, 0) * 0.035s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-overlay,
+  .menu-overlay .menu-link,
+  .menu-overlay .menu-section-label,
+  .menu-overlay .menu-card,
+  .menu-overlay .menu-foot > *,
+  .menu-overlay.is-open .menu-link,
+  .menu-overlay.is-open .menu-section-label,
+  .menu-overlay.is-open .menu-card,
+  .menu-overlay.is-open .menu-foot > * {
+    transition-duration: 0.01s;
+    transition-delay: 0s;
+  }
 }
 
 /* ── Secondary column ── */
@@ -297,3 +325,31 @@ body.menu-is-open { overflow: hidden; }
 
 /* Scroll progress bar sits above the overlay trigger */
 .scroll-progress { z-index: 1300; }
+
+/* ══════════════════════════════════
+   PHONE HEADER
+   The logo (179px) + Apply button (140px) + toggle (46px) overflowed every
+   phone width, pushing the hamburger off-screen so the nav was unreachable.
+══════════════════════════════════ */
+@media (max-width: 600px) {
+  .header-inner {
+    height: 64px;
+    padding: 0 16px;
+    gap: 10px;
+  }
+  .logo-img { height: 22px; }
+  .nav-right { gap: 10px; }
+  .btn-nav-apply {
+    padding: 11px 15px;
+    font-size: 0.76rem;
+    min-height: 44px;
+    white-space: nowrap;
+  }
+  .btn-nav-apply svg { display: none; }
+  .menu-toggle { width: 44px; height: 44px; }
+}
+@media (max-width: 360px) {
+  .header-inner { padding: 0 12px; gap: 8px; }
+  .logo-img { height: 20px; }
+  .btn-nav-apply { padding: 11px 12px; font-size: 0.72rem; }
+}
