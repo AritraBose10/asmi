@@ -1667,6 +1667,100 @@ a.pill-link:hover { border-color: var(--gold); color: var(--black); background: 
   .photo-figure figcaption { font-size: 12px; }
 }
 
+/* ── Study Tour — editorial photo layout ─────────────────────────────── */
+.tour-photo-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 2.5rem;
+}
+
+/* Row 1: wide hero (65%) + tall portrait (35%) */
+.tour-row-main {
+  display: grid;
+  grid-template-columns: 1.85fr 1fr;
+  gap: 12px;
+  align-items: stretch;
+}
+
+/* Row 2: three equal landscape strips */
+.tour-row-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+/* Row 3: single full-width accent bar */
+.tour-row-accent {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+/* Individual card */
+.tour-photo-card {
+  position: relative;
+  margin: 0;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--gray-100);
+}
+
+/* Heights per slot type */
+.tour-hero       { min-height: 340px; }
+.tour-portrait   { min-height: 340px; }
+.tour-strip      { min-height: 200px; }
+.tour-accent-wide { min-height: 160px; }
+
+/* Placeholder fill */
+.tour-photo-fill {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(140deg, rgba(201,168,76,0.10) 0%, rgba(0,0,0,0.04) 100%);
+  border: 1px solid var(--gray-200);
+}
+.tour-photo-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+}
+
+/* Caption as dark gradient overlay at the bottom */
+.tour-photo-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 32px 16px 14px;
+  background: linear-gradient(to top, rgba(0,0,0,0.58) 0%, transparent 100%);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.01em;
+  line-height: 1.45;
+  pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .tour-row-main  { grid-template-columns: 1fr 1fr; }
+  .tour-hero, .tour-portrait { min-height: 260px; }
+  .tour-row-strip { grid-template-columns: repeat(3, 1fr); }
+  .tour-strip     { min-height: 160px; }
+}
+@media (max-width: 600px) {
+  .tour-row-main  { grid-template-columns: 1fr; }
+  .tour-row-strip { grid-template-columns: 1fr 1fr; }
+  .tour-hero, .tour-portrait { min-height: 220px; }
+  .tour-strip     { min-height: 150px; }
+  .tour-accent-wide { min-height: 130px; }
+}
+
+
 /* Portraits in place of the monogram discs */
 .card-portrait {
   width: 56px;

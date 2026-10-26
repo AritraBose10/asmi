@@ -1,8 +1,40 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { PageHero, SecHead, CtaBand, FaqBlock, Arrow } from '@/components/Chrome';
-import { PhotoGrid } from '@/components/Photo';
 import { FeatureGrid } from '@/components/Icon';
+
+/* ── Editorial photo layout ───────────────────────────────────────────── */
+function TourPhotoBlock({ photos }: { photos: { caption: string; src?: string }[] }) {
+  const card = (p: { caption: string; src?: string }, cls: string, delay = 0) => (
+    <figure
+      key={p.caption}
+      className={`tour-photo-card reveal-up ${cls}`}
+      data-delay={delay}
+    >
+      <div className="tour-photo-fill">
+        <span className="tour-photo-label">Photo to come</span>
+      </div>
+      <figcaption className="tour-photo-caption">{p.caption}</figcaption>
+    </figure>
+  );
+
+  return (
+    <div className="tour-photo-layout">
+      <div className="tour-row-main">
+        {card(photos[0], 'tour-hero')}
+        {card(photos[1], 'tour-portrait', 60)}
+      </div>
+      <div className="tour-row-strip">
+        {card(photos[2], 'tour-strip')}
+        {card(photos[3], 'tour-strip', 60)}
+        {card(photos[4], 'tour-strip', 120)}
+      </div>
+      <div className="tour-row-accent">
+        {card(photos[5], 'tour-accent-wide')}
+      </div>
+    </div>
+  );
+}
 
 const TOUR_2024_PHOTOS = [
   { caption: 'Sessions at INTI International University' },
@@ -61,7 +93,7 @@ export default function StudyTour() {
               { icon: 'globe', title: 'Cultural Heritage Fieldwork', desc: 'Structured visits to heritage sites, reading a market through its culture rather than its spreadsheets.' },
             ]}
           />
-          <PhotoGrid items={TOUR_2024_PHOTOS} />
+          <TourPhotoBlock photos={TOUR_2024_PHOTOS} />
         </div>
       </section>
 
@@ -75,13 +107,13 @@ export default function StudyTour() {
           <FeatureGrid
             cols={4}
             items={[
-              { icon: 'book', title: 'Universiti Malaya & APU', desc: 'Global academic sessions at two of Malaysia\'s leading institutions — Universiti Malaya and Asia Pacific University.' },
+              { icon: 'book', title: 'Universiti Malaya & APU', desc: "Global academic sessions at two of Malaysia's leading institutions — Universiti Malaya and Asia Pacific University." },
               { icon: 'brief', title: 'Bufori Motor Car Company', desc: 'Luxury automotive manufacturing: bespoke engineering, brand exclusivity strategy, and artisan production models.' },
               { icon: 'spark', title: 'LiGNO Biotech', desc: 'Biotech innovation on the ground — sustainable materials science, green chemistry, and startup-scale manufacturing.' },
-              { icon: 'globe', title: 'Petronas Twin Towers & Putrajaya', desc: 'Landmark visits connecting business education to Malaysia\'s iconic economic and government infrastructure.' },
+              { icon: 'globe', title: 'Petronas Twin Towers & Putrajaya', desc: "Landmark visits connecting business education to Malaysia's iconic economic and government infrastructure." },
             ]}
           />
-          <PhotoGrid items={TOUR_2025_PHOTOS} />
+          <TourPhotoBlock photos={TOUR_2025_PHOTOS} />
         </div>
       </section>
 
