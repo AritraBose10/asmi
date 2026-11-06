@@ -4,7 +4,7 @@ import { SITE } from '@/data/site';
 import {
   ABSAT, PUBLISHED, HERO_STATS, MBA_SPECIALISATIONS, DATES, ELIGIBILITY, MERIT_WEIGHTS,
   PATTERN, PATTERN_TOTALS, PATTERN_NOTES, SYLLABUS, FEES, APPLY_STEPS, TEST_MODES,
-  CENTRES, DOWNLOADS, NOTICES, FAQS, TBA, formatDate, attemptDates,
+  CENTRES, DOWNLOADS, NOTICES, FAQS, RECRUITERS, TBA, formatDate, attemptDates,
 } from '@/data/absat';
 import { Arrow } from '@/components/Chrome';
 import Icon from '@/components/Icon';
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     title: 'ABSAT 2027 – MBA Entrance Test | ASMi Business School',
-    description: 'One test, two attempts, best score counts. Register for ABSAT 2027.',
+    description: "No CAT score? Take ABSAT. ASMi's own MBA entrance exam for a two-year MBA from Techno India University.",
     url: ABSAT.canonical,
     siteName: 'ASMi Business School',
     images: [{ url: '/assets/campus-life.png', width: 1200, height: 630 }],
@@ -151,8 +151,8 @@ export default function AbsatPage() {
         <div className="container absat-latest-inner">
           <span className="absat-latest-tag">Latest</span>
           <p>
-            ABSAT 2027 registration dates are being finalised. Registered candidates are notified by
-            email and SMS as soon as the window opens.
+            ABSAT 2027 slots are open now. Book yours, and a counsellor calls you with the details.
+            Yes, an actual human.
           </p>
           <a href="#notices" className="absat-latest-link" data-cta="absat_all_notices">
             All notices <Arrow size={14} />
@@ -176,22 +176,21 @@ export default function AbsatPage() {
 
           <div className="absat-hero-grid">
             <div className="ph-inner">
-              <p className="ph-eyebrow">MBA Entrance Test · {ABSAT.batch} Batch</p>
+              <p className="ph-eyebrow">ABSAT 2027 · Slots open now</p>
               <h1 className="ph-title" id="absat-h1">
                 <span className="absat-h1-mark">ABSAT 2027</span>{' '}
-                One test. Your route to the <em>ASMi MBA</em>.
+                No CAT score? <em>Take ABSAT.</em>
               </h1>
               <p className="ph-sub">
-                ABSAT is the entrance test for admission to the full-time, two-year MBA at ASMi
-                Business School, Kolkata. Take it online from home or at a test centre, attempt it up
-                to twice, and the better score counts.
+                ASMi&apos;s own MBA entrance exam. One exam, no percentile drama, and you&apos;re in
+                line for a two-year MBA from Techno India University.
               </p>
               <div className="ph-actions">
                 <a href={registrationTarget} className="btn-cta-primary" data-cta="absat_register_hero">
-                  Register for ABSAT 2027 <Arrow />
+                  Book your slot <Arrow />
                 </a>
-                <a href="#downloads" className="btn-ghost-light" data-cta="absat_bulletin_hero">
-                  Information Bulletin
+                <a href="#apply" className="btn-ghost-light" data-cta="absat_how_it_works_hero">
+                  How it works
                 </a>
               </div>
 
@@ -207,12 +206,14 @@ export default function AbsatPage() {
 
             {/* ── §2.5 Registration card ── */}
             <div className="absat-reg-card reveal-up" id="register">
-              <h2>Candidate Registration</h2>
+              <h2>Book your ABSAT slot</h2>
               <p className="absat-reg-help">
-                New candidates create an account first. Your ABSAT ID will be sent to your registered
-                email and mobile number.
+                One minute. Fewer fields than a food delivery app.
               </p>
               <AbsatForm />
+              <p className="absat-reg-login">
+                No CAT, MAT or XAT score needed. Final-year students welcome.
+              </p>
               {ABSAT.portalLoginUrl && (
                 <p className="absat-reg-login">
                   Already registered?{' '}
@@ -231,47 +232,54 @@ export default function AbsatPage() {
       <section className="sec" id="about" aria-labelledby="absat-about-h">
         <div className="container">
           <div className="sec-head reveal-up">
-            <p className="section-eyebrow">About ABSAT</p>
+            <p className="section-eyebrow">The MBA</p>
             <h2 className="sec-heading" id="absat-about-h" data-text-reveal>
-              A standardised measure of<br />managerial aptitude
+              Less lecture.<br /><em>More work.</em>
             </h2>
           </div>
 
           <div className="absat-about-grid">
             <div className="absat-about-copy reveal-up">
               <p className="sec-lead">
-                The ASMi Business School Assessment Test (ABSAT) is a computer-based test of verbal,
-                quantitative, reasoning and business-awareness skills. It is conducted by ASMi
-                Business School, Kolkata — an AICTE-approved institution and part of Techno India
-                University, West Bengal.
+                Two years of doing the thing. Not just making slides about the thing.
               </p>
               <p className="sec-lead">
-                ABSAT scores are used to shortlist candidates for the Written Ability Test and
-                Personal Interview stage of MBA admissions. Candidates with valid scores in CAT, XAT,
-                MAT, CMAT, ATMA or GMAT may also apply directly; ABSAT gives every applicant a common,
-                widely accessible route.
+                <strong>Live projects, real data.</strong> You work on actual company problems. The
+                data is messy. That&apos;s the point.
+              </p>
+              <p className="sec-lead">
+                <strong>Mentors who don&apos;t sugarcoat.</strong> 12 industry mentors, including CXOs
+                from HDFC Bank and HSBC. Feedback arrives fast, and honest.
+              </p>
+              <p className="sec-lead">
+                <strong>Analytics with IBM.</strong> Learn to read the data. Not just make the
+                dashboard look nice.
+              </p>
+              <p className="sec-lead">
+                <strong>Where the last batch clocked in:</strong> {RECRUITERS.join(' · ')}. The
+                receipts: 2023–25 batch, from the final placement report.
               </p>
             </div>
 
             <div className="absat-prog-card reveal-up" data-delay={100}>
-              <h3>ABSAT 2027 is the admission test for</h3>
+              <h3>The MBA, minus the brochure</h3>
               <Link href="/programs/mba" className="absat-prog-link" data-cta="absat_to_mba">
                 <span className="absat-prog-text">
                   <strong>Master of Business Administration (MBA)</strong>
-                  <span>2 years, full-time</span>
+                  <span>2 years, full time, on campus</span>
                 </span>
                 <Arrow size={18} />
               </Link>
               <p className="absat-prog-meta">
-                Degree awarded by Techno India University, West Bengal · Includes an International
-                Study Tour with INTI International University, Malaysia
+                A real MBA, from Techno India University · Passport stamp: study tour to Malaysia
+                with INTI International University
               </p>
               <ul className="pill-row tight absat-spec-list">
                 {MBA_SPECIALISATIONS.map((s) => <li className="pill" key={s}>{s}</li>)}
               </ul>
               <p className="absat-prog-foot">
                 Intake: {ABSAT.seats ? `${ABSAT.seats} seats` : <span className="tba">{TBA}</span>} ·
-                Campus: Godrej Genesis, Sector V, Salt Lake, Kolkata
+                Campus: 15th floor, Godrej Genesis, Sector V, Kolkata. The view helps.
               </p>
             </div>
           </div>
@@ -323,7 +331,7 @@ export default function AbsatPage() {
         <div className="container">
           <div className="sec-head reveal-up">
             <p className="section-eyebrow">Who Can Apply</p>
-            <h2 className="sec-heading" id="absat-elig-h" data-text-reveal>Eligibility</h2>
+            <h2 className="sec-heading" id="absat-elig-h" data-text-reveal>Who can apply</h2>
           </div>
 
           <div className="duo-grid">
@@ -481,8 +489,8 @@ export default function AbsatPage() {
 
             <div id="apply">
               <div className="sec-head reveal-up">
-                <p className="section-eyebrow">Process</p>
-                <h2 className="sec-heading" data-text-reveal>How to apply</h2>
+                <p className="section-eyebrow">How it works</p>
+                <h2 className="sec-heading" data-text-reveal>One exam. That&apos;s the whole door.</h2>
               </div>
               <ol className="absat-steps">
                 {APPLY_STEPS.map((s, i) => (
@@ -497,7 +505,7 @@ export default function AbsatPage() {
               </ol>
               <div className="sec-foot reveal-up">
                 <a href={registrationTarget} className="btn-cta-primary" data-cta="absat_register_apply">
-                  Start registration <Arrow />
+                  Book your slot <Arrow />
                 </a>
               </div>
             </div>
@@ -591,9 +599,9 @@ export default function AbsatPage() {
       <section className="sec sec-dark" id="faq" aria-labelledby="absat-faq-h">
         <div className="container narrow">
           <div className="sec-head reveal-up">
-            <p className="section-eyebrow">Answers</p>
+            <p className="section-eyebrow">FAQ</p>
             <h2 className="sec-heading" id="absat-faq-h" data-text-reveal>
-              Frequently asked <em>questions</em>
+              Things people <em>actually ask</em>
             </h2>
           </div>
           <div className="absat-faq reveal-up">
@@ -617,7 +625,10 @@ export default function AbsatPage() {
         <div className="container">
           <div className="absat-contact">
             <div className="reveal-up">
-              <h2 className="sec-heading" id="absat-contact-h">ABSAT Helpdesk</h2>
+              <h2 className="sec-heading" id="absat-contact-h">
+                No CAT score? <em>Take ABSAT.</em>
+              </h2>
+              <p className="sec-lead">Or call a counsellor. They pick up.</p>
               <ul className="absat-contact-list">
                 <li>
                   <span>Email</span>
