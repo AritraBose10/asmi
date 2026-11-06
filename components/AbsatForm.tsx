@@ -3,10 +3,15 @@
 import { useState } from 'react';
 import { ABSAT } from '@/data/absat';
 
-const STATUS = [
-  'Final year, still figuring it out',
-  'Graduated, looking at MBAs',
-  'Working, thinking about an MBA',
+const STATES = [
+  'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh', 'Goa', 'Gujarat',
+  'Haryana', 'Himachal Pradesh', 'Jharkhand', 'Karnataka', 'Kerala', 'Madhya Pradesh',
+  'Maharashtra', 'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Punjab',
+  'Rajasthan', 'Sikkim', 'Tamil Nadu', 'Telangana', 'Tripura', 'Uttar Pradesh',
+  'Uttarakhand', 'West Bengal',
+  'Andaman & Nicobar Islands', 'Chandigarh', 'Dadra & Nagar Haveli and Daman & Diu', 'Delhi',
+  'Jammu & Kashmir', 'Ladakh', 'Lakshadweep', 'Puducherry',
+  'Outside India',
 ];
 
 /**
@@ -38,8 +43,13 @@ export default function AbsatForm() {
       }}
     >
       <div className="field">
-        <label htmlFor="absat-name">Full name</label>
-        <input id="absat-name" name="full_name" type="text" autoComplete="name" placeholder="Your name" required />
+        <label htmlFor="absat-name">Full name (as on graduation marksheet)</label>
+        <input id="absat-name" name="full_name" type="text" autoComplete="name" required />
+      </div>
+
+      <div className="field">
+        <label htmlFor="absat-email">Email address</label>
+        <input id="absat-email" name="email" type="email" autoComplete="email" required />
       </div>
 
       <div className="field">
@@ -54,7 +64,6 @@ export default function AbsatForm() {
             autoComplete="tel-national"
             pattern="[6-9][0-9]{9}"
             maxLength={10}
-            placeholder="10-digit mobile"
             aria-describedby="absat-mobile-hint"
             required
           />
@@ -65,24 +74,15 @@ export default function AbsatForm() {
       </div>
 
       <div className="field">
-        <label htmlFor="absat-email">Email</label>
-        <input id="absat-email" name="email" type="email" autoComplete="email" placeholder="you@email.com" required />
-      </div>
-
-      <div className="field">
-        <label htmlFor="absat-status">Where are you right now?</label>
-        <select id="absat-status" name="status" defaultValue={STATUS[0]} required>
-          {STATUS.map((s) => <option key={s} value={s}>{s}</option>)}
+        <label htmlFor="absat-state">State of residence</label>
+        <select id="absat-state" name="state" autoComplete="address-level1" defaultValue="" required>
+          <option value="" disabled>Select state / UT</option>
+          {STATES.map((s) => <option key={s} value={s}>{s}</option>)}
         </select>
       </div>
 
-      <div className="field">
-        <label htmlFor="absat-city">City</label>
-        <input id="absat-city" name="city" type="text" autoComplete="address-level2" placeholder="Your city" required />
-      </div>
-
       <p className="consent-notice">
-        We use your details to book your ABSAT slot and process your application for admission.
+        We use your details to process your ABSAT registration and your application for admission.
         {ABSAT.privacyPolicyUrl ? (
           <> See our <a href={ABSAT.privacyPolicyUrl}>Privacy Policy</a>.</>
         ) : (
@@ -92,7 +92,7 @@ export default function AbsatForm() {
 
       <label className="consent">
         <input type="checkbox" name="consent_processing" required />
-        <span>I agree to the processing of my data for ABSAT slot booking and admission.</span>
+        <span>I agree to the processing of my data for ABSAT registration and admission.</span>
       </label>
 
       <label className="consent">
@@ -101,15 +101,15 @@ export default function AbsatForm() {
       </label>
 
       <button type="submit" className="btn-cta-primary" data-cta="absat_register_submit">
-        Book my slot
+        Create account &amp; continue
       </button>
 
       {done && (
         <p className="form-note" role="status">
-          Online booking isn&apos;t connected yet, so this form can&apos;t send your details.
-          Call a counsellor on{' '}
+          ABSAT 2027 registration has not opened yet, so this form cannot submit.
+          Write to <a href={`mailto:${email}`}>{email}</a> or call{' '}
           <a href={`tel:${ABSAT.helpdeskPhone.replace(/\s/g, '')}`}>{ABSAT.helpdeskPhone}</a>{' '}
-          or write to <a href={`mailto:${email}`}>{email}</a> and they&apos;ll book your slot.
+          and the helpdesk will notify you the day registration goes live.
         </p>
       )}
     </form>

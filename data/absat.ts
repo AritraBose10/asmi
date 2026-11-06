@@ -52,26 +52,19 @@ export const ABSAT = {
 
 // ── §2.4 Hero stats ─────────────────────────────────────────────────────────
 export const HERO_STATS = [
-  { value: '₹14.20 LPA', label: 'Average package, 2023–25' },
-  { value: '₹20.38 LPA', label: 'Highest package, 2023–25' },
-  { value: '₹13.50 LPA', label: 'Median package, 2023–25' },
-  { value: '12', label: 'Industry mentors' },
+  { value: '75', label: 'Questions' },
+  { value: '90 min', label: 'Duration' },
+  { value: '2', label: 'Attempts, best score counts' },
+  { value: 'CBT', label: 'Remote-proctored or centre' },
 ];
 
-// ── §2.6 Specialisations ("Pick your lane") ─────────────────────────────────
+// ── §2.6 Specialisations ────────────────────────────────────────────────────
 export const MBA_SPECIALISATIONS = [
   'Marketing',
   'Finance',
-  'HR',
-  'Technology',
+  'Human Resources',
   'Entrepreneurship',
-  'Sustainability',
-];
-
-/** "Where the last batch clocked in" — 2023–25 final placement report. */
-export const RECRUITERS = [
-  'EY', 'HDFC Bank', 'HSBC', 'Lifestyle International', 'Star Health',
-  'Coal India', 'Times Network', 'E-Intellisense',
+  'Emerging Technology & Entrepreneurship',
 ];
 
 // ── §2.7 Important dates ────────────────────────────────────────────────────
@@ -97,9 +90,8 @@ export const DATES: DateRow[] = [
 
 // ── §2.8 Eligibility and selection ──────────────────────────────────────────
 export const ELIGIBILITY = [
-  'Graduates from any stream. A bachelor’s degree of minimum three years’ duration in any discipline from a UGC-recognised university, or an equivalent qualification recognised by AIU, with at least 50% aggregate marks (45% for SC/ST/PwD candidates), in line with AICTE norms.',
-  'Final-year students too. Take ABSAT now and start right after graduating. Admission is provisional until the degree and marksheets are submitted.',
-  'No CAT, MAT or XAT score needed.',
+  'A bachelor’s degree of minimum three years’ duration in any discipline from a UGC-recognised university, or an equivalent qualification recognised by AIU, with at least 50% aggregate marks (45% for SC/ST/PwD candidates), in line with AICTE norms.',
+  'Final-year students awaiting results may apply. Admission is provisional until the degree and marksheets are submitted.',
   'International and NRI candidates may apply through ABSAT or with a valid GMAT/GRE score.',
 ];
 
@@ -170,12 +162,11 @@ export const FEES: { option: string; fee: number | null }[] = [
 ];
 
 export const APPLY_STEPS = [
-  { title: 'Book your slot', body: 'Fill the form. A counsellor calls you with the details. Yes, an actual human.' },
-  {
-    title: 'Take ABSAT',
-    body: '90 minutes, online from home or at a test centre. Exam dates to be announced. No CAT, MAT or XAT score needed.',
-  },
-  { title: 'Get your result', body: 'Clear it, and the offer’s yours.' },
+  { title: 'Create your account', body: 'Register with your email and mobile number, and verify both with an OTP.' },
+  { title: 'Fill the application', body: 'Personal, academic and work-experience details.' },
+  { title: 'Upload documents', body: 'Photograph, signature, photo ID, and a category certificate if applicable.' },
+  { title: 'Choose attempts, test mode and city', body: 'Remote-proctored from home, or a centre-based test in your chosen city.' },
+  { title: 'Pay the fee', body: 'Download your confirmation page carrying your ABSAT ID.' },
 ];
 
 // ── §2.12 Test modes and centres ────────────────────────────────────────────
@@ -234,26 +225,6 @@ export const NOTICES: { date: string | null; text: string }[] = [
 // ── §2.14 FAQ ───────────────────────────────────────────────────────────────
 export const FAQS: { q: string; a: string }[] = [
   {
-    q: 'Do I need a CAT score?',
-    a: 'Nope. ABSAT is our own entrance exam. CAT, MAT, XAT: not needed.',
-  },
-  {
-    q: 'CAT didn’t go to plan. Can I still apply?',
-    a: 'Yes. Here, your CAT result is nobody’s business.',
-  },
-  {
-    q: 'Is it a real MBA degree?',
-    a: 'Yes. Awarded by Techno India University. A degree, not a certificate.',
-  },
-  {
-    q: 'I’m in my final year. Too early?',
-    a: 'Not at all. Final-year students can take ABSAT now and start right after graduating.',
-  },
-  {
-    q: 'Any scholarships?',
-    a: 'Yes, merit and need-based. Your counsellor walks you through them on the call.',
-  },
-  {
     q: 'Is ABSAT mandatory for admission to the ASMi MBA?',
     a: 'No. Candidates with valid CAT, XAT, MAT, CMAT, ATMA or GMAT scores may apply directly. ABSAT is open to all eligible candidates and is the recommended route for those without another score.',
   },
@@ -292,6 +263,10 @@ export const FAQS: { q: string; a: string }[] = [
   {
     q: 'What is the ABSAT registration fee?',
     a: 'The fee depends on whether you register for one or two attempts, with a concessional rate for SC/ST/PwD candidates. Current amounts are listed in the Registration fee section above.',
+  },
+  {
+    q: 'Are scholarships linked to ABSAT scores?',
+    a: 'Merit scholarships are awarded on the basis of ABSAT percentile and overall performance across the selection process. Write to the helpdesk for the current scholarship policy.',
   },
 ];
 
