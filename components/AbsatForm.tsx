@@ -14,34 +14,66 @@ const STATES = [
   'Outside India',
 ];
 
+type Status = 'idle' | 'sending' | 'done' | 'error';
+
 /**
  * ABSAT registration form — markup per spec §4 (names, autocomplete, required,
  * pattern validation, two separate unticked DPDP consents).
  *
- * There is no candidate portal yet, so the form does not submit: it validates,
- * then explains that registration has not opened and offers the helpdesk.
- * To go live, set ABSAT.portalSignupUrl in data/absat.ts — the action and
- * method below pick it up and the notice stops appearing.
+ * Submissions go to /api/absat, which appends a row to the ABSAT Google Sheet
+ * (see app/api/absat/route.ts and scripts/google-sheet/absat-apps-script.gs).
  */
 export default function AbsatForm() {
-  const [done, setDone] = useState(false);
-  const live = Boolean(ABSAT.portalSignupUrl);
+  const [status, setStatus] = useState<Status>('idle');
   const email = ABSAT.helpdeskEmail ?? 'info@asmibschool.com';
+  const phoneHref = `tel:${ABSAT.helpdeskPhone.replace(/\s/g, '')}`;
+
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    if (!form.reportValidity() || status === 'sending') return;
+
+    const fd = new FormData(form);
+    setStatus('sending');
+    try {
+      const res = await fetch('/api/absat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          full_name: fd.get('full_name'),
+          email: fd.get('email'),
+          mobile: fd.get('mobile'),
+          state: fd.get('state'),
+          consent_processing: fd.get('consent_processing') === 'on',
+          consent_marketing: fd.get('consent_marketing') === 'on',
+          company: fd.get('company'),
+          page: window.location.href,
+        }),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      form.reset();
+      setStatus('done');
+    } catch {
+      setStatus('error');
+    }
+  }
 
   return (
     <form
       id="absat-register"
       className="absat-form"
-      action={ABSAT.portalSignupUrl ?? undefined}
-      method={live ? 'post' : undefined}
-      noValidate={!live}
-      onSubmit={(e) => {
-        if (live) return;
-        e.preventDefault();
-        if (!(e.currentTarget as HTMLFormElement).reportValidity()) return;
-        setDone(true);
-      }}
+      noValidate
+      onSubmit={onSubmit}
     >
+      {/* Honeypot for bots: hidden from people and screen readers. */}
+      <input
+        type="text"
+        name="company"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, opacity: 0 }}
+      />
       <div className="field">
         <label htmlFor="absat-name">Full name (as on graduation marksheet)</label>
         <input id="absat-name" name="full_name" type="text" autoComplete="name" required />
@@ -100,16 +132,28 @@ export default function AbsatForm() {
         <span>Send me updates about ASMi programmes and events (optional).</span>
       </label>
 
-      <button type="submit" className="btn-cta-primary" data-cta="absat_register_submit">
-        Create account &amp; continue
+      <button
+        type="submit"
+        className="btn-cta-primary"
+        data-cta="absat_register_submit"
+        disabled={status === 'sending'}
+        aria-busy={status === 'sending'}
+      >
+        {status === 'sending' ? 'Submitting…' : <>Create account &amp; continue</>}
       </button>
 
-      {done && (
+      {status === 'done' && (
         <p className="form-note" role="status">
-          ABSAT 2027 registration has not opened yet, so this form cannot submit.
-          Write to <a href={`mailto:${email}`}>{email}</a> or call{' '}
-          <a href={`tel:${ABSAT.helpdeskPhone.replace(/\s/g, '')}`}>{ABSAT.helpdeskPhone}</a>{' '}
-          and the helpdesk will notify you the day registration goes live.
+          Thank you. Your details have been received, and the ABSAT helpdesk will contact you
+          on your registered email and mobile number.
+        </p>
+      )}
+
+      {status === 'error' && (
+        <p className="form-note" role="alert">
+          Something went wrong and your details were not saved. Please try again, or write to{' '}
+          <a href={`mailto:${email}`}>{email}</a> or call{' '}
+          <a href={phoneHref}>{ABSAT.helpdeskPhone}</a>.
         </p>
       )}
     </form>
