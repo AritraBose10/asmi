@@ -25,7 +25,7 @@ export const ABSAT = {
 
   /** Helpdesk. Spec flags both as "confirm"; phone matches the site-wide number. */
   helpdeskEmail: null as string | null, // → falls back to info@asmibschool.com
-  helpdeskPhone: '+91 8100203639',
+  helpdeskPhone: '080 6264 2222',
   helpdeskHours: 'Mon–Sat, 10:00 am – 6:00 pm IST',
 
   /** Seats in the MBA intake (spec §2.6 footnote). */

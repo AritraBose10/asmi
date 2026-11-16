@@ -8,7 +8,6 @@ import {
 } from '@/data/absat';
 import { Arrow } from '@/components/Chrome';
 import Icon from '@/components/Icon';
-import AbsatForm from '@/components/AbsatForm';
 import AbsatSectionNav from '@/components/AbsatSectionNav';
 import { PhotoBand } from '@/components/Photo';
 import { SECTION, HERO, photoSrc } from '@/data/photos';
@@ -135,7 +134,8 @@ function jsonLd() {
 
 export default function AbsatPage() {
   const helpdeskEmail = ABSAT.helpdeskEmail ?? SITE.email;
-  const registrationTarget = ABSAT.portalSignupUrl ?? '#register';
+  // External application/registration link (set in data/absat.ts).
+  const registrationTarget = ABSAT.portalSignupUrl ?? SITE.applyUrl;
 
   return (
     <>
@@ -174,52 +174,34 @@ export default function AbsatPage() {
             <span aria-current="page">ABSAT 2027</span>
           </nav>
 
-          <div className="absat-hero-grid">
-            <div className="ph-inner">
-              <p className="ph-eyebrow">MBA Entrance Test · {ABSAT.batch} Batch</p>
-              <h1 className="ph-title" id="absat-h1">
-                <span className="absat-h1-mark">ABSAT 2027</span>{' '}
-                One test. Your route to the <em>ASMi MBA</em>.
-              </h1>
-              <p className="ph-sub">
-                ABSAT is the entrance test for admission to the full-time, two-year MBA at ASMi
-                Business School, Kolkata. Take it online from home or at a test centre, attempt it up
-                to twice, and the better score counts.
-              </p>
-              <div className="ph-actions">
-                <a href={registrationTarget} className="btn-cta-primary" data-cta="absat_register_hero">
-                  Register for ABSAT 2027 <Arrow />
-                </a>
-                <a href="#downloads" className="btn-ghost-light" data-cta="absat_bulletin_hero">
-                  Information Bulletin
-                </a>
-              </div>
-
-              <dl className="absat-stats">
-                {HERO_STATS.map((s) => (
-                  <div className="absat-stat" key={s.label}>
-                    <dt className="absat-stat-label">{s.label}</dt>
-                    <dd className="absat-stat-value">{s.value}</dd>
-                  </div>
-                ))}
-              </dl>
+          <div className="ph-inner">
+            <p className="ph-eyebrow">MBA Entrance Test · {ABSAT.batch} Batch</p>
+            <h1 className="ph-title" id="absat-h1">
+              <span className="absat-h1-mark">ABSAT 2027</span>{' '}
+              One test. Your route to the <em>ASMi&nbsp;MBA</em>.
+            </h1>
+            <p className="ph-sub">
+              ABSAT is the entrance test for admission to the full-time, two-year MBA at ASMi
+              Business School, Kolkata. Take it online from home or at a test centre, attempt it up
+              to twice, and the better score counts.
+            </p>
+            <div className="ph-actions">
+              <a href={registrationTarget} target="_blank" rel="noopener" className="btn-cta-primary" data-cta="absat_register_hero">
+                Register for ABSAT 2027 <Arrow />
+              </a>
+              <a href="#downloads" className="btn-ghost-light" data-cta="absat_bulletin_hero">
+                Information Bulletin
+              </a>
             </div>
 
-            {/* ── §2.5 Registration card ── */}
-            <div className="absat-reg-card reveal-up" id="register">
-              <h2>Candidate Registration</h2>
-              <p className="absat-reg-help">
-                New candidates create an account first. Your ABSAT ID will be sent to your registered
-                email and mobile number.
-              </p>
-              <AbsatForm />
-              {ABSAT.portalLoginUrl && (
-                <p className="absat-reg-login">
-                  Already registered?{' '}
-                  <a href={ABSAT.portalLoginUrl} data-cta="absat_login">Log in with your ABSAT ID</a>
-                </p>
-              )}
-            </div>
+            <dl className="absat-stats">
+              {HERO_STATS.map((s) => (
+                <div className="absat-stat" key={s.label}>
+                  <dt className="absat-stat-label">{s.label}</dt>
+                  <dd className="absat-stat-value">{s.value}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </div>
       </section>
@@ -496,7 +478,7 @@ export default function AbsatPage() {
                 ))}
               </ol>
               <div className="sec-foot reveal-up">
-                <a href={registrationTarget} className="btn-cta-primary" data-cta="absat_register_apply">
+                <a href={registrationTarget} target="_blank" rel="noopener" className="btn-cta-primary" data-cta="absat_register_apply">
                   Start registration <Arrow />
                 </a>
               </div>
