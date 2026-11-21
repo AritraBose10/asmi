@@ -247,6 +247,38 @@ export default function Home() {
 
       {/* ADVANTAGE — 10 REASONS */}
       <section className="advantage-section" id="advantage">
+        {/* Decorative: corner light leak + golden ribbons. All aria-hidden, pointer-events none. */}
+        <div className="adv-leak" aria-hidden="true"></div>
+        <div className="adv-leak adv-leak-b" aria-hidden="true"></div>
+        <svg className="adv-ribbon" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="advGold" x1="0" y1="0" x2="1" y2="0.6">
+              <stop offset="0" stopColor="#7a5a14" />
+              <stop offset="0.22" stopColor="#e8d080" />
+              <stop offset="0.45" stopColor="#b8902c" />
+              <stop offset="0.68" stopColor="#fff1a8" />
+              <stop offset="0.85" stopColor="#c9a84c" />
+              <stop offset="1" stopColor="#8a6a1f" />
+            </linearGradient>
+            <linearGradient id="advShine" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stopColor="#fff" stopOpacity="0" />
+              <stop offset="0.5" stopColor="#fff" stopOpacity="0.95" />
+              <stop offset="1" stopColor="#fff" stopOpacity="0" />
+            </linearGradient>
+            <clipPath id="advClipA"><path d="M -60 760 C 260 650 420 860 760 700 S 1180 330 1520 250 L 1520 335 C 1180 415 1000 800 740 790 C 420 940 260 740 -60 850 Z" /></clipPath>
+            <clipPath id="advClipB"><path d="M -60 560 C 300 470 520 700 820 540 S 1200 250 1520 170 L 1520 206 C 1200 292 1000 610 800 586 C 520 760 300 520 -60 604 Z" /></clipPath>
+          </defs>
+          <g className="adv-rib adv-rib-b">
+            <path d="M -60 560 C 300 470 520 700 820 540 S 1200 250 1520 170 L 1520 206 C 1200 292 1000 610 800 586 C 520 760 300 520 -60 604 Z" fill="url(#advGold)" />
+            <path d="M -60 560 C 300 470 520 700 820 540 S 1200 250 1520 170" fill="none" stroke="#fff6c2" strokeOpacity="0.8" strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
+            <g clipPath="url(#advClipB)"><rect className="adv-shine adv-shine-b" x="-300" y="0" width="300" height="900" fill="url(#advShine)" /></g>
+          </g>
+          <g className="adv-rib adv-rib-a">
+            <path d="M -60 760 C 260 650 420 860 760 700 S 1180 330 1520 250 L 1520 335 C 1180 415 1000 800 740 790 C 420 940 260 740 -60 850 Z" fill="url(#advGold)" />
+            <path d="M -60 760 C 260 650 420 860 760 700 S 1180 330 1520 250" fill="none" stroke="#fff6c2" strokeOpacity="0.85" strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
+            <g clipPath="url(#advClipA)"><rect className="adv-shine" x="-400" y="0" width="400" height="900" fill="url(#advShine)" /></g>
+          </g>
+        </svg>
         <div className="floating-accent fa-1" data-parallax-speed="0.02"></div>
         <div className="floating-accent fa-2" data-parallax-speed="0.04"></div>
         <div className="container">

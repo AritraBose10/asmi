@@ -823,6 +823,92 @@ body.cursor-hover .cursor-ring {
 }
 .adv-card:hover::after { opacity: 1; }
 
+
+/* ── ADVANTAGE: golden ribbons + corner light leak (decorative) ───────────── */
+.adv-ribbon {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  filter: drop-shadow(0 14px 22px rgba(160, 128, 48, 0.28));
+  opacity: 0.92;
+}
+.adv-rib { transform-box: fill-box; }
+.adv-rib-a { animation: advRibFloatA 11s ease-in-out infinite alternate; }
+.adv-rib-b { animation: advRibFloatB 14s ease-in-out infinite alternate; opacity: 0.8; }
+.adv-shine {
+  transform: translateX(-400px) skewX(-22deg);
+  animation: advShine 6.5s cubic-bezier(.45,.05,.35,1) infinite;
+}
+.adv-shine-b { animation-duration: 8.5s; animation-delay: 2.2s; }
+@keyframes advShine {
+  0%   { transform: translateX(-400px)  skewX(-22deg); }
+  55%  { transform: translateX(1900px) skewX(-22deg); }
+  100% { transform: translateX(1900px) skewX(-22deg); }
+}
+@keyframes advRibFloatA { from { transform: translateY(-14px) rotate(-0.4deg); } to { transform: translateY(18px) rotate(0.5deg); } }
+@keyframes advRibFloatB { from { transform: translateY(16px) rotate(0.4deg); } to { transform: translateY(-12px) rotate(-0.4deg); } }
+
+/* Light leaking in from the top-right corner: a soft glow plus slow, faint rays */
+.adv-leak {
+  position: absolute;
+  top: 0; right: 0;
+  width: min(900px, 80vw); height: min(760px, 90%);
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse at 100% 0%,
+      rgba(255, 238, 160, 0.95) 0%,
+      rgba(232, 208, 128, 0.62) 16%,
+      rgba(201, 168, 76, 0.30) 38%,
+      rgba(201, 168, 76, 0.10) 58%,
+      transparent 74%);
+  animation: advLeakPulse 8s ease-in-out infinite;
+}
+.adv-leak::before {
+  content: '';
+  position: absolute;
+  inset: -40% -40% auto auto;
+  width: 160%; height: 160%;
+  background: conic-gradient(from 168deg at 100% 0%,
+    transparent 0deg, rgba(255, 244, 190, 0.55) 5deg, transparent 12deg,
+    transparent 20deg, rgba(255, 236, 160, 0.38) 25deg, transparent 31deg,
+    transparent 40deg, rgba(255, 244, 190, 0.28) 44deg, transparent 50deg, transparent 360deg);
+  -webkit-mask-image: radial-gradient(circle at 100% 0%, #000 0%, rgba(0,0,0,0.55) 35%, transparent 65%);
+          mask-image: radial-gradient(circle at 100% 0%, #000 0%, rgba(0,0,0,0.55) 35%, transparent 65%);
+  transform-origin: 100% 0%;
+  animation: advLeakRays 18s ease-in-out infinite alternate;
+}
+.adv-leak-b {
+  top: auto; right: auto; left: 0; bottom: 0;
+  width: min(560px, 60vw); height: min(460px, 60%);
+  transform: scale(-1, -1);
+  opacity: 0.55;
+  animation-duration: 11s;
+  animation-delay: -3s;
+}
+.adv-leak-b::before { display: none; }
+@keyframes advLeakPulse { 0%, 100% { opacity: 0.85; } 50% { opacity: 1; } }
+@keyframes advLeakRays  { from { transform: rotate(-5deg); opacity: 0.7; } to { transform: rotate(7deg); opacity: 1; } }
+
+.advantage-section .adv-header-desc { color: var(--gray-700); }
+
+/* Frosted cards let the ribbon glow through instead of hiding behind solid white */
+.advantage-section .adv-card {
+  background: rgba(255, 255, 255, 0.86);
+  -webkit-backdrop-filter: blur(7px);
+          backdrop-filter: blur(7px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .adv-rib-a, .adv-rib-b, .adv-leak, .adv-leak::before { animation: none; }
+  .adv-shine { animation: none; transform: translateX(560px) skewX(-22deg); }
+}
+@media (max-width: 760px) {
+  .adv-ribbon { opacity: 0.6; }
+  .adv-leak-b { display: none; }
+}
+
 /* ══════════════════════════════════
    PROGRAMS — EXPANDING ACCORDION
 ══════════════════════════════════ */
