@@ -3,7 +3,7 @@ backend:
   name: github
   repo: AritraBose10/asmi
   branch: main
-  base_url: https://asmibschool.com
+  # base_url is set at runtime in public/admin/index.html (location.origin).
   auth_endpoint: api/decap/auth
 
 # Lets you run the CMS against local files at http://localhost:3000/admin
@@ -14,7 +14,6 @@ local_backend: true
 publish_mode: simple
 media_folder: public/photos
 public_folder: /photos
-site_url: https://asmibschool.com
 
 collections:
   - name: "people"

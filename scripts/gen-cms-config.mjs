@@ -101,7 +101,7 @@ backend:
   name: github
   repo: AritraBose10/asmi
   branch: main
-  base_url: https://asmibschool.com
+  # base_url is set at runtime in public/admin/index.html (location.origin).
   auth_endpoint: api/decap/auth
 
 # Lets you run the CMS against local files at http://localhost:3000/admin
@@ -112,7 +112,6 @@ local_backend: true
 publish_mode: simple
 media_folder: public/photos
 public_folder: /photos
-site_url: https://asmibschool.com
 
 collections:
 ${collection('people', 'People', fileEntry({ name: 'people', label: 'People photos', file: 'data/media/people.json', folder: 'people', fields: people }))}${collection('clubs', 'Clubs', fileEntry({ name: 'clubs', label: 'Club photos', file: 'data/media/clubs.json', folder: 'clubs', fields: clubs }))}${collection('events', 'Events', fileEntry({ name: 'events', label: 'Event photos', file: 'data/media/events.json', folder: 'events', fields: events }))}${collection('specializations', 'Specializations', fileEntry({ name: 'specializations', label: 'Specialization photos', file: 'data/media/specializations.json', folder: 'specializations', fields: specs }))}${collection('students', 'Students', fileEntry({ name: 'students', label: 'Student photos', file: 'data/media/students.json', folder: 'students', fields: students }))}${collection('pages', 'Pages, heroes & campus', fileEntry({ name: 'pages', label: 'Page photos', file: 'data/media/pages.json', folder: 'pages', fields: pages }))}`;
