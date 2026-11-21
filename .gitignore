@@ -11,3 +11,7 @@ certificate_recipients_deduped.csv
 # Local secrets
 .env
 .env*.local
+
+# CMS stub storage
+.cms/
+public/uploads/

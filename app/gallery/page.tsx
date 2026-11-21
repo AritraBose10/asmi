@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { PageHero, SecHead, CtaBand } from '@/components/Chrome';
 import GalleryView from '@/components/GalleryView';
-import { GALLERY_ITEMS } from '@/data/gallery';
+import { getGalleryItems } from '@/lib/media';
 
 export const metadata: Metadata = {
   title: 'Gallery — Campus Life, Guest Lectures & Study Tour',
@@ -9,7 +9,8 @@ export const metadata: Metadata = {
     'Visual directory and gallery of ASMi Business School: guest lectures, executive speaker sessions from the April–September 2026 directory, 15th floor Godrej Genesis campus life, and the Malaysia study tour.',
 };
 
-export default function GalleryPage() {
+export default async function GalleryPage() {
+  const items = await getGalleryItems();
   return (
     <>
       <PageHero
@@ -35,7 +36,7 @@ export default function GalleryPage() {
             lead="Filter by documented speaker sessions from the April–September 2026 directory, high-rise campus facilities in Kolkata's IT corridor, and international study tour moments."
           />
 
-          <GalleryView items={GALLERY_ITEMS} />
+          <GalleryView items={items} />
         </div>
       </section>
 

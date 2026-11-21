@@ -4,7 +4,7 @@ import { LEADERSHIP, FACULTY, MENTORS } from '@/data/people';
 import { PageHero, SecHead, CtaBand, Arrow, Pills } from '@/components/Chrome';
 import LinkedInLink from '@/components/LinkedInLink';
 import Photo, { PhotoBand } from '@/components/Photo';
-import { SECTION } from '@/data/photos';
+import { getPhotos } from '@/lib/media';
 import { FeatureGrid } from '@/components/Icon';
 
 export const metadata: Metadata = {
@@ -12,7 +12,8 @@ export const metadata: Metadata = {
   description: 'Meet the faculty and industry mentors at ASMi Business School — IIT and IIM alumni, CXOs, founders and industry veterans.',
 };
 
-export default function FacultyIndex() {
+export default async function FacultyIndex() {
+  const { SECTION } = await getPhotos();
   return (
     <>
       <PageHero

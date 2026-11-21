@@ -10,7 +10,8 @@ import { Arrow } from '@/components/Chrome';
 import Icon from '@/components/Icon';
 import AbsatSectionNav from '@/components/AbsatSectionNav';
 import { PhotoBand } from '@/components/Photo';
-import { SECTION, HERO, photoSrc } from '@/data/photos';
+import { getPhotos } from '@/lib/media';
+import { photoSrc } from '@/data/photos';
 
 const TITLE = 'ABSAT 2027 – ASMi Business School MBA Entrance Test | Dates, Syllabus, Registration';
 const DESC =
@@ -132,7 +133,8 @@ function jsonLd() {
   return { '@context': 'https://schema.org', '@graph': [org, course, ...events, breadcrumb, faq] };
 }
 
-export default function AbsatPage() {
+export default async function AbsatPage() {
+  const { SECTION, HERO } = await getPhotos();
   const helpdeskEmail = ABSAT.helpdeskEmail ?? SITE.email;
   // External application/registration link (set in data/absat.ts).
   const registrationTarget = ABSAT.portalSignupUrl ?? SITE.applyUrl;
