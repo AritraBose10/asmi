@@ -37,6 +37,21 @@ export default function Home() {
         </div>
         <div className="hero-media">
           <img src={photoSrc(HERO.home)} alt={HERO.home.alt} className="hero-img" id="heroImg" />
+          {/* Campus tour loop, under the overlay. Muted + playsInline so browsers allow autoplay;
+              hidden for reduced-motion users, who get the still above. */}
+          <video
+            className="hero-video"
+            id="heroVideo"
+            src="/videos/campus-tour.mp4"
+            poster="/videos/campus-tour-poster.jpg"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-hidden="true"
+            tabIndex={-1}
+          />
           <div className="hero-overlay"></div>
         </div>
         <div className="hero-content">

@@ -164,16 +164,19 @@ export default function SiteMotion() {
 
     // ── Parallax ──
     const heroImg = document.getElementById('heroImg');
+    const heroVideo = document.getElementById('heroVideo');
     const shapes = document.querySelectorAll<HTMLElement>('[data-parallax-speed]');
-    if (!prefersReduced && (heroImg || shapes.length)) {
+    if (!prefersReduced && (heroImg || heroVideo || shapes.length)) {
       let ticking = false;
       const onScroll = () => {
         if (ticking) return;
         ticking = true;
         requestAnimationFrame(() => {
           const y = window.scrollY;
-          if (heroImg && y < window.innerHeight * 1.2) {
-            heroImg.style.transform = `translateY(${y * 0.28}px) scale(1.06)`;
+          if (y < window.innerHeight * 1.2) {
+            const t = `translateY(${y * 0.28}px) scale(1.06)`;
+            if (heroImg) heroImg.style.transform = t;
+            if (heroVideo) heroVideo.style.transform = t;
           }
           shapes.forEach((s) => {
             const speed = parseFloat(s.dataset.parallaxSpeed || '0');
