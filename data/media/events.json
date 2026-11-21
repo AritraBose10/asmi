@@ -40,7 +40,18 @@
     ]
   },
   "teachers-day-celebration": {
-    "photo": "/photos/events/teachers-day-celebration.jpg"
+    "photo": "/photos/events/teachers-day-celebration.jpg",
+    "gallery": [
+      "/photos/events/teachers-day-celebration/01.jpg",
+      "/photos/events/teachers-day-celebration/02.jpg",
+      "/photos/events/teachers-day-celebration/03.jpg",
+      "/photos/events/teachers-day-celebration/04.jpg",
+      "/photos/events/teachers-day-celebration/05.jpg",
+      "/photos/events/teachers-day-celebration/06.jpg",
+      "/photos/events/teachers-day-celebration/07.jpg",
+      "/photos/events/teachers-day-celebration/08.jpg",
+      "/photos/events/teachers-day-celebration/09.jpg"
+    ]
   },
   "corporate-connect-sessions": {
     "photo": "/photos/events/corporate-connect-sessions.jpg",
@@ -132,19 +143,7 @@
       "/photos/events/asmi-malaysia-2025/02.jpg",
       "/photos/events/asmi-malaysia-2025/03.jpg",
       "/photos/events/asmi-malaysia-2025/04.jpg",
-      "/photos/events/asmi-malaysia-2025/05.jpg",
-      "/photos/events/asmi-malaysia-2025/06.jpg",
-      "/photos/events/asmi-malaysia-2025/07.jpg",
-      "/photos/events/asmi-malaysia-2025/08.jpg",
-      "/photos/events/asmi-malaysia-2025/09.jpg",
-      "/photos/events/asmi-malaysia-2025/10.jpg",
-      "/photos/events/asmi-malaysia-2025/11.jpg",
-      "/photos/events/asmi-malaysia-2025/12.jpg",
-      "/photos/events/asmi-malaysia-2025/13.jpg",
-      "/photos/events/asmi-malaysia-2025/14.jpg",
-      "/photos/events/asmi-malaysia-2025/15.jpg",
-      "/photos/events/asmi-malaysia-2025/16.jpg",
-      "/photos/events/asmi-malaysia-2025/17.jpg"
+      "/photos/events/asmi-malaysia-2025/05.jpg"
     ]
   },
   "asmi-session-11-august-2026": {
@@ -152,25 +151,324 @@
     "gallery": [
       "/photos/events/asmi-session-11-august-2026/01.jpg",
       "/photos/events/asmi-session-11-august-2026/02.jpg",
-      "/photos/events/asmi-session-11-august-2026/03.jpg"
+      "/photos/events/asmi-session-11-august-2026/03.jpg",
+      "/photos/events/asmi-session-11-august-2026/04.jpg",
+      "/photos/events/asmi-session-11-august-2026/05.jpg",
+      "/photos/events/asmi-session-11-august-2026/06.jpg",
+      "/photos/events/asmi-session-11-august-2026/07.jpg",
+      "/photos/events/asmi-session-11-august-2026/08.jpg"
     ]
   },
   "asmi-movie-screening": {
     "photo": "/photos/events/asmi-movie-screening.jpg",
     "gallery": [
-      "/photos/events/asmi-movie-screening/01.jpg"
+      "/photos/events/asmi-movie-screening/01.jpg",
+      "/photos/events/asmi-movie-screening/02.jpg",
+      "/photos/events/asmi-movie-screening/03.jpg",
+      "/photos/events/asmi-movie-screening/04.jpg",
+      "/photos/events/asmi-movie-screening/05.jpg",
+      "/photos/events/asmi-movie-screening/06.jpg",
+      "/photos/events/asmi-movie-screening/07.jpg",
+      "/photos/events/asmi-movie-screening/08.jpg",
+      "/photos/events/asmi-movie-screening/09.jpg",
+      "/photos/events/asmi-movie-screening/10.jpg"
     ]
   },
   "ibm-immersion-programme": {
     "photo": "/photos/events/ibm-immersion-programme.jpg",
     "gallery": [
-      "/photos/events/ibm-immersion-programme/01.jpg"
+      "/photos/events/ibm-immersion-programme/01.jpg",
+      "/photos/events/ibm-immersion-programme/02.jpg",
+      "/photos/events/ibm-immersion-programme/03.jpg",
+      "/photos/events/ibm-immersion-programme/04.jpg",
+      "/photos/events/ibm-immersion-programme/05.jpg",
+      "/photos/events/ibm-immersion-programme/06.jpg",
+      "/photos/events/ibm-immersion-programme/07.jpg",
+      "/photos/events/ibm-immersion-programme/08.jpg",
+      "/photos/events/ibm-immersion-programme/09.jpg",
+      "/photos/events/ibm-immersion-programme/10.jpg"
     ]
   },
   "asmi-agomoni-2026": {
     "photo": "/photos/events/asmi-agomoni-2026.jpg",
     "gallery": [
-      "/photos/events/asmi-agomoni-2026/01.jpg"
+      "/photos/events/asmi-agomoni-2026/01.jpg",
+      "/photos/events/asmi-agomoni-2026/02.jpg",
+      "/photos/events/asmi-agomoni-2026/03.jpg",
+      "/photos/events/asmi-agomoni-2026/04.jpg",
+      "/photos/events/asmi-agomoni-2026/05.jpg",
+      "/photos/events/asmi-agomoni-2026/06.jpg",
+      "/photos/events/asmi-agomoni-2026/07.jpg",
+      "/photos/events/asmi-agomoni-2026/08.jpg",
+      "/photos/events/asmi-agomoni-2026/09.jpg",
+      "/photos/events/asmi-agomoni-2026/10.jpg"
+    ]
+  },
+  "ai-business-strategy-at-asmi": {
+    "photo": "/photos/events/ai-business-strategy-at-asmi.jpg",
+    "gallery": [
+      "/photos/events/ai-business-strategy-at-asmi/01.jpg",
+      "/photos/events/ai-business-strategy-at-asmi/02.jpg",
+      "/photos/events/ai-business-strategy-at-asmi/03.jpg",
+      "/photos/events/ai-business-strategy-at-asmi/04.jpg",
+      "/photos/events/ai-business-strategy-at-asmi/05.jpg",
+      "/photos/events/ai-business-strategy-at-asmi/06.jpg",
+      "/photos/events/ai-business-strategy-at-asmi/07.jpg",
+      "/photos/events/ai-business-strategy-at-asmi/08.jpg",
+      "/photos/events/ai-business-strategy-at-asmi/09.jpg",
+      "/photos/events/ai-business-strategy-at-asmi/10.jpg"
+    ]
+  },
+  "asmi-cma-swagatam": {
+    "photo": "/photos/events/asmi-cma-swagatam.jpg",
+    "gallery": [
+      "/photos/events/asmi-cma-swagatam/01.jpg",
+      "/photos/events/asmi-cma-swagatam/02.jpg",
+      "/photos/events/asmi-cma-swagatam/03.jpg",
+      "/photos/events/asmi-cma-swagatam/04.jpg",
+      "/photos/events/asmi-cma-swagatam/05.jpg",
+      "/photos/events/asmi-cma-swagatam/06.jpg",
+      "/photos/events/asmi-cma-swagatam/07.jpg",
+      "/photos/events/asmi-cma-swagatam/08.jpg",
+      "/photos/events/asmi-cma-swagatam/09.jpg",
+      "/photos/events/asmi-cma-swagatam/10.jpg"
+    ]
+  },
+  "asmi-deploy-batch-of-2026": {
+    "photo": "/photos/events/asmi-deploy-batch-of-2026.jpg",
+    "gallery": [
+      "/photos/events/asmi-deploy-batch-of-2026/01.jpg",
+      "/photos/events/asmi-deploy-batch-of-2026/02.jpg",
+      "/photos/events/asmi-deploy-batch-of-2026/03.jpg",
+      "/photos/events/asmi-deploy-batch-of-2026/04.jpg",
+      "/photos/events/asmi-deploy-batch-of-2026/05.jpg",
+      "/photos/events/asmi-deploy-batch-of-2026/06.jpg",
+      "/photos/events/asmi-deploy-batch-of-2026/07.jpg",
+      "/photos/events/asmi-deploy-batch-of-2026/08.jpg",
+      "/photos/events/asmi-deploy-batch-of-2026/09.jpg",
+      "/photos/events/asmi-deploy-batch-of-2026/10.jpg"
+    ]
+  },
+  "asmi-empathy-mapping-competition": {
+    "photo": "/photos/events/asmi-empathy-mapping-competition.jpg",
+    "gallery": [
+      "/photos/events/asmi-empathy-mapping-competition/01.jpg",
+      "/photos/events/asmi-empathy-mapping-competition/02.jpg",
+      "/photos/events/asmi-empathy-mapping-competition/03.jpg",
+      "/photos/events/asmi-empathy-mapping-competition/04.jpg",
+      "/photos/events/asmi-empathy-mapping-competition/05.jpg",
+      "/photos/events/asmi-empathy-mapping-competition/06.jpg",
+      "/photos/events/asmi-empathy-mapping-competition/07.jpg",
+      "/photos/events/asmi-empathy-mapping-competition/08.jpg",
+      "/photos/events/asmi-empathy-mapping-competition/09.jpg",
+      "/photos/events/asmi-empathy-mapping-competition/10.jpg"
+    ]
+  },
+  "asmi-entrepreneurship-day": {
+    "photo": "/photos/events/asmi-entrepreneurship-day.jpg",
+    "gallery": [
+      "/photos/events/asmi-entrepreneurship-day/01.jpg",
+      "/photos/events/asmi-entrepreneurship-day/02.jpg",
+      "/photos/events/asmi-entrepreneurship-day/03.jpg",
+      "/photos/events/asmi-entrepreneurship-day/04.jpg",
+      "/photos/events/asmi-entrepreneurship-day/05.jpg",
+      "/photos/events/asmi-entrepreneurship-day/06.jpg",
+      "/photos/events/asmi-entrepreneurship-day/07.jpg",
+      "/photos/events/asmi-entrepreneurship-day/08.jpg",
+      "/photos/events/asmi-entrepreneurship-day/09.jpg",
+      "/photos/events/asmi-entrepreneurship-day/10.jpg"
+    ]
+  },
+  "asmi-farewell-fiesta": {
+    "photo": "/photos/events/asmi-farewell-fiesta.jpg",
+    "gallery": [
+      "/photos/events/asmi-farewell-fiesta/01.jpg",
+      "/photos/events/asmi-farewell-fiesta/02.jpg",
+      "/photos/events/asmi-farewell-fiesta/03.jpg",
+      "/photos/events/asmi-farewell-fiesta/04.jpg",
+      "/photos/events/asmi-farewell-fiesta/05.jpg",
+      "/photos/events/asmi-farewell-fiesta/06.jpg",
+      "/photos/events/asmi-farewell-fiesta/07.jpg",
+      "/photos/events/asmi-farewell-fiesta/08.jpg",
+      "/photos/events/asmi-farewell-fiesta/09.jpg",
+      "/photos/events/asmi-farewell-fiesta/10.jpg"
+    ]
+  },
+  "asmi-finance-marathon": {
+    "photo": "/photos/events/asmi-finance-marathon.jpg",
+    "gallery": [
+      "/photos/events/asmi-finance-marathon/01.jpg",
+      "/photos/events/asmi-finance-marathon/02.jpg",
+      "/photos/events/asmi-finance-marathon/03.jpg",
+      "/photos/events/asmi-finance-marathon/04.jpg",
+      "/photos/events/asmi-finance-marathon/05.jpg",
+      "/photos/events/asmi-finance-marathon/06.jpg",
+      "/photos/events/asmi-finance-marathon/07.jpg",
+      "/photos/events/asmi-finance-marathon/08.jpg",
+      "/photos/events/asmi-finance-marathon/09.jpg",
+      "/photos/events/asmi-finance-marathon/10.jpg"
+    ]
+  },
+  "asmi-general-insurance": {
+    "photo": "/photos/events/asmi-general-insurance.jpg",
+    "gallery": [
+      "/photos/events/asmi-general-insurance/01.jpg",
+      "/photos/events/asmi-general-insurance/02.jpg",
+      "/photos/events/asmi-general-insurance/03.jpg",
+      "/photos/events/asmi-general-insurance/04.jpg",
+      "/photos/events/asmi-general-insurance/05.jpg",
+      "/photos/events/asmi-general-insurance/06.jpg",
+      "/photos/events/asmi-general-insurance/07.jpg",
+      "/photos/events/asmi-general-insurance/08.jpg"
+    ]
+  },
+  "asmi-happiness-by-design": {
+    "photo": "/photos/events/asmi-happiness-by-design.jpg",
+    "gallery": [
+      "/photos/events/asmi-happiness-by-design/01.jpg",
+      "/photos/events/asmi-happiness-by-design/02.jpg",
+      "/photos/events/asmi-happiness-by-design/03.jpg",
+      "/photos/events/asmi-happiness-by-design/04.jpg",
+      "/photos/events/asmi-happiness-by-design/05.jpg",
+      "/photos/events/asmi-happiness-by-design/06.jpg",
+      "/photos/events/asmi-happiness-by-design/07.jpg",
+      "/photos/events/asmi-happiness-by-design/08.jpg",
+      "/photos/events/asmi-happiness-by-design/09.jpg",
+      "/photos/events/asmi-happiness-by-design/10.jpg"
+    ]
+  },
+  "asmi-orientation-2026": {
+    "photo": "/photos/events/asmi-orientation-2026.jpg",
+    "gallery": [
+      "/photos/events/asmi-orientation-2026/01.jpg",
+      "/photos/events/asmi-orientation-2026/02.jpg",
+      "/photos/events/asmi-orientation-2026/03.jpg",
+      "/photos/events/asmi-orientation-2026/04.jpg",
+      "/photos/events/asmi-orientation-2026/05.jpg",
+      "/photos/events/asmi-orientation-2026/06.jpg",
+      "/photos/events/asmi-orientation-2026/07.jpg",
+      "/photos/events/asmi-orientation-2026/08.jpg"
+    ]
+  },
+  "asmi-penalties-and-enforcement": {
+    "photo": "/photos/events/asmi-penalties-and-enforcement.jpg",
+    "gallery": [
+      "/photos/events/asmi-penalties-and-enforcement/01.jpg",
+      "/photos/events/asmi-penalties-and-enforcement/02.jpg",
+      "/photos/events/asmi-penalties-and-enforcement/03.jpg",
+      "/photos/events/asmi-penalties-and-enforcement/04.jpg",
+      "/photos/events/asmi-penalties-and-enforcement/05.jpg",
+      "/photos/events/asmi-penalties-and-enforcement/06.jpg",
+      "/photos/events/asmi-penalties-and-enforcement/07.jpg",
+      "/photos/events/asmi-penalties-and-enforcement/08.jpg",
+      "/photos/events/asmi-penalties-and-enforcement/09.jpg",
+      "/photos/events/asmi-penalties-and-enforcement/10.jpg"
+    ]
+  },
+  "asmi-premiere-league": {
+    "photo": "/photos/events/asmi-premiere-league.jpg",
+    "gallery": [
+      "/photos/events/asmi-premiere-league/01.jpg",
+      "/photos/events/asmi-premiere-league/02.jpg",
+      "/photos/events/asmi-premiere-league/03.jpg",
+      "/photos/events/asmi-premiere-league/04.jpg",
+      "/photos/events/asmi-premiere-league/05.jpg",
+      "/photos/events/asmi-premiere-league/06.jpg",
+      "/photos/events/asmi-premiere-league/07.jpg",
+      "/photos/events/asmi-premiere-league/08.jpg",
+      "/photos/events/asmi-premiere-league/09.jpg",
+      "/photos/events/asmi-premiere-league/10.jpg"
+    ]
+  },
+  "asmi-sap-certificate-distribution": {
+    "photo": "/photos/events/asmi-sap-certificate-distribution.jpg",
+    "gallery": [
+      "/photos/events/asmi-sap-certificate-distribution/01.jpg",
+      "/photos/events/asmi-sap-certificate-distribution/02.jpg",
+      "/photos/events/asmi-sap-certificate-distribution/03.jpg",
+      "/photos/events/asmi-sap-certificate-distribution/04.jpg",
+      "/photos/events/asmi-sap-certificate-distribution/05.jpg",
+      "/photos/events/asmi-sap-certificate-distribution/06.jpg"
+    ]
+  },
+  "asmi-startup-games-2026": {
+    "photo": "/photos/events/asmi-startup-games-2026.jpg",
+    "gallery": [
+      "/photos/events/asmi-startup-games-2026/01.jpg",
+      "/photos/events/asmi-startup-games-2026/02.jpg",
+      "/photos/events/asmi-startup-games-2026/03.jpg",
+      "/photos/events/asmi-startup-games-2026/04.jpg",
+      "/photos/events/asmi-startup-games-2026/05.jpg",
+      "/photos/events/asmi-startup-games-2026/06.jpg",
+      "/photos/events/asmi-startup-games-2026/07.jpg",
+      "/photos/events/asmi-startup-games-2026/08.jpg",
+      "/photos/events/asmi-startup-games-2026/09.jpg",
+      "/photos/events/asmi-startup-games-2026/10.jpg"
+    ]
+  },
+  "cleanup-drive-at-tiu": {
+    "photo": "/photos/events/cleanup-drive-at-tiu.jpg",
+    "gallery": [
+      "/photos/events/cleanup-drive-at-tiu/01.jpg",
+      "/photos/events/cleanup-drive-at-tiu/02.jpg",
+      "/photos/events/cleanup-drive-at-tiu/03.jpg",
+      "/photos/events/cleanup-drive-at-tiu/04.jpg",
+      "/photos/events/cleanup-drive-at-tiu/05.jpg",
+      "/photos/events/cleanup-drive-at-tiu/06.jpg"
+    ]
+  },
+  "corporate-connect-hr-analytics": {
+    "photo": "/photos/events/corporate-connect-hr-analytics.jpg",
+    "gallery": [
+      "/photos/events/corporate-connect-hr-analytics/01.jpg",
+      "/photos/events/corporate-connect-hr-analytics/02.jpg",
+      "/photos/events/corporate-connect-hr-analytics/03.jpg",
+      "/photos/events/corporate-connect-hr-analytics/04.jpg",
+      "/photos/events/corporate-connect-hr-analytics/05.jpg",
+      "/photos/events/corporate-connect-hr-analytics/06.jpg",
+      "/photos/events/corporate-connect-hr-analytics/07.jpg",
+      "/photos/events/corporate-connect-hr-analytics/08.jpg",
+      "/photos/events/corporate-connect-hr-analytics/09.jpg"
+    ]
+  },
+  "google-gemini-ai-masterclass": {
+    "photo": "/photos/events/google-gemini-ai-masterclass.jpg",
+    "gallery": [
+      "/photos/events/google-gemini-ai-masterclass/01.jpg",
+      "/photos/events/google-gemini-ai-masterclass/02.jpg",
+      "/photos/events/google-gemini-ai-masterclass/03.jpg",
+      "/photos/events/google-gemini-ai-masterclass/04.jpg",
+      "/photos/events/google-gemini-ai-masterclass/05.jpg",
+      "/photos/events/google-gemini-ai-masterclass/06.jpg",
+      "/photos/events/google-gemini-ai-masterclass/07.jpg",
+      "/photos/events/google-gemini-ai-masterclass/08.jpg",
+      "/photos/events/google-gemini-ai-masterclass/09.jpg",
+      "/photos/events/google-gemini-ai-masterclass/10.jpg"
+    ]
+  },
+  "ibm-day-technovate-2026": {
+    "photo": "/photos/events/ibm-day-technovate-2026.jpg",
+    "gallery": [
+      "/photos/events/ibm-day-technovate-2026/01.jpg",
+      "/photos/events/ibm-day-technovate-2026/02.jpg",
+      "/photos/events/ibm-day-technovate-2026/03.jpg",
+      "/photos/events/ibm-day-technovate-2026/04.jpg",
+      "/photos/events/ibm-day-technovate-2026/05.jpg",
+      "/photos/events/ibm-day-technovate-2026/06.jpg",
+      "/photos/events/ibm-day-technovate-2026/07.jpg",
+      "/photos/events/ibm-day-technovate-2026/08.jpg"
+    ]
+  },
+  "prof-atanu-chaudhuri-session": {
+    "photo": "/photos/events/prof-atanu-chaudhuri-session.jpg",
+    "gallery": [
+      "/photos/events/prof-atanu-chaudhuri-session/01.jpg",
+      "/photos/events/prof-atanu-chaudhuri-session/02.jpg",
+      "/photos/events/prof-atanu-chaudhuri-session/03.jpg",
+      "/photos/events/prof-atanu-chaudhuri-session/04.jpg",
+      "/photos/events/prof-atanu-chaudhuri-session/05.jpg",
+      "/photos/events/prof-atanu-chaudhuri-session/06.jpg",
+      "/photos/events/prof-atanu-chaudhuri-session/07.jpg"
     ]
   }
 }
