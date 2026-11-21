@@ -2289,3 +2289,122 @@ a.pill-link:hover { border-color: var(--gold); color: var(--black); background: 
 .card-portrait.photo-empty {
   background: linear-gradient(145deg, rgba(201,168,76,0.2), rgba(0,0,0,0.06));
 }
+
+/* ── ABOUT ASMi: gold light beam, ripple rings, chasing border, sparkles (decorative) ── */
+@property --aboutA { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
+
+.about-asmi { position: relative; overflow: hidden; }
+.about-asmi > .container { position: relative; z-index: 1; }
+
+/* A soft golden beam sweeping across the section, then resting */
+.about-asmi::before {
+  content: '';
+  position: absolute;
+  top: -20%; bottom: -20%; left: -40%;
+  width: 34%;
+  background: linear-gradient(100deg,
+    transparent 0%,
+    rgba(232, 208, 128, 0.0) 8%,
+    rgba(232, 208, 128, 0.36) 34%,
+    rgba(255, 240, 170, 0.78) 50%,
+    rgba(232, 208, 128, 0.36) 66%,
+    transparent 92%);
+  filter: blur(10px);
+  transform: translateX(0) skewX(-16deg);
+  pointer-events: none;
+  z-index: 0;
+  animation: aboutBeam 11s cubic-bezier(.5,.05,.3,1) infinite;
+}
+/* Warm glow breathing in from the bottom-right corner */
+.about-asmi::after {
+  content: '';
+  position: absolute;
+  right: 0; bottom: 0;
+  width: min(760px, 75vw); height: min(620px, 85%);
+  background: radial-gradient(ellipse at 100% 100%,
+    rgba(255, 238, 160, 0.75) 0%,
+    rgba(232, 208, 128, 0.42) 18%,
+    rgba(201, 168, 76, 0.18) 40%,
+    transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  animation: advLeakPulse 8s ease-in-out infinite;
+}
+@keyframes aboutBeam {
+  0%   { transform: translateX(0)     skewX(-16deg); opacity: 0; }
+  8%   { opacity: 1; }
+  52%  { transform: translateX(520%)  skewX(-16deg); opacity: 1; }
+  60%  { opacity: 0; }
+  100% { transform: translateX(520%)  skewX(-16deg); opacity: 0; }
+}
+
+/* Photo with rings radiating from behind it and a light chasing its border */
+.about-photo { position: relative; isolation: isolate; }
+.about-photo .split-media { position: relative; z-index: 1; }
+.about-ring {
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 80%; aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1.5px solid rgba(201, 168, 76, 0.6);
+  box-shadow: 0 0 22px rgba(232, 208, 128, 0.35), inset 0 0 22px rgba(232, 208, 128, 0.18);
+  transform: translate(-50%, -50%) scale(0.7);
+  opacity: 0;
+  z-index: 0;
+  pointer-events: none;
+  animation: aboutRipple 6.6s ease-out infinite;
+}
+.about-ring-2 { animation-delay: 2.2s; }
+.about-ring-3 { animation-delay: 4.4s; }
+@keyframes aboutRipple {
+  0%   { transform: translate(-50%, -50%) scale(0.7); opacity: 0; }
+  12%  { opacity: 0.9; }
+  100% { transform: translate(-50%, -50%) scale(2.0); opacity: 0; }
+}
+.about-frame {
+  position: absolute;
+  inset: -4px;
+  border-radius: calc(var(--r-xl) + 4px);
+  padding: 3px;
+  background: conic-gradient(from var(--aboutA),
+    rgba(201, 168, 76, 0.28) 0deg,
+    rgba(201, 168, 76, 0.28) 200deg,
+    #c9a84c 255deg,
+    #fff3b0 300deg,
+    #e8d080 322deg,
+    rgba(201, 168, 76, 0.28) 350deg);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  filter: drop-shadow(0 0 8px rgba(232, 208, 128, 0.55));
+  z-index: 2;
+  pointer-events: none;
+  animation: aboutSpin 5.5s linear infinite;
+}
+@keyframes aboutSpin { to { --aboutA: 360deg; } }
+
+/* Twinkling four-point gold sparkles drifting upward */
+.about-sparks { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+.about-spark {
+  position: absolute;
+  background: radial-gradient(circle, #fff7c9 0%, #f0c94a 38%, #c9a84c 100%);
+  clip-path: polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%);
+  opacity: 0;
+  filter: drop-shadow(0 0 5px rgba(240, 201, 74, 0.9));
+  animation: aboutTwinkle 4.2s ease-in-out infinite;
+}
+@keyframes aboutTwinkle {
+  0%   { opacity: 0;    transform: translateY(14px) scale(0.4) rotate(0deg); }
+  35%  { opacity: 0.95; transform: translateY(-6px) scale(1)   rotate(45deg); }
+  65%  { opacity: 0.6;  transform: translateY(-20px) scale(0.8) rotate(90deg); }
+  100% { opacity: 0;    transform: translateY(-36px) scale(0.4) rotate(135deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-asmi::before, .about-asmi::after, .about-ring, .about-frame, .about-spark { animation: none; }
+  .about-asmi::before, .about-ring, .about-spark { display: none; }
+}
+@media (max-width: 760px) {
+  .about-spark:nth-child(even) { display: none; }
+  .about-ring { width: 70%; }
+}

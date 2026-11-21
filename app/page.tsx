@@ -129,10 +129,35 @@ export default function Home() {
 
       {/* ABOUT ASMi */}
       <section className="sec about-asmi" id="about" aria-labelledby="about-asmi-h">
+        {/* Decorative gold sparkles; the beam and corner glow are pseudo-elements. */}
+        <div className="about-sparks" aria-hidden="true">
+          <span className="about-spark" style={{ left: '6%', top: '14%', width: 24, height: 24, animationDelay: '0s' }} />
+          <span className="about-spark" style={{ left: '14%', top: '72%', width: 17, height: 17, animationDelay: '1.2s' }} />
+          <span className="about-spark" style={{ left: '22%', top: '38%', width: 14, height: 14, animationDelay: '2.4s' }} />
+          <span className="about-spark" style={{ left: '31%', top: '88%', width: 20, height: 20, animationDelay: '0.6s' }} />
+          <span className="about-spark" style={{ left: '41%', top: '10%', width: 15, height: 15, animationDelay: '1.8s' }} />
+          <span className="about-spark" style={{ left: '47%', top: '60%', width: 12, height: 12, animationDelay: '3.0s' }} />
+          <span className="about-spark" style={{ left: '55%', top: '92%', width: 22, height: 22, animationDelay: '0.3s' }} />
+          <span className="about-spark" style={{ left: '63%', top: '22%', width: 14, height: 14, animationDelay: '2.1s' }} />
+          <span className="about-spark" style={{ left: '71%', top: '48%', width: 19, height: 19, animationDelay: '1.4s' }} />
+          <span className="about-spark" style={{ left: '78%', top: '80%', width: 15, height: 15, animationDelay: '2.7s' }} />
+          <span className="about-spark" style={{ left: '86%', top: '16%', width: 22, height: 22, animationDelay: '0.9s' }} />
+          <span className="about-spark" style={{ left: '92%', top: '58%', width: 14, height: 14, animationDelay: '1.6s' }} />
+          <span className="about-spark" style={{ left: '96%', top: '90%', width: 19, height: 19, animationDelay: '3.3s' }} />
+          <span className="about-spark" style={{ left: '3%', top: '52%', width: 15, height: 15, animationDelay: '2.0s' }} />
+          <span className="about-spark" style={{ left: '36%', top: '28%', width: 10, height: 10, animationDelay: '0.4s' }} />
+          <span className="about-spark" style={{ left: '68%', top: '6%', width: 17, height: 17, animationDelay: '2.9s' }} />
+        </div>
         <div className="container">
           <div className="split-feature">
-            <div className="split-media reveal-up">
-              <img src={photoSrc(SECTION.homeAbout)} alt={SECTION.homeAbout.alt} loading="lazy" />
+            <div className="about-photo reveal-up">
+              <span className="about-ring" aria-hidden="true" />
+              <span className="about-ring about-ring-2" aria-hidden="true" />
+              <span className="about-ring about-ring-3" aria-hidden="true" />
+              <div className="split-media">
+                <img src={photoSrc(SECTION.homeAbout)} alt={SECTION.homeAbout.alt} loading="lazy" />
+              </div>
+              <span className="about-frame" aria-hidden="true" />
             </div>
             <div className="split-body reveal-up" data-delay={100}>
               <p className="section-eyebrow" data-text-reveal>About ASMi</p>
