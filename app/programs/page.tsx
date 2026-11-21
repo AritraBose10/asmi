@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import { assetSrc } from '@/data/photos';
+import { hydrateMedia } from '@/lib/media';
 import Link from 'next/link';
 import { PROGRAMS, SPECIALIZATIONS } from '@/data/programs';
 import { PageHero, SecHead, CtaBand, Arrow, Pills } from '@/components/Chrome';
@@ -8,7 +10,8 @@ export const metadata: Metadata = {
   description: 'AICTE-approved MBA, BBA in Business Analytics and Executive MBA at ASMi Business School, Kolkata.',
 };
 
-export default function ProgramsIndex() {
+export default async function ProgramsIndex() {
+  await hydrateMedia();
   return (
     <>
       <PageHero
@@ -37,7 +40,7 @@ export default function ProgramsIndex() {
             {PROGRAMS.map((p, i) => (
               <Link key={p.slug} href={`/programs/${p.slug}`} className="pg-card reveal-up" data-delay={i * 100}>
                 <div className="pg-card-media">
-                  <img src={`/assets/${p.image}`} alt={p.name} className="pg-card-img" />
+                  <img src={assetSrc(p.image)} alt={p.name} className="pg-card-img" />
                   <div className="pg-card-shade" />
                   <span className="pg-type">{p.code}</span>
                   <span className={`pg-badge${p.badge === 'Flagship' ? ' flagship' : ''}`}>{p.badge}</span>

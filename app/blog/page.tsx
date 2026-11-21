@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import { assetSrc } from '@/data/photos';
+import { hydrateMedia } from '@/lib/media';
 import Link from 'next/link';
 import { POSTS, POST_CATEGORIES } from '@/data/posts';
 import { PageHero, CtaBand, Arrow } from '@/components/Chrome';
@@ -10,7 +12,8 @@ export const metadata: Metadata = {
   description: 'Essays and field notes from ASMi Business School — placements, analytics, study tours, careers and campus life.',
 };
 
-export default function Blog() {
+export default async function Blog() {
+  await hydrateMedia();
   const [feat, ...rest] = POSTS;
 
   return (
@@ -39,7 +42,7 @@ export default function Blog() {
             </div>
             <div className="post-feature-media">
               <Link href={`/blog/${feat.slug}`}>
-                <img src={`/assets/${feat.image}`} alt={feat.title} loading="lazy" />
+                <img src={assetSrc(feat.image)} alt={feat.title} loading="lazy" />
               </Link>
             </div>
           </article>

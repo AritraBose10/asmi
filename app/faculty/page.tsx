@@ -4,7 +4,7 @@ import { LEADERSHIP, FACULTY, MENTORS } from '@/data/people';
 import { PageHero, SecHead, CtaBand, Arrow, Pills } from '@/components/Chrome';
 import LinkedInLink from '@/components/LinkedInLink';
 import Photo, { PhotoBand } from '@/components/Photo';
-import { getPhotos } from '@/lib/media';
+import { getPhotos, hydrateMedia } from '@/lib/media';
 import { FeatureGrid } from '@/components/Icon';
 
 export const metadata: Metadata = {
@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 };
 
 export default async function FacultyIndex() {
+  await hydrateMedia();
   const { SECTION } = await getPhotos();
   return (
     <>

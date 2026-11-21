@@ -10,6 +10,11 @@
  */
 import { db, ensureSchema } from '@/lib/db';
 import * as P from '@/data/photos';
+import { PEOPLE } from '@/data/people';
+import { CLUBS, EVENTS } from '@/data/campus';
+import { SPECIALIZATIONS, PROGRAMS } from '@/data/programs';
+import { POSTS } from '@/data/posts';
+import { PLACED, TESTIMONIALS } from '@/data/site';
 import { GALLERY_ITEMS, type GalleryItem } from '@/data/gallery';
 
 export interface SlotOverride { src?: string; alt?: string; caption?: string }
@@ -117,9 +122,45 @@ export async function deleteGalleryRow(id: string) {
 }
 
 // ── Slots ───────────────────────────────────────────────────────────────────
-/** Slot ids: `hero.home`, `section.homeAbout`, `facility.library`, `campus.0`, `building.2`. */
-const defaults = (): Record<string, { group: string; key: string; slot: P.PhotoSlot }> => {
-  const out: Record<string, { group: string; key: string; slot: P.PhotoSlot }> = {};
+/**
+ * Slot ids: `hero.home`, `section.homeAbout`, `facility.library`, `campus.0`, `building.2`,
+ * plus one per record: `person.<slug>`, `club.<slug>`, `event.<slug>`, `spec.<slug>`,
+ * `program.<slug>`, `post.<slug>`, `placed.<name-slug>`, `testimonial.<name-slug>`.
+ */
+interface Def { group: string; key: string; slot: P.PhotoSlot; label?: string; simple?: boolean }
+
+const slugify = (t: string) => t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+/** A record whose photo lives in a data file: where to read the default and where to write the merged value. */
+interface Target { id: string; group: string; key: string; label: string; obj: Record<string, unknown>; field: 'photo' | 'image' }
+const targets = (): Target[] => {
+  const t = (group: string, rows: object[], key: (r: never) => string, label: (r: never) => string, field: 'photo' | 'image' = 'photo'): Target[] =>
+    rows.map((r) => ({ id: `${group}.${key(r as never)}`, group, key: key(r as never), label: label(r as never), obj: r as Record<string, unknown>, field }));
+  return [
+    ...t('person', PEOPLE, (r: { slug: string }) => r.slug, (r: { name: string; role: string }) => `${r.name} — ${r.role}`),
+    ...t('club', CLUBS, (r: { slug: string }) => r.slug, (r: { name: string }) => r.name),
+    ...t('event', EVENTS, (r: { slug: string }) => r.slug, (r: { title: string }) => r.title),
+    ...t('spec', SPECIALIZATIONS, (r: { slug: string }) => r.slug, (r: { name: string }) => r.name),
+    ...t('program', PROGRAMS, (r: { slug: string }) => r.slug, (r: { name: string }) => r.name, 'image'),
+    ...t('post', POSTS, (r: { slug: string }) => r.slug, (r: { title: string }) => r.title, 'image'),
+    ...t('placed', PLACED, (r: { name: string }) => slugify(r.name), (r: { name: string; company: string }) => `${r.name} — ${r.company}`),
+    ...t('testimonial', TESTIMONIALS, (r: { name: string }) => slugify(r.name), (r: { name: string; batch: string }) => `${r.name} — ${r.batch}`),
+  ];
+};
+
+// Snapshot of each record's original value, taken before the first hydrate mutates anything.
+const ORIGINAL = new WeakMap<object, string | undefined>();
+const originalOf = (t: Target) => {
+  if (!ORIGINAL.has(t.obj)) ORIGINAL.set(t.obj, t.obj[t.field] as string | undefined);
+  return ORIGINAL.get(t.obj);
+};
+const defaultSrcOf = (t: Target) => {
+  const o = originalOf(t);
+  return o && t.field === 'image' ? P.assetSrc(o) : o;
+};
+
+const defaults = (): Record<string, Def> => {
+  const out: Record<string, Def> = {};
   const rec = (group: string, r: Record<string, P.PhotoSlot>) =>
     Object.entries(r).forEach(([key, slot]) => (out[`${group}.${key}`] = { group, key, slot }));
   const arr = (group: string, a: P.PhotoSlot[]) =>
@@ -129,6 +170,9 @@ const defaults = (): Record<string, { group: string; key: string; slot: P.PhotoS
   rec('facility', P.FACILITIES);
   arr('campus', P.CAMPUS_PHOTOS);
   arr('building', P.BUILDING_PHOTOS);
+  for (const t of targets()) {
+    out[t.id] = { group: t.group, key: t.key, label: t.label, simple: true, slot: { src: defaultSrcOf(t), alt: t.label } };
+  }
   return out;
 };
 
@@ -158,6 +202,10 @@ export interface AdminSlot {
   id: string;
   group: string;
   key: string;
+  /** Human name for record slots (a person, club, event…). */
+  label: string;
+  /** Record slots only take a photo; their alt text is built by the page. */
+  simple: boolean;
   alt: string;
   caption: string;
   brief: string;
@@ -172,12 +220,14 @@ export interface AdminSlot {
 
 export async function listSlots(): Promise<AdminSlot[]> {
   const { slots } = await readStore();
-  return Object.entries(defaults()).map(([id, { group, key, slot }]) => {
+  return Object.entries(defaults()).map(([id, { group, key, slot, label, simple }]) => {
     const merged = apply(slot, slots[id]);
     return {
       id,
       group,
       key,
+      label: label ?? key,
+      simple: Boolean(simple),
       alt: merged.alt,
       caption: merged.caption ?? '',
       brief: slot.brief ?? '',
@@ -216,4 +266,53 @@ export async function getAdminGallery() {
     hidden: gallery.hidden.includes(g.id),
     overridden: Boolean(gallery.overrides[g.id]),
   }));
+}
+
+// ── Event galleries ─────────────────────────────────────────────────────────
+export interface EventPhoto { id: number; event_slug: string; src: string }
+
+export async function listEventPhotos(): Promise<EventPhoto[]> {
+  await ensureSchema();
+  const r = await db().execute('SELECT id, event_slug, src FROM asmi_event_photos ORDER BY id');
+  return r.rows.map((x) => ({ id: Number(x.id), event_slug: String(x.event_slug), src: String(x.src) }));
+}
+export async function addEventPhoto(slug: string, src: string) {
+  await ensureSchema();
+  await db().execute({ sql: 'INSERT INTO asmi_event_photos (event_slug, src) VALUES (?, ?)', args: [slug, src] });
+}
+export async function deleteEventPhoto(id: number) {
+  await ensureSchema();
+  await db().execute({ sql: 'DELETE FROM asmi_event_photos WHERE id = ?', args: [id] });
+}
+export const isEventSlug = (s: unknown): s is string => typeof s === 'string' && EVENTS.some((e) => e.slug === s);
+
+// ── Hydrate ─────────────────────────────────────────────────────────────────
+const DEFAULT_GALLERY = new WeakMap<object, string[] | undefined>();
+
+/**
+ * Applies CMS photos onto the record arrays in data/ (PEOPLE, CLUBS, EVENTS, …)
+ * so pages and helpers like getPerson() see them without further changes.
+ * Call it at the top of any server page that renders those records.
+ *
+ * The apply pass has no `await` in it, so concurrent renders can't interleave
+ * half-applied state; each pass resets every record from its snapshot first.
+ */
+export async function hydrateMedia() {
+  const [store, photos] = await Promise.all([
+    safeStore(),
+    listEventPhotos().catch(() => [] as EventPhoto[]),
+  ]);
+  for (const t of targets()) {
+    const original = originalOf(t);
+    const override = store.slots[t.id]?.src;
+    if (override) t.obj[t.field] = override;
+    else if (original === undefined) delete t.obj[t.field];
+    else t.obj[t.field] = original;
+  }
+  for (const e of EVENTS) {
+    if (!DEFAULT_GALLERY.has(e)) DEFAULT_GALLERY.set(e, e.gallery);
+    const extra = photos.filter((p) => p.event_slug === e.slug).map((p) => p.src);
+    const base = DEFAULT_GALLERY.get(e);
+    e.gallery = extra.length || base ? [...(base ?? []), ...extra] : undefined;
+  }
 }

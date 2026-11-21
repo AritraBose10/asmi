@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { hydrateMedia } from '@/lib/media';
 import Link from 'next/link';
 import { SPECIALIZATIONS } from '@/data/programs';
 import { PageHero, SecHead, CtaBand, Arrow, Pills } from '@/components/Chrome';
@@ -9,7 +10,8 @@ export const metadata: Metadata = {
   description: 'Six MBA specializations at ASMi Business School: Marketing, Finance, Human Resources, Technology, Entrepreneurship and Sustainability.',
 };
 
-export default function SpecializationsIndex() {
+export default async function SpecializationsIndex() {
+  await hydrateMedia();
   return (
     <>
       <PageHero

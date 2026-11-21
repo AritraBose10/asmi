@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 
 interface Slot {
-  id: string; group: string; key: string; alt: string; caption: string; brief: string;
+  id: string; group: string; key: string; label: string; simple: boolean; alt: string; caption: string; brief: string;
   src: string; defaultSrc: string; overridden: boolean; pending: boolean;
 }
 interface GItem {
@@ -11,10 +11,25 @@ interface GItem {
   custom: boolean; hidden: boolean; overridden: boolean;
 }
 const CATEGORIES = ['Speakers & Sessions', 'Campus Life', 'Study Tour'];
+interface EPhoto { id: number; event_slug: string; src: string }
 const GROUPS: Record<string, string> = {
   hero: 'Page heroes', section: 'Section images', facility: 'Campus facilities',
   campus: 'Campus gallery', building: 'Building',
+  person: 'People', club: 'Clubs', event: 'Events (cover photo + gallery)', spec: 'Specializations',
+  placed: 'Placed students', testimonial: 'Student testimonials',
+  program: 'Programs', post: 'Blog posts',
 };
+type TabId = 'pages' | 'people' | 'clubs' | 'events' | 'specs' | 'students' | 'content' | 'gallery';
+const TABS: { id: TabId; label: string; groups: string[] }[] = [
+  { id: 'pages', label: 'Pages', groups: ['hero', 'section', 'facility', 'campus', 'building'] },
+  { id: 'people', label: 'People', groups: ['person'] },
+  { id: 'clubs', label: 'Clubs', groups: ['club'] },
+  { id: 'events', label: 'Events', groups: ['event'] },
+  { id: 'specs', label: 'Specializations', groups: ['spec'] },
+  { id: 'students', label: 'Students', groups: ['placed', 'testimonial'] },
+  { id: 'content', label: 'Programs & Blog', groups: ['program', 'post'] },
+  { id: 'gallery', label: 'Gallery', groups: [] },
+];
 
 async function api(url: string, method: string, body?: unknown) {
   const res = await fetch(url, {
@@ -71,7 +86,8 @@ function Login({ onDone }: { onDone: () => void }) {
 }
 
 function Dashboard({ onSignOut }: { onSignOut: () => void }) {
-  const [tab, setTab] = useState<'slots' | 'gallery'>('slots');
+  const [tab, setTab] = useState<TabId>('pages');
+  const [eventPhotos, setEventPhotos] = useState<EPhoto[]>([]);
   const [slots, setSlots] = useState<Slot[]>([]);
   const [gallery, setGallery] = useState<GItem[]>([]);
   const [toast, setToast] = useState<{ msg: string; bad?: boolean } | null>(null);
@@ -85,32 +101,34 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
   const load = useCallback(async () => {
     try {
       const d = await api('/api/admin/state', 'GET');
-      setSlots(d.slots); setGallery(d.gallery);
+      setSlots(d.slots); setGallery(d.gallery); setEventPhotos(d.eventPhotos ?? []);
     } catch (x) {
       if ((x as Error).message === 'Not signed in') onSignOut(); else flash((x as Error).message, true);
     } finally { setLoading(false); }
   }, [flash, onSignOut]);
   useEffect(() => { load(); }, [load]);
 
-  const pending = slots.filter((s) => s.pending).length;
+  const emptyIn = (groups: string[]) => slots.filter((s) => s.pending && groups.includes(s.group)).length;
+  const current = TABS.find((t) => t.id === tab)!;
 
   return (
     <>
       <header className="adm-bar">
         <strong>Media admin</strong>
         <nav>
-          <button className={tab === 'slots' ? 'on' : ''} onClick={() => setTab('slots')}>
-            Photo slots{pending > 0 && <span className="adm-pill">{pending} empty</span>}
-          </button>
-          <button className={tab === 'gallery' ? 'on' : ''} onClick={() => setTab('gallery')}>Gallery</button>
+          {TABS.map((t) => (
+            <button key={t.id} className={tab === t.id ? 'on' : ''} onClick={() => setTab(t.id)}>
+              {t.label}{emptyIn(t.groups) > 0 && <span className="adm-pill">{emptyIn(t.groups)} empty</span>}
+            </button>
+          ))}
         </nav>
         <a href="/" target="_blank" rel="noreferrer">View site ↗</a>
         <button onClick={async () => { await api('/api/admin/login', 'DELETE'); onSignOut(); }}>Sign out</button>
       </header>
       <main className="adm-main">
-        {loading ? <p>Loading…</p> : tab === 'slots'
-          ? <SlotsTab slots={slots} reload={load} flash={flash} />
-          : <GalleryTab items={gallery} reload={load} flash={flash} />}
+        {loading ? <p>Loading…</p> : tab === 'gallery'
+          ? <GalleryTab items={gallery} reload={load} flash={flash} />
+          : <SlotsTab key={tab} groups={current.groups} slots={slots} eventPhotos={eventPhotos} reload={load} flash={flash} />}
       </main>
       {toast && <div className={`adm-toast${toast.bad ? ' bad' : ''}`} role="status">{toast.msg}</div>}
     </>
@@ -119,11 +137,11 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
 
 type Flash = (m: string, bad?: boolean) => void;
 
-function Thumb({ src, label }: { src?: string; label: string }) {
+function Thumb({ src, label, square }: { src?: string; label: string; square?: boolean }) {
   // Plain <img>: admin previews should show exactly the stored file, not an optimised variant.
   return src
-    ? <img className="adm-thumb" src={src} alt={label} />
-    : <div className="adm-thumb adm-empty">No photo</div>;
+    ? <img className={`adm-thumb${square ? ' sq' : ''}`} src={src} alt={label} />
+    : <div className={`adm-thumb adm-empty${square ? ' sq' : ''}`}>No photo</div>;
 }
 
 function FilePick({ label, onFile, busy }: { label: string; onFile: (f: File) => void; busy: boolean }) {
@@ -136,13 +154,13 @@ function FilePick({ label, onFile, busy }: { label: string; onFile: (f: File) =>
   );
 }
 
-function SlotsTab({ slots, reload, flash }: { slots: Slot[]; reload: () => void; flash: Flash }) {
+function SlotsTab({ slots, groups, eventPhotos, reload, flash }: { slots: Slot[]; groups: string[]; eventPhotos: EPhoto[]; reload: () => void; flash: Flash }) {
   const [filter, setFilter] = useState<'all' | 'empty'>('all');
   const grouped = useMemo(() => {
     const g: Record<string, Slot[]> = {};
-    slots.filter((s) => filter === 'all' || s.pending).forEach((s) => (g[s.group] ??= []).push(s));
+    slots.filter((s) => groups.includes(s.group) && (filter === 'all' || s.pending)).forEach((s) => (g[s.group] ??= []).push(s));
     return g;
-  }, [slots, filter]);
+  }, [slots, filter, groups]);
 
   return (
     <>
@@ -150,20 +168,20 @@ function SlotsTab({ slots, reload, flash }: { slots: Slot[]; reload: () => void;
         <button className={filter === 'all' ? 'on' : ''} onClick={() => setFilter('all')}>All slots</button>
         <button className={filter === 'empty' ? 'on' : ''} onClick={() => setFilter('empty')}>Still empty</button>
       </div>
-      {Object.keys(GROUPS).filter((g) => grouped[g]).map((g) => (
+      {groups.filter((g) => grouped[g]).map((g) => (
         <section key={g}>
           <h2>{GROUPS[g]}</h2>
           <div className="adm-grid">
-            {grouped[g].map((s) => <SlotCard key={s.id + s.src + s.alt + s.caption} slot={s} reload={reload} flash={flash} />)}
+            {grouped[g].map((s) => <SlotCard key={s.id + s.src + s.alt + s.caption} slot={s} photos={eventPhotos.filter((p) => p.event_slug === s.key)} reload={reload} flash={flash} />)}
           </div>
         </section>
       ))}
-      {!Object.keys(grouped).length && <p>Every slot has a photo.</p>}
+      {!Object.keys(grouped).length && <p>Every slot here has a photo.</p>}
     </>
   );
 }
 
-function SlotCard({ slot, reload, flash }: { slot: Slot; reload: () => void; flash: Flash }) {
+function SlotCard({ slot, photos, reload, flash }: { slot: Slot; photos: EPhoto[]; reload: () => void; flash: Flash }) {
   const [alt, setAlt] = useState(slot.alt);
   const [caption, setCaption] = useState(slot.caption);
   const [busy, setBusy] = useState(false);
@@ -174,19 +192,23 @@ function SlotCard({ slot, reload, flash }: { slot: Slot; reload: () => void; fla
     try {
       // Only send src when it differs from the default; a repo/stock image stays the default.
       const current = slot.src !== slot.defaultSrc ? slot.src : '';
-      await api('/api/admin/slot', 'PUT', { id: slot.id, src: src ?? current, alt, caption });
+      await api('/api/admin/slot', 'PUT', { id: slot.id, src: src ?? current, ...(slot.simple ? {} : { alt, caption }) });
       flash('Saved'); reload();
     } catch (x) { flash((x as Error).message, true); } finally { setBusy(false); }
   };
 
   return (
     <article className="adm-card">
-      <Thumb src={slot.src} label={slot.alt} />
+      <Thumb src={slot.src} label={slot.alt} square={['person', 'placed', 'testimonial'].includes(slot.group)} />
       <div className="adm-body">
-        <h3>{slot.key}{slot.pending && <span className="adm-pill">empty</span>}{slot.overridden && <span className="adm-pill ok">CMS</span>}</h3>
+        <h3>{slot.simple ? slot.label : slot.key}{slot.pending && <span className="adm-pill">empty</span>}{slot.overridden && <span className="adm-pill ok">CMS</span>}</h3>
         {slot.brief && <p className="adm-brief">{slot.brief}</p>}
-        <label>Alt text<textarea rows={2} value={alt} maxLength={300} onChange={(e) => setAlt(e.target.value)} /></label>
-        <label>Caption<input value={caption} maxLength={200} onChange={(e) => setCaption(e.target.value)} /></label>
+        {!slot.simple && (
+          <>
+            <label>Alt text<textarea rows={2} value={alt} maxLength={300} onChange={(e) => setAlt(e.target.value)} /></label>
+            <label>Caption<input value={caption} maxLength={200} onChange={(e) => setCaption(e.target.value)} /></label>
+          </>
+        )}
         <div className="adm-row">
           <FilePick label={slot.src ? 'Replace photo' : 'Upload photo'} busy={busy}
             onFile={async (f) => {
@@ -201,8 +223,45 @@ function SlotCard({ slot, reload, flash }: { slot: Slot; reload: () => void; fla
             </button>
           )}
         </div>
+        {slot.group === 'event' && <EventGallery slug={slot.key} photos={photos} reload={reload} flash={flash} />}
       </div>
     </article>
+  );
+}
+
+function EventGallery({ slug, photos, reload, flash }: { slug: string; photos: EPhoto[]; reload: () => void; flash: Flash }) {
+  const [busy, setBusy] = useState(false);
+  const add = async (files: FileList) => {
+    setBusy(true);
+    let n = 0;
+    try {
+      for (const f of Array.from(files)) {
+        await api('/api/admin/event-photos', 'POST', { slug, src: await upload(f) });
+        n++;
+      }
+      flash(`${n} photo${n === 1 ? '' : 's'} added`);
+    } catch (x) { flash(`${(x as Error).message}${n ? ` (${n} added before the error)` : ''}`, true); }
+    finally { setBusy(false); reload(); }
+  };
+  return (
+    <div className="adm-evgal">
+      <strong>Gallery ({photos.length})</strong>
+      <div className="adm-evgal-grid">
+        {photos.map((p) => (
+          <div key={p.id} className="adm-evgal-item">
+            <img src={p.src} alt="" />
+            <button aria-label="Remove photo" onClick={async () => {
+              try { await api('/api/admin/event-photos', 'DELETE', { id: p.id }); reload(); } catch (x) { flash((x as Error).message, true); }
+            }}>×</button>
+          </div>
+        ))}
+      </div>
+      <label className={`adm-btn${busy ? ' disabled' : ''}`}>
+        {busy ? 'Uploading…' : 'Add photos'}
+        <input type="file" multiple accept="image/jpeg,image/png,image/webp,image/avif" hidden disabled={busy}
+          onChange={(e) => { if (e.target.files?.length) add(e.target.files); e.target.value = ''; }} />
+      </label>
+    </div>
   );
 }
 

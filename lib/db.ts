@@ -29,6 +29,9 @@ export function ensureSchema(): Promise<void> {
          id TEXT PRIMARY KEY, custom INTEGER NOT NULL DEFAULT 0, hidden INTEGER NOT NULL DEFAULT 0,
          title TEXT, category TEXT, tag TEXT, caption TEXT, image TEXT,
          created_at TEXT NOT NULL DEFAULT (datetime('now')))`,
+      `CREATE TABLE IF NOT EXISTS asmi_event_photos (
+         id INTEGER PRIMARY KEY AUTOINCREMENT, event_slug TEXT NOT NULL, src TEXT NOT NULL,
+         created_at TEXT NOT NULL DEFAULT (datetime('now')))`,
     ])
     .then(() => undefined)
     .catch((e) => { ready = null; throw e; });

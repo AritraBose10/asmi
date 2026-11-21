@@ -106,6 +106,11 @@ export const SECTION: Record<string, PhotoSlot> = {
     brief: 'Faculty at a whiteboard or lectern. Wide strip, 16:6.',
   },
 
+  // Pages that used to hard-code a stock image
+  clubsBeyond: { fallback: TOUR_STOCK, alt: 'ASMi club members on an activity beyond campus', brief: 'Club members off campus: a visit, competition or retreat.' },
+  eventsBootcamp: { fallback: CAMPUS_STOCK, alt: 'Participants at the MBA Boot Camp', brief: 'MBA Boot Camp in session.' },
+  programTour: { fallback: TOUR_STOCK, alt: 'The ASMi cohort on the international study tour in Malaysia', brief: 'The cohort on the Malaysia study tour.' },
+
   // Programmes
   programsCampus: {
     alt: 'Students between classes at Godrej Genesis',
@@ -209,3 +214,6 @@ export function pendingSlots() {
   BUILDING_PHOTOS.forEach((s, i) => !s.src && out.push({ group: 'building', key: String(i + 1), alt: s.alt }));
   return out;
 }
+
+/** Program and blog images are stored as a bare filename under /assets; CMS images are full URLs. */
+export const assetSrc = (img: string) => (/^(\/|https?:)/.test(img) ? img : `/assets/${img}`);

@@ -5,7 +5,7 @@ import { SITE, CAMPUS_GALLERY } from '@/data/site';
 import { PageHero, SecHead, CtaBand, Arrow, Pills, Ladder } from '@/components/Chrome';
 import { FeatureGrid } from '@/components/Icon';
 import { PhotoGrid, PhotoBand } from '@/components/Photo';
-import { getPhotos } from '@/lib/media';
+import { getPhotos, hydrateMedia } from '@/lib/media';
 
 export const metadata: Metadata = {
   title: 'Campus Life at Sector V, Kolkata',
@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 };
 
 export default async function CampusLife() {
+  await hydrateMedia();
   const { SECTION, FACILITIES, CAMPUS_PHOTOS, BUILDING_PHOTOS } = await getPhotos();
   return (
     <>

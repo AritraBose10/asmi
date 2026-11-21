@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import { hydrateMedia, getPhotos } from '@/lib/media';
+import { photoSrc } from '@/data/photos';
 import Link from 'next/link';
 import { CLUBS } from '@/data/campus';
 import { PageHero, SecHead, CtaBand, Arrow, Pills, TickList } from '@/components/Chrome';
@@ -9,7 +11,9 @@ export const metadata: Metadata = {
   description: 'Eight student-led clubs at ASMi Business School — finance, marketing, analytics, HR, entrepreneurship, social impact, culture and sport.',
 };
 
-export default function ClubsIndex() {
+export default async function ClubsIndex() {
+  await hydrateMedia();
+  const { SECTION } = await getPhotos();
   return (
     <>
       <PageHero
@@ -64,7 +68,7 @@ export default function ClubsIndex() {
         <div className="container">
           <div className="split-feature flip">
             <div className="split-media reveal-up">
-              <img src="/assets/malaysia-tour.png" alt="Club activity beyond campus" loading="lazy" />
+              <img src={photoSrc(SECTION.clubsBeyond)} alt={SECTION.clubsBeyond.alt} loading="lazy" />
             </div>
             <div className="split-body reveal-up" data-delay={100}>
               <p className="section-eyebrow">Beyond Campus</p>

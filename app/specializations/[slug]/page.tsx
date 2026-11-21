@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { hydrateMedia } from '@/lib/media';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { SPECIALIZATIONS, getSpecialization } from '@/data/programs';
@@ -18,6 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 export default async function SpecializationPage({ params }: { params: Promise<{ slug: string }> }) {
+  await hydrateMedia();
   const { slug } = await params;
   const spec = getSpecialization(slug);
   if (!spec) notFound();
