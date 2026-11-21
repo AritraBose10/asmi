@@ -5,12 +5,10 @@
  * The admin writes *overrides* here; the site merges them on read, so a slot
  * with no override looks exactly as it does today.
  *
- * STUB BACKEND: overrides live in `.cms/media.json` and uploads in
- * `public/uploads/`. Everything storage-specific is in readStore/writeStore
- * and lib/upload.ts, so moving to Turso + Sanity later means replacing those.
+ * Overrides live in Turso (asmi_* tables, lib/db.ts); uploaded files live in
+ * Sanity assets (lib/upload.ts).
  */
-import { promises as fs } from 'fs';
-import path from 'path';
+import { db, ensureSchema } from '@/lib/db';
 import * as P from '@/data/photos';
 import { GALLERY_ITEMS, type GalleryItem } from '@/data/gallery';
 
@@ -22,28 +20,100 @@ export interface GalleryStore {
 }
 export interface MediaStore { slots: Record<string, SlotOverride>; gallery: GalleryStore }
 
-const STORE_PATH = path.join(process.cwd(), '.cms', 'media.json');
-
 const empty = (): MediaStore => ({ slots: {}, gallery: { overrides: {}, hidden: [], extra: [] } });
 
+const nn = (v: unknown) => (v === null || v === undefined ? undefined : String(v));
+
+/** Reads everything from Turso. Throws if the database is unreachable. */
 export async function readStore(): Promise<MediaStore> {
+  await ensureSchema();
+  const [slots, gal] = await Promise.all([
+    db().execute('SELECT id, src, alt, caption FROM asmi_media_slots'),
+    db().execute('SELECT * FROM asmi_gallery ORDER BY created_at, id'),
+  ]);
+  const store = empty();
+  for (const r of slots.rows) {
+    const o: SlotOverride = {};
+    if (r.src) o.src = String(r.src);
+    if (r.alt) o.alt = String(r.alt);
+    if (r.caption) o.caption = String(r.caption);
+    store.slots[String(r.id)] = o;
+  }
+  for (const r of gal.rows) {
+    const id = String(r.id);
+    if (r.hidden) store.gallery.hidden.push(id);
+    if (r.custom) {
+      store.gallery.extra.push({
+        id, title: String(r.title ?? ''), category: String(r.category) as GalleryItem['category'],
+        tag: String(r.tag ?? ''), caption: String(r.caption ?? ''), image: nn(r.image),
+      });
+    } else {
+      const o: Partial<GalleryItem> = {};
+      if (r.title) o.title = String(r.title);
+      if (r.category) o.category = String(r.category) as GalleryItem['category'];
+      if (r.tag) o.tag = String(r.tag);
+      if (r.caption !== null && r.caption !== undefined) o.caption = String(r.caption);
+      if (r.image) o.image = String(r.image);
+      if (Object.keys(o).length) store.gallery.overrides[id] = o;
+    }
+  }
+  return store;
+}
+
+/** Public pages must render even if the database is down: fall back to the data-file defaults. */
+async function safeStore(): Promise<MediaStore> {
   try {
-    const raw = JSON.parse(await fs.readFile(STORE_PATH, 'utf8'));
-    const base = empty();
-    return {
-      slots: raw.slots ?? base.slots,
-      gallery: { ...base.gallery, ...(raw.gallery ?? {}) },
-    };
-  } catch {
+    return await readStore();
+  } catch (e) {
+    console.error('CMS store unavailable, using defaults:', e instanceof Error ? e.message : e);
     return empty();
   }
 }
 
-export async function writeStore(store: MediaStore) {
-  await fs.mkdir(path.dirname(STORE_PATH), { recursive: true });
-  const tmp = STORE_PATH + '.tmp';
-  await fs.writeFile(tmp, JSON.stringify(store, null, 2));
-  await fs.rename(tmp, STORE_PATH);
+// ── Writes ──────────────────────────────────────────────────────────────────
+export async function setSlot(id: string, o: SlotOverride) {
+  await ensureSchema();
+  if (!o.src && !o.alt && !o.caption) return deleteSlot(id);
+  await db().execute({
+    sql: `INSERT INTO asmi_media_slots (id, src, alt, caption) VALUES (?, ?, ?, ?)
+          ON CONFLICT(id) DO UPDATE SET src=excluded.src, alt=excluded.alt, caption=excluded.caption, updated_at=datetime('now')`,
+    args: [id, o.src ?? null, o.alt ?? null, o.caption ?? null],
+  });
+}
+
+export async function deleteSlot(id: string) {
+  await ensureSchema();
+  await db().execute({ sql: 'DELETE FROM asmi_media_slots WHERE id = ?', args: [id] });
+}
+
+export async function addGalleryItem(g: GalleryItem) {
+  await ensureSchema();
+  await db().execute({
+    sql: 'INSERT INTO asmi_gallery (id, custom, title, category, tag, caption, image) VALUES (?, 1, ?, ?, ?, ?, ?)',
+    args: [g.id, g.title, g.category, g.tag, g.caption, g.image ?? null],
+  });
+}
+
+/** Upsert fields on a gallery row. `undefined` leaves a column alone; `null` clears it. */
+export async function patchGalleryItem(
+  id: string,
+  custom: boolean,
+  p: Partial<Record<'title' | 'category' | 'tag' | 'caption' | 'image', string | null>> & { hidden?: boolean },
+) {
+  await ensureSchema();
+  await db().execute({ sql: 'INSERT OR IGNORE INTO asmi_gallery (id, custom) VALUES (?, ?)', args: [id, custom ? 1 : 0] });
+  const sets: string[] = [];
+  const args: (string | number | null)[] = [];
+  for (const k of ['title', 'category', 'tag', 'caption', 'image'] as const) {
+    if (p[k] !== undefined) { sets.push(`${k} = ?`); args.push(p[k]); }
+  }
+  if (p.hidden !== undefined) { sets.push('hidden = ?'); args.push(p.hidden ? 1 : 0); }
+  if (sets.length) await db().execute({ sql: `UPDATE asmi_gallery SET ${sets.join(', ')} WHERE id = ?`, args: [...args, id] });
+}
+
+export async function deleteGalleryRow(id: string) {
+  await ensureSchema();
+  await db().execute({ sql: 'DELETE FROM asmi_gallery WHERE id = ?', args: [id] });
 }
 
 // ── Slots ───────────────────────────────────────────────────────────────────
@@ -71,7 +141,7 @@ const apply = (slot: P.PhotoSlot, o?: SlotOverride): P.PhotoSlot => ({
 
 /** Same shapes as data/photos.ts, with CMS overrides applied. */
 export async function getPhotos() {
-  const { slots } = await readStore();
+  const { slots } = await safeStore();
   const mergeRec = (group: string, r: Record<string, P.PhotoSlot>) =>
     Object.fromEntries(Object.entries(r).map(([k, s]) => [k, apply(s, slots[`${group}.${k}`])]));
   const mergeArr = (group: string, a: P.PhotoSlot[]) => a.map((s, i) => apply(s, slots[`${group}.${i}`]));
@@ -125,7 +195,7 @@ export function isSlotId(id: unknown): id is string {
 
 // ── Gallery ─────────────────────────────────────────────────────────────────
 export async function getGalleryItems(): Promise<GalleryItem[]> {
-  const { gallery } = await readStore();
+  const { gallery } = await safeStore();
   const base = GALLERY_ITEMS.filter((g) => !gallery.hidden.includes(g.id)).map((g) => ({
     ...g,
     ...(gallery.overrides[g.id] ?? {}),

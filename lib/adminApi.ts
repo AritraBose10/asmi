@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { isAdmin } from '@/lib/auth';
+import { SANITY_CDN } from '@/lib/upload';
 
 export const json = (body: unknown, status = 200) => NextResponse.json(body, { status });
 
@@ -26,10 +27,14 @@ const text = (v: unknown, max: number, field: string) => {
 };
 export const str = text;
 
-/** Only same-site paths: uploads, repo photos, repo assets. No external URLs, no schemes. */
+/** Same-site image paths, or an image on this project's Sanity CDN. No other hosts, no schemes. */
 export function localPath(v: unknown, field = 'src') {
-  const s = text(v, 300, field);
+  const s = text(v, 400, field);
   if (s === undefined || s === '') return s;
-  if (!/^\/(uploads|photos|assets)\/[\w\-./]+$/.test(s) || s.includes('..')) throw new BadInput(`${field} must be an uploaded or site image path`);
+  const sanity = `${SANITY_CDN}${process.env.SANITY_PROJECT_ID}/`;
+  const ok =
+    (/^\/(photos|assets)\/[\w\-./]+$/.test(s) && !s.includes('..')) ||
+    (process.env.SANITY_PROJECT_ID && s.startsWith(sanity) && /^[\w\-./]+$/.test(s.slice(sanity.length)));
+  if (!ok) throw new BadInput(`${field} must be an uploaded or site image`);
   return s;
 }

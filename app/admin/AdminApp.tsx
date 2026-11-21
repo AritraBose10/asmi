@@ -172,8 +172,8 @@ function SlotCard({ slot, reload, flash }: { slot: Slot; reload: () => void; fla
   const save = async (src?: string) => {
     setBusy(true);
     try {
-      // Only send src when it is a CMS upload; a repo/stock image stays the default.
-      const current = slot.src.startsWith('/uploads/') ? slot.src : '';
+      // Only send src when it differs from the default; a repo/stock image stays the default.
+      const current = slot.src !== slot.defaultSrc ? slot.src : '';
       await api('/api/admin/slot', 'PUT', { id: slot.id, src: src ?? current, alt, caption });
       flash('Saved'); reload();
     } catch (x) { flash((x as Error).message, true); } finally { setBusy(false); }

@@ -1,23 +1,16 @@
 import { revalidatePath } from 'next/cache';
 import { guarded, json, BadInput, str, localPath } from '@/lib/adminApi';
-import { readStore, writeStore, isSlotId, type SlotOverride } from '@/lib/media';
+import { isSlotId, setSlot, deleteSlot } from '@/lib/media';
 
 /** Set or change a slot's override. Empty fields fall back to the data/photos.ts default. */
 export const PUT = guarded(async (req) => {
   const b = await req.json().catch(() => ({}));
   if (!isSlotId(b.id)) throw new BadInput('Unknown slot');
-  const o: SlotOverride = {};
-  const src = localPath(b.src);
-  const alt = str(b.alt, 300, 'alt');
-  const caption = str(b.caption, 200, 'caption');
-  if (src) o.src = src;
-  if (alt) o.alt = alt;
-  if (caption) o.caption = caption;
-
-  const store = await readStore();
-  if (Object.keys(o).length) store.slots[b.id] = o;
-  else delete store.slots[b.id];
-  await writeStore(store);
+  await setSlot(b.id, {
+    src: localPath(b.src) || undefined,
+    alt: str(b.alt, 300, 'alt') || undefined,
+    caption: str(b.caption, 200, 'caption') || undefined,
+  });
   revalidatePath('/', 'layout');
   return json({ ok: true });
 });
@@ -26,9 +19,7 @@ export const PUT = guarded(async (req) => {
 export const DELETE = guarded(async (req) => {
   const b = await req.json().catch(() => ({}));
   if (!isSlotId(b.id)) throw new BadInput('Unknown slot');
-  const store = await readStore();
-  delete store.slots[b.id];
-  await writeStore(store);
+  await deleteSlot(b.id);
   revalidatePath('/', 'layout');
   return json({ ok: true });
 });
