@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       // The ABSAT page carries its own noindex until the content is confirmed;
       // this keeps it out of crawls in the meantime.
-      disallow: ABSAT_PUBLISHED ? [] : ['/absat'],
+      disallow: ABSAT_PUBLISHED ? ['/admin'] : ['/absat', '/admin'],
     },
     sitemap: 'https://asmibschool.com/sitemap.xml',
   };

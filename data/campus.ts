@@ -1,3 +1,4 @@
+import { MEDIA, applyPhotos } from './media';
 /**
  * Clubs and events.
  * Event names come from asmi_website_data.md. Club names, descriptions and all
@@ -175,6 +176,7 @@ export const CLUBS: Club[] = [
     meets: 'Varies · Nearby grounds',
   },
 ];
+applyPhotos(CLUBS, MEDIA.clubs, (c) => c.slug);
 
 export const getClub = (slug: string) => CLUBS.find((c) => c.slug === slug);
 
@@ -518,5 +520,11 @@ export const EVENTS: CampusEvent[] = [
     driveFolder: 'Cleanup Drive at TIU',
   },
 ];
+for (const e of EVENTS) {
+  const m = MEDIA.events[e.slug];
+  if (m?.photo?.startsWith('/')) e.photo = m.photo;
+  const extra = (m?.gallery ?? []).filter((g) => typeof g === 'string' && g.startsWith('/'));
+  if (extra.length) e.gallery = [...(e.gallery ?? []), ...extra];
+}
 
 export const getEvent = (slug: string) => EVENTS.find((e) => e.slug === slug);

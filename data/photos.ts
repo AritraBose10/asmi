@@ -13,6 +13,8 @@
  * Add a photograph:  set `src: '/photos/<kind>/<name>.jpg'` on the slot.
  */
 
+import { pageSlot } from './media';
+
 export interface PhotoSlot {
   src?: string;
   fallback?: string;
@@ -188,6 +190,17 @@ export const BUILDING_PHOTOS: PhotoSlot[] = [
   { alt: 'The Techno India University campus', caption: 'Techno India University' },
   { alt: 'The ASMi entrance and signage', caption: 'Entrance, 15th floor' },
 ];
+
+// ── CMS photos (data/media/pages.json, written by /admin) ───────────────────
+const applyRecord = (group: string, rec: Record<string, PhotoSlot>) =>
+  Object.entries(rec).forEach(([key, slot]) => { const v = pageSlot(group, key); if (v) slot.src = v; });
+const applyList = (group: string, prefix: string, list: PhotoSlot[]) =>
+  list.forEach((slot, i) => { const v = pageSlot(group, `${prefix}-${i + 1}`); if (v) slot.src = v; });
+applyRecord('hero', HERO);
+applyRecord('section', SECTION);
+applyRecord('facility', FACILITIES);
+applyList('campus', 'gallery', CAMPUS_PHOTOS);
+applyList('building', 'building', BUILDING_PHOTOS);
 
 /** Returns the real photograph if present, else the stock stand-in. */
 export const photoSrc = (slot?: PhotoSlot) => slot?.src ?? slot?.fallback;

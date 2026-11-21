@@ -1,3 +1,4 @@
+import { MEDIA, applyPhotos } from './media';
 /** Programmes and MBA specializations. Facts from asmi_website_data.md. */
 
 export interface LadderStep {
@@ -356,5 +357,6 @@ export const SPECIALIZATIONS: Specialization[] = [
     skills: ['Disclosure frameworks', 'Impact measurement', 'Climate risk assessment', 'Stakeholder engagement', 'Supply chain audit'],
   },
 ];
+applyPhotos(SPECIALIZATIONS, MEDIA.specializations, (s) => s.slug);
 
 export const getSpecialization = (slug: string) => SPECIALIZATIONS.find((s) => s.slug === slug);

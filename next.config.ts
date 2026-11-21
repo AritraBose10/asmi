@@ -2,6 +2,10 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  // The CMS is a static page in public/admin; serve it at /admin.
+  async rewrites() {
+    return [{ source: '/admin', destination: '/admin/index.html' }];
+  },
   images: {
     // Real photography is coming in; let Next resize and serve AVIF/WebP
     // rather than shipping multi-megabyte originals.

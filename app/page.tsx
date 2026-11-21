@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { HERO, SECTION, photoSrc } from '@/data/photos';
 
 export const metadata: Metadata = {
   title: 'ASMi Business School | Best Business School in Kolkata',
@@ -23,7 +24,7 @@ export default function Home() {
           <div className="hf-shape hf-shape-4" data-parallax-speed="0.04"></div>
         </div>
         <div className="hero-media">
-          <img src="/assets/hero-bg.png" alt="ASMi Business School Campus" className="hero-img" id="heroImg" />
+          <img src={photoSrc(HERO.home)} alt={HERO.home.alt} className="hero-img" id="heroImg" />
           <div className="hero-overlay"></div>
         </div>
         <div className="hero-content">
@@ -104,7 +105,7 @@ export default function Home() {
         <div className="container">
           <div className="split-feature">
             <div className="split-media reveal-up">
-              <img src="/assets/campus-life.png" alt="ASMi students and faculty in conversation on campus" loading="lazy" />
+              <img src={photoSrc(SECTION.homeAbout)} alt={SECTION.homeAbout.alt} loading="lazy" />
             </div>
             <div className="split-body reveal-up" data-delay={100}>
               <p className="section-eyebrow" data-text-reveal>About ASMi</p>
@@ -445,7 +446,7 @@ export default function Home() {
       {/* STUDY TOUR — IMMERSIVE BANNER */}
       <section className="st-immersive">
         <div className="st-bg-wrap">
-          <img src="/assets/malaysia-tour.png" alt="International Study Tour Malaysia" loading="lazy" className="st-bg-img lazy" />
+          <img src={photoSrc(SECTION.homeStudyTour)} alt="International Study Tour Malaysia" loading="lazy" className="st-bg-img lazy" />
           <div className="st-bg-overlay"></div>
         </div>
 

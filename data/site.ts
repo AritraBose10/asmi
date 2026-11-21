@@ -1,3 +1,4 @@
+import { MEDIA, applyPhotos, slugify } from './media';
 /** Site-wide facts. Sourced from asmi_website_data.md. */
 
 export const SITE = {
@@ -40,6 +41,7 @@ export const PLACED: { name: string; batch: string; company: string; photo?: str
   { name: 'Ishika Nath', batch: '2023–2025', company: 'E-Intellisense' },
   { name: 'Rika Roy', batch: '2023–2025', company: 'Lifestyle International Pvt. Ltd' },
 ];
+applyPhotos(PLACED, MEDIA.students, (p) => `placed-${slugify(p.name)}`);
 
 /** Each may carry `photo: '/photos/students/<slug>.jpg'`. */
 export const TESTIMONIALS: { mono: string; name: string; batch: string; quote: string; photo?: string }[] = [
@@ -60,6 +62,7 @@ export const TESTIMONIALS: { mono: string; name: string; batch: string; quote: s
     quote: 'The perfect blend of industry experience, classroom learning, and holistic skill development with mentor support. ASMi prepares you for the real business world.',
   },
 ];
+applyPhotos(TESTIMONIALS, MEDIA.students, (t) => `testimonial-${slugify(t.name)}`);
 
 export const ADMISSION_STEPS = [
   'Fill up application',

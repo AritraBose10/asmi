@@ -1,3 +1,4 @@
+import { MEDIA, applyPhotos } from './media';
 /**
  * Faculty, leadership and industry mentors.
  * Factual anchors (names, titles, institutions) come from asmi_website_data.md.
@@ -573,6 +574,7 @@ export const PEOPLE: Person[] = [
     focus: ['Public speaking and narrative', 'Education innovation', 'Personal positioning'],
   },
 ];
+applyPhotos(PEOPLE, MEDIA.people, (p) => p.slug);
 
 export const LEADERSHIP = PEOPLE.filter((p) => p.kind === 'leadership');
 export const FACULTY = PEOPLE.filter((p) => p.kind === 'faculty');
