@@ -1,5 +1,15 @@
 import type { Metadata } from 'next';
 import { HERO, SECTION, photoSrc } from '@/data/photos';
+import { PLACED, TESTIMONIALS } from '@/data/site';
+import { PEOPLE } from '@/data/people';
+
+/** Photo for a placed student / testimonial author, if one has been uploaded (see data/media). */
+const personPhoto = (list: { name: string; photo?: string }[], name: string) => list.find((p) => p.name === name)?.photo;
+const Avatar = ({ list, name, mono }: { list: { name: string; photo?: string }[]; name: string; mono: string }) => {
+  const src = personPhoto(list, name);
+  // eslint-disable-next-line @next/next/no-img-element
+  return src ? <img src={src} alt={name} loading="lazy" /> : <>{mono}</>;
+};
 
 export const metadata: Metadata = {
   title: 'ASMi Business School | Best Business School in Kolkata',
@@ -558,7 +568,7 @@ export default function Home() {
               <div className="pl-card-inner">
                 <div className="pl-badge-top">⭐ Top Placement</div>
                 <div className="pl-v2-avatar-wrap">
-                  <div className="pl-v2-avatar">AD</div>
+                  <div className="pl-v2-avatar"><Avatar list={PLACED} name="Arindam Dhali" mono="AD" /></div>
                   <div className="pl-v2-ring"></div>
                 </div>
                 <h4 className="pl-v2-name">Arindam Dhali</h4>
@@ -576,7 +586,7 @@ export default function Home() {
               <div className="pl-card-glow"></div>
               <div className="pl-card-inner">
                 <div className="pl-v2-avatar-wrap">
-                  <div className="pl-v2-avatar">OC</div>
+                  <div className="pl-v2-avatar"><Avatar list={PLACED} name="Oindrila Chakraborty" mono="OC" /></div>
                 </div>
                 <h4 className="pl-v2-name">Oindrila Chakraborty</h4>
                 <span className="pl-v2-batch">MBA · 2023–25</span>
@@ -591,7 +601,7 @@ export default function Home() {
               <div className="pl-card-glow"></div>
               <div className="pl-card-inner">
                 <div className="pl-v2-avatar-wrap">
-                  <div className="pl-v2-avatar">NR</div>
+                  <div className="pl-v2-avatar"><Avatar list={PLACED} name="Nilargaha Roy" mono="NR" /></div>
                 </div>
                 <h4 className="pl-v2-name">Nilargaha Roy</h4>
                 <span className="pl-v2-batch">MBA · 2023–25</span>
@@ -606,7 +616,7 @@ export default function Home() {
               <div className="pl-card-glow"></div>
               <div className="pl-card-inner">
                 <div className="pl-v2-avatar-wrap">
-                  <div className="pl-v2-avatar">IN</div>
+                  <div className="pl-v2-avatar"><Avatar list={PLACED} name="Ishika Nath" mono="IN" /></div>
                 </div>
                 <h4 className="pl-v2-name">Ishika Nath</h4>
                 <span className="pl-v2-batch">MBA · 2023–25</span>
@@ -621,7 +631,7 @@ export default function Home() {
               <div className="pl-card-glow"></div>
               <div className="pl-card-inner">
                 <div className="pl-v2-avatar-wrap">
-                  <div className="pl-v2-avatar">RR</div>
+                  <div className="pl-v2-avatar"><Avatar list={PLACED} name="Rika Roy" mono="RR" /></div>
                 </div>
                 <h4 className="pl-v2-name">Rika Roy</h4>
                 <span className="pl-v2-batch">MBA · 2023–25</span>
@@ -724,7 +734,7 @@ export default function Home() {
               <div className="fac-flip-inner">
                 <div className="fac-flip-front">
                   <span className="fac-flip-num">01</span>
-                  <div className="fac-flip-monogram">KM</div>
+                  <div className="fac-flip-monogram"><Avatar list={PEOPLE} name="Kaustav Majumdar" mono="KM" /></div>
                   <div className="fac-flip-front-info">
                     <h4>Kaustav Majumdar</h4>
                     <span>Chief Mentor</span>
@@ -734,7 +744,7 @@ export default function Home() {
                 <div className="fac-flip-back">
                   <span className="fac-flip-back-num">01</span>
                   <div className="fac-flip-back-content">
-                    <div className="fac-flip-back-monogram">KM</div>
+                    <div className="fac-flip-back-monogram"><Avatar list={PEOPLE} name="Kaustav Majumdar" mono="KM" /></div>
                     <h4>Kaustav Majumdar</h4>
                     <span className="fac-flip-back-role">Chief Mentor</span>
                     <p>Leadership, Strategy &amp; Innovation. Decades of strategic leadership shaping future business leaders.</p>
@@ -749,7 +759,7 @@ export default function Home() {
               <div className="fac-flip-inner">
                 <div className="fac-flip-front">
                   <span className="fac-flip-num">02</span>
-                  <div className="fac-flip-monogram">GM</div>
+                  <div className="fac-flip-monogram"><Avatar list={PEOPLE} name="Dr. Gautam Majumdar" mono="GM" /></div>
                   <div className="fac-flip-front-info">
                     <h4>Dr. Gautam Majumdar</h4>
                     <span>Pro Vice-Chancellor, TIU</span>
@@ -759,7 +769,7 @@ export default function Home() {
                 <div className="fac-flip-back">
                   <span className="fac-flip-back-num">02</span>
                   <div className="fac-flip-back-content">
-                    <div className="fac-flip-back-monogram">GM</div>
+                    <div className="fac-flip-back-monogram"><Avatar list={PEOPLE} name="Dr. Gautam Majumdar" mono="GM" /></div>
                     <h4>Dr. Gautam Majumdar</h4>
                     <span className="fac-flip-back-role">Pro Vice-Chancellor, TIU</span>
                     <p>Ph.D., Jadavpur · Former VC, MAKAUT. Bringing extensive academic excellence and engineering insights.</p>
@@ -774,7 +784,7 @@ export default function Home() {
               <div className="fac-flip-inner">
                 <div className="fac-flip-front">
                   <span className="fac-flip-num">03</span>
-                  <div className="fac-flip-monogram">BB</div>
+                  <div className="fac-flip-monogram"><Avatar list={PEOPLE} name="Bhumita Bhattacharyya" mono="BB" /></div>
                   <div className="fac-flip-front-info">
                     <h4>Bhumita Bhattacharyya</h4>
                     <span>Asst. Professor &amp; Academic Coordinator</span>
@@ -784,7 +794,7 @@ export default function Home() {
                 <div className="fac-flip-back">
                   <span className="fac-flip-back-num">03</span>
                   <div className="fac-flip-back-content">
-                    <div className="fac-flip-back-monogram">BB</div>
+                    <div className="fac-flip-back-monogram"><Avatar list={PEOPLE} name="Bhumita Bhattacharyya" mono="BB" /></div>
                     <h4>Bhumita Bhattacharyya</h4>
                     <span className="fac-flip-back-role">Asst. Professor &amp; Academic Coordinator</span>
                     <p>Soft skills, campus experience and student well-being. Shaping confident communicators and resilient leaders.</p>
@@ -799,7 +809,7 @@ export default function Home() {
               <div className="fac-flip-inner">
                 <div className="fac-flip-front">
                   <span className="fac-flip-num">04</span>
-                  <div className="fac-flip-monogram">RB</div>
+                  <div className="fac-flip-monogram"><Avatar list={PEOPLE} name="Rituraj Brahmachari" mono="RB" /></div>
                   <div className="fac-flip-front-info">
                     <h4>Rituraj Brahmachari</h4>
                     <span>Senior Management, Biz Dev</span>
@@ -809,7 +819,7 @@ export default function Home() {
                 <div className="fac-flip-back">
                   <span className="fac-flip-back-num">04</span>
                   <div className="fac-flip-back-content">
-                    <div className="fac-flip-back-monogram">RB</div>
+                    <div className="fac-flip-back-monogram"><Avatar list={PEOPLE} name="Rituraj Brahmachari" mono="RB" /></div>
                     <h4>Rituraj Brahmachari</h4>
                     <span className="fac-flip-back-role">Senior Management, Biz Dev</span>
                     <p>Former VP, Times of India (Times Network). Media maven specializing in explosive sales growth.</p>
@@ -824,7 +834,7 @@ export default function Home() {
               <div className="fac-flip-inner">
                 <div className="fac-flip-front">
                   <span className="fac-flip-num">05</span>
-                  <div className="fac-flip-monogram">RR</div>
+                  <div className="fac-flip-monogram"><Avatar list={PEOPLE} name="Rahul Rungta" mono="RR" /></div>
                   <div className="fac-flip-front-info">
                     <h4>Rahul Rungta</h4>
                     <span>CMO, E-Intellisense</span>
@@ -834,7 +844,7 @@ export default function Home() {
                 <div className="fac-flip-back">
                   <span className="fac-flip-back-num">05</span>
                   <div className="fac-flip-back-content">
-                    <div className="fac-flip-back-monogram">RR</div>
+                    <div className="fac-flip-back-monogram"><Avatar list={PEOPLE} name="Rahul Rungta" mono="RR" /></div>
                     <h4>Rahul Rungta</h4>
                     <span className="fac-flip-back-role">CMO, E-Intellisense</span>
                     <p>Founder, Edge24x7 · Finance &amp; Entrepreneurship. Empowering startups through sharp financial acumen.</p>
@@ -849,7 +859,7 @@ export default function Home() {
               <div className="fac-flip-inner">
                 <div className="fac-flip-front">
                   <span className="fac-flip-num">06</span>
-                  <div className="fac-flip-monogram">GT</div>
+                  <div className="fac-flip-monogram"><Avatar list={PEOPLE} name="Geeta Tolia" mono="GT" /></div>
                   <div className="fac-flip-front-info">
                     <h4>Geeta Tolia</h4>
                     <span>Independent Director</span>
@@ -859,7 +869,7 @@ export default function Home() {
                 <div className="fac-flip-back">
                   <span className="fac-flip-back-num">06</span>
                   <div className="fac-flip-back-content">
-                    <div className="fac-flip-back-monogram">GT</div>
+                    <div className="fac-flip-back-monogram"><Avatar list={PEOPLE} name="Geeta Tolia" mono="GT" /></div>
                     <h4>Geeta Tolia</h4>
                     <span className="fac-flip-back-role">Independent Director</span>
                     <p>Divgi TorqTransfer · Co-Founder, Gravitech. Leading corporate governance and board-level strategies.</p>
@@ -874,7 +884,7 @@ export default function Home() {
               <div className="fac-flip-inner">
                 <div className="fac-flip-front">
                   <span className="fac-flip-num">07</span>
-                  <div className="fac-flip-monogram">SC</div>
+                  <div className="fac-flip-monogram"><Avatar list={PEOPLE} name="Soumyadeep Chakraborty" mono="SC" /></div>
                   <div className="fac-flip-front-info">
                     <h4>Soumyadeep Chakraborty</h4>
                     <span>Chief Digital Officer</span>
@@ -884,7 +894,7 @@ export default function Home() {
                 <div className="fac-flip-back">
                   <span className="fac-flip-back-num">07</span>
                   <div className="fac-flip-back-content">
-                    <div className="fac-flip-back-monogram">SC</div>
+                    <div className="fac-flip-back-monogram"><Avatar list={PEOPLE} name="Soumyadeep Chakraborty" mono="SC" /></div>
                     <h4>Soumyadeep Chakraborty</h4>
                     <span className="fac-flip-back-role">Chief Digital Officer</span>
                     <p>Ex Big-4 · IIM Bangalore · Growth Hacker. Driving digital transformation and data-led innovation.</p>
@@ -899,7 +909,7 @@ export default function Home() {
               <div className="fac-flip-inner">
                 <div className="fac-flip-front">
                   <span className="fac-flip-num">08</span>
-                  <div className="fac-flip-monogram">MD</div>
+                  <div className="fac-flip-monogram"><Avatar list={PEOPLE} name="Dr. Manta Dey" mono="MD" /></div>
                   <div className="fac-flip-front-info">
                     <h4>Dr. Manta Dey</h4>
                     <span>Associate Professor, Finance</span>
@@ -909,7 +919,7 @@ export default function Home() {
                 <div className="fac-flip-back">
                   <span className="fac-flip-back-num">08</span>
                   <div className="fac-flip-back-content">
-                    <div className="fac-flip-back-monogram">MD</div>
+                    <div className="fac-flip-back-monogram"><Avatar list={PEOPLE} name="Dr. Manta Dey" mono="MD" /></div>
                     <h4>Dr. Manta Dey</h4>
                     <span className="fac-flip-back-role">Associate Professor, Finance</span>
                     <p>Theory meets real-world applications. Bridging academic finance with practical industry models.</p>
@@ -995,7 +1005,7 @@ export default function Home() {
                 <blockquote>ASMi has been truly transformative. The management learning, networking opportunities, and friendships have shaped my professional journey in ways I never expected.</blockquote>
                 <div className="tv-divider-line"></div>
                 <div className="tv-author">
-                  <div className="tv-author-avatar">FK</div>
+                  <div className="tv-author-avatar"><Avatar list={TESTIMONIALS} name="Farhin Khan" mono="FK" /></div>
                   <div>
                     <strong>Farhin Khan</strong>
                     <span>MBA · 2023–25</span>
@@ -1011,7 +1021,7 @@ export default function Home() {
                 <blockquote>The personalized guidance, family-like atmosphere, and practical exposure creates a learning environment that no textbook can replicate. ASMi is truly special.</blockquote>
                 <div className="tv-divider-line"></div>
                 <div className="tv-author">
-                  <div className="tv-author-avatar">SB</div>
+                  <div className="tv-author-avatar"><Avatar list={TESTIMONIALS} name="Shreejita Bhattacharya" mono="SB" /></div>
                   <div>
                     <strong>Shreejita Bhattacharya</strong>
                     <span>MBA · 2023–25</span>
@@ -1029,7 +1039,7 @@ export default function Home() {
                 <blockquote>The Malaysia study tour, outstanding faculty support, and practical leadership opportunities made my MBA journey truly exceptional and globally relevant.</blockquote>
                 <div className="tv-divider-line"></div>
                 <div className="tv-author">
-                  <div className="tv-author-avatar">AD</div>
+                  <div className="tv-author-avatar"><Avatar list={TESTIMONIALS} name="Aurguna Das" mono="AD" /></div>
                   <div>
                     <strong>Aurguna Das</strong>
                     <span>MBA · 2023–25</span>
@@ -1045,7 +1055,7 @@ export default function Home() {
                 <blockquote>The perfect blend of industry experience, classroom learning, and holistic skill development with mentor support. ASMi prepares you for the real business world.</blockquote>
                 <div className="tv-divider-line"></div>
                 <div className="tv-author">
-                  <div className="tv-author-avatar">AG</div>
+                  <div className="tv-author-avatar"><Avatar list={TESTIMONIALS} name="Ashcharya Kumar Gautam" mono="AG" /></div>
                   <div>
                     <strong>Ashcharya Kumar Gautam</strong>
                     <span>MBA · 2023–25</span>

@@ -1496,9 +1496,16 @@ body.cursor-hover .cursor-ring {
   color: var(--gold);
   position: relative;
   z-index: 2;
+  overflow: hidden;
 }
 .pl-featured .pl-v2-avatar {
   font-size: 1.3rem;
+}
+.pl-v2-avatar img, .tv-author-avatar img, .fac-flip-monogram img, .fac-flip-back-monogram img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center 20%;
+  border-radius: 50%;
+  display: block;
 }
 /* Spinning ring on featured avatar */
 .pl-v2-ring {
@@ -1860,6 +1867,7 @@ body.cursor-hover .cursor-ring {
   font-weight: 800;
   color: var(--gold);
   margin-bottom: auto; /* Pushes info to bottom */
+  overflow: hidden;
 }
 
 .fac-flip-front-info h4 {
@@ -1930,6 +1938,7 @@ body.cursor-hover .cursor-ring {
   font-weight: 800;
   color: var(--gold);
   margin-bottom: 16px;
+  overflow: hidden;
 }
 
 .fac-flip-back-content h4 {
@@ -2297,6 +2306,7 @@ body.cursor-hover .cursor-ring {
   font-weight: 800;
   color: var(--gold);
   flex-shrink: 0;
+  overflow: hidden;
   transition: background 0.3s ease;
 }
 .tv-quote-card:hover .tv-author-avatar {
