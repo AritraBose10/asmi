@@ -91,7 +91,7 @@ export default async function ClubPage({ params }: { params: Promise<{ slug: str
           <div className="fac-mini-grid">
             {others.map((c, i) => (
               <Link key={c.slug} href={`/clubs/${c.slug}`} className="fac-mini reveal-up" data-delay={i * 70}>
-                <div className="fac-mini-mono">{c.mono}</div>
+                <div className="fac-mini-mono">{c.photo ? <img src={c.photo} alt={c.shortName} loading="lazy" /> : c.mono}</div>
                 <h3>{c.shortName}</h3>
                 <span className="fac-mini-role">{c.kicker}</span>
                 <p>{c.summary}</p>

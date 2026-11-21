@@ -662,6 +662,7 @@
 }
 .fac-mini:hover { transform: translateY(-5px); border-color: rgba(201,168,76,0.45); }
 .fac-mini-mono, .lead-mono, .fac-full-mono, .mentor-mono, .club-mono, .speaker-mono, .acc-mono, .quote-mono, .post-mono, .thread-mono {
+  overflow: hidden;
   width: 48px; height: 48px;
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
@@ -816,6 +817,7 @@
   transition: transform 0.4s var(--ease-out), box-shadow 0.4s ease, border-color 0.3s ease;
 }
 .club-card:hover { transform: translateY(-6px); border-color: rgba(201,168,76,0.4); box-shadow: 0 20px 44px rgba(0,0,0,0.08); }
+.fac-mini-mono img, .club-mono img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; border-radius: 50%; display: block; }
 .club-mono { background: var(--black); color: var(--gold); border-color: transparent; margin-bottom: 16px; }
 .club-card h3 { font-size: 1.05rem; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.02em; }
 .club-kicker { display: block; font-size: 0.74rem; font-weight: 600; color: var(--gold-dark); margin-bottom: 12px; }

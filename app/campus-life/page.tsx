@@ -84,7 +84,7 @@ export default function CampusLife() {
           <div className="club-grid">
             {CLUBS.map((c, i) => (
               <Link key={c.slug} href={`/clubs/${c.slug}`} className="club-card reveal-up" data-delay={(i % 4) * 60}>
-                <div className="club-mono">{c.mono}</div>
+                <div className="club-mono">{c.photo ? <img src={c.photo} alt={c.shortName} loading="lazy" /> : c.mono}</div>
                 <h3>{c.shortName}</h3>
                 <span className="club-kicker">{c.kicker}</span>
                 <p>{c.summary}</p>

@@ -1501,7 +1501,7 @@ body.cursor-hover .cursor-ring {
 .pl-featured .pl-v2-avatar {
   font-size: 1.3rem;
 }
-.pl-v2-avatar img, .tv-author-avatar img, .fac-flip-monogram img, .fac-flip-back-monogram img {
+.pl-v2-avatar img, .tv-author-avatar img, .mt-h-avatar img, .fac-flip-monogram img, .fac-flip-back-monogram img {
   width: 100%; height: 100%;
   object-fit: cover; object-position: center 20%;
   border-radius: 50%;
@@ -2107,6 +2107,7 @@ body.cursor-hover .cursor-ring {
   flex-shrink: 0;
   letter-spacing: -0.02em;
   transition: background 0.3s ease, color 0.3s ease, transform 0.3s var(--ease-out);
+  overflow: hidden;
 }
 .mt-h-card:hover .mt-h-avatar {
   background: var(--gold);

@@ -947,38 +947,38 @@ export default function Home() {
         {/* Row 1 — scrolls left */}
         <div className="fac-mt-row mt-scroll-row mt-row-1">
           <div className="mt-scroll-track" id="mtTrack1">
-            <div className="mt-h-card"><div className="mt-h-avatar">DM</div><div className="mt-h-info"><h4>Debjani Mookjherjee</h4><span className="mt-h-role">Founder, Nanigarh</span><p>Shark Tank India S4 · Brandigence</p></div></div>
-            <div className="mt-h-card"><div className="mt-h-avatar">HL</div><div className="mt-h-info"><h4>Hemant Lodhia</h4><span className="mt-h-role">Founder</span><p>Windamere Projects</p></div></div>
-            <div className="mt-h-card"><div className="mt-h-avatar">KS</div><div className="mt-h-info"><h4>Krittika Simlai</h4><span className="mt-h-role">CSR Manager, HDFC Bank</span><p>West Bengal Operations</p></div></div>
-            <div className="mt-h-card"><div className="mt-h-avatar">PG</div><div className="mt-h-info"><h4>Pallab Ghosh</h4><span className="mt-h-role">Co-Founder</span><p>GAPPU</p></div></div>
-            <div className="mt-h-card"><div className="mt-h-avatar">AM</div><div className="mt-h-info"><h4>Arun Mukherjee</h4><span className="mt-h-role">Founder</span><p>Bengal Entrepreneurs · Chaigram</p></div></div>
-            <div className="mt-h-card"><div className="mt-h-avatar">AK</div><div className="mt-h-info"><h4>Atin Kumar Roy</h4><span className="mt-h-role">Regional Head</span><p>Star Health & Allied Insurance</p></div></div>
+            <div className="mt-h-card"><div className="mt-h-avatar"><Avatar list={PEOPLE} name="Debjani Mookjherjee" mono="DM" /></div><div className="mt-h-info"><h4>Debjani Mookjherjee</h4><span className="mt-h-role">Founder, Nanigarh</span><p>Shark Tank India S4 · Brandigence</p></div></div>
+            <div className="mt-h-card"><div className="mt-h-avatar"><Avatar list={PEOPLE} name="Hemant Lodhia" mono="HL" /></div><div className="mt-h-info"><h4>Hemant Lodhia</h4><span className="mt-h-role">Founder</span><p>Windamere Projects</p></div></div>
+            <div className="mt-h-card"><div className="mt-h-avatar"><Avatar list={PEOPLE} name="Krittika Simlai" mono="KS" /></div><div className="mt-h-info"><h4>Krittika Simlai</h4><span className="mt-h-role">CSR Manager, HDFC Bank</span><p>West Bengal Operations</p></div></div>
+            <div className="mt-h-card"><div className="mt-h-avatar"><Avatar list={PEOPLE} name="Pallab Ghosh" mono="PG" /></div><div className="mt-h-info"><h4>Pallab Ghosh</h4><span className="mt-h-role">Co-Founder</span><p>GAPPU</p></div></div>
+            <div className="mt-h-card"><div className="mt-h-avatar"><Avatar list={PEOPLE} name="Arun Mukherjee" mono="AM" /></div><div className="mt-h-info"><h4>Arun Mukherjee</h4><span className="mt-h-role">Founder</span><p>Bengal Entrepreneurs · Chaigram</p></div></div>
+            <div className="mt-h-card"><div className="mt-h-avatar"><Avatar list={PEOPLE} name="Atin Kumar Roy" mono="AK" /></div><div className="mt-h-info"><h4>Atin Kumar Roy</h4><span className="mt-h-role">Regional Head</span><p>Star Health & Allied Insurance</p></div></div>
             {/* duplicate for seamless loop */}
-            <div className="mt-h-card"><div className="mt-h-avatar">DM</div><div className="mt-h-info"><h4>Debjani Mookjherjee</h4><span className="mt-h-role">Founder, Nanigarh</span><p>Shark Tank India S4 · Brandigence</p></div></div>
-            <div className="mt-h-card"><div className="mt-h-avatar">HL</div><div className="mt-h-info"><h4>Hemant Lodhia</h4><span className="mt-h-role">Founder</span><p>Windamere Projects</p></div></div>
-            <div className="mt-h-card"><div className="mt-h-avatar">KS</div><div className="mt-h-info"><h4>Krittika Simlai</h4><span className="mt-h-role">CSR Manager, HDFC Bank</span><p>West Bengal Operations</p></div></div>
-            <div className="mt-h-card"><div className="mt-h-avatar">PG</div><div className="mt-h-info"><h4>Pallab Ghosh</h4><span className="mt-h-role">Co-Founder</span><p>GAPPU</p></div></div>
-            <div className="mt-h-card"><div className="mt-h-avatar">AM</div><div className="mt-h-info"><h4>Arun Mukherjee</h4><span className="mt-h-role">Founder</span><p>Bengal Entrepreneurs · Chaigram</p></div></div>
-            <div className="mt-h-card"><div className="mt-h-avatar">AK</div><div className="mt-h-info"><h4>Atin Kumar Roy</h4><span className="mt-h-role">Regional Head</span><p>Star Health & Allied Insurance</p></div></div>
+            <div className="mt-h-card"><div className="mt-h-avatar"><Avatar list={PEOPLE} name="Debjani Mookjherjee" mono="DM" /></div><div className="mt-h-info"><h4>Debjani Mookjherjee</h4><span className="mt-h-role">Founder, Nanigarh</span><p>Shark Tank India S4 · Brandigence</p></div></div>
+            <div className="mt-h-card"><div className="mt-h-avatar"><Avatar list={PEOPLE} name="Hemant Lodhia" mono="HL" /></div><div className="mt-h-info"><h4>Hemant Lodhia</h4><span className="mt-h-role">Founder</span><p>Windamere Projects</p></div></div>
+            <div className="mt-h-card"><div className="mt-h-avatar"><Avatar list={PEOPLE} name="Krittika Simlai" mono="KS" /></div><div className="mt-h-info"><h4>Krittika Simlai</h4><span className="mt-h-role">CSR Manager, HDFC Bank</span><p>West Bengal Operations</p></div></div>
+            <div className="mt-h-card"><div className="mt-h-avatar"><Avatar list={PEOPLE} name="Pallab Ghosh" mono="PG" /></div><div className="mt-h-info"><h4>Pallab Ghosh</h4><span className="mt-h-role">Co-Founder</span><p>GAPPU</p></div></div>
+            <div className="mt-h-card"><div className="mt-h-avatar"><Avatar list={PEOPLE} name="Arun Mukherjee" mono="AM" /></div><div className="mt-h-info"><h4>Arun Mukherjee</h4><span className="mt-h-role">Founder</span><p>Bengal Entrepreneurs · Chaigram</p></div></div>
+            <div className="mt-h-card"><div className="mt-h-avatar"><Avatar list={PEOPLE} name="Atin Kumar Roy" mono="AK" /></div><div className="mt-h-info"><h4>Atin Kumar Roy</h4><span className="mt-h-role">Regional Head</span><p>Star Health & Allied Insurance</p></div></div>
           </div>
         </div>
 
         {/* Row 2 — scrolls right (reverse) */}
         <div className="fac-mt-row mt-scroll-row mt-row-2">
           <div className="mt-scroll-track mt-track-reverse" id="mtTrack2">
-            <div className="mt-h-card"><div className="mt-h-avatar">KP</div><div className="mt-h-info"><h4>Kamalini Paul</h4><span className="mt-h-role">Managing Director</span><p>De Sovrani · Poz Hotel · D C Paul Group</p></div></div>
-            <div className="mt-h-card"><div className="mt-h-avatar">MF</div><div className="mt-h-info"><h4>Mohammad Faisal</h4><span className="mt-h-role">National Head Operations</span><p>Aptech Limited</p></div></div>
-            <div className="mt-h-card"><div className="mt-h-avatar">AS</div><div className="mt-h-info"><h4>Anirban Sen</h4><span className="mt-h-role">MD & CEO</span><p>Powercab</p></div></div>
-            <div className="mt-h-card"><div className="mt-h-avatar">AT</div><div className="mt-h-info"><h4>CA Adarsh Tandon</h4><span className="mt-h-role">Head of Training</span><p>HSBC Bank Kolkata · Derivatives</p></div></div>
-            <div className="mt-h-card"><div className="mt-h-avatar">SD</div><div className="mt-h-info"><h4>Sanghamitra Dhar</h4><span className="mt-h-role">CHRO, LinkedIn24x7</span><p>HR Instructor, ILS Networks</p></div></div>
-            <div className="mt-h-card"><div className="mt-h-avatar">LD</div><div className="mt-h-info"><h4>Lalith Dhanush</h4><span className="mt-h-role">Education Expert</span><p>TEDx Speaker · Author · LIT School</p></div></div>
+            <div className="mt-h-card"><div className="mt-h-avatar"><Avatar list={PEOPLE} name="Kamalini Paul" mono="KP" /></div><div className="mt-h-info"><h4>Kamalini Paul</h4><span className="mt-h-role">Managing Director</span><p>De Sovrani · Poz Hotel · D C Paul Group</p></div></div>
+            <div className="mt-h-card"><div className="mt-h-avatar"><Avatar list={PEOPLE} name="Mohammad Faisal" mono="MF" /></div><div className="mt-h-info"><h4>Mohammad Faisal</h4><span className="mt-h-role">National Head Operations</span><p>Aptech Limited</p></div></div>
+            <div className="mt-h-card"><div className="mt-h-avatar"><Avatar list={PEOPLE} name="Anirban Sen" mono="AS" /></div><div className="mt-h-info"><h4>Anirban Sen</h4><span className="mt-h-role">MD & CEO</span><p>Powercab</p></div></div>
+            <div className="mt-h-card"><div className="mt-h-avatar"><Avatar list={PEOPLE} name="CA Adarsh Tandon" mono="AT" /></div><div className="mt-h-info"><h4>CA Adarsh Tandon</h4><span className="mt-h-role">Head of Training</span><p>HSBC Bank Kolkata · Derivatives</p></div></div>
+            <div className="mt-h-card"><div className="mt-h-avatar"><Avatar list={PEOPLE} name="Sanghamitra Dhar" mono="SD" /></div><div className="mt-h-info"><h4>Sanghamitra Dhar</h4><span className="mt-h-role">CHRO, LinkedIn24x7</span><p>HR Instructor, ILS Networks</p></div></div>
+            <div className="mt-h-card"><div className="mt-h-avatar"><Avatar list={PEOPLE} name="Lalith Dhanush" mono="LD" /></div><div className="mt-h-info"><h4>Lalith Dhanush</h4><span className="mt-h-role">Education Expert</span><p>TEDx Speaker · Author · LIT School</p></div></div>
             {/* duplicate */}
-            <div className="mt-h-card"><div className="mt-h-avatar">KP</div><div className="mt-h-info"><h4>Kamalini Paul</h4><span className="mt-h-role">Managing Director</span><p>De Sovrani · Poz Hotel · D C Paul Group</p></div></div>
-            <div className="mt-h-card"><div className="mt-h-avatar">MF</div><div className="mt-h-info"><h4>Mohammad Faisal</h4><span className="mt-h-role">National Head Operations</span><p>Aptech Limited</p></div></div>
-            <div className="mt-h-card"><div className="mt-h-avatar">AS</div><div className="mt-h-info"><h4>Anirban Sen</h4><span className="mt-h-role">MD & CEO</span><p>Powercab</p></div></div>
-            <div className="mt-h-card"><div className="mt-h-avatar">AT</div><div className="mt-h-info"><h4>CA Adarsh Tandon</h4><span className="mt-h-role">Head of Training</span><p>HSBC Bank Kolkata · Derivatives</p></div></div>
-            <div className="mt-h-card"><div className="mt-h-avatar">SD</div><div className="mt-h-info"><h4>Sanghamitra Dhar</h4><span className="mt-h-role">CHRO, LinkedIn24x7</span><p>HR Instructor, ILS Networks</p></div></div>
-            <div className="mt-h-card"><div className="mt-h-avatar">LD</div><div className="mt-h-info"><h4>Lalith Dhanush</h4><span className="mt-h-role">Education Expert</span><p>TEDx Speaker · Author · LIT School</p></div></div>
+            <div className="mt-h-card"><div className="mt-h-avatar"><Avatar list={PEOPLE} name="Kamalini Paul" mono="KP" /></div><div className="mt-h-info"><h4>Kamalini Paul</h4><span className="mt-h-role">Managing Director</span><p>De Sovrani · Poz Hotel · D C Paul Group</p></div></div>
+            <div className="mt-h-card"><div className="mt-h-avatar"><Avatar list={PEOPLE} name="Mohammad Faisal" mono="MF" /></div><div className="mt-h-info"><h4>Mohammad Faisal</h4><span className="mt-h-role">National Head Operations</span><p>Aptech Limited</p></div></div>
+            <div className="mt-h-card"><div className="mt-h-avatar"><Avatar list={PEOPLE} name="Anirban Sen" mono="AS" /></div><div className="mt-h-info"><h4>Anirban Sen</h4><span className="mt-h-role">MD & CEO</span><p>Powercab</p></div></div>
+            <div className="mt-h-card"><div className="mt-h-avatar"><Avatar list={PEOPLE} name="CA Adarsh Tandon" mono="AT" /></div><div className="mt-h-info"><h4>CA Adarsh Tandon</h4><span className="mt-h-role">Head of Training</span><p>HSBC Bank Kolkata · Derivatives</p></div></div>
+            <div className="mt-h-card"><div className="mt-h-avatar"><Avatar list={PEOPLE} name="Sanghamitra Dhar" mono="SD" /></div><div className="mt-h-info"><h4>Sanghamitra Dhar</h4><span className="mt-h-role">CHRO, LinkedIn24x7</span><p>HR Instructor, ILS Networks</p></div></div>
+            <div className="mt-h-card"><div className="mt-h-avatar"><Avatar list={PEOPLE} name="Lalith Dhanush" mono="LD" /></div><div className="mt-h-info"><h4>Lalith Dhanush</h4><span className="mt-h-role">Education Expert</span><p>TEDx Speaker · Author · LIT School</p></div></div>
           </div>
         </div>
       </section>

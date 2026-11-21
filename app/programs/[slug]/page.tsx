@@ -150,7 +150,7 @@ export default async function ProgramPage({ params }: { params: Promise<{ slug: 
           <div className="fac-mini-grid">
             {faculty.map((f, i) => (
               <Link key={f!.slug} href={`/faculty/${f!.slug}`} className="fac-mini light reveal-up" data-delay={i * 70}>
-                <div className="fac-mini-mono">{f!.mono}</div>
+                <div className="fac-mini-mono">{f!.photo ? <img src={f!.photo} alt={f!.name} loading="lazy" /> : f!.mono}</div>
                 <h3>{f!.name}</h3>
                 <span className="fac-mini-role">{f!.role}</span>
                 <p>{f!.short}</p>

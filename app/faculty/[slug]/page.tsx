@@ -107,7 +107,7 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
           <div className="fac-mini-grid">
             {peers.map((p, i) => (
               <Link key={p.slug} href={`/faculty/${p.slug}`} className="fac-mini reveal-up" data-delay={i * 70}>
-                <div className="fac-mini-mono">{p.mono}</div>
+                <div className="fac-mini-mono">{p.photo ? <img src={p.photo} alt={p.name} loading="lazy" /> : p.mono}</div>
                 <h3>{p.name}</h3>
                 <span className="fac-mini-role">{p.role}</span>
                 <p>{p.short}</p>
