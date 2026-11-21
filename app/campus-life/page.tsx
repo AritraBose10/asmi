@@ -5,16 +5,14 @@ import { SITE, CAMPUS_GALLERY } from '@/data/site';
 import { PageHero, SecHead, CtaBand, Arrow, Pills, Ladder } from '@/components/Chrome';
 import { FeatureGrid } from '@/components/Icon';
 import { PhotoGrid, PhotoBand } from '@/components/Photo';
-import { getPhotos, hydrateMedia } from '@/lib/media';
+import { SECTION, FACILITIES, CAMPUS_PHOTOS, BUILDING_PHOTOS } from '@/data/photos';
 
 export const metadata: Metadata = {
   title: 'Campus Life at Sector V, Kolkata',
   description: 'Campus life at ASMi Business School — a vertical campus on the 15th floor of Godrej Genesis in Kolkata’s Sector V tech district.',
 };
 
-export default async function CampusLife() {
-  await hydrateMedia();
-  const { SECTION, FACILITIES, CAMPUS_PHOTOS, BUILDING_PHOTOS } = await getPhotos();
+export default function CampusLife() {
   return (
     <>
       <PageHero

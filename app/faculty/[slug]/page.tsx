@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { hydrateMedia } from '@/lib/media';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { PEOPLE, getPerson } from '@/data/people';
@@ -22,7 +21,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 const KIND_LABEL = { leadership: 'Leadership', faculty: 'Faculty', mentor: 'Industry Mentor' } as const;
 
 export default async function PersonPage({ params }: { params: Promise<{ slug: string }> }) {
-  await hydrateMedia();
   const { slug } = await params;
   const person = getPerson(slug);
   if (!person) notFound();

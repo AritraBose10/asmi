@@ -1,6 +1,4 @@
 import type { Metadata } from 'next';
-import { assetSrc } from '@/data/photos';
-import { hydrateMedia } from '@/lib/media';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { POSTS, getPost, relatedPosts } from '@/data/posts';
@@ -18,7 +16,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
-  await hydrateMedia();
   const { slug } = await params;
   const post = getPost(slug);
   if (!post) notFound();
@@ -28,7 +25,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
     <>
       <section className="page-hero ph-dark article-hero">
         <div className="ph-media">
-          <img src={assetSrc(post.image)} alt={post.title} />
+          <img src={`/assets/${post.image}`} alt={post.title} />
           <div className="ph-media-shade" />
         </div>
         <div className="ph-grain" aria-hidden="true" />

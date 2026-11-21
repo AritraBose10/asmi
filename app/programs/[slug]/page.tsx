@@ -9,9 +9,7 @@ import {
 } from '@/components/Chrome';
 import { FeatureGrid } from '@/components/Icon';
 import { PhotoBand } from '@/components/Photo';
-import { getPhotos, hydrateMedia } from '@/lib/media';
-import type { HERO } from '@/data/photos';
-import { photoSrc } from '@/data/photos';
+import { SECTION, HERO } from '@/data/photos';
 
 export function generateStaticParams() {
   return PROGRAMS.map((p) => ({ slug: p.slug }));
@@ -25,8 +23,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 export default async function ProgramPage({ params }: { params: Promise<{ slug: string }> }) {
-  await hydrateMedia();
-  const { SECTION } = await getPhotos();
   const { slug } = await params;
   const program = getProgram(slug);
   if (!program) notFound();
@@ -193,7 +189,7 @@ export default async function ProgramPage({ params }: { params: Promise<{ slug: 
         <div className="container">
           <div className="split-feature">
             <div className="split-media reveal-up">
-              <img src={photoSrc(SECTION.programTour)} alt={SECTION.programTour.alt} loading="lazy" />
+              <img src="/assets/malaysia-tour.png" alt="The ASMi cohort on the international study tour in Malaysia" loading="lazy" />
             </div>
             <div className="split-body reveal-up" data-delay={100}>
               <p className="section-eyebrow">Global Exposure</p>

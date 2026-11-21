@@ -5,8 +5,6 @@ const nextConfig: NextConfig = {
   images: {
     // Real photography is coming in; let Next resize and serve AVIF/WebP
     // rather than shipping multi-megabyte originals.
-    // CMS uploads are served from Sanity's CDN.
-    remotePatterns: [{ protocol: 'https', hostname: 'cdn.sanity.io', pathname: '/images/**' }],
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [390, 640, 828, 1080, 1280, 1600, 1920],
     imageSizes: [96, 160, 240, 320, 420, 560],

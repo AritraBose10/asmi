@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { PageHero, SecHead, CtaBand, FaqBlock, Arrow } from '@/components/Chrome';
 import { FeatureGrid } from '@/components/Icon';
 import { PhotoBand } from '@/components/Photo';
-import { getPhotos } from '@/lib/media';
+import { SECTION } from '@/data/photos';
 
 /* ── Editorial photo layout ───────────────────────────────────────────── */
 function TourPhotoBlock({ photos }: { photos: { caption: string; src?: string }[] }) {
@@ -61,8 +61,7 @@ export const metadata: Metadata = {
   description: 'At ASMi Business School, every cohort travels abroad. From INTI International University in 2024 to Universiti Malaya and APU in 2025 — industry immersion, factory visits and cultural fieldwork in Malaysia.',
 };
 
-export default async function StudyTour() {
-  const { SECTION } = await getPhotos();
+export default function StudyTour() {
   return (
     <>
       <PageHero

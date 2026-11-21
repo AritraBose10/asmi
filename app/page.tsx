@@ -1,7 +1,4 @@
 import type { Metadata } from 'next';
-import { hydrateMedia, getPhotos } from '@/lib/media';
-import { photoSrc, assetSrc } from '@/data/photos';
-import { getProgram } from '@/data/programs';
 
 export const metadata: Metadata = {
   title: 'ASMi Business School | Best Business School in Kolkata',
@@ -14,9 +11,7 @@ export const metadata: Metadata = {
  * (reveal-up, data-text-reveal, data-counter, data-parallax-speed) are driven by
  * <SiteMotion /> in the root layout.
  */
-export default async function Home() {
-  await hydrateMedia();
-  const { HERO, SECTION } = await getPhotos();
+export default function Home() {
   return (
     <>
       {/* HERO */}
@@ -28,7 +23,7 @@ export default async function Home() {
           <div className="hf-shape hf-shape-4" data-parallax-speed="0.04"></div>
         </div>
         <div className="hero-media">
-          <img src={photoSrc(HERO.home)} alt={HERO.home.alt} className="hero-img" id="heroImg" />
+          <img src="/assets/hero-bg.png" alt="ASMi Business School Campus" className="hero-img" id="heroImg" />
           <div className="hero-overlay"></div>
         </div>
         <div className="hero-content">
@@ -109,7 +104,7 @@ export default async function Home() {
         <div className="container">
           <div className="split-feature">
             <div className="split-media reveal-up">
-              <img src={photoSrc(SECTION.homeAbout)} alt={SECTION.homeAbout.alt} loading="lazy" />
+              <img src="/assets/campus-life.png" alt="ASMi students and faculty in conversation on campus" loading="lazy" />
             </div>
             <div className="split-body reveal-up" data-delay={100}>
               <p className="section-eyebrow" data-text-reveal>About ASMi</p>
@@ -363,7 +358,7 @@ export default async function Home() {
             {/* MBA */}
             <a href="/programs/mba" className="pg-card reveal-up" data-delay="0">
               <div className="pg-card-media">
-                <img src={assetSrc(getProgram('mba')!.image)} alt="MBA Program" className="pg-card-img" />
+                <img src="/assets/campus-life.png" alt="MBA Program" className="pg-card-img" />
                 <div className="pg-card-shade"></div>
                 <span className="pg-type">MBA</span>
                 <span className="pg-badge flagship">Flagship</span>
@@ -391,7 +386,7 @@ export default async function Home() {
             {/* BBA */}
             <a href="/programs/bba" className="pg-card reveal-up" data-delay="100">
               <div className="pg-card-media">
-                <img src={assetSrc(getProgram('bba')!.image)} alt="BBA Program" className="pg-card-img" />
+                <img src="/assets/hero-bg.png" alt="BBA Program" className="pg-card-img" />
                 <div className="pg-card-shade"></div>
                 <span className="pg-type">BBA</span>
                 <span className="pg-badge">Undergraduate</span>
@@ -419,7 +414,7 @@ export default async function Home() {
             {/* EMBA */}
             <a href="/programs/executive-mba" className="pg-card reveal-up" data-delay="200">
               <div className="pg-card-media">
-                <img src={assetSrc(getProgram('executive-mba')!.image)} alt="Executive MBA" className="pg-card-img" />
+                <img src="/assets/malaysia-tour.png" alt="Executive MBA" className="pg-card-img" />
                 <div className="pg-card-shade"></div>
                 <span className="pg-type">EMBA</span>
                 <span className="pg-badge">Executive</span>
@@ -450,7 +445,7 @@ export default async function Home() {
       {/* STUDY TOUR — IMMERSIVE BANNER */}
       <section className="st-immersive">
         <div className="st-bg-wrap">
-          <img src={photoSrc(SECTION.homeStudyTour)} alt="International Study Tour Malaysia" loading="lazy" className="st-bg-img lazy" />
+          <img src="/assets/malaysia-tour.png" alt="International Study Tour Malaysia" loading="lazy" className="st-bg-img lazy" />
           <div className="st-bg-overlay"></div>
         </div>
 

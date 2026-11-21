@@ -2,16 +2,14 @@ import type { Metadata } from 'next';
 import { PLACEMENT_STATS, PLACED, RECRUITERS, TESTIMONIALS } from '@/data/site';
 import { PageHero, SecHead, CtaBand, Pills, StatBand, Ladder } from '@/components/Chrome';
 import Photo, { PhotoBand } from '@/components/Photo';
-import { getPhotos, hydrateMedia } from '@/lib/media';
+import { SECTION } from '@/data/photos';
 
 export const metadata: Metadata = {
   title: 'Placements & Recruiters',
   description: 'ASMi Business School placement report: ₹20.38 LPA highest package, ₹14.20 LPA average, ₹13.50 LPA median for the 2023–25 batch.',
 };
 
-export default async function Placements() {
-  await hydrateMedia();
-  const { SECTION } = await getPhotos();
+export default function Placements() {
   return (
     <>
       <PageHero

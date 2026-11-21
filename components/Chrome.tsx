@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { SITE } from '@/data/site';
-import { photoSrc, type HERO, type PhotoSlot } from '@/data/photos';
-import { getPhotos } from '@/lib/media';
+import { HERO, photoSrc, type PhotoSlot } from '@/data/photos';
 import { PROGRAMS } from '@/data/programs';
 
 export const Arrow = ({ size = 16 }: { size?: number }) => (
@@ -11,7 +10,7 @@ export const Arrow = ({ size = 16 }: { size?: number }) => (
 );
 
 // ── Page hero ──────────────────────────────────────────────────────────────
-export async function PageHero({
+export function PageHero({
   theme = 'ph-dark',
   eyebrow,
   title,
@@ -34,7 +33,7 @@ export async function PageHero({
   /** Key into HERO in data/photos.ts — carries the alt text with it. */
   photoKey?: keyof typeof HERO;
 }) {
-  const slot: PhotoSlot | undefined = photoKey ? (await getPhotos()).HERO[photoKey] : undefined;
+  const slot: PhotoSlot | undefined = photoKey ? HERO[photoKey] : undefined;
   const heroSrc = slot ? photoSrc(slot) : image ? `/assets/${image}` : undefined;
   return (
     <section className={`page-hero ${theme}`}>

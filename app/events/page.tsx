@@ -1,6 +1,4 @@
 import type { Metadata } from 'next';
-import { hydrateMedia, getPhotos } from '@/lib/media';
-import { photoSrc } from '@/data/photos';
 import Link from 'next/link';
 import { EVENTS, EVENT_TAGS } from '@/data/campus';
 import { SESSIONS, SCHEDULED, DIRECTORY_PERIOD, SPEAKER_ORGS, monogram, speakerDate } from '@/data/speakers';
@@ -13,9 +11,7 @@ export const metadata: Metadata = {
   description: 'Guest lectures, corporate connect sessions, the Sundarban MBA Boot Camp and the Malaysia study tour — the ASMi Business School events calendar.',
 };
 
-export default async function EventsIndex() {
-  await hydrateMedia();
-  const { SECTION } = await getPhotos();
+export default function EventsIndex() {
   return (
     <>
       <PageHero
@@ -131,7 +127,7 @@ export default async function EventsIndex() {
         <div className="container">
           <div className="split-feature">
             <div className="split-media reveal-up">
-              <img src={photoSrc(SECTION.eventsBootcamp)} alt={SECTION.eventsBootcamp.alt} loading="lazy" />
+              <img src="/assets/campus-life.png" alt="MBA Boot Camp" loading="lazy" />
             </div>
             <div className="split-body reveal-up" data-delay={100}>
               <p className="section-eyebrow">Flagship</p>

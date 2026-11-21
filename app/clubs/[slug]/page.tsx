@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { hydrateMedia } from '@/lib/media';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { CLUBS, getClub } from '@/data/campus';
@@ -18,7 +17,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 export default async function ClubPage({ params }: { params: Promise<{ slug: string }> }) {
-  await hydrateMedia();
   const { slug } = await params;
   const club = getClub(slug);
   if (!club) notFound();
