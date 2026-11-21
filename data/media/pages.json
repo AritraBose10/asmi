@@ -1,1 +1,27 @@
-{}
+{
+  "hero": {
+    "programs": "/photos/pages/hero-programs.jpg",
+    "bba": "/photos/pages/hero-bba.jpg",
+    "mba": "/photos/pages/hero-mba.jpg",
+    "faculty": "/photos/pages/hero-faculty.jpg",
+    "events": "/photos/pages/hero-events.jpg",
+    "gallery": "/photos/pages/hero-gallery.jpg"
+  },
+  "section": {
+    "homeStudyTour": "/photos/pages/section-homeStudyTour.jpg",
+    "tourPartner": "/photos/pages/section-tourPartner.jpg",
+    "mbaClassroom": "/photos/pages/section-mbaClassroom.jpg",
+    "bbaLab": "/photos/pages/section-bbaLab.jpg",
+    "homeAbout": "/photos/pages/section-homeAbout.jpg",
+    "placementsRecruiters": "/photos/pages/section-placementsRecruiters.jpg",
+    "facultyTeaching": "/photos/pages/section-facultyTeaching.jpg"
+  },
+  "facility": {
+    "caseRooms": "/photos/pages/facility-caseRooms.jpg",
+    "library": "/photos/pages/facility-library.jpg"
+  },
+  "campus": {
+    "gallery-2": "/photos/pages/campus-gallery-2.jpg",
+    "gallery-7": "/photos/pages/campus-gallery-7.jpg"
+  }
+}

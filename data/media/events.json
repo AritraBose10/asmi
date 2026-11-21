@@ -1,1 +1,176 @@
-{}
+{
+  "christmas-celebration": {
+    "photo": "/photos/events/christmas-celebration.jpg",
+    "gallery": [
+      "/photos/events/christmas-celebration/01.jpg",
+      "/photos/events/christmas-celebration/02.jpg",
+      "/photos/events/christmas-celebration/03.jpg",
+      "/photos/events/christmas-celebration/04.jpg",
+      "/photos/events/christmas-celebration/05.jpg",
+      "/photos/events/christmas-celebration/06.jpg",
+      "/photos/events/christmas-celebration/07.jpg",
+      "/photos/events/christmas-celebration/08.jpg",
+      "/photos/events/christmas-celebration/09.jpg",
+      "/photos/events/christmas-celebration/10.jpg",
+      "/photos/events/christmas-celebration/11.jpg",
+      "/photos/events/christmas-celebration/12.jpg",
+      "/photos/events/christmas-celebration/13.jpg",
+      "/photos/events/christmas-celebration/14.jpg",
+      "/photos/events/christmas-celebration/15.jpg",
+      "/photos/events/christmas-celebration/16.jpg",
+      "/photos/events/christmas-celebration/17.jpg",
+      "/photos/events/christmas-celebration/18.jpg",
+      "/photos/events/christmas-celebration/19.jpg",
+      "/photos/events/christmas-celebration/20.jpg",
+      "/photos/events/christmas-celebration/21.jpg",
+      "/photos/events/christmas-celebration/22.jpg",
+      "/photos/events/christmas-celebration/23.jpg",
+      "/photos/events/christmas-celebration/24.jpg",
+      "/photos/events/christmas-celebration/25.jpg",
+      "/photos/events/christmas-celebration/26.jpg",
+      "/photos/events/christmas-celebration/27.jpg",
+      "/photos/events/christmas-celebration/28.jpg",
+      "/photos/events/christmas-celebration/29.jpg",
+      "/photos/events/christmas-celebration/30.jpg",
+      "/photos/events/christmas-celebration/31.jpg",
+      "/photos/events/christmas-celebration/32.jpg",
+      "/photos/events/christmas-celebration/33.jpg",
+      "/photos/events/christmas-celebration/34.jpg",
+      "/photos/events/christmas-celebration/35.jpg"
+    ]
+  },
+  "teachers-day-celebration": {
+    "photo": "/photos/events/teachers-day-celebration.jpg"
+  },
+  "corporate-connect-sessions": {
+    "photo": "/photos/events/corporate-connect-sessions.jpg",
+    "gallery": [
+      "/photos/events/corporate-connect-sessions/01.jpg",
+      "/photos/events/corporate-connect-sessions/02.jpg",
+      "/photos/events/corporate-connect-sessions/03.jpg",
+      "/photos/events/corporate-connect-sessions/04.jpg",
+      "/photos/events/corporate-connect-sessions/05.jpg",
+      "/photos/events/corporate-connect-sessions/06.jpg",
+      "/photos/events/corporate-connect-sessions/07.jpg",
+      "/photos/events/corporate-connect-sessions/08.jpg",
+      "/photos/events/corporate-connect-sessions/09.jpg",
+      "/photos/events/corporate-connect-sessions/10.jpg",
+      "/photos/events/corporate-connect-sessions/11.jpg",
+      "/photos/events/corporate-connect-sessions/12.jpg",
+      "/photos/events/corporate-connect-sessions/13.jpg",
+      "/photos/events/corporate-connect-sessions/14.jpg",
+      "/photos/events/corporate-connect-sessions/15.jpg",
+      "/photos/events/corporate-connect-sessions/16.jpg",
+      "/photos/events/corporate-connect-sessions/17.jpg",
+      "/photos/events/corporate-connect-sessions/18.jpg",
+      "/photos/events/corporate-connect-sessions/19.jpg",
+      "/photos/events/corporate-connect-sessions/20.jpg",
+      "/photos/events/corporate-connect-sessions/21.jpg",
+      "/photos/events/corporate-connect-sessions/22.jpg",
+      "/photos/events/corporate-connect-sessions/23.jpg",
+      "/photos/events/corporate-connect-sessions/24.jpg",
+      "/photos/events/corporate-connect-sessions/25.jpg",
+      "/photos/events/corporate-connect-sessions/26.jpg",
+      "/photos/events/corporate-connect-sessions/27.jpg",
+      "/photos/events/corporate-connect-sessions/28.jpg",
+      "/photos/events/corporate-connect-sessions/29.jpg",
+      "/photos/events/corporate-connect-sessions/30.jpg",
+      "/photos/events/corporate-connect-sessions/31.jpg",
+      "/photos/events/corporate-connect-sessions/32.jpg",
+      "/photos/events/corporate-connect-sessions/33.jpg",
+      "/photos/events/corporate-connect-sessions/34.jpg",
+      "/photos/events/corporate-connect-sessions/35.jpg",
+      "/photos/events/corporate-connect-sessions/36.jpg",
+      "/photos/events/corporate-connect-sessions/37.jpg",
+      "/photos/events/corporate-connect-sessions/38.jpg",
+      "/photos/events/corporate-connect-sessions/39.jpg",
+      "/photos/events/corporate-connect-sessions/40.jpg",
+      "/photos/events/corporate-connect-sessions/41.jpg",
+      "/photos/events/corporate-connect-sessions/42.jpg",
+      "/photos/events/corporate-connect-sessions/43.jpg",
+      "/photos/events/corporate-connect-sessions/44.jpg",
+      "/photos/events/corporate-connect-sessions/45.jpg",
+      "/photos/events/corporate-connect-sessions/46.jpg"
+    ]
+  },
+  "guest-lecture-series": {
+    "photo": "/photos/events/guest-lecture-series.jpg",
+    "gallery": [
+      "/photos/events/guest-lecture-series/01.jpg",
+      "/photos/events/guest-lecture-series/02.jpg",
+      "/photos/events/guest-lecture-series/03.jpg",
+      "/photos/events/guest-lecture-series/04.jpg",
+      "/photos/events/guest-lecture-series/05.jpg",
+      "/photos/events/guest-lecture-series/06.jpg",
+      "/photos/events/guest-lecture-series/07.jpg",
+      "/photos/events/guest-lecture-series/08.jpg",
+      "/photos/events/guest-lecture-series/09.jpg",
+      "/photos/events/guest-lecture-series/10.jpg",
+      "/photos/events/guest-lecture-series/11.jpg",
+      "/photos/events/guest-lecture-series/12.jpg",
+      "/photos/events/guest-lecture-series/13.jpg",
+      "/photos/events/guest-lecture-series/14.jpg",
+      "/photos/events/guest-lecture-series/15.jpg",
+      "/photos/events/guest-lecture-series/16.jpg",
+      "/photos/events/guest-lecture-series/17.jpg",
+      "/photos/events/guest-lecture-series/18.jpg",
+      "/photos/events/guest-lecture-series/19.jpg",
+      "/photos/events/guest-lecture-series/20.jpg",
+      "/photos/events/guest-lecture-series/21.jpg",
+      "/photos/events/guest-lecture-series/22.jpg",
+      "/photos/events/guest-lecture-series/23.jpg",
+      "/photos/events/guest-lecture-series/24.jpg",
+      "/photos/events/guest-lecture-series/25.jpg",
+      "/photos/events/guest-lecture-series/26.jpg",
+      "/photos/events/guest-lecture-series/27.jpg"
+    ]
+  },
+  "asmi-malaysia-2025": {
+    "photo": "/photos/events/asmi-malaysia-2025.jpg",
+    "gallery": [
+      "/photos/events/asmi-malaysia-2025/01.jpg",
+      "/photos/events/asmi-malaysia-2025/02.jpg",
+      "/photos/events/asmi-malaysia-2025/03.jpg",
+      "/photos/events/asmi-malaysia-2025/04.jpg",
+      "/photos/events/asmi-malaysia-2025/05.jpg",
+      "/photos/events/asmi-malaysia-2025/06.jpg",
+      "/photos/events/asmi-malaysia-2025/07.jpg",
+      "/photos/events/asmi-malaysia-2025/08.jpg",
+      "/photos/events/asmi-malaysia-2025/09.jpg",
+      "/photos/events/asmi-malaysia-2025/10.jpg",
+      "/photos/events/asmi-malaysia-2025/11.jpg",
+      "/photos/events/asmi-malaysia-2025/12.jpg",
+      "/photos/events/asmi-malaysia-2025/13.jpg",
+      "/photos/events/asmi-malaysia-2025/14.jpg",
+      "/photos/events/asmi-malaysia-2025/15.jpg",
+      "/photos/events/asmi-malaysia-2025/16.jpg",
+      "/photos/events/asmi-malaysia-2025/17.jpg"
+    ]
+  },
+  "asmi-session-11-august-2026": {
+    "photo": "/photos/events/asmi-session-11-august-2026.jpg",
+    "gallery": [
+      "/photos/events/asmi-session-11-august-2026/01.jpg",
+      "/photos/events/asmi-session-11-august-2026/02.jpg",
+      "/photos/events/asmi-session-11-august-2026/03.jpg"
+    ]
+  },
+  "asmi-movie-screening": {
+    "photo": "/photos/events/asmi-movie-screening.jpg",
+    "gallery": [
+      "/photos/events/asmi-movie-screening/01.jpg"
+    ]
+  },
+  "ibm-immersion-programme": {
+    "photo": "/photos/events/ibm-immersion-programme.jpg",
+    "gallery": [
+      "/photos/events/ibm-immersion-programme/01.jpg"
+    ]
+  },
+  "asmi-agomoni-2026": {
+    "photo": "/photos/events/asmi-agomoni-2026.jpg",
+    "gallery": [
+      "/photos/events/asmi-agomoni-2026/01.jpg"
+    ]
+  }
+}
