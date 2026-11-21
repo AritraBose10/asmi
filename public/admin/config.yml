@@ -299,6 +299,18 @@ collections:
         - { label: "Technology", name: "technology", widget: image, required: false, hint: "16:7 banner. 1900px on the long edge." }
         - { label: "Entrepreneurship", name: "entrepreneurship", widget: image, required: false, hint: "16:7 banner. 1900px on the long edge." }
         - { label: "Sustainability", name: "sustainability", widget: image, required: false, hint: "16:7 banner. 1900px on the long edge." }
+  - name: "programs"
+    label: "Programs"
+    files:
+      - label: "Program card photos"
+        name: "programs"
+        file: "data/media/programs.json"
+        media_folder: "/public/photos/programs"
+        public_folder: "/photos/programs"
+        fields:
+        - { label: "Master of Business Administration", name: "mba", widget: image, required: false, hint: "Landscape, about 16:9. 1600px on the long edge. Shown on the home and programs pages." }
+        - { label: "Bachelor of Business Administration", name: "bba", widget: image, required: false, hint: "Landscape, about 16:9. 1600px on the long edge. Shown on the home and programs pages." }
+        - { label: "Executive MBA", name: "executive-mba", widget: image, required: false, hint: "Landscape, about 16:9. 1600px on the long edge. Shown on the home and programs pages." }
   - name: "students"
     label: "Students"
     files:

@@ -14,6 +14,7 @@ import clubs from './media/clubs.json';
 import specializations from './media/specializations.json';
 import students from './media/students.json';
 import events from './media/events.json';
+import programs from './media/programs.json';
 import pages from './media/pages.json';
 
 type Flat = Record<string, string | undefined>;
@@ -31,11 +32,15 @@ export function applyPhotos<T extends { photo?: string }>(items: T[], map: Flat,
   }
 }
 
+/** Program/blog images are stored as a bare filename under /assets; CMS images are full paths. */
+export const assetSrc = (img: string) => (/^(\/|https?:)/.test(img) ? img : `/assets/${img}`);
+
 export const MEDIA = {
   people: people as Flat,
   clubs: clubs as Flat,
   specializations: specializations as Flat,
   students: students as Flat,
+  programs: programs as Flat,
   events: events as unknown as Record<string, { photo?: string; gallery?: string[] } | undefined>,
   pages: pages as unknown as Record<string, Flat | undefined>,
 };

@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { HERO, SECTION, photoSrc } from '@/data/photos';
 import { PLACED, TESTIMONIALS } from '@/data/site';
 import { PEOPLE } from '@/data/people';
+import { getProgram } from '@/data/programs';
+import { assetSrc } from '@/data/media';
 
 /** Photo for a placed student / testimonial author, if one has been uploaded (see data/media). */
 const personPhoto = (list: { name: string; photo?: string }[], name: string) => list.find((p) => p.name === name)?.photo;
@@ -369,7 +371,7 @@ export default function Home() {
             {/* MBA */}
             <a href="/programs/mba" className="pg-card reveal-up" data-delay="0">
               <div className="pg-card-media">
-                <img src="/assets/campus-life.png" alt="MBA Program" className="pg-card-img" />
+                <img src={assetSrc(getProgram('mba')!.image)} alt="MBA Program" className="pg-card-img" />
                 <div className="pg-card-shade"></div>
                 <span className="pg-type">MBA</span>
                 <span className="pg-badge flagship">Flagship</span>
@@ -397,7 +399,7 @@ export default function Home() {
             {/* BBA */}
             <a href="/programs/bba" className="pg-card reveal-up" data-delay="100">
               <div className="pg-card-media">
-                <img src="/assets/hero-bg.png" alt="BBA Program" className="pg-card-img" />
+                <img src={assetSrc(getProgram('bba')!.image)} alt="BBA Program" className="pg-card-img" />
                 <div className="pg-card-shade"></div>
                 <span className="pg-type">BBA</span>
                 <span className="pg-badge">Undergraduate</span>
@@ -425,7 +427,7 @@ export default function Home() {
             {/* EMBA */}
             <a href="/programs/executive-mba" className="pg-card reveal-up" data-delay="200">
               <div className="pg-card-media">
-                <img src="/assets/malaysia-tour.png" alt="Executive MBA" className="pg-card-img" />
+                <img src={assetSrc(getProgram('executive-mba')!.image)} alt="Executive MBA" className="pg-card-img" />
                 <div className="pg-card-shade"></div>
                 <span className="pg-type">EMBA</span>
                 <span className="pg-badge">Executive</span>

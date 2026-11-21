@@ -204,6 +204,11 @@ export const PROGRAMS: Program[] = [
   },
 ];
 
+for (const p of PROGRAMS) {
+  const v = MEDIA.programs[p.slug];
+  if (typeof v === 'string' && v.startsWith('/')) p.image = v;
+}
+
 export const getProgram = (slug: string) => PROGRAMS.find((p) => p.slug === slug);
 
 // ── MBA specializations ────────────────────────────────────────────────────
