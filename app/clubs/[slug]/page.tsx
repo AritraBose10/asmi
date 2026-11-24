@@ -30,7 +30,7 @@ export default async function ClubPage({ params }: { params: Promise<{ slug: str
         title={club.shortName}
         sub={club.summary}
         crumbs={[{ href: '/', label: 'Home' }, { href: '/clubs', label: 'Student Clubs' }, { label: club.shortName }]}
-        image={club.photo ? undefined : 'campus-life.png'}
+        image={club.photo ? undefined : 'campus-life.webp'}
         meta={[
           { value: club.openTo.split(',')[0], label: 'Open To' },
           { value: club.activities.length.toString(), label: 'Core Activities' },

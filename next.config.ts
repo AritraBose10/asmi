@@ -49,6 +49,11 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       { source: '/:path*', headers: [...common, { key: 'Content-Security-Policy', value: siteCsp }] },
+      // Images and video change rarely and are revalidated in the background after a day.
+      ...['/assets/:path*', '/photos/:path*', '/videos/:path*'].map((source) => ({
+        source,
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=86400, stale-while-revalidate=604800' }],
+      })),
       // Listed after the catch-all so it wins for /admin: same headers, the CMS policy.
       { source: '/admin', headers: [...common, { key: 'Content-Security-Policy', value: adminCsp }, { key: 'Cache-Control', value: 'no-store' }] },
       { source: '/admin/:path*', headers: [...common, { key: 'Content-Security-Policy', value: adminCsp }] },

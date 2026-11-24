@@ -31,7 +31,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     date: '06 Oct 2026',
     sub: 'Head HR & Global Operations, A4 Technologies Solutions Inc., USA',
     caption: 'Corporate Connect session on international talent operations, global hiring standards, and technology cross-border leadership.',
-    image: '/assets/speakers/samhita-dutta.png',
+    image: '/assets/speakers/samhita-dutta.webp',
     mono: 'SD',
   },
   {
@@ -42,7 +42,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     date: '19 Aug 2026',
     sub: 'Financial Controller, London Borough of Brent, London',
     caption: 'The ASMi Finance Marathon 2026 — public finance management, fiscal controllership, and international municipal governance.',
-    image: '/assets/speakers/mainak-roy.png',
+    image: '/assets/speakers/mainak-roy.webp',
     mono: 'MR',
   },
   {
@@ -53,7 +53,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     date: '26 Aug 2026',
     sub: 'Director, Deauville Green Awards',
     caption: 'I Am The Future movie screening and creator fireside chat on sustainable development, documentary storytelling, and environmental communication.',
-    image: '/assets/speakers/pilar-parodi-felix.png',
+    image: '/assets/speakers/pilar-parodi-felix.webp',
     mono: 'PP',
   },
   {
@@ -64,7 +64,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     date: '01 Sep 2026',
     sub: 'Professor of Technology & Operations Management, Durham University Business School, UK',
     caption: 'Session on contemporary supply chain management, Industry 4.0 applications, and resilient logistics architecture.',
-    image: '/assets/speakers/atanu-chaudhuri.png',
+    image: '/assets/speakers/atanu-chaudhuri.webp',
     mono: 'AC',
   },
   {
@@ -75,7 +75,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     date: '08 Sep 2026',
     sub: 'PGT Teacher, Eklavya Model School; Founder, Voice & Verse',
     caption: 'Finding Your Voice: Confidence Beyond Language — executive presence, diction, and communication mastery.',
-    image: '/assets/speakers/reeju-pathak.png',
+    image: '/assets/speakers/reeju-pathak.webp',
     mono: 'RP',
   },
   {
@@ -97,7 +97,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     date: '22 Sep 2026',
     sub: 'Manager, Industrial Engagements & Senior AI & Data Scientist, IBM',
     caption: 'IBM Day: TechnoVate 2026 — enterprise applications of generative AI, predictive models, and data-driven management decisioning.',
-    image: '/assets/speakers/aman-bakshi.png',
+    image: '/assets/speakers/aman-bakshi.webp',
     mono: 'AB',
   },
   {
@@ -108,7 +108,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     date: '22 Sep 2026',
     sub: 'Quality Analyst & Cloud Application Developer, IBM',
     caption: 'IBM Day: TechnoVate 2026 — modern cloud infrastructure, DevOps pipelines, and enterprise application quality engineering.',
-    image: '/assets/speakers/robin-tyagi.png',
+    image: '/assets/speakers/robin-tyagi.webp',
     mono: 'RT',
   },
   {
@@ -119,7 +119,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     date: '11 Aug 2026',
     sub: 'LinkedIn Brand Strategist; Co-Founder, InstaInker; Founder, Consult Global',
     caption: 'Executive personal branding, digital identity for business leaders, and social network positioning.',
-    image: '/assets/speakers/neha-mishra.png',
+    image: '/assets/speakers/neha-mishra.webp',
     mono: 'NM',
   },
   {
@@ -130,7 +130,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     date: '11 Aug 2026',
     sub: 'Founder & Managing Partner, VSNB & Associates; Co-Founder, InstaInker',
     caption: 'Direct tax compliance, startup valuations, and commercial advisory practices in Indian market ecosystems.',
-    image: '/assets/speakers/nikhil-bajaj.png',
+    image: '/assets/speakers/nikhil-bajaj.webp',
     mono: 'NB',
   },
   {
@@ -141,7 +141,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     date: '24 Sep 2026',
     sub: 'Growth Marketing Lead, APPSeCONNECT',
     caption: 'B2B growth mechanics, SaaS customer acquisition funnels, and enterprise lifecycle marketing.',
-    image: '/assets/speakers/hritavash-saha.png',
+    image: '/assets/speakers/hritavash-saha.webp',
     mono: 'HS',
   },
   {
@@ -152,7 +152,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     date: '30 Sep 2026',
     sub: 'Principal AI Strategist & GTM Specialist, AWS US',
     caption: 'Cloud-native AI architectures, hyper-scale go-to-market strategies, and enterprise tech adoption across North America.',
-    image: '/assets/speakers/kaushik-raha.png',
+    image: '/assets/speakers/kaushik-raha.webp',
     mono: 'KR',
   },
   {
@@ -163,7 +163,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     date: '24 Sep 2026',
     sub: 'Senior Tax Professional & US Enrolled Agent',
     caption: 'Cross-border US taxation, international compliance frameworks, and global corporate tax structuring.',
-    image: '/assets/speakers/arindam-tagore.png',
+    image: '/assets/speakers/arindam-tagore.webp',
     mono: 'AT',
   },
   {
@@ -174,7 +174,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     date: '29 Sep 2026',
     sub: 'Senior Vice President & Group HR Head, EMC Limited',
     caption: 'Large-scale industrial workforce management, organizational transformation, and strategic talent pipelines.',
-    image: '/assets/speakers/niloy-biswas.png',
+    image: '/assets/speakers/niloy-biswas.webp',
     mono: 'NB',
   },
 
@@ -186,7 +186,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     tag: 'Sector V, Kolkata',
     sub: '15th Floor, Godrej Genesis Tech Tower',
     caption: 'ASMi sits inside Godrej Genesis in Sector V — Kolkata’s technology district, where students study surrounded by the enterprises they prepare to enter.',
-    image: '/assets/campus-life.png',
+    image: '/assets/campus-life.webp',
     mono: 'GG',
     featured: true,
   },
@@ -244,7 +244,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     tag: 'Global Exposure',
     sub: 'Kuala Lumpur & Selangor',
     caption: 'Ten days with INTI International University — combining industry sessions, factory floor visits, and cultural fieldwork.',
-    image: '/assets/malaysia-tour.png',
+    image: '/assets/malaysia-tour.webp',
     mono: 'MY',
     featured: true,
   },

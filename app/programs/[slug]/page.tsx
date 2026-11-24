@@ -189,7 +189,7 @@ export default async function ProgramPage({ params }: { params: Promise<{ slug: 
         <div className="container">
           <div className="split-feature">
             <div className="split-media reveal-up">
-              <img src="/assets/malaysia-tour.png" alt="The ASMi cohort on the international study tour in Malaysia" loading="lazy" />
+              <img src="/assets/malaysia-tour.webp" alt="The ASMi cohort on the international study tour in Malaysia" loading="lazy" />
             </div>
             <div className="split-body reveal-up" data-delay={100}>
               <p className="section-eyebrow">Global Exposure</p>

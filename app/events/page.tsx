@@ -127,7 +127,7 @@ export default function EventsIndex() {
         <div className="container">
           <div className="split-feature">
             <div className="split-media reveal-up">
-              <img src="/assets/campus-life.png" alt="MBA Boot Camp" loading="lazy" />
+              <img src="/assets/campus-life.webp" alt="MBA Boot Camp" loading="lazy" />
             </div>
             <div className="split-body reveal-up" data-delay={100}>
               <p className="section-eyebrow">Flagship</p>

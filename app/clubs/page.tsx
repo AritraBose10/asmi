@@ -64,7 +64,7 @@ export default function ClubsIndex() {
         <div className="container">
           <div className="split-feature flip">
             <div className="split-media reveal-up">
-              <img src="/assets/malaysia-tour.png" alt="Club activity beyond campus" loading="lazy" />
+              <img src="/assets/malaysia-tour.webp" alt="Club activity beyond campus" loading="lazy" />
             </div>
             <div className="split-body reveal-up" data-delay={100}>
               <p className="section-eyebrow">Beyond Campus</p>

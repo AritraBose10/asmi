@@ -23,9 +23,9 @@ export interface PhotoSlot {
   brief?: string;
 }
 
-const CAMPUS_STOCK = '/assets/campus-life.png';
-const HERO_STOCK = '/assets/hero-bg.png';
-const TOUR_STOCK = '/assets/malaysia-tour.png';
+const CAMPUS_STOCK = '/assets/campus-life.webp';
+const HERO_STOCK = '/assets/hero-bg.webp';
+const TOUR_STOCK = '/assets/malaysia-tour.webp';
 
 // ── Page hero backgrounds ───────────────────────────────────────────────────
 export const HERO: Record<string, PhotoSlot> = {

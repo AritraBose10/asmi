@@ -41,7 +41,7 @@ export const PROGRAMS: Program[] = [
     badge: 'Flagship',
     eyebrow: 'Flagship Programme',
     heroTheme: 'ph-dark',
-    image: 'campus-life.png',
+    image: 'campus-life.webp',
     dek: 'Two years, six specializations, and a curriculum built with IBM around the work managers actually do. AICTE-approved and awarded by Techno India University.',
     summary: 'Future-focused curriculum with six specializations — Marketing, Finance, HR, Technology, Entrepreneurship & Sustainability. Powered by IBM.',
     meta: [
@@ -98,7 +98,7 @@ export const PROGRAMS: Program[] = [
     badge: 'Undergraduate',
     eyebrow: 'Undergraduate Programme',
     heroTheme: 'ph-deep',
-    image: 'hero-bg.png',
+    image: 'hero-bg.webp',
     dek: 'Four years with Business Analytics at the centre. You learn to run the numbers before you learn to run the room — and you start on live projects in year one.',
     summary: 'Specialization in Business Analytics with industry-integrated learning powered by IBM. Build your analytical edge from year one.',
     meta: [
@@ -155,7 +155,7 @@ export const PROGRAMS: Program[] = [
     badge: 'Executive',
     eyebrow: 'For Working Professionals',
     heroTheme: 'ph-gold',
-    image: 'malaysia-tour.png',
+    image: 'malaysia-tour.webp',
     dek: 'Built for people who are already running something. Flexible modules, case-based sessions taught by practitioners, and a cohort of peers who bring their own P&L to the discussion.',
     summary: 'Designed for CXOs, senior managers, entrepreneurs and growth-minded professionals. Immersive case-based, flexible modules.',
     meta: [
