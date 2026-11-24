@@ -1076,7 +1076,7 @@ export default function Home() {
             <div className="tv-quote-card reveal-left" data-delay="0">
               <div className="tv-quote-mark" aria-hidden="true">"</div>
               <div className="tv-quote-body">
-                <blockquote>ASMi has been truly transformative. The management learning, networking opportunities, and friendships have shaped my professional journey in ways I never expected.</blockquote>
+                <blockquote>{TESTIMONIALS[0].quote}</blockquote>
                 <div className="tv-divider-line"></div>
                 <div className="tv-author">
                   <div className="tv-author-avatar"><Avatar list={TESTIMONIALS} name="Farhin Khan" mono="FK" /></div>
@@ -1092,7 +1092,7 @@ export default function Home() {
             {/* Quote 2 — right aligned */}
             <div className="tv-quote-card tv-quote-right reveal-right" data-delay="100">
               <div className="tv-quote-body">
-                <blockquote>The personalized guidance, family-like atmosphere, and practical exposure creates a learning environment that no textbook can replicate. ASMi is truly special.</blockquote>
+                <blockquote>{TESTIMONIALS[1].quote}</blockquote>
                 <div className="tv-divider-line"></div>
                 <div className="tv-author">
                   <div className="tv-author-avatar"><Avatar list={TESTIMONIALS} name="Shreejita Bhattacharya" mono="SB" /></div>
@@ -1110,7 +1110,7 @@ export default function Home() {
             <div className="tv-quote-card reveal-left" data-delay="200">
               <div className="tv-quote-mark" aria-hidden="true">"</div>
               <div className="tv-quote-body">
-                <blockquote>The Malaysia study tour, outstanding faculty support, and practical leadership opportunities made my MBA journey truly exceptional and globally relevant.</blockquote>
+                <blockquote>{TESTIMONIALS[2].quote}</blockquote>
                 <div className="tv-divider-line"></div>
                 <div className="tv-author">
                   <div className="tv-author-avatar"><Avatar list={TESTIMONIALS} name="Aurguna Das" mono="AD" /></div>
@@ -1126,7 +1126,7 @@ export default function Home() {
             {/* Quote 4 — right aligned */}
             <div className="tv-quote-card tv-quote-right reveal-right" data-delay="300">
               <div className="tv-quote-body">
-                <blockquote>The perfect blend of industry experience, classroom learning, and holistic skill development with mentor support. ASMi prepares you for the real business world.</blockquote>
+                <blockquote>{TESTIMONIALS[3].quote}</blockquote>
                 <div className="tv-divider-line"></div>
                 <div className="tv-author">
                   <div className="tv-author-avatar"><Avatar list={TESTIMONIALS} name="Ashcharya Kumar Gautam" mono="AG" /></div>

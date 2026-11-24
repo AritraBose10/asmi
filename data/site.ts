@@ -15,7 +15,7 @@ export const SITE = {
     facebook: 'https://facebook.com/asmibschool',
     instagram: 'https://instagram.com/asmi_business_school',
     linkedin: 'https://linkedin.com/company/asmibusinessschool',
-    youtube: '#',
+    youtube: 'https://www.youtube.com/watch?v=2TqyIhnzvAE',
   },
 };
 
@@ -47,19 +47,19 @@ applyPhotos(PLACED, MEDIA.students, (p) => `placed-${slugify(p.name)}`);
 export const TESTIMONIALS: { mono: string; name: string; batch: string; quote: string; photo?: string }[] = [
   {
     mono: 'FK', name: 'Farhin Khan', batch: 'MBA · 2023–25',
-    quote: 'ASMi has been truly transformative. The management learning, networking opportunities, and friendships have shaped my professional journey in ways I never expected.',
+    quote: 'One such moment in my life was when I joined ASMi Business School, a unit of Techno India Group, as a member of its 0th batch. The time I am spending is teaching me a great deal about management, networking, making friends, living life as it ought to be lived but most importantly to keep questioning, to never let that curiosity bug inside me die.',
   },
   {
     mono: 'SB', name: 'Shreejita Bhattacharya', batch: 'MBA · 2023–25',
-    quote: 'The personalized guidance, family-like atmosphere, and practical exposure creates a learning environment that no textbook can replicate.',
+    quote: 'I feel incredibly fortunate to be part of an institute that truly feels like family. At ASMi by Techno India University, every student receives personalized guidance, ensuring no one is left behind. … In my view, ASMi represents the future of B-schools in Kolkata.',
   },
   {
     mono: 'AD', name: 'Aurguna Das', batch: 'MBA · 2023–25',
-    quote: 'The Malaysia study tour, outstanding faculty support, and practical leadership opportunities made my MBA journey truly exceptional and globally relevant.',
+    quote: 'The curriculum, combined with practical opportunities like the Malaysia study tour, has provided invaluable insights into global business practices. … Initiatives like organizing a food distribution drive and planning a campus cafeteria have helped me develop leadership and entrepreneurial skills while fostering a sense of social responsibility.',
   },
   {
     mono: 'AG', name: 'Ashcharya Kumar Gautam', batch: 'MBA · 2023–25',
-    quote: 'The perfect blend of industry experience, classroom learning, and holistic skill development with mentor support. ASMi prepares you for the real business world.',
+    quote: 'My time at ASMI Business School has been truly transformative. … Professors are more than just mentors – they are truly mentors invested in my success. Their guidance, personal attention and open-door policy make me feel valued and inspire me to strive for excellence.',
   },
 ];
 applyPhotos(TESTIMONIALS, MEDIA.students, (t) => `testimonial-${slugify(t.name)}`);

@@ -3,6 +3,7 @@ import { PROGRAMS, SPECIALIZATIONS } from '@/data/programs';
 import { PEOPLE } from '@/data/people';
 import { CLUBS, EVENTS } from '@/data/campus';
 import { POSTS } from '@/data/posts';
+import { COURSES } from '@/data/courses';
 import { PUBLISHED as ABSAT_PUBLISHED } from '@/data/absat';
 
 const BASE = 'https://asmibschool.com';
@@ -32,6 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry('/citations', 0.5, 'monthly'),
     entry('/faq', 0.6, 'monthly'),
     ...PROGRAMS.map((p) => entry(`/programs/${p.slug}`, 0.9, 'monthly')),
+    ...COURSES.map((c) => entry(`/courses/${c.slug}`, 0.7, 'monthly')),
     ...SPECIALIZATIONS.map((s) => entry(`/specializations/${s.slug}`, 0.7, 'monthly')),
     ...PEOPLE.map((p) => entry(`/faculty/${p.slug}`, 0.5, 'yearly')),
     ...CLUBS.map((c) => entry(`/clubs/${c.slug}`, 0.5, 'yearly')),

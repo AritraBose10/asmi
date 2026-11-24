@@ -21,6 +21,8 @@ export interface Person {
   focus: string[];
   teaches?: string[];
   linkedin?: string;
+  /** Signed message, verbatim from asmibschool.com/leadership.html. */
+  message?: { heading: string; text: string };
   /** /photos/people/<slug>.jpg — falls back to the monogram while absent. */
   photo?: string;
 }
@@ -45,6 +47,11 @@ export const PEOPLE: Person[] = [
       'Expanded access to technical and management education across West Bengal',
       'Sets the long-range direction for the group’s institutions',
     ],
+    message: {
+      heading: 'Message from the Founder Chairman',
+      text: '“Welcome to ASMI Business School by Techno India University, West Bengal! Our vision has always been to nurture future leaders and innovators in the world of business. ASMI stands as a testament to our commitment to excellence in education, fostering an environment that encourages creativity, critical thinking and ethical business practices. We look forward to shaping a bright future together.”',
+    },
+    linkedin: 'https://www.linkedin.com/in/goutam-roychowdhury-9861bbb9/',
   },
   {
     slug: 'manoshi-roychowdhury',
@@ -64,6 +71,11 @@ export const PEOPLE: Person[] = [
       'Access and inclusion in higher education',
       'Student welfare and support systems',
     ],
+    message: {
+      heading: 'Message from the Co-Chairperson',
+      text: '“At ASMI Business School, we believe in empowering our students with knowledge, skills and values that will make them stand out in the corporate world. Our distinguished faculty and industry-relevant curriculum aim to provide a holistic learning experience. Join us at ASMI, where we cultivate the leaders of tomorrow who will drive positive change in the business landscape.”',
+    },
+    linkedin: 'https://www.linkedin.com/in/manoshi-roychowdhury-9661271a3/',
   },
   {
     slug: 'meghdut-roychowdhury',
@@ -84,6 +96,7 @@ export const PEOPLE: Person[] = [
       'Industry and startup ecosystem partnerships',
     ],
     teaches: ['Innovation & Venture Building'],
+    linkedin: 'https://in.linkedin.com/in/meghdutroychowdhury',
   },
   {
     slug: 'pauline-laravoire',
@@ -104,6 +117,7 @@ export const PEOPLE: Person[] = [
       'Responsible business and impact measurement',
     ],
     teaches: ['Sustainability & ESG'],
+    linkedin: 'https://in.linkedin.com/in/paulinelaravoire',
   },
 
   // ── Faculty ──────────────────────────────────────────────────────────────
@@ -125,6 +139,7 @@ export const PEOPLE: Person[] = [
       'Mentoring students through specialisation choices',
     ],
     teaches: ['Strategic Management', 'Leadership'],
+    linkedin: 'https://www.linkedin.com/in/kaustavmajumdar',
   },
   {
     slug: 'gautam-majumdar',
@@ -144,6 +159,28 @@ export const PEOPLE: Person[] = [
       'Quantitative rigour in management teaching',
     ],
     teaches: ['Academic Affairs'],
+    linkedin: 'https://www.linkedin.com/in/gautam-majumdar-47300a7',
+  },
+  {
+    slug: 'sanjay-saha',
+    name: 'Dr. Sanjay Saha',
+    mono: 'SS',
+    role: 'Professor & In-charge of Academic Affairs',
+    org: 'ASMi Business School',
+    kind: 'faculty',
+    short: 'IIT Kanpur Ph.D. Leads academic affairs, with a focus on industrial organization and business policy.',
+    bio: [
+      'Professor and In-charge of Academic Affairs at ASMi Business School. He holds a Ph.D. from IIT Kanpur.',
+      'He leads academic affairs at the school, fostering excellence in industrial organization and business policy.',
+    ],
+    expertise: ['Industrial Organization', 'Business Policy', 'Academic Affairs'],
+    focus: [
+      'Academic affairs and programme delivery',
+      'Industrial organization',
+      'Business policy',
+    ],
+    teaches: ['Industrial Organization', 'Business Policy'],
+    linkedin: 'https://www.linkedin.com/in/dr-sanjay-saha-284581249',
   },
   {
     slug: 'bhumita-bhattacharyya',
@@ -206,6 +243,7 @@ export const PEOPLE: Person[] = [
       'Interview preparation with the placement cell',
     ],
     teaches: ['Sales & Business Development'],
+    linkedin: 'https://www.linkedin.com/in/rituraj-brahmchari-2b6a892',
   },
   {
     slug: 'rahul-rungta',
@@ -226,6 +264,7 @@ export const PEOPLE: Person[] = [
       'Mentoring student ventures at Udyam',
     ],
     teaches: ['Entrepreneurial Finance'],
+    linkedin: 'https://www.linkedin.com/in/rahulrungta',
   },
   {
     slug: 'geeta-tolia',
@@ -246,6 +285,7 @@ export const PEOPLE: Person[] = [
       'Business strategy for mid-cap manufacturers',
     ],
     teaches: ['Corporate Governance'],
+    linkedin: 'https://www.linkedin.com/in/geetatolia',
   },
   {
     slug: 'sanghamitra-dhar',
@@ -267,6 +307,7 @@ export const PEOPLE: Person[] = [
     ],
     teaches: ['Human Resource Management', 'Personal Branding'],
     photo: '/photos/people/sanghamitra-dhar.jpg',
+    linkedin: 'https://www.linkedin.com/in/sanghamitradhar',
   },
   {
     slug: 'kausik-mitra',
@@ -287,6 +328,7 @@ export const PEOPLE: Person[] = [
     ],
     teaches: ['Business Communication', 'PR & Media Strategy'],
     photo: '/photos/people/kausik-mitra.jpg',
+    linkedin: 'https://www.linkedin.com/in/kausik-mitra-aa9335218',
   },
   {
     slug: 'manta-dey',
@@ -307,6 +349,7 @@ export const PEOPLE: Person[] = [
     ],
     teaches: ['Corporate Finance', 'Financial Accounting'],
     photo: '/photos/people/manta-dey.jpg',
+    linkedin: 'https://www.linkedin.com/in/dr-manta-dey-6242bb254',
   },
   {
     slug: 'ruchi-agarwal',
@@ -328,6 +371,7 @@ export const PEOPLE: Person[] = [
     ],
     teaches: ['Financial Planning', 'Wealth Management'],
     photo: '/photos/people/ruchi-agarwal.jpg',
+    linkedin: 'https://www.linkedin.com/in/ruchiagarwal-cfp',
   },
   {
     slug: 'govind-kumar-rai',
@@ -348,6 +392,7 @@ export const PEOPLE: Person[] = [
     ],
     teaches: ['Operations Management'],
     photo: '/photos/people/govind-kumar-rai.jpg',
+    linkedin: 'https://www.linkedin.com/in/gkrai1',
   },
   {
     slug: 'soumyadeep-chakraborty',
@@ -369,6 +414,7 @@ export const PEOPLE: Person[] = [
     ],
     teaches: ['Business Analytics', 'Digital Transformation'],
     photo: '/photos/people/soumyadeep-chakraborty.jpg',
+    linkedin: 'https://www.linkedin.com/in/soumyadipchakraborty',
   },
   {
     slug: 'sritama-dey-saha',
@@ -389,6 +435,7 @@ export const PEOPLE: Person[] = [
     ],
     teaches: ['Organisational Behaviour', 'Talent Development'],
     photo: '/photos/people/sritama-dey-saha.jpg',
+    linkedin: 'https://www.linkedin.com/in/dr-sritama-dey-saha-3570a3151',
   },
 
   // ── Industry mentors ─────────────────────────────────────────────────────
@@ -557,6 +604,7 @@ export const PEOPLE: Person[] = [
     expertise: ['HR', 'Branding', 'Careers'],
     focus: ['Career strategy mentoring', 'Professional presence', 'HR function careers'],
     photo: '/photos/people/sanghamitra-dhar.jpg',
+    linkedin: 'https://www.linkedin.com/in/sanghamitradhar',
   },
   {
     slug: 'lalith-dhanush',

@@ -76,6 +76,13 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
                 <p key={i} className={i === 0 ? 'lede' : undefined}>{p}</p>
               ))}
 
+              {person.message && (
+                <>
+                  <h2>{person.message.heading}</h2>
+                  <blockquote>{person.message.text}</blockquote>
+                </>
+              )}
+
               <h2>Focus</h2>
               <TickList items={person.focus} />
 

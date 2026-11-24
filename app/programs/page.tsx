@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { assetSrc } from '@/data/media';
 import Link from 'next/link';
 import { PROGRAMS, SPECIALIZATIONS } from '@/data/programs';
+import { COURSES } from '@/data/courses';
 import { PageHero, SecHead, CtaBand, Arrow, Pills } from '@/components/Chrome';
 
 export const metadata: Metadata = {
@@ -55,6 +56,27 @@ export default function ProgramsIndex() {
                   </div>
                   <span className="pg-cta">Explore Programme <Arrow size={18} /></span>
                 </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="sec" id="certificate-courses">
+        <div className="container">
+          <SecHead
+            eyebrow="Certificate Courses"
+            heading="Three months,<br /><em>one sharp skill</em>"
+            lead="Short certification programmes with physical classes and limited seats — open to students and working professionals."
+          />
+          <div className="spec-grid">
+            {COURSES.map((c, i) => (
+              <Link key={c.slug} href={`/courses/${c.slug}`} className="spec-card reveal-up" data-delay={i * 60}>
+                <span className="spec-num">3 Months</span>
+                <h3>{c.name}</h3>
+                <span className="spec-kicker">{c.tagline}</span>
+                <p>{c.summary}</p>
+                <span className="link-cta">View course <Arrow size={14} /></span>
               </Link>
             ))}
           </div>

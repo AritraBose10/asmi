@@ -469,3 +469,33 @@ Sections in scroll order (inferred from navigation and content):
 ---
 
 *End of data index. Total pages scraped: 10 (all sitemap URLs + /admission/).*
+
+---
+
+## 20. ADDENDUM — RE-SCRAPE 2026-11-24
+
+Live site last modified 2026-09-16. Pages linked from the site but missing from the sitemap:
+bba.html, leadership.html, careers.html, gallery.html, blog.html and seven blog articles
+(blog-details, blog-digital-paradox, certification, hr-certification, hr-certification-list,
+right-course, hr-guide, plus "marketing -manager.html", linked with a space in its name).
+executive-mba.html and corporate.html are linked but return 404.
+
+- **Dr. Sanjay Saha** — Professor and In-charge of Academic Affairs; Ph.D., IIT Kanpur; industrial
+  organization and business policy. LinkedIn: linkedin.com/in/dr-sanjay-saha-284581249 (portrait 404s).
+- **Leadership messages** (leadership.html) — signed messages from the Founder Chairman
+  (Dr. Goutam RoyChowdhury) and the Co-Chairperson (Prof. Manoshi RoyChowdhury).
+- **BBA (Hons) in Business Analytics** (bba.html) — designed in collaboration with IBM; classes taught
+  by IBM experts; access to IBM's exclusive software labs; visits to IBM offices; eight semesters;
+  digital badges and certifications each semester; joint certificate from Techno India University and IBM.
+- **LinkedIn URLs** for leadership, faculty and mentors (homepage cards).
+- **YouTube** — the social icon links to youtube.com/watch?v=2TqyIhnzvAE (a video, not a channel).
+- **Careers "Our Recruiters"** — 19 generic brand logos (Oracle, Cisco, Amazon, Adobe, HP, Cognizant,
+  Coca-Cola, Dell, Deloitte, IBM, Infosys, Intel, KPMG, Microsoft, NVIDIA, P&G, PwC, Samsung, Vodafone).
+  Not verified as actual recruiters.
+- **Contact page** lists the Admissions Office as Offbeat CCU, 36/F Topsia Rd, Kolkata 700039, which
+  conflicts with the homepage footer. Confirmed 2026-11-24: the correct Admissions Office is Techno India
+  University, Ground Floor, EM-4, EM Block, Sector V. The Offbeat CCU address is outdated — do not use it.
+- Hidden in HTML comments (not shown on the live site): Arko Dasgupta (The Combat Clan, Founder);
+  Dr. Manta Dey as National Academic Head, ICA Edu Skills and Independent Director, Bharat Road Network.
+- **Certificate courses** (marketing.html, hr.html, entrepreneur.html) — now in data/courses.ts at /courses/[slug].
+- **Blog archive** — the 8 old articles are in data/posts.ts after the "Archive" marker.

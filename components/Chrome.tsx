@@ -100,22 +100,26 @@ export function CtaBand({
   heading,
   sub,
   primaryLabel = 'Start Your Application',
+  primaryHref = SITE.applyUrl,
+  eyebrow = 'Admissions Open — Batch 2026',
 }: {
   heading: string;
   sub: string;
   primaryLabel?: string;
+  primaryHref?: string;
+  eyebrow?: string;
 }) {
   return (
     <section className="cta-band">
       <div className="container">
         <div className="cta-band-inner reveal-up">
           <div>
-            <p className="cta-band-eyebrow">Admissions Open — Batch 2026</p>
+            <p className="cta-band-eyebrow">{eyebrow}</p>
             <h2 className="cta-band-heading">{heading}</h2>
             <p className="cta-band-sub">{sub}</p>
           </div>
           <div className="cta-band-actions">
-            <a href={SITE.applyUrl} target="_blank" rel="noopener" className="btn-cta-primary">
+            <a href={primaryHref} target="_blank" rel="noopener" className="btn-cta-primary">
               {primaryLabel} <Arrow />
             </a>
             <a href={`tel:${SITE.phone}`} className="btn-cta-secondary">Call {SITE.phone}</a>
@@ -206,6 +210,7 @@ export function Footer() {
               <Link key={p.slug} href={`/programs/${p.slug}`}>{p.name}</Link>
             ))}
             <Link href="/specializations">MBA Specializations</Link>
+            <Link href="/programs#certificate-courses">Certificate Courses</Link>
             <Link href="/absat">ABSAT 2027 Entrance Test</Link>
           </div>
 

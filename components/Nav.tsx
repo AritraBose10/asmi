@@ -149,6 +149,9 @@ export default function Nav() {
                     {p.code}
                   </Link>
                 ))}
+                <Link href="/programs#certificate-courses" className="menu-sublink">
+                  Certificates
+                </Link>
               </div>
             </div>
 

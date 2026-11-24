@@ -31,6 +31,7 @@ collections:
         - { label: "Pauline Laravoire, Sustainability Director", name: "pauline-laravoire", widget: image, required: false, hint: "Portrait, 4:5, eyes in the upper third. 1200px on the long edge." }
         - { label: "Kaustav Majumdar, Chief Mentor, ASMi Business School", name: "kaustav-majumdar", widget: image, required: false, hint: "Portrait, 4:5, eyes in the upper third. 1200px on the long edge." }
         - { label: "Dr. Gautam Majumdar, Pro Vice-Chancellor (Academics), TIU", name: "gautam-majumdar", widget: image, required: false, hint: "Portrait, 4:5, eyes in the upper third. 1200px on the long edge." }
+        - { label: "Dr. Sanjay Saha, Professor & In-charge of Academic Affairs", name: "sanjay-saha", widget: image, required: false, hint: "Portrait, 4:5, eyes in the upper third. 1200px on the long edge." }
         - { label: "Bhumita Bhattacharyya, Assistant Professor & Academic Coordinator", name: "bhumita-bhattacharyya", widget: image, required: false, hint: "Portrait, 4:5, eyes in the upper third. 1200px on the long edge." }
         - { label: "Debayan Chakraborty, Faculty, Marketing", name: "debayan-chakraborty", widget: image, required: false, hint: "Portrait, 4:5, eyes in the upper third. 1200px on the long edge." }
         - { label: "Rituraj Brahmachari, Senior Management, Business Development", name: "rituraj-brahmachari", widget: image, required: false, hint: "Portrait, 4:5, eyes in the upper third. 1200px on the long edge." }
