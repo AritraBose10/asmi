@@ -10,7 +10,8 @@
   </head>
   <body>
     <script>window.CMS_MANUAL_INIT = true;</script>
-    <script src="https://unpkg.com/decap-cms@3.18.0/dist/decap-cms.js"></script>
+    <!-- decap-cms 3.18.0, served from our own origin rather than unpkg so a third party cannot run code on the page that holds the GitHub token. -->
+    <script src="/admin/decap-cms.js"></script>
     <script>
       // Log in through whichever domain this page is served from (Vercel URL now, custom domain later),
       // merged over the rest of config.yml.
