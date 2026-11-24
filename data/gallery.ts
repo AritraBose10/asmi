@@ -1,3 +1,4 @@
+import { MEDIA } from './media';
 export type GalleryCategory = 'All' | 'Speakers & Sessions' | 'Campus Life' | 'Study Tour';
 
 export interface GalleryItem {
@@ -284,3 +285,9 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     mono: 'CF',
   },
 ];
+
+// Cards with no built-in image can be given one from the CMS (data/media/gallery.json).
+for (const it of GALLERY_ITEMS) {
+  const v = MEDIA.gallery[it.id];
+  if (!it.image && typeof v === 'string' && v.startsWith('/')) it.image = v;
+}

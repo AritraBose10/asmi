@@ -66,6 +66,7 @@ const { PEOPLE } = data('people.ts');
 const { CLUBS, EVENTS } = data('campus.ts');
 const { SPECIALIZATIONS, PROGRAMS } = data('programs.ts');
 const { PLACED, TESTIMONIALS } = data('site.ts');
+const { GALLERY_ITEMS } = data('gallery.ts');
 const { HERO, SECTION, FACILITIES, CAMPUS_PHOTOS, BUILDING_PHOTOS } = data('photos.ts');
 
 const F = '        ';
@@ -78,6 +79,8 @@ const progs = flat(PROGRAMS.map((p) => [p.slug, p.name, 'Landscape, about 16:9. 
 const students =
   flat(PLACED.map((p) => [`placed-${slugify(p.name)}`, `Placed: ${p.name}, ${p.company}`, 'Square or 4:5. 800px on the long edge.'])) +
   flat(TESTIMONIALS.map((t) => [`testimonial-${slugify(t.name)}`, `Testimonial: ${t.name}, ${t.batch}`, 'Square or 4:5. 800px on the long edge.']));
+
+const gallery = flat(GALLERY_ITEMS.filter((g) => !g.image).map((g) => [g.id, `${g.category}: ${g.title}`, '16:10 landscape. 1600px on the long edge. Shown on the Gallery page card.']));
 
 const events = EVENTS.map(
   (e) =>
@@ -115,7 +118,7 @@ media_folder: public/photos
 public_folder: /photos
 
 collections:
-${collection('people', 'People', fileEntry({ name: 'people', label: 'People photos', file: 'data/media/people.json', folder: 'people', fields: people }))}${collection('clubs', 'Clubs', fileEntry({ name: 'clubs', label: 'Club photos', file: 'data/media/clubs.json', folder: 'clubs', fields: clubs }))}${collection('events', 'Events', fileEntry({ name: 'events', label: 'Event photos', file: 'data/media/events.json', folder: 'events', fields: events }))}${collection('specializations', 'Specializations', fileEntry({ name: 'specializations', label: 'Specialization photos', file: 'data/media/specializations.json', folder: 'specializations', fields: specs }))}${collection('programs', 'Programs', fileEntry({ name: 'programs', label: 'Program card photos', file: 'data/media/programs.json', folder: 'programs', fields: progs }))}${collection('students', 'Students', fileEntry({ name: 'students', label: 'Student photos', file: 'data/media/students.json', folder: 'students', fields: students }))}${collection('pages', 'Pages, heroes & campus', fileEntry({ name: 'pages', label: 'Page photos', file: 'data/media/pages.json', folder: 'pages', fields: pages }))}`;
+${collection('people', 'People', fileEntry({ name: 'people', label: 'People photos', file: 'data/media/people.json', folder: 'people', fields: people }))}${collection('clubs', 'Clubs', fileEntry({ name: 'clubs', label: 'Club photos', file: 'data/media/clubs.json', folder: 'clubs', fields: clubs }))}${collection('events', 'Events', fileEntry({ name: 'events', label: 'Event photos', file: 'data/media/events.json', folder: 'events', fields: events }))}${collection('specializations', 'Specializations', fileEntry({ name: 'specializations', label: 'Specialization photos', file: 'data/media/specializations.json', folder: 'specializations', fields: specs }))}${collection('programs', 'Programs', fileEntry({ name: 'programs', label: 'Program card photos', file: 'data/media/programs.json', folder: 'programs', fields: progs }))}${collection('students', 'Students', fileEntry({ name: 'students', label: 'Student photos', file: 'data/media/students.json', folder: 'students', fields: students }))}${collection('pages', 'Pages, heroes & campus', fileEntry({ name: 'pages', label: 'Page photos', file: 'data/media/pages.json', folder: 'pages', fields: pages }))}${collection('gallery', 'Gallery', fileEntry({ name: 'gallery', label: 'Gallery card photos', file: 'data/media/gallery.json', folder: 'gallery', fields: gallery }))}`;
 
 fs.writeFileSync(path.join(ROOT, 'public/admin/config.yml'), yml);
 console.log(`config.yml: ${PEOPLE.length} people, ${CLUBS.length} clubs, ${EVENTS.length} events, ${SPECIALIZATIONS.length} specializations, ${PLACED.length + TESTIMONIALS.length} students, ${Object.keys(HERO).length + Object.keys(SECTION).length + Object.keys(FACILITIES).length + CAMPUS_PHOTOS.length + BUILDING_PHOTOS.length} page slots`);

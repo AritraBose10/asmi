@@ -16,6 +16,7 @@ import students from './media/students.json';
 import events from './media/events.json';
 import programs from './media/programs.json';
 import pages from './media/pages.json';
+import gallery from './media/gallery.json';
 
 type Flat = Record<string, string | undefined>;
 type Nested = Record<string, Flat | undefined>;
@@ -43,6 +44,7 @@ export const MEDIA = {
   programs: programs as Flat,
   events: events as unknown as Record<string, { photo?: string; gallery?: string[] } | undefined>,
   pages: pages as unknown as Record<string, Flat | undefined>,
+  gallery: gallery as Flat,
 };
 
 /** CMS path for a page slot, e.g. pageSlot('hero', 'home'). */

@@ -410,3 +410,21 @@ collections:
             - { label: "Godrej Genesis, Sector V", name: "building-1", widget: image, required: false, hint: "16:10. 1600px." }
             - { label: "Techno India University", name: "building-2", widget: image, required: false, hint: "16:10. 1600px." }
             - { label: "Entrance, 15th floor", name: "building-3", widget: image, required: false, hint: "16:10. 1600px." }
+  - name: "gallery"
+    label: "Gallery"
+    files:
+      - label: "Gallery card photos"
+        name: "gallery"
+        file: "data/media/gallery.json"
+        media_folder: "/public/photos/gallery"
+        public_folder: "/photos/gallery"
+        fields:
+        - { label: "Campus Life: Tiered Case Discussion Theatres", name: "case-rooms", widget: image, required: false, hint: "16:10 landscape. 1600px on the long edge. Shown on the Gallery page card." }
+        - { label: "Campus Life: IBM Business Analytics Lab", name: "analytics-lab", widget: image, required: false, hint: "16:10 landscape. 1600px on the long edge. Shown on the Gallery page card." }
+        - { label: "Campus Life: Business Library & Digital Case Reserve", name: "business-library", widget: image, required: false, hint: "16:10 landscape. 1600px on the long edge. Shown on the Gallery page card." }
+        - { label: "Campus Life: Student Innovation & Council Lounge", name: "student-lounge", widget: image, required: false, hint: "16:10 landscape. 1600px on the long edge. Shown on the Gallery page card." }
+        - { label: "Campus Life: MBA Boot Camp, Sundarban", name: "sundarban-bootcamp", widget: image, required: false, hint: "16:10 landscape. 1600px on the long edge. Shown on the Gallery page card." }
+        - { label: "Study Tour: Sessions at INTI International University", name: "inti-university", widget: image, required: false, hint: "16:10 landscape. 1600px on the long edge. Shown on the Gallery page card." }
+        - { label: "Study Tour: Royal Selangor Pewter Factory", name: "royal-selangor", widget: image, required: false, hint: "16:10 landscape. 1600px on the long edge. Shown on the Gallery page card." }
+        - { label: "Study Tour: Barleys Chocolate Factory", name: "barleys-chocolate", widget: image, required: false, hint: "16:10 landscape. 1600px on the long edge. Shown on the Gallery page card." }
+        - { label: "Study Tour: Cultural Heritage Fieldwork", name: "heritage-fieldwork", widget: image, required: false, hint: "16:10 landscape. 1600px on the long edge. Shown on the Gallery page card." }
