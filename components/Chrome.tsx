@@ -101,7 +101,7 @@ export function CtaBand({
   sub,
   primaryLabel = 'Start Your Application',
   primaryHref = SITE.applyUrl,
-  eyebrow = 'Admissions Open — Batch 2026',
+  eyebrow = 'BBA and MBA Admissions Open 2027',
 }: {
   heading: string;
   sub: string;

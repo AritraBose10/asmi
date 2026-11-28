@@ -479,7 +479,7 @@ export const PEOPLE: Person[] = [
     short: 'Runs CSR for one of India’s largest private banks in West Bengal.',
     bio: [
       'CSR Manager for West Bengal operations at HDFC Bank. She leads corporate social responsibility programmes across the state for one of India’s largest private banks.',
-      'For students in the sustainability and social impact tracks, she is the bridge between what ESG looks like in a syllabus and what it looks like inside a bank’s compliance calendar.',
+      'For students interested in sustainability and social impact, she is the bridge between what ESG looks like in a syllabus and what it looks like inside a bank’s compliance calendar.',
     ],
     expertise: ['CSR', 'Banking', 'Impact'],
     focus: ['Corporate social responsibility', 'Banking sector practice', 'Impact measurement and reporting'],

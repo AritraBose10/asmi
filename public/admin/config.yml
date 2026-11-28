@@ -294,12 +294,14 @@ collections:
         media_folder: "/public/photos/specializations"
         public_folder: "/photos/specializations"
         fields:
-        - { label: "Marketing", name: "marketing", widget: image, required: false, hint: "16:7 banner. 1900px on the long edge." }
-        - { label: "Finance", name: "finance", widget: image, required: false, hint: "16:7 banner. 1900px on the long edge." }
-        - { label: "Human Resources", name: "human-resources", widget: image, required: false, hint: "16:7 banner. 1900px on the long edge." }
-        - { label: "Technology", name: "technology", widget: image, required: false, hint: "16:7 banner. 1900px on the long edge." }
-        - { label: "Entrepreneurship", name: "entrepreneurship", widget: image, required: false, hint: "16:7 banner. 1900px on the long edge." }
-        - { label: "Sustainability", name: "sustainability", widget: image, required: false, hint: "16:7 banner. 1900px on the long edge." }
+        - { label: "Human Resource Management", name: "human-resource-management", widget: image, required: false, hint: "16:7 banner. 1900px on the long edge." }
+        - { label: "Marketing Management", name: "marketing-management", widget: image, required: false, hint: "16:7 banner. 1900px on the long edge." }
+        - { label: "FinTech", name: "fintech", widget: image, required: false, hint: "16:7 banner. 1900px on the long edge." }
+        - { label: "Entrepreneurship & Innovation", name: "entrepreneurship-innovation", widget: image, required: false, hint: "16:7 banner. 1900px on the long edge." }
+        - { label: "Healthcare Management", name: "healthcare-management", widget: image, required: false, hint: "16:7 banner. 1900px on the long edge." }
+        - { label: "Family Business", name: "family-business", widget: image, required: false, hint: "16:7 banner. 1900px on the long edge." }
+        - { label: "Retail & Luxury Brand Management", name: "retail-luxury-brand-management", widget: image, required: false, hint: "16:7 banner. 1900px on the long edge." }
+        - { label: "Digital Marketing & E-Commerce", name: "digital-marketing-ecommerce", widget: image, required: false, hint: "16:7 banner. 1900px on the long edge." }
   - name: "programs"
     label: "Programs"
     files:
@@ -359,6 +361,7 @@ collections:
             - { label: "gallery: Photographs from across the ASMi year", name: "gallery", widget: image, required: false, hint: "16:7, dark or dimmable. 2400px." }
             - { label: "blog: Students reading in the ASMi business library", name: "blog", widget: image, required: false, hint: "16:7, dark or dimmable. 2400px." }
             - { label: "absat: Candidates taking a computer-based test", name: "absat", widget: image, required: false, hint: "16:7, dark or dimmable. 2400px." }
+            - { label: "apply: Students on the ASMi campus at Godrej Genesis", name: "apply", widget: image, required: false, hint: "Students arriving or talking on campus. 16:7, dark or dimmable. 2400px." }
             - { label: "faq: The ASMi admissions desk", name: "faq", widget: image, required: false, hint: "16:7, dark or dimmable. 2400px." }
             - { label: "forum: ASMi students talking between sessions", name: "forum", widget: image, required: false, hint: "16:7, dark or dimmable. 2400px." }
             - { label: "citations: The ASMi Business School entrance signage", name: "citations", widget: image, required: false, hint: "16:7, dark or dimmable. 2400px." }

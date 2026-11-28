@@ -17,7 +17,7 @@ export default function ProgramsIndex() {
         theme="ph-dark"
         eyebrow="Our Programmes"
         title="Three ways<br /><em>in</em>"
-        sub="A two-year full-time MBA with six specializations, a four-year BBA built around Business Analytics, and a modular Executive MBA for people who are not leaving their jobs."
+        sub="A two-year full-time MBA with eight specializations, a four-year BBA built around Business Analytics, and a modular Executive MBA for people who are not leaving their jobs."
         crumbs={[{ href: '/', label: 'Home' }, { label: 'Programmes' }]}
         meta={[
           { value: '3', label: 'Degree Programmes' },
@@ -87,7 +87,7 @@ export default function ProgramsIndex() {
         <div className="container">
           <SecHead
             eyebrow="MBA Specializations"
-            heading="Six tracks inside the MBA"
+            heading="Eight tracks inside the MBA"
             lead="Chosen at the end of the first year, once you have actually worked across every function."
           />
           <div className="spec-grid">

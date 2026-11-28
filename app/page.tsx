@@ -4,6 +4,7 @@ import { PLACED, TESTIMONIALS } from '@/data/site';
 import { PEOPLE } from '@/data/people';
 import { getProgram } from '@/data/programs';
 import { assetSrc } from '@/data/media';
+import { SecHead, StatBand } from '@/components/Chrome';
 
 /** Photo for a placed student / testimonial author, if one has been uploaded (see data/media). */
 const personPhoto = (list: { name: string; photo?: string }[], name: string) => list.find((p) => p.name === name)?.photo;
@@ -24,6 +25,20 @@ export const metadata: Metadata = {
  * (reveal-up, data-text-reveal, data-counter, data-parallax-speed) are driven by
  * <SiteMotion /> in the root layout.
  */
+/** Names in the strip under the hero. Edit here; the marquee repeats the list to loop. */
+const PARTNER_STRIP = [
+  'IBM',
+  'AICTE Approved',
+  'INTI International University',
+  'EY',
+  'HDFC Bank',
+  'HSBC',
+  'Coal India',
+  'Star Health Insurance',
+  'Aptech Limited',
+  'E-Intellisense',
+];
+
 export default function Home() {
   return (
     <>
@@ -57,7 +72,7 @@ export default function Home() {
         <div className="hero-content">
           <p className="hero-eyebrow">
             <span className="eyebrow-dot"></span>
-            Admissions Open — Batch 2026
+            BBA and MBA Admissions Open 2027
           </p>
           <h1 className="hero-heading" data-split-text>
             <span className="line" data-text="Where">Where</span>
@@ -67,7 +82,7 @@ export default function Home() {
           <p className="hero-sub">Best Business School in Kolkata, Eastern India.<br />MBA &amp; BBA programs powered by IBM &amp; Google Cloud.</p>
           <div className="hero-actions">
             <a href="#programs" className="btn-hero-primary">Explore Programs <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1 8H15M8 1L15 8L8 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg></a>
-            <a href="https://asmibschool.com/apply.html" target="_blank" rel="noopener" className="btn-hero-secondary">Apply Now</a>
+            <a href="/apply" className="btn-hero-secondary">Apply Now</a>
           </div>
         </div>
         <a href="#about" className="hero-scroll-indicator" aria-label="Scroll down">
@@ -95,37 +110,68 @@ export default function Home() {
 
       {/* TICKER */}
       <div className="ticker-wrap">
-        <div className="ticker-label">Partners &amp; Accreditations</div>
+        <div className="ticker-label">Internships and Placement Partners</div>
         <div className="ticker-track">
           <div className="ticker-inner" id="tickerInner">
-            <span className="tick-item">IBM <span className="tick-dot">●</span></span>
-            <span className="tick-item">Google Cloud <span className="tick-dot">●</span></span>
-            <span className="tick-item">AICTE Approved <span className="tick-dot">●</span></span>
-            <span className="tick-item">Techno India University <span className="tick-dot">●</span></span>
-            <span className="tick-item">INTI International University <span className="tick-dot">●</span></span>
-            <span className="tick-item">EY <span className="tick-dot">●</span></span>
-            <span className="tick-item">HDFC Bank <span className="tick-dot">●</span></span>
-            <span className="tick-item">HSBC <span className="tick-dot">●</span></span>
-            <span className="tick-item">Coal India <span className="tick-dot">●</span></span>
-            <span className="tick-item">Star Health Insurance <span className="tick-dot">●</span></span>
-            <span className="tick-item">Aptech Limited <span className="tick-dot">●</span></span>
-            <span className="tick-item">E-Intellisense <span className="tick-dot">●</span></span>
-            {/* duplicate for seamless loop */}
-            <span className="tick-item">IBM <span className="tick-dot">●</span></span>
-            <span className="tick-item">Google Cloud <span className="tick-dot">●</span></span>
-            <span className="tick-item">AICTE Approved <span className="tick-dot">●</span></span>
-            <span className="tick-item">Techno India University <span className="tick-dot">●</span></span>
-            <span className="tick-item">INTI International University <span className="tick-dot">●</span></span>
-            <span className="tick-item">EY <span className="tick-dot">●</span></span>
-            <span className="tick-item">HDFC Bank <span className="tick-dot">●</span></span>
-            <span className="tick-item">HSBC <span className="tick-dot">●</span></span>
-            <span className="tick-item">Coal India <span className="tick-dot">●</span></span>
-            <span className="tick-item">Star Health Insurance <span className="tick-dot">●</span></span>
-            <span className="tick-item">Aptech Limited <span className="tick-dot">●</span></span>
-            <span className="tick-item">E-Intellisense <span className="tick-dot">●</span></span>
+            {/* The list is rendered twice so the marquee loops seamlessly. */}
+            {[...PARTNER_STRIP, ...PARTNER_STRIP].map((name, i) => (
+              <span className="tick-item" key={`${name}-${i}`}>{name} <span className="tick-dot">●</span></span>
+            ))}
           </div>
         </div>
       </div>
+
+      {/* ABOUT TIG & TIU — copy from tnjee.in (Techno India University's own site) */}
+      <section className="sec" id="tig-tiu">
+        <div className="container">
+          <SecHead
+            eyebrow="About TIG & TIU"
+            heading="Techno India Group.<br /><em>Techno India University.</em>"
+            lead="The scale of Eastern India’s largest education group and the depth of a research university — the home of ASMi Business School."
+          />
+          <div className="duo-grid">
+            <article className="duo-card reveal-up">
+              <p className="section-eyebrow">TIG</p>
+              <h3>Techno India Group</h3>
+              <p>
+                One of the largest educational conglomerates in Eastern India, with alumni working across
+                leading multinationals. The first in Eastern India to launch a Digital Campus on Google Cloud.
+              </p>
+            </article>
+            <article className="duo-card reveal-up" data-delay={100}>
+              <p className="section-eyebrow">TIU</p>
+              <h3>Techno India University, West Bengal</h3>
+              <p>
+                A university built on innovation, research and industry-ready learning, at Salt Lake Sector V —
+                the heart of Kolkata’s IT hub.
+              </p>
+            </article>
+          </div>
+          <div style={{ marginTop: 20 }} />
+          <StatBand
+            items={[
+              { value: '1 Lakh+', label: 'Students' },
+              { value: '5 Million+', label: 'Global alumni' },
+              { value: '20+', label: 'Expert Faculties' },
+              { value: '50+', label: 'Industry Mentors' },
+            ]}
+            note="Students and alumni: Techno India Group. Faculties and mentors: ASMi Business School."
+          />
+          <figure className="quote-card reveal-up">
+            <div className="quote-mark" aria-hidden="true">“</div>
+            <blockquote>
+              Our aim is not to make people literate but to educate them in how best to use their knowledge and
+              skills. I welcome students from all sectors to experience their academics with Techno India Group.
+            </blockquote>
+            <figcaption className="quote-author">
+              <div>
+                <strong>Prof. Goutam Roychowdhury</strong>
+                <span>Chairman, Techno India Group · Chancellor, Techno India University</span>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
 
       {/* ABOUT ASMi */}
       <section className="sec about-asmi" id="about" aria-labelledby="about-asmi-h">
@@ -192,7 +238,7 @@ export default function Home() {
                   <dd>IBM &amp; Google Cloud</dd>
                 </div>
                 <div className="about-fact">
-                  <dt>Campus</dt>
+                  <dt>Corporate Campus</dt>
                   <dd>Godrej Genesis, Sector V, Kolkata</dd>
                 </div>
               </dl>
@@ -241,7 +287,7 @@ export default function Home() {
               <div className="wstat-sub">2023–25 batch</div>
             </div>
             <div className="why-stat reveal-up" data-delay="240">
-              <div className="wstat-num" data-counter data-target="13" data-suffix="+" data-decimals="0">0+</div>
+              <div className="wstat-num" data-counter data-target="20" data-suffix="+" data-decimals="0">0+</div>
               <div className="wstat-label">Expert Faculty</div>
               <div className="wstat-sub">Industry veterans</div>
             </div>
@@ -345,7 +391,7 @@ export default function Home() {
                 <span className="adv-icon-btn"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 1H11M11 1V11M1 11L10.5 1.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg></span>
               </div>
               <h3 className="adv-title">Diverse Specializations</h3>
-              <p className="adv-desc">Marketing, Finance, HR, Technology, Entrepreneurship, and Sustainability tracks.</p>
+              <p className="adv-desc">Eight tracks — HR, Marketing, FinTech, Entrepreneurship &amp; Innovation, Healthcare, Family Business, Retail &amp; Luxury Brand, and Digital Marketing &amp; E-Commerce.</p>
               <div className="adv-bar"></div>
             </div>
 
@@ -450,14 +496,14 @@ export default function Home() {
               </div>
               <div className="pg-card-body">
                 <span className="pg-duration">2 Years · Full Time</span>
-                <h3 className="pg-card-title">Master of Business Administration</h3>
-                <p className="pg-card-desc">Future-focused curriculum with 6 specializations — Marketing, Finance, HR, Technology, Entrepreneurship &amp; Sustainability. Powered by IBM.</p>
+                <h3 className="pg-card-title">Master of Business Administration (MBA)</h3>
+                <p className="pg-card-desc">Future-focused curriculum with 8 specializations — HR, Marketing, FinTech, Entrepreneurship &amp; Innovation, Healthcare, Family Business, Retail &amp; Luxury Brand, and Digital Marketing &amp; E-Commerce. Powered by IBM.</p>
                 <div className="pg-tags">
-                  <span>Marketing</span><span>Finance</span><span>HR</span><span>Technology</span>
+                  <span>HR</span><span>Marketing</span><span>FinTech</span><span>Healthcare</span>
                 </div>
                 <div className="pg-reveal">
                   <ul className="pg-points">
-                    <li>6 industry-aligned specializations</li>
+                    <li>8 industry-aligned specializations</li>
                     <li>IBM &amp; Google Cloud powered curriculum</li>
                     <li>₹20.38 LPA highest package (2023–25)</li>
                   </ul>
@@ -478,7 +524,7 @@ export default function Home() {
               </div>
               <div className="pg-card-body">
                 <span className="pg-duration">4 Years · Full Time</span>
-                <h3 className="pg-card-title">Bachelor of Business Administration</h3>
+                <h3 className="pg-card-title">Bachelor of Business Administration (BBA)</h3>
                 <p className="pg-card-desc">Specialization in Business Analytics with industry-integrated learning powered by IBM. Build your analytical edge from year one.</p>
                 <div className="pg-tags">
                   <span>Business Analytics</span><span>IBM Powered</span>
@@ -496,17 +542,17 @@ export default function Home() {
               </div>
             </a>
 
-            {/* EMBA */}
+            {/* MBA for Working Professionals (the Executive MBA programme) */}
             <a href="/programs/executive-mba" className="pg-card reveal-up" data-delay="200">
               <div className="pg-card-media">
-                <img src={assetSrc(getProgram('executive-mba')!.image)} alt="Executive MBA" className="pg-card-img" />
+                <img src={assetSrc(getProgram('executive-mba')!.image)} alt="MBA for Working Professionals" className="pg-card-img" />
                 <div className="pg-card-shade"></div>
-                <span className="pg-type">EMBA</span>
-                <span className="pg-badge">Executive</span>
+                <span className="pg-type">MBA</span>
+                <span className="pg-badge">Working Professionals</span>
               </div>
               <div className="pg-card-body">
-                <span className="pg-duration">Flexible · Working Professionals</span>
-                <h3 className="pg-card-title">Executive MBA</h3>
+                <span className="pg-duration">Flexible · Weekend Modules</span>
+                <h3 className="pg-card-title">MBA for Working Professionals</h3>
                 <p className="pg-card-desc">Designed for CXOs, senior managers, entrepreneurs, and growth-minded professionals. Immersive case-based, flexible modules.</p>
                 <div className="pg-tags">
                   <span>Leadership</span><span>Strategy</span><span>Flexible</span>
@@ -537,7 +583,7 @@ export default function Home() {
         <div className="container st-container">
           <div className="st-content reveal-up">
             <p className="section-eyebrow st-eyebrow" data-text-reveal>Global Exposure</p>
-            <h2 className="st-heading" data-text-reveal>Learn by<br /><em>Experiencing the World</em></h2>
+            <h2 className="st-heading" data-text-reveal>Mandatory<br /><em>International Study Tour</em></h2>
             <p className="st-desc">An immersive study tour to Malaysia in partnership with INTI International University — combining industry immersion, cultural discovery, and real-world business exposure.</p>
 
             <div className="st-highlights">
@@ -570,7 +616,7 @@ export default function Home() {
               </div>
             </div>
 
-            <a href="https://asmibschool.com/apply.html" target="_blank" rel="noopener" className="st-cta-btn">
+            <a href="/apply" className="st-cta-btn">
               Explore Programs <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1 8H15M8 1L15 8L8 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </a>
           </div>
@@ -765,7 +811,7 @@ export default function Home() {
 
           {/* CTA */}
           <div className="pl-cta-wrap reveal-up">
-            <a href="https://asmibschool.com/apply.html" target="_blank" rel="noopener" className="pl-cta-btn">
+            <a href="/apply" className="pl-cta-btn">
               Download Placement Report <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1V11M4 7L8 11L12 7M2 14H14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </a>
           </div>
@@ -794,7 +840,7 @@ export default function Home() {
             <div className="fac-stage-right">
               <p className="fac-stage-desc">IIT &amp; IIM alumni, CXOs, and industry veterans bringing decades of real-world expertise to the classroom.</p>
               <div className="fac-stage-badge">
-                <span className="fac-stage-num">13+</span>
+                <span className="fac-stage-num">20+</span>
                 <span className="fac-stage-label">Expert Faculty</span>
               </div>
             </div>
@@ -808,21 +854,21 @@ export default function Home() {
               <div className="fac-flip-inner">
                 <div className="fac-flip-front">
                   <span className="fac-flip-num">01</span>
-                  <div className="fac-flip-monogram"><Avatar list={PEOPLE} name="Kaustav Majumdar" mono="KM" /></div>
+                  <div className="fac-flip-monogram"><Avatar list={PEOPLE} name="Dr. Gautam Majumdar" mono="GM" /></div>
                   <div className="fac-flip-front-info">
-                    <h4>Kaustav Majumdar</h4>
-                    <span>Chief Mentor</span>
+                    <h4>Dr. Gautam Majumdar</h4>
+                    <span>Pro Vice-Chancellor, TIU</span>
                   </div>
                   <div className="fac-flip-hint">Hover to reveal ↗</div>
                 </div>
                 <div className="fac-flip-back">
                   <span className="fac-flip-back-num">01</span>
                   <div className="fac-flip-back-content">
-                    <div className="fac-flip-back-monogram"><Avatar list={PEOPLE} name="Kaustav Majumdar" mono="KM" /></div>
-                    <h4>Kaustav Majumdar</h4>
-                    <span className="fac-flip-back-role">Chief Mentor</span>
-                    <p>Leadership, Strategy &amp; Innovation. Decades of strategic leadership shaping future business leaders.</p>
-                    <div className="fac-flip-tags"><span>Strategy</span><span>Leadership</span></div>
+                    <div className="fac-flip-back-monogram"><Avatar list={PEOPLE} name="Dr. Gautam Majumdar" mono="GM" /></div>
+                    <h4>Dr. Gautam Majumdar</h4>
+                    <span className="fac-flip-back-role">Pro Vice-Chancellor, TIU</span>
+                    <p>Ph.D., Jadavpur · Former VC, MAKAUT. Bringing extensive academic excellence and engineering insights.</p>
+                    <div className="fac-flip-tags"><span>Academia</span><span>Engineering</span></div>
                   </div>
                 </div>
               </div>
@@ -833,21 +879,21 @@ export default function Home() {
               <div className="fac-flip-inner">
                 <div className="fac-flip-front">
                   <span className="fac-flip-num">02</span>
-                  <div className="fac-flip-monogram"><Avatar list={PEOPLE} name="Dr. Gautam Majumdar" mono="GM" /></div>
+                  <div className="fac-flip-monogram"><Avatar list={PEOPLE} name="Kaustav Majumdar" mono="KM" /></div>
                   <div className="fac-flip-front-info">
-                    <h4>Dr. Gautam Majumdar</h4>
-                    <span>Pro Vice-Chancellor, TIU</span>
+                    <h4>Kaustav Majumdar</h4>
+                    <span>Chief Mentor</span>
                   </div>
                   <div className="fac-flip-hint">Hover to reveal ↗</div>
                 </div>
                 <div className="fac-flip-back">
                   <span className="fac-flip-back-num">02</span>
                   <div className="fac-flip-back-content">
-                    <div className="fac-flip-back-monogram"><Avatar list={PEOPLE} name="Dr. Gautam Majumdar" mono="GM" /></div>
-                    <h4>Dr. Gautam Majumdar</h4>
-                    <span className="fac-flip-back-role">Pro Vice-Chancellor, TIU</span>
-                    <p>Ph.D., Jadavpur · Former VC, MAKAUT. Bringing extensive academic excellence and engineering insights.</p>
-                    <div className="fac-flip-tags"><span>Academia</span><span>Engineering</span></div>
+                    <div className="fac-flip-back-monogram"><Avatar list={PEOPLE} name="Kaustav Majumdar" mono="KM" /></div>
+                    <h4>Kaustav Majumdar</h4>
+                    <span className="fac-flip-back-role">Chief Mentor</span>
+                    <p>Leadership, Strategy &amp; Innovation. Decades of strategic leadership shaping future business leaders.</p>
+                    <div className="fac-flip-tags"><span>Strategy</span><span>Leadership</span></div>
                   </div>
                 </div>
               </div>
@@ -1201,7 +1247,7 @@ export default function Home() {
             </div>
           </div>
           <div className="admission-cta reveal-up">
-            <a href="https://asmibschool.com/apply.html" target="_blank" rel="noopener" className="btn-primary-dark">
+            <a href="/apply" className="btn-primary-dark">
               Start Your Application <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1 8H15M8 1L15 8L8 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </a>
             <p className="admission-note">Applications for 2026 batch are now open. Limited seats available.</p>
@@ -1236,7 +1282,7 @@ export default function Home() {
                     <svg className="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 10H15M10 5V15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" /></svg>
                   </button>
                   <div className="faq-a">
-                    <p>We offer MBA (2 years, 6 specializations), BBA in Business Analytics (4 years), Executive MBA for working professionals, and 3-month certification courses in Marketing 4.0, HR Excellence, and Entrepreneurship 4.0 — all in partnership with IBM.</p>
+                    <p>We offer MBA (2 years, 8 specializations), BBA in Business Analytics (4 years), Executive MBA for working professionals, and 3-month certification courses in Marketing 4.0, HR Excellence, and Entrepreneurship 4.0 — all in partnership with IBM.</p>
                   </div>
                 </div>
                 <div className="faq-item">
@@ -1290,7 +1336,7 @@ export default function Home() {
             <h2 className="cta-heading" data-text-reveal>Ready to shape<br />your future?</h2>
             <p className="cta-sub">Join Kolkata's premier business school. Limited seats. Apply before applications close.</p>
             <div className="cta-actions">
-              <a href="https://asmibschool.com/apply.html" target="_blank" rel="noopener" className="btn-cta-primary">
+              <a href="/apply" className="btn-cta-primary">
                 Start Your Application <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1 8H15M8 1L15 8L8 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </a>
               <a href="tel:08062642222" className="btn-cta-secondary">Call Us: 08062642222</a>

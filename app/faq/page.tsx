@@ -19,7 +19,7 @@ const GROUPS: { title: string; items: { q: string; a: string }[] }[] = [
   {
     title: 'Programmes',
     items: [
-      { q: 'What programmes does ASMi offer?', a: 'A two-year full-time MBA with six specializations, a four-year BBA in Business Analytics, an Executive MBA for working professionals, and three-month certification courses in Marketing 4.0, HR Excellence and Entrepreneurship 4.0.' },
+      { q: 'What programmes does ASMi offer?', a: 'A two-year full-time MBA with eight specializations, a four-year BBA in Business Analytics, an Executive MBA for working professionals, and three-month certification courses in Marketing 4.0, HR Excellence and Entrepreneurship 4.0.' },
       { q: 'What is the teaching methodology?', a: 'A blend of theory and practice: lectures, case studies, group discussions, seminars, workshops and direct industry interaction. Faculty are practitioners as well as academics.' },
       { q: 'When do MBA students choose a specialization?', a: 'At the end of the first year, after two semesters of common core across marketing, finance, operations and people.' },
       { q: 'Do I need a maths background for Business Analytics?', a: 'No. Statistics and data modules start from first principles in the BBA — comfort reasoning through numbers matters more than prior coursework.' },

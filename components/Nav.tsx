@@ -79,7 +79,7 @@ export default function Nav() {
           </Link>
 
           <div className="nav-right">
-            <a href={SITE.applyUrl} target="_blank" rel="noopener" className="btn-nav-apply">
+            <a href={SITE.applyUrl} className="btn-nav-apply">
               Apply Now
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                 <path d="M1 7H13M7 1L13 7L7 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -142,7 +142,7 @@ export default function Nav() {
             <div className="menu-card" style={step()}>
               <span className="menu-card-label">Programmes</span>
               <p className="menu-card-title">Three ways in</p>
-              <p>Full-time MBA with six specializations, a four-year BBA in Business Analytics, and a modular Executive MBA.</p>
+              <p>Full-time MBA with eight specializations, a four-year BBA in Business Analytics, and a modular Executive MBA.</p>
               <div className="menu-sublinks">
                 {PROGRAMS.map((p) => (
                   <Link key={p.slug} href={`/programs/${p.slug}`} className="menu-sublink">
@@ -163,11 +163,11 @@ export default function Nav() {
 
             <Link href="/specializations" className="menu-card" style={step()}>
               <span className="menu-card-label">MBA Tracks</span>
-              <p className="menu-card-title">Six specializations</p>
-              <p>Marketing, Finance, HR, Technology, Entrepreneurship and Sustainability — each with its own electives and outcomes.</p>
+              <p className="menu-card-title">Eight specializations</p>
+              <p>HR, Marketing, FinTech, Entrepreneurship &amp; Innovation, Healthcare, Family Business, Retail &amp; Luxury Brand, and Digital Marketing &amp; E-Commerce — each with its own electives and outcomes.</p>
             </Link>
 
-            <a href={SITE.applyUrl} target="_blank" rel="noopener" className="menu-card" style={step()}>
+            <a href={SITE.applyUrl} className="menu-card" style={step()}>
               <span className="menu-card-label">Admissions Open</span>
               <p className="menu-card-title">Apply for Batch 2026</p>
               <p>Six steps from application to your first day of class.</p>

@@ -126,7 +126,7 @@ export const CLUBS: Club[] = [
     activities: ['Field Projects', 'ESG Audit', 'NGO Partners'],
     intro: [
       'Prayaas runs ASMi’s community work: field projects with partner NGOs, and an annual sustainability audit of the campus itself, which is the rare student project whose findings land on an administrator’s desk.',
-      'For students on the sustainability track it is where measurement methodology stops being theoretical.',
+      'For students interested in sustainability it is where measurement methodology stops being theoretical.',
     ],
     calendar: [
       { when: 'Termly', what: 'Field project', detail: 'A scoped project with a partner NGO, with outcomes measured and published.' },

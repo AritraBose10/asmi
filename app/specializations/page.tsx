@@ -6,7 +6,7 @@ import Photo from '@/components/Photo';
 
 export const metadata: Metadata = {
   title: 'MBA Specializations',
-  description: 'Six MBA specializations at ASMi Business School: Marketing, Finance, Human Resources, Technology, Entrepreneurship and Sustainability.',
+  description: 'Eight MBA specializations at ASMi Business School: Human Resource Management, Marketing Management, FinTech, Entrepreneurship & Innovation, Healthcare Management, Family Business, Retail & Luxury Brand Management, and Digital Marketing & E-Commerce.',
 };
 
 export default function SpecializationsIndex() {
@@ -15,12 +15,12 @@ export default function SpecializationsIndex() {
       <PageHero
         theme="ph-deep"
         eyebrow="MBA Tracks"
-        title="Six <em>specializations</em>"
+        title="Eight <em>specializations</em>"
         sub="Chosen at the end of the first year, once you have worked across marketing, finance, operations and people — and know where your strengths actually are."
         crumbs={[{ href: '/', label: 'Home' }, { href: '/programs', label: 'Programmes' }, { label: 'Specializations' }]}
         photoKey="specializations"
         meta={[
-          { value: '6', label: 'Tracks' },
+          { value: '8', label: 'Tracks' },
           { value: 'Year 2', label: 'When You Choose' },
           { value: '5', label: 'Electives Each' },
           { value: 'ESG', label: 'Threaded Throughout' },
@@ -50,7 +50,7 @@ export default function SpecializationsIndex() {
         </div>
       </section>
 
-      <CtaBand heading="Specialise where you are strongest" sub="Applications for the 2026 MBA batch are open across all six tracks." />
+      <CtaBand heading="Specialise where you are strongest" sub="Applications for the 2026 MBA batch are open across all eight tracks." />
     </>
   );
 }

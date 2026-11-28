@@ -46,6 +46,18 @@ const adminCsp = [
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  // The MBA specialisations were renamed and reduced to eight: keep old links alive.
+  async redirects() {
+    const to = (from: string, dest: string) => ({ source: `/specializations/${from}`, destination: dest, permanent: true });
+    return [
+      to('marketing', '/specializations/marketing-management'),
+      to('human-resources', '/specializations/human-resource-management'),
+      to('entrepreneurship', '/specializations/entrepreneurship-innovation'),
+      to('finance', '/specializations/fintech'),
+      to('technology', '/specializations'),
+      to('sustainability', '/specializations'),
+    ];
+  },
   async headers() {
     return [
       { source: '/:path*', headers: [...common, { key: 'Content-Security-Policy', value: siteCsp }] },

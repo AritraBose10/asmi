@@ -41,7 +41,7 @@ export default async function ProgramPage({ params }: { params: Promise<{ slug: 
         photoKey={program.slug as keyof typeof HERO}
         actions={
           <>
-            <a href={SITE.applyUrl} target="_blank" rel="noopener" className="btn-cta-primary">
+            <a href={SITE.applyUrl} className="btn-cta-primary">
               Apply for Batch 2026 <Arrow />
             </a>
             <a href="#curriculum" className="btn-ghost-light">See the curriculum</a>
@@ -83,7 +83,7 @@ export default async function ProgramPage({ params }: { params: Promise<{ slug: 
           <div className="container">
             <SecHead
               eyebrow="Specializations"
-              heading="Six tracks. Choose at<br />the end of your first year."
+              heading="Eight tracks. Choose at<br />the end of your first year."
               lead="You spend the first two semesters on the common core, then specialise once you know where your strengths actually are."
             />
             <div className="spec-grid">
@@ -145,7 +145,7 @@ export default async function ProgramPage({ params }: { params: Promise<{ slug: 
           <SecHead
             eyebrow="Faculty"
             heading="The people in front of the room"
-            lead="IIT and IIM alumni, CXOs and industry veterans — 13 faculty and 12 industry mentors across the school."
+            lead="IIT and IIM alumni, CXOs and industry veterans — 20+ faculty and 50+ industry mentors across the school."
           />
           <div className="fac-mini-grid">
             {faculty.map((f, i) => (
@@ -226,7 +226,7 @@ export default async function ProgramPage({ params }: { params: Promise<{ slug: 
             ))}
           </div>
           <div className="sec-foot reveal-up">
-            <a href={SITE.applyUrl} target="_blank" rel="noopener" className="btn-cta-primary">
+            <a href={SITE.applyUrl} className="btn-cta-primary">
               Start your application <Arrow />
             </a>
           </div>
