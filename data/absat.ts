@@ -60,11 +60,14 @@ export const HERO_STATS = [
 
 // ── §2.6 Specialisations ────────────────────────────────────────────────────
 export const MBA_SPECIALISATIONS = [
-  'Marketing',
-  'Finance',
-  'Human Resources',
-  'Entrepreneurship',
-  'Emerging Technology & Entrepreneurship',
+  'Human Resource Management',
+  'Marketing Management',
+  'FinTech',
+  'Entrepreneurship & Innovation',
+  'Healthcare Management',
+  'Family Business',
+  'Retail & Luxury Brand Management',
+  'Digital Marketing & E-Commerce',
 ];
 
 // ── §2.7 Important dates ────────────────────────────────────────────────────
@@ -75,6 +78,11 @@ export interface DateRow {
   attempt?: 1 | 2;
 }
 
+/**
+ * Exact-date list. Not shown on the page any more (see CALENDAR below, which is by
+ * month), but it still drives attemptDates() → the Event structured data, which is
+ * emitted only once both attempt dates are real, exact dates.
+ */
 export const DATES: DateRow[] = [
   { event: 'Registration opens', date: null },
   { event: 'Last date for registration and fee payment', date: null },
@@ -87,6 +95,23 @@ export const DATES: DateRow[] = [
   { event: 'Shortlist for WAT / Personal Interview', date: null },
   { event: 'Final merit list and offer letters', date: null },
 ];
+
+/**
+ * ABSAT 2027 examination calendar, shown by month only. Exact days are deliberately
+ * left out until they are confirmed in the Information Bulletin.
+ */
+export const CALENDAR = {
+  phases: ['Early Bird Phase', 'Extended Phase'],
+  rows: [
+    { label: 'Registration opens', values: ['November 2026', 'February 2027'] },
+    { label: 'Attempt 1', values: ['January 2027', 'March 2027'] },
+    { label: 'Attempt 2', values: ['February 2027', 'April 2027'] },
+    { label: 'Final results', values: ['February 2027', 'April 2027'] },
+    { label: 'Scholarship counselling', values: ['February–March 2027', 'April 2027'] },
+    { label: 'Admission conversion', values: ['February–March 2027', 'April–May 2027'] },
+    { label: 'Primary objective', values: ['Early admissions and scholarships', 'Wider outreach and remaining admissions'] },
+  ],
+};
 
 // ── §2.8 Eligibility and selection ──────────────────────────────────────────
 export const ELIGIBILITY = [
@@ -156,9 +181,8 @@ export const SYLLABUS = [
 
 // ── §2.11 Fees and how to apply ─────────────────────────────────────────────
 export const FEES: { option: string; fee: number | null }[] = [
-  { option: 'One attempt', fee: null },
-  { option: 'Two attempts', fee: null },
-  { option: 'SC/ST/PwD candidates (per attempt)', fee: null },
+  { option: 'One attempt', fee: 1500 },
+  { option: 'Two attempts', fee: 1500 },
 ];
 
 export const APPLY_STEPS = [
@@ -183,10 +207,6 @@ export const TEST_MODES = [
   },
 ];
 
-export const CENTRES = [
-  'Kolkata', 'Delhi NCR', 'Mumbai', 'Bengaluru', 'Pune', 'Hyderabad',
-  'Chennai', 'Guwahati', 'Bhubaneswar', 'Patna', 'Ranchi', 'Siliguri',
-];
 
 // ── §2.13 Downloads and notices ─────────────────────────────────────────────
 /**
@@ -258,11 +278,11 @@ export const FAQS: { q: string; a: string }[] = [
   },
   {
     q: 'What is the ABSAT exam date?',
-    a: 'ABSAT 2027 runs in two attempts. Exact dates are published in the Important dates section above and in the Information Bulletin; registered candidates are notified of any change.',
+    a: 'ABSAT 2027 runs in two attempts in each of two phases, Early Bird and Extended. The month of each attempt is in the calendar above; exact dates are published in the Information Bulletin, and registered candidates are notified of any change.',
   },
   {
     q: 'What is the ABSAT registration fee?',
-    a: 'The fee depends on whether you register for one or two attempts, with a concessional rate for SC/ST/PwD candidates. Current amounts are listed in the Registration fee section above.',
+    a: 'The registration fee is ₹1,500, whether you register for one attempt or two. It is listed in the Registration fee section above.',
   },
   {
     q: 'Are scholarships linked to ABSAT scores?',

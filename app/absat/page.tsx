@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SITE } from '@/data/site';
 import {
-  ABSAT, PUBLISHED, HERO_STATS, MBA_SPECIALISATIONS, DATES, ELIGIBILITY, MERIT_WEIGHTS,
+  ABSAT, PUBLISHED, HERO_STATS, MBA_SPECIALISATIONS, CALENDAR, ELIGIBILITY, MERIT_WEIGHTS,
   PATTERN, PATTERN_TOTALS, PATTERN_NOTES, SYLLABUS, FEES, APPLY_STEPS, TEST_MODES,
-  CENTRES, DOWNLOADS, NOTICES, FAQS, TBA, formatDate, attemptDates,
+  DOWNLOADS, NOTICES, FAQS, TBA, formatDate, attemptDates,
 } from '@/data/absat';
 import { Arrow } from '@/components/Chrome';
 import Icon from '@/components/Icon';
@@ -35,12 +35,6 @@ export const metadata: Metadata = {
   },
   twitter: { card: 'summary_large_image' },
 };
-
-/** Renders a date as <time> when known, and as "To be announced" when not. */
-function DateCell({ iso }: { iso: string | null }) {
-  if (!iso) return <span className="tba">{TBA}</span>;
-  return <time dateTime={iso}>{formatDate(iso)}</time>;
-}
 
 function jsonLd() {
   const { one, two } = attemptDates();
@@ -269,25 +263,25 @@ export default function AbsatPage() {
               Important <em>dates</em>
             </h2>
             <p className="sec-lead">
-              Dates for the {ABSAT.batch} cycle are being finalised with the examination partner.
-              This table updates as each one is confirmed.
+              Two phases, shown by month. Exact dates for the {ABSAT.batch} cycle are being finalised
+              with the examination partner and will be confirmed in the Information Bulletin.
             </p>
           </div>
 
-          <div className="table-wrap reveal-up" tabIndex={0} role="region" aria-label="ABSAT 2027 important dates">
+          <div className="table-wrap reveal-up" tabIndex={0} role="region" aria-label="ABSAT 2027 examination calendar">
             <table className="data-table">
-              <caption>ABSAT 2027 important dates</caption>
+              <caption>ABSAT 2027 examination calendar</caption>
               <thead>
                 <tr>
-                  <th scope="col">Event</th>
-                  <th scope="col">Date</th>
+                  <th scope="col">Particulars</th>
+                  {CALENDAR.phases.map((ph) => <th scope="col" key={ph}>{ph}</th>)}
                 </tr>
               </thead>
               <tbody>
-                {DATES.map((d) => (
-                  <tr key={d.event}>
-                    <td><strong>{d.event}</strong></td>
-                    <td><DateCell iso={d.date} /></td>
+                {CALENDAR.rows.map((r) => (
+                  <tr key={r.label}>
+                    <td><strong>{r.label}</strong></td>
+                    {r.values.map((v, i) => <td key={CALENDAR.phases[i]}>{v}</td>)}
                   </tr>
                 ))}
               </tbody>
@@ -447,7 +441,7 @@ export default function AbsatPage() {
                         <td><strong>{f.option}</strong></td>
                         <td>
                           {f.fee !== null
-                            ? `₹${f.fee.toLocaleString('en-IN')} + GST`
+                            ? `₹${f.fee.toLocaleString('en-IN')}`
                             : <span className="tba">{TBA}</span>}
                         </td>
                       </tr>
@@ -506,14 +500,6 @@ export default function AbsatPage() {
               </article>
             ))}
           </div>
-
-          <h3 className="absat-city-head reveal-up">Centre cities</h3>
-          <ul className="pill-row absat-cities reveal-up">
-            {CENTRES.map((c) => <li className="pill" key={c}>{c}</li>)}
-          </ul>
-          <p className="sb-note">
-            Centre allotment is subject to availability; the final venue is printed on your admit card.
-          </p>
         </div>
       </section>
 
