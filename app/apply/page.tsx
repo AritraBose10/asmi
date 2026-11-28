@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { PageHero, SecHead, Arrow } from '@/components/Chrome';
+import { PageHero, Arrow } from '@/components/Chrome';
 import ApplyForm from '@/components/ApplyForm';
 import { SITE } from '@/data/site';
 
@@ -20,28 +20,20 @@ const PROCESS = [
 export default function ApplyPage() {
   return (
     <>
+      <div className="apply-top">
       <PageHero
         eyebrow="Admissions Open"
         title="Start your <em>application</em>"
-        sub="One form, four short steps. Tell us about yourself and where you want to go. A counsellor will take it from there."
+        sub="Four short steps, about ten minutes. Fields marked * are required."
         crumbs={[{ href: '/', label: 'Home' }, { label: 'Apply Now' }]}
-        meta={[
-          { value: '~10 min', label: 'To complete' },
-          { value: '4 steps', label: 'In the form' },
-          { value: 'MBA · BBA', label: 'Programmes' },
-        ]}
         photoKey="apply"
       />
+      </div>
 
       <section className="sec apply-sec">
         <div className="container">
-          <SecHead
-            eyebrow="Apply Now"
-            heading="Let&rsquo;s get <em>started</em>"
-            lead="Fields marked * are required. Your details go only to the ASMi admissions office."
-          />
           <div className="apply-layout">
-            <aside className="apply-aside reveal-left">
+            <aside className="apply-aside">
               <h3>What happens next</h3>
               <ol className="apply-process">
                 {PROCESS.map((p) => (
@@ -57,7 +49,7 @@ export default function ApplyPage() {
                 <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
               </div>
             </aside>
-            <div className="reveal-up"><ApplyForm /></div>
+            <div className="apply-form-wrap"><ApplyForm /></div>
           </div>
         </div>
       </section>

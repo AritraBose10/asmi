@@ -1,11 +1,18 @@
 /* ── Apply Now page ── */
-.apply-sec { background: var(--gray-50); }
+.apply-sec { background: var(--gray-50); padding-top: 0; }
+/* Compact hero so the form is visible on arrival; the card overlaps it. */
+.apply-top .page-hero { min-height: 0; padding: 104px 0 120px; }
+.apply-top .ph-title { font-size: clamp(2rem, 4.5vw, 3.2rem); }
+.apply-top .ph-sub { margin-bottom: 0; }
+.apply-top .breadcrumb { margin-bottom: 14px; }
 .apply-layout {
   display: grid;
   grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);
   gap: clamp(28px, 4vw, 56px);
   align-items: start;
-  margin-top: 40px;
+  margin-top: -84px;
+  position: relative;
+  z-index: 2;
 }
 .apply-aside {
   position: sticky;
@@ -168,7 +175,9 @@
 
 @media (max-width: 980px) {
   .apply-layout { grid-template-columns: 1fr; }
-  .apply-aside { position: static; }
+  .apply-aside { position: static; order: 2; }
+  .apply-top .page-hero { padding-bottom: 96px; }
+  .apply-layout { margin-top: -64px; }
 }
 @media (max-width: 640px) {
   .ap-grid-2, .ap-grid-3 { grid-template-columns: 1fr; }
@@ -186,3 +195,9 @@
   .ap-check circle, .ap-check path { stroke-dashoffset: 0; }
   .ap-progress span { transition: none; }
 }
+
+/* Entrance on load (not scroll-triggered: the form must never wait to appear). */
+.apply-form-wrap { animation: ap-lift 0.9s var(--ease-out) 0.15s both; }
+.apply-aside { animation: ap-lift 0.9s var(--ease-out) 0.3s both; }
+@keyframes ap-lift { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .apply-form-wrap, .apply-aside { animation: none; } }
