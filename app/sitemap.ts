@@ -28,6 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry('/events', 0.6, 'monthly'),
     entry('/gallery', 0.7, 'weekly'),
     entry('/study-tour', 0.6, 'monthly'),
+    entry('/apply', 0.9, 'monthly'),
     entry('/blog', 0.7, 'weekly'),
     entry('/forum', 0.5, 'weekly'),
     entry('/citations', 0.5, 'monthly'),

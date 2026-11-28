@@ -80,6 +80,7 @@ export const HERO: Record<string, PhotoSlot> = {
   gallery: { fallback: CAMPUS_STOCK, alt: 'Photographs from across the ASMi year' },
   blog: { fallback: CAMPUS_STOCK, alt: 'Students reading in the ASMi business library' },
   absat: { fallback: CAMPUS_STOCK, alt: 'Candidates taking a computer-based test' },
+  apply: { fallback: CAMPUS_STOCK, alt: 'Students on the ASMi campus at Godrej Genesis', brief: 'Students arriving or talking on campus.' },
   faq: { fallback: CAMPUS_STOCK, alt: 'The ASMi admissions desk' },
   forum: { fallback: CAMPUS_STOCK, alt: 'ASMi students talking between sessions' },
   citations: { fallback: CAMPUS_STOCK, alt: 'The ASMi Business School entrance signage' },

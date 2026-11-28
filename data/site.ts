@@ -8,7 +8,7 @@ export const SITE = {
   phone: '08062642222',
   phoneAlt: '+91 8100203639',
   email: 'info@asmibschool.com',
-  applyUrl: 'https://asmibschool.com/apply.html',
+  applyUrl: '/apply',
   campus: 'Godrej Genesis, 15th Floor, Suite 1501, Street Number 18, Block EP&GP, EP Block, Sector V, Bidhannagar, Kolkata, West Bengal 700091',
   admissionsOffice: 'Techno India University, Ground Floor, EM-4, EM Block, Sector V, Bidhannagar, Kolkata, West Bengal 700091',
   social: {
