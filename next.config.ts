@@ -28,6 +28,9 @@ const siteCsp = [
   "frame-ancestors 'none'",
 ].join('; ');
 
+// /campus-life embeds Google Maps; every other public page keeps frames fully blocked.
+const campusCsp = siteCsp.replace("frame-src 'none'", "frame-src https://www.google.com");
+
 const adminCsp = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
@@ -66,6 +69,7 @@ const nextConfig: NextConfig = {
         source,
         headers: [{ key: 'Cache-Control', value: 'public, max-age=86400, stale-while-revalidate=604800' }],
       })),
+      { source: '/campus-life', headers: [...common, { key: 'Content-Security-Policy', value: campusCsp }] },
       // Listed after the catch-all so it wins for /admin: same headers, the CMS policy.
       { source: '/admin', headers: [...common, { key: 'Content-Security-Policy', value: adminCsp }, { key: 'Cache-Control', value: 'no-store' }] },
       { source: '/admin/:path*', headers: [...common, { key: 'Content-Security-Policy', value: adminCsp }] },

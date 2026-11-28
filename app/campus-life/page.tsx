@@ -7,6 +7,13 @@ import { FeatureGrid } from '@/components/Icon';
 import { PhotoGrid, PhotoBand } from '@/components/Photo';
 import { SECTION, FACILITIES, CAMPUS_PHOTOS, BUILDING_PHOTOS } from '@/data/photos';
 
+/** Google Maps embed (no API key) and a directions link for an address. */
+const mapEmbed = (q: string) => `https://www.google.com/maps?q=${encodeURIComponent(q)}&output=embed`;
+const mapLink = (q: string) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
+// HCFM+6GF is the building's Google plus code (it is in the address on the old site): one exact pin.
+const CAMPUS_MAP_QUERY = 'HCFM+6GF Kolkata, West Bengal';
+const OFFICE_MAP_QUERY = 'Techno India University, EM-4, EM Block, Sector V, Salt Lake, Kolkata 700091';
+
 export const metadata: Metadata = {
   title: 'Campus Life at Sector V, Kolkata',
   description: 'Campus life at ASMi Business School — a vertical campus on the 15th floor of Godrej Genesis in Kolkata’s Sector V tech district.',
@@ -106,12 +113,36 @@ export default function CampusLife() {
               <h3>Godrej Genesis, 15th Floor</h3>
               <p>{SITE.campus}</p>
               <Pills items={['Classes', 'Library', 'Labs']} tight />
+              <div className="map-embed">
+                <iframe
+                  src={mapEmbed(CAMPUS_MAP_QUERY)}
+                  title="Map: ASMi Business School campus, Godrej Genesis, Sector V, Kolkata"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
+              </div>
+              <a href={mapLink(CAMPUS_MAP_QUERY)} target="_blank" rel="noopener noreferrer" className="link-cta">
+                Get directions <Arrow />
+              </a>
             </article>
             <article className="duo-card reveal-up" data-delay={100}>
               <p className="section-eyebrow">Admissions Office</p>
               <h3>Techno India University</h3>
               <p>{SITE.admissionsOffice}</p>
               <Pills items={['Counselling', 'Applications', 'Campus Visits']} tight />
+              <div className="map-embed">
+                <iframe
+                  src={mapEmbed(OFFICE_MAP_QUERY)}
+                  title="Map: ASMi admissions office, Techno India University, Sector V, Kolkata"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
+              </div>
+              <a href={mapLink(OFFICE_MAP_QUERY)} target="_blank" rel="noopener noreferrer" className="link-cta">
+                Get directions <Arrow />
+              </a>
             </article>
           </div>
           <div className="callout reveal-up">
